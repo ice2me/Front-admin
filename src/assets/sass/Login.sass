@@ -1,0 +1,70 @@
+.login
+	width: 100%
+	height: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	color: #505160
+	&-wrapper
+		width: 560px
+		border-radius: 6px
+		background: transparent
+		padding: 8px
+		overflow-y: auto
+		height: 90%
+		box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1)
+		@media screen and (max-width: 680px)
+			width: 95%
+			height: 600px
+		h1
+			font-size: 30px
+			font-weight: bold
+			margin-bottom: 20px
+
+		ul
+			width: 100%
+			li
+				border: none
+
+	&-body
+		width: 100%
+		height: 100%
+		padding: 20px
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		overflow-y: auto
+		transform: translate(0%, 50%)
+	&-button
+		width: 100%
+		height: 50px
+		font-size: 14px
+		font-weight: bold
+		position: relative
+		background-color: #505160
+		cursor: pointer
+		border-radius: 6px
+		color: #ffffff
+		display: flex
+		align-items: center
+		justify-content: center
+		margin-top: 20px
+		&:hover
+			border: 1px solid #77A6F7
+
+		img
+			margin-right: 8px
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active
+	background-color: transparent
+	border-bottom: none
+	font-weight: bold
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link
+	background-color: rgba(250, 250, 250, 1)
+	color: #222222
+
+
+.nav-tabs .nav-link
+	border: none

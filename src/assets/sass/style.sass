@@ -1,0 +1,166 @@
+@import 'App'
+@import 'Header'
+@import 'Home'
+@import 'Profile'
+@import 'Login'
+@import 'RegistrationShop'
+@import 'ModalCard'
+@import 'EditProfile'
+@import 'ProductList'
+
+*
+	padding: 0
+	margin: 0
+	border: 0
+	box-sizing: border-box
+	transition: .1s forward
+
+*:before *:after
+	-moz-box-sizing: border-box
+	-webkit-box-sizing: border-box
+	box-sizing: border-box
+
+*:disabled
+	opacity: 0.5
+
+a:focus, a:active
+	outline: none
+
+nav, footer, header, aside
+	display: block
+
+html, body
+	height: 100%
+	width: 100%
+	line-height: 1
+	font-size: 14px
+	font-family: 'Raleway', sans-serif
+	margin: 0 auto
+	outline: none
+	scroll-behavior: smooth
+	overflow: hidden
+	background: linear-gradient(0deg, rgba(247, 206, 0, 0.5) 30%, rgba(0, 88, 181, 0.5) 70%)
+	display: flex
+	align-items: center
+	justify-content: center
+	color: #505160
+
+input::-ms-clear
+	display: none
+
+input
+	&::-webkit-input-placeholder
+		color: grey
+		padding: 10px
+		text-overflow: ellipsis
+
+	&::-moz-placeholder
+		color: grey
+		padding: 10px
+		text-overflow: ellipsis
+
+	&:-ms-input-placeholder
+		color: grey
+		padding: 10px
+		text-overflow: ellipsis
+
+	&::-webkit-inner-spin-button
+		-webkit-appearance: none
+
+	&::-webkit-outer-spin-button
+		-webkit-appearance: none
+
+	&[type='number']
+		-moz-appearance: textfield
+
+button:active, button:focus
+	outline: none !important
+
+button::-moz-focus-inner
+	border: 0 !important
+
+button
+	cursor: pointer
+	span
+		cursor: pointer
+
+button::-moz-focus-inner
+	padding: 0
+	border: 0
+
+a, a:visited
+	text-decoration: none
+
+a:hover
+	text-decoration: none
+	outline: none !important
+
+video:active, video:focus
+	outline: none !important
+
+ul li
+	list-style: none
+
+h1, h2, h3, h4, h5, h6
+	font-size: inherit
+	cursor: default
+
+p, span
+	cursor: default
+
+html:not(.touch-screen)::-webkit-scrollbar-track, html:not(.touch-screen) *::-webkit-scrollbar-track
+	background: #ffffff
+	border-radius: 6px
+	width: 6px
+
+html:not(.touch-screen)::-webkit-scrollbar-thumb, html:not(.touch-screen) *::-webkit-scrollbar-thumb
+	background: #505160
+	border-radius: 6px
+	width: 6px
+
+html:not(.touch-screen)::-webkit-scrollbar, html:not(.touch-screen) *::-webkit-scrollbar
+	width: 6px
+	border-radius: 6px
+	height: 6px
+
+.loader-full
+	position: fixed
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	z-index: 9999
+	display: flex
+	align-items: center
+	justify-content: center
+	background-color: rgba(199,206,225, 0.3)
+
+.loader-wrapperForProduct
+	width: 250px
+	min-width: 250px
+	height: 350px
+	border-radius: 6px
+	box-shadow: 3px 0 15px 3px rgba(0, 0, 0, 0.1)
+	margin: 8px
+	padding: 5px 0
+	display: flex
+	align-items: center
+	justify-content: center
+	background-color: rgba(199,206,225, 0.3)
+.small-loader
+	width: 10px
+	height: 10px
+	margin: 8px
+	padding: 5px 0
+	display: flex
+	align-items: center
+	justify-content: center
+	position: absolute
+	right: 30%
+	div
+		width: 40px
+		height: 40px
+		img
+			width: 40px
+			height: 40px
+			min-height: 40px

@@ -1,0 +1,37 @@
+.productList
+	&-title
+		text-align: center
+		font-size: 30px
+		display: flex
+		align-items: center
+		justify-content: center
+		position: relative
+		@media screen and (max-width: 480px)
+			font-size: 22px
+	&-button
+		background-color: transparent
+		position: absolute
+		right: 0
+		border-radius: 6px
+		&:hover
+			box-shadow: 5px 10px 10px -4px rgba(80,81,96, 0.1)
+	&-wrapper
+		overflow: hidden
+		padding: 10px
+		ul
+			height: 70vh
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-wrap: wrap
+			overflow: auto
+			@media screen and (max-width: 480px)
+				min-height: 50vh
+				max-height: 60vh
+	&-arrowDown
+		height: 100%
+		text-align: center
+		font-size: 30px
+		display: flex
+		align-items: center
+		justify-content: center

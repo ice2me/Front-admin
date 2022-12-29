@@ -1,0 +1,82 @@
+.header
+	width: 100%
+	min-height: 60px
+	border-radius: 6px
+	display: flex
+	align-items: center
+	justify-content: space-between
+	padding: 12px 30px
+	box-shadow: 0 0 10px 3px rgba(80, 81, 96, 0.1)
+	@media screen and (max-width: 480px)
+		flex-direction: column
+		min-height: auto
+
+	&-link
+		font-size: 16px
+
+		a
+			font-weight: bold
+
+	&-left
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: row
+		cursor: default
+
+		&_logo
+			width: 50px
+			height: 50px
+			border-radius: 6px
+			margin-right: 12px
+			background-position: center
+			background-repeat: no-repeat
+			background-size: cover
+			@media screen and (max-width: 580px)
+				width: 40px
+				height: 40px
+
+		&_status
+			max-width: 250px
+			background-color: transparent
+			padding: 12px 25px
+			border-radius: 6px
+			font-size: 18px
+			color: #222
+			overflow: hidden
+			text-overflow: ellipsis
+			@media screen and (max-width: 580px)
+				max-width: 180px
+
+	&-right
+		width: 100%
+		min-height: 60px
+		display: flex
+		align-items: center
+		justify-content: space-around
+		flex-direction: row
+		border-radius: 6px
+		margin: 0
+		padding: 0
+		box-shadow: 0 0 10px 3px rgba(80, 81, 96, 0.1)
+		@media screen and (max-width: 580px)
+			margin-top: 8px
+
+		&_item
+			margin: 0 8px
+
+			&-link
+				background-color: transparent
+
+				img
+					border-radius: 8px
+
+					&:hover
+						box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
+
+		&_logout
+			padding: 5px
+			background-color: #77A6F7
+			display: flex
+			align-items: center
+			justify-content: center
