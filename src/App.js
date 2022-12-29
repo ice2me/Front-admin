@@ -28,8 +28,6 @@ function App() {
 	const [login] = useLoginMutation()
 	const isAuthenticated = Boolean(token)
 
-	console.log('000000')
-
 	useEffect(() => {
 		isLogin && <Loader />
 	}, [isLogin])
