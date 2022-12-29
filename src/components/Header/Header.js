@@ -5,6 +5,7 @@ import {
 
 const Header = () => {
 	const {user} = useSelector((state) => state.userStore)
+
 	return (
 		<div className="header">
 			<div className="header-left">

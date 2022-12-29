@@ -22,11 +22,13 @@ function App() {
 			token,
 			isLogin
 		}
-	} = useSelector((state) => ({userStore: state.userStore}));
-	const dispatch = useDispatch();
-	const logout = () => dispatch(logoutAction());
-	const [login] = useLoginMutation();
-	const isAuthenticated = Boolean(token);
+	} = useSelector((state) => ({userStore: state.userStore}))
+	const dispatch = useDispatch()
+	const logout = () => dispatch(logoutAction())
+	const [login] = useLoginMutation()
+	const isAuthenticated = Boolean(token)
+
+	console.log('000000')
 
 	useEffect(() => {
 		isLogin && <Loader />
@@ -53,7 +55,7 @@ function App() {
 				}
 			</AuthContext.Provider>
 		</div>
-	);
+	)
 }
 
 export default App
