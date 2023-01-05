@@ -21,7 +21,6 @@ const CategoryInpName = () => {
 			/>
 		</>
 	)
-
 }
 
 export default CategoryInpName

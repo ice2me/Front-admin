@@ -1,7 +1,7 @@
 import React from 'react'
-import viber from "../../assets/icons/viber.svg";
-import telegram from "../../assets/icons/telegram.svg";
-import instagram from "../../assets/icons/instagram.svg";
+import viber from "../../assets/icons/viber.svg"
+import telegram from "../../assets/icons/telegram.svg"
+import instagram from "../../assets/icons/instagram.svg"
 
 const ContactSupport = () => {
 	return (

@@ -7,7 +7,7 @@
 }
 
 .app {
-  max-width: 780px;
+  max-width: 980px;
   width: 100vw;
   height: 100vh;
   border-radius: 6px;
@@ -63,6 +63,10 @@
   justify-content: center;
   flex-direction: row;
   cursor: default;
+}
+.header-left_theke {
+  height: 40px;
+  margin-right: 20px;
 }
 .header-left_logo {
   width: 50px;
@@ -471,8 +475,8 @@
   align-items: center;
   justify-content: flex-start;
 }
-.home-body_accordingHeader:hover, .home-body_accordingHeader active {
-  background-color: rgba(80, 81, 96, 0.1);
+.home-body_accordingHeader:hover, .home-body_accordingHeader:active {
+  background-color: rgba(80, 81, 96, 0.2);
 }
 .home-body_accordingHeader-edit {
   position: absolute;
@@ -536,7 +540,7 @@ input[type=radio]:focus {
   background-color: transparent;
   border: 1px solid transparent;
 }
-.dropdownEdit button:hover, .dropdownEdit button active, .dropdownEdit button focus {
+.dropdownEdit button:hover, .dropdownEdit button:active, .dropdownEdit button:focus {
   background-color: transparent !important;
   border: 1px solid rgba(80, 81, 96, 0.5) !important;
 }

@@ -1,4 +1,5 @@
 import photo from '../../assets/images/avatar-user.png'
+import thekeLogo from '../../assets/images/theke_logo-small.png'
 import {
 	useSelector
 } from "react-redux"
@@ -8,6 +9,11 @@ const Header = () => {
 
 	return (
 		<div className="header">
+			<img
+				className='header-left_theke'
+				src={thekeLogo}
+				alt="company logo theke"
+			/>
 			<div className="header-left">
 				<div
 					className='header-left_logo'

@@ -309,8 +309,8 @@
 		display: flex
 		align-items: center
 		justify-content: flex-start
-	&:hover, active
-		background-color: rgba(80,81,96, 0.1)
+	&:hover, &:active
+		background-color: rgba(80,81,96, 0.2)
 	&-edit
 		position: absolute
 		right: 40px
@@ -363,7 +363,7 @@ input[type="radio"]:focus
 	button
 		background-color: transparent
 		border: 1px solid transparent
-		&:hover, active, focus
+		&:hover, &:active, &:focus
 			background-color: transparent !important
 			border: 1px solid rgba(80,81,96, 0.5) !important
 		&:after
