@@ -20,6 +20,10 @@ import LoaderForButton from "../../components/Loader/LoaderForButton";
 import { useDispatch } from "react-redux";
 import Resizer from "react-image-file-resizer";
 import { setUser } from "../../redux/slices/userSlice";
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl";
 
 export const SignUp = () => {
 
@@ -31,6 +35,7 @@ export const SignUp = () => {
 	const [passwordType, setPasswordType] = useState("password")
 	const [confirmPasswordType, setConfirmPasswordType] = useState("password")
 	const [registerUser, {isLoading: isRegisterUserLoading}] = useRegisterUserMutation()
+	const { formatMessage } = useIntl()
 
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
@@ -104,7 +109,9 @@ export const SignUp = () => {
 
 	return (
 		<div className='registrationShop'>
-			<h1>Sign Up</h1>
+			<h1>
+				<FormattedMessage id="signUp" />
+			</h1>
 			<Formik
 				validateOnChange
 				initialValues={{
@@ -123,7 +130,7 @@ export const SignUp = () => {
 						shop_instagram: '',
 					}
 				}}
-				validationSchema={getRegistrationSchema}
+				validationSchema={getRegistrationSchema(formatMessage)}
 				onSubmit={handleSubmit}
 				enableReinitialize
 			>
@@ -143,11 +150,13 @@ export const SignUp = () => {
 					>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Name*</span>
+								<span>
+									<FormattedMessage id='name' />
+								</span>
 							</div>
 							<Form.Control
 								type="text"
-								placeholder="Enter name"
+								placeholder={formatMessage ({id: 'enterName'})}
 								value={values.username}
 								name='username'
 								onBlur={handleBlur}
@@ -169,14 +178,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Email*</span>
+								<span>
+									<FormattedMessage id='email' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.email ? "is-touch " : ""} ${
 									errors.email && touched.email ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="email"
-								placeholder="Enter email"
+								placeholder={formatMessage ({id: 'enterEmail'})}
 								value={values.email}
 								name='email'
 								onBlur={handleBlur}
@@ -195,14 +206,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Mobile phone*</span>
+								<span>
+									<FormattedMessage id='mobilePhone' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.phone ? "is-touch " : ""} ${
 									errors.phone && touched.phone ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="phone"
-								placeholder="Enter mobile phone"
+								placeholder={formatMessage ({id: 'enterMobilePhone'})}
 								value={values.phone}
 								name='phone'
 								onBlur={handleBlur}
@@ -222,7 +235,9 @@ export const SignUp = () => {
 
 						<Form.Group className=" registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Password*</span>
+								<span>
+									<FormattedMessage id='password' />
+								</span>
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
                   <span
@@ -248,7 +263,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={passwordType}
 									name="password"
-									placeholder='Enter password'
+									placeholder={formatMessage ({id: 'enterPassword'})}
 									value={values.password}
 									onBlur={handleBlur}
 									onChange={(e) => {
@@ -267,7 +282,9 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className=" registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Password confirm*</span>
+								<span>
+									<FormattedMessage id='passwordConfirm' />
+								</span>
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
                   <span
@@ -293,7 +310,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={confirmPasswordType}
 									name="password_confirm"
-									placeholder='Enter password confirm'
+									placeholder={formatMessage ({id: 'enterPasswordConfirm'})}
 									value={values.password_confirm}
 									onBlur={handleBlur}
 									onChange={(e) => {
@@ -312,14 +329,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Name Shop*</span>
+								<span>
+									<FormattedMessage id='nameShop' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
 									errors.shop_name && touched.shop_name ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								placeholder="Enter shop name"
+								placeholder={formatMessage ({id: 'enterNameShop'})}
 								value={values.shop_name}
 								name='shop_name'
 								onBlur={handleBlur}
@@ -338,14 +357,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Description Shop</span>
+								<span>
+									<FormattedMessage id='descriptionShop' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.description ? "is-touch " : ""} ${
 									errors.description && touched.description ? " is-invalid" : ""
 								} registrationShop-form_input registrationShop-form_description`}
 								as="textarea"
-								placeholder="Description Shop"
+								placeholder={formatMessage ({id: 'enterDescriptionShop'})}
 								value={values.description}
 								name='description'
 								onChange={(e) => {
@@ -363,14 +384,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Shop Link</span>
+								<span>
+									<FormattedMessage id='shopLink' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.shop_link ? "is-touch " : ""} ${
 									errors.shop_link && touched.shop_link ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								placeholder="Enter shop link"
+								placeholder={formatMessage ({id: 'enterEnterShopLink'})}
 								value={values.shop_link}
 								name='shop_link'
 								onBlur={handleBlur}
@@ -389,14 +412,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Shop Facebook</span>
+								<span>
+									<FormattedMessage id='shopFacebook' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.socials_links?.shop_facebook ? "is-touch " : ""} ${
 									errors.socials_links?.shop_facebook && touched.socials_links?.shop_facebook ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								placeholder="Enter shop facebook"
+								placeholder={formatMessage ({id: 'enterEnterShopFacebook'})}
 								value={shopFacebook}
 								name='shop_facebook'
 								onChange={(e) => {
@@ -412,14 +437,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Shop Viber</span>
+								<span>
+									<FormattedMessage id='shopViber' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.socials_links?.shop_viber ? "is-touch " : ""} ${
 									errors.socials_links?.shop_viber && touched.socials_links?.shop_viber ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								placeholder="Enter shop viber"
+								placeholder={formatMessage ({id: 'enterEnterShopViber'})}
 								value={shopViber}
 								name='shop_viber'
 								onChange={(e) => {
@@ -435,14 +462,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Shop Telegram</span>
+								<span>
+									<FormattedMessage id='shopTelegram' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.socials_links?.shop_telegram ? "is-touch " : ""} ${
 									errors.socials_links?.shop_telegram && touched.socials_links?.shop_telegram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								placeholder="Enter shop telegram"
+								placeholder={formatMessage ({id: 'enterEnterShopTelegram'})}
 								value={shopTelegram}
 								name='shop_telegram'
 								onChange={(e) => {
@@ -458,14 +487,16 @@ export const SignUp = () => {
 						</Form.Group>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Shop Instagram</span>
+								<span>
+									<FormattedMessage id='shopInstagram' />
+								</span>
 							</div>
 							<Form.Control
 								className={`pe-5  ${touched.socials_links?.shop_instagram ? "is-touch " : ""} ${
 									errors.socials_links?.shop_instagram && touched.socials_links?.shop_instagram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								placeholder="Enter shop instagram"
+								placeholder={formatMessage ({id: 'enterEnterShopInstagram'})}
 								value={shopInstagram}
 								name='shop_instagram'
 								onChange={(e) => {
@@ -484,7 +515,9 @@ export const SignUp = () => {
 							type='submit'
 							disabled={(!isValid && dirty) || isRegisterUserLoading}
 						>
-							<span>Sign Up</span> {isRegisterUserLoading && <LoaderForButton />}
+							<span>
+								<FormattedMessage id='signUp' />
+							</span> {isRegisterUserLoading && <LoaderForButton />}
 						</button>
 					</Form>
 				)}

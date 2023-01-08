@@ -6,19 +6,24 @@ import { useNavigate } from "react-router-dom"
 import {
 	useLoginMutation
 } from "../../redux/services/authApi"
-import { toast } from "react-toastify";
-import { APP_ROUTE } from "../../utils/constants";
-import eye from "../../assets/icons/eye.svg";
-import eyeBlocked from "../../assets/icons/eye-blocked.svg";
-import { getLoginWithEmailSchema } from "../../utils/validation/yupLoginEmail";
+import { toast } from "react-toastify"
+import { APP_ROUTE } from "../../utils/constants"
+import eye from "../../assets/icons/eye.svg"
+import eyeBlocked from "../../assets/icons/eye-blocked.svg"
+import { getLoginWithEmailSchema } from "../../utils/validation/yupLoginEmail"
 import { Formik } from "formik"
-import LoaderForButton from "../../components/Loader/LoaderForButton";
+import LoaderForButton from "../../components/Loader/LoaderForButton"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 
 export const SignIn = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
-	const [passwordType, setPasswordType] = useState("password");
-	const [login, {isLoading: isLoginLoading}] = useLoginMutation();
+	const [passwordType, setPasswordType] = useState("password")
+	const [login, {isLoading: isLoginLoading}] = useLoginMutation()
+	const { formatMessage } = useIntl()
 	
 	const navigate = useNavigate()
 	const handleSubmit = async (values,
@@ -48,15 +53,17 @@ export const SignIn = () => {
 	
 	const reversePasswordType = () => {
 		if (passwordType === "password") {
-			setPasswordType("text");
+			setPasswordType("text")
 		} else {
-			setPasswordType("password");
+			setPasswordType("password")
 		}
-	};
+	}
 	
 	return (
 		<div className="login-body login-body_center">
-			<h1>Sign In</h1>
+			<h1>
+				<FormattedMessage id="signIn" />
+			</h1>
 			<Formik
 				validateOnChange
 				initialValues={ {
@@ -83,14 +90,16 @@ export const SignIn = () => {
 					>
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Email</span>
+								<span>
+									<FormattedMessage id="email" />
+								</span>
 							</div>
 							<Form.Control
 								className={ `pe-5  ${ touched.email ? "is-touch " : "" } ${
 									errors.email && touched.email ? " is-invalid" : ""
 								} registrationShop-form_input` }
 								type="email"
-								placeholder="Enter email"
+								placeholder={formatMessage ({id: 'enterEmail'})}
 								value={ email }
 								name='email'
 								onBlur={ handleBlur }
@@ -104,7 +113,9 @@ export const SignIn = () => {
 						</Form.Group>
 						<Form.Group className=" registrationShop-form_label">
 							<div className='registrationShop-form_title'>
-								<span>Password</span>
+								<span>
+									<FormattedMessage id="password" />
+								</span>
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
                   <span
@@ -130,12 +141,12 @@ export const SignIn = () => {
 									} registrationShop-form_input` }
 									type={ passwordType }
 									name="password"
-									placeholder='Enter password'
+									placeholder={formatMessage ({id: 'enterPassword'})}
 									value={ values.password }
 									onBlur={ handleBlur }
 									onChange={ (e) => {
-										handleChange(e);
-										setPassword(e.target.value);
+										handleChange(e)
+										setPassword(e.target.value)
 									} }
 								/>
 								{ errors.password && touched.password && (
@@ -150,12 +161,14 @@ export const SignIn = () => {
 							type="submit"
 							disabled={ (!isValid && dirty) || isLoginLoading }
 						>
-							<span>Sign In</span> { isLoginLoading && <LoaderForButton /> }
+							<span>
+								<FormattedMessage id='signIn' />
+							</span> { isLoginLoading && <LoaderForButton /> }
 						</button>
 					</Form>
 				) }
 			</Formik>
 		</div>
-	);
-};
+	)
+}
 

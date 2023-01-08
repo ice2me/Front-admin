@@ -10,13 +10,13 @@ import {
 	WEBSITE_REGEXP
 } from "../constants";
 
-export const getRegistrationSchema = () => {
+export const getRegistrationSchema = (formatMessage) => {
 	return yup.object().shape({
 		username: yup
 			.string()
-			.required('Name is a required field')
+			.required(formatMessage ({id: "nameIsRequiredField"}))
 			.min(3)
-			.max(65),
+			.max(65, formatMessage ({id: "usernameLength"})),
 		phone: yup
 			.string()
 			.trim()
