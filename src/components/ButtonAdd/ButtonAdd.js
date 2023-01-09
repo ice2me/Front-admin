@@ -1,9 +1,11 @@
-import plus from "../../assets/icons/plus.svg";
+import plus from "../../assets/icons/plus.svg"
+import { useIntl } from "react-intl"
 
 const ButtonAdd = ({
 	handler,
 	title
 }) => {
+	const { formatMessage } = useIntl()
 	return (
 		<button
 			className='home-addCategory'
@@ -13,9 +15,9 @@ const ButtonAdd = ({
 				src={plus}
 				alt="add category"
 			/>
-			<span data-button={`Create ${title}`} onClick={handler}></span>
+			<span data-button={`${formatMessage({id: 'create'})} ${title}`} onClick={handler}></span>
 		</button>
-	);
-};
+	)
+}
 
 export default ButtonAdd

@@ -4,6 +4,7 @@ import DropdownEdit from "../../components/DropdownEdit/DropdownEdit";
 import { useNavigate } from "react-router-dom";
 import { APP_ROUTE } from "../../utils/constants";
 import arrowDown from "../../assets/icons/arrowDown.svg"
+import { FormattedMessage } from "react-intl";
 
 
 const HomeCategory = () => {
@@ -23,7 +24,7 @@ const HomeCategory = () => {
 				categoriesList.length < 1
 				&&
 				<h1 className="productList-arrowDown">
-					Create Category
+					<FormattedMessage id='createCategory' />
 					<img
 						src={arrowDown}
 						alt="arrow down"
@@ -38,7 +39,8 @@ const HomeCategory = () => {
 							<div className="home-body_accordingHeader">
 							<span
 								onClick={() => openProductList(category?._id, category?.category_name)}
-							>{category?.category_name}
+							>
+								{category?.category_name}
 							</span>
 								<DropdownEdit
 									categoryName={category?.category_name}
@@ -49,7 +51,6 @@ const HomeCategory = () => {
 					)
 				}
 			</div>
-
 		</>
 	)
 

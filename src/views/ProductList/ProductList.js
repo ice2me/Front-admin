@@ -24,6 +24,7 @@ import HomeCardItem from "../Home/HomeCardItem";
 import { toast } from "react-toastify";
 import { resetItemsLIst } from "../../redux/slices/categoriesSlice";
 import arrowDown from "../../assets/icons/arrowDown.svg";
+import { useIntl } from "react-intl";
 
 const initialState = {
 	image_product: '',
@@ -42,6 +43,7 @@ const ProductList = () => {
 	const [idItemProductCard, setIdItemProductCard] = useState(null)
 	const [availableChecked, setAvailableChecked] = useState(true)
 	const [availableProduct, setAvailableProduct] = useState(true)
+	const { formatMessage } = useIntl()
 	const {
 		items,
 		categories
@@ -126,7 +128,7 @@ const ProductList = () => {
 							items.length < 1
 								?
 								<h1 className="productList-arrowDown">
-									Create Product Card
+									{formatMessage({id: 'createProductCard'})}
 									<img
 										src={arrowDown}
 										alt="arrow down"
@@ -156,83 +158,10 @@ const ProductList = () => {
 
 			<ButtonAdd
 				handler={showModalCard}
-				title='Product'
+				title={formatMessage({id: 'product'})}
 			/>
 		</div>
 	)
 }
 
 export default ProductList
-
-{/*<div*/
-}
-{/*	className="home-body_list"*/
-}
-{/*	style={openEditNameCategoryName ? {*/
-}
-{/*		overflow: 'hidden',*/
-}
-{/*		marginBottom: '14px'*/
-}
-{/*	} : {}}*/
-}
-{/*>*/
-}
-{/*{*/
-}
-{/*		openEditNameCategoryName &&*/
-}
-{/*		<>*/
-}
-{/*			<CategoryInpEditName*/
-}
-{/*				setOpenEditNameCategoryName={setOpenEditNameCategoryName}*/
-}
-{/*				name={category?.category_name}*/
-}
-{/*				id={category?._id}*/
-}
-{/*			/>*/
-}
-{/*			<div className='home-body_wrapperForEdit'></div>*/
-}
-{/*		</>*/
-}
-{/*	}*/
-}
-{/*	<button*/
-}
-{/*		className='home-body_addProductCard'*/
-}
-{/*		onClick={showModalCard}*/
-}
-{/*	>*/
-}
-{/*		<img*/
-}
-{/*			src={plus}*/
-}
-{/*			alt="plus"*/
-}
-{/*		/>*/
-}
-{/*	</button>*/
-}
-
-{/*{*/
-}
-{/*	isGetItemListLoading ? <Loader /> : <HomeCard*/
-}
-{/*		setEditItemProductCard={setEditItemProductCard}*/
-}
-{/*		showModalCard={showModalCard}*/
-}
-{/*		setIdItemProductCard={setIdItemProductCard}*/
-}
-{/*	/>*/
-}
-{/*}*/
-}
-
-{/*</div>*/
-}

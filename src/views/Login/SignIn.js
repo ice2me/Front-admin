@@ -70,7 +70,7 @@ export const SignIn = () => {
 					email: email,
 					password: password,
 				} }
-				validationSchema={ getLoginWithEmailSchema }
+				validationSchema={ getLoginWithEmailSchema(formatMessage) }
 				onSubmit={ handleSubmit }
 				enableReinitialize
 			>

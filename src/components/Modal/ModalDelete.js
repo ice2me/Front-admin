@@ -10,6 +10,7 @@ import {
 } from "../../redux/services/categoriesApi"
 import { toast } from "react-toastify"
 import LoaderForButton from "../Loader/LoaderForButton"
+import { FormattedMessage } from "react-intl";
 
 const ModalDelete = ({
 	show,
@@ -46,12 +47,12 @@ const ModalDelete = ({
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id="contained-modal-title-vcenter">
-					Delete {content?.where}
+					<FormattedMessage id='delete' />
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				<p>
-					Are you sure you want to delete {content?.where}: <b>{content?.name}</b> ?
+					<FormattedMessage id='youWantDeleteProduct' /> <b>{content?.name}</b> ?
 				</p>
 			</Modal.Body>
 			<Modal.Footer>
@@ -65,9 +66,11 @@ const ModalDelete = ({
 					}}
 					onClick={() => deleteHandler(content.id)}
 				>
-					{isLoading ? <LoaderForButton /> : 'Delete'}
+					{isLoading ? <LoaderForButton /> : <FormattedMessage id='delete' />}
 				</Button>
-				<Button onClick={() => onHide(false)}>Close</Button>
+				<Button onClick={() => onHide(false)}>
+					<FormattedMessage id='close' />
+				</Button>
 			</Modal.Footer>
 		</Modal>
 	)

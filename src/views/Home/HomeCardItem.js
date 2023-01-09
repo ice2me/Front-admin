@@ -5,6 +5,7 @@ import pencilEdit from "../../assets/icons/pencilEdit.svg"
 import deleteCard from "../../assets/icons/delete.svg"
 import ModalDelete from "../../components/Modal/ModalDelete"
 import { useState } from "react"
+import { useIntl } from "react-intl"
 
 const HomeCardItem = ({
 	item,
@@ -16,6 +17,7 @@ const HomeCardItem = ({
 	setEditItemProductCard
 }) => {
 	const [modalShow, setModalShow] = useState(false)
+	const {formatMessage} = useIntl()
 	const showModal = () => setModalShow(true)
 	const hideModal = () => setModalShow(false)
 
@@ -24,7 +26,11 @@ const HomeCardItem = ({
 			<ModalDelete
 				show={modalShow}
 				onHide={hideModal}
-				content={{name: item?.name_product, id: item?._id, where: 'product'}}
+				content={{
+					name: item?.name_product,
+					id: item?._id,
+					where: 'product'
+				}}
 			/>
 			<li
 				key={item?._id}
@@ -40,18 +46,17 @@ const HomeCardItem = ({
 				}
 
 				<span>
-					Unit for 1: <span><b>{item?.unit_product}</b>
-			</span>
+					{formatMessage ({id: 'unitFor'})} <span><b>{item?.unit_product}</b>
+				</span>
 					</span>
 				<span>
-						Price: <span className='home-body_item-price'>
+						{formatMessage ({id: 'price'})} <span className='home-body_item-price'>
 					<b>{item?.price_product}.00 {item?.currency_product}</b>
-			</span>
 					</span>
-
+					</span>
 				<div className="home-body_available">
 					<span>
-						available:
+						{formatMessage ({id: 'available'})}
 					</span>
 					{
 						isPatchAvailableItemProductLoading &&
@@ -82,7 +87,7 @@ const HomeCardItem = ({
 					<img
 						src={pencilEdit}
 						alt="edit"
-						title='Edit Product Card'
+						title={formatMessage ({id: 'editProductCard'})}
 					/>
 				</button>
 				<button
@@ -92,7 +97,7 @@ const HomeCardItem = ({
 					<img
 						src={deleteCard}
 						alt="delete"
-						title='Delete Product Card'
+						title={formatMessage ({id: 'deleteProductCard'})}
 					/>
 				</button>
 			</li>

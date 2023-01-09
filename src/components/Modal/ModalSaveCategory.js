@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
 	Button,
 	Form,
 	Modal
-} from "react-bootstrap";
-import LoaderForButton from "../Loader/LoaderForButton";
+} from "react-bootstrap"
+import LoaderForButton from "../Loader/LoaderForButton"
 import {
 	useCreateCategoriesMutation,
 	useUpdateCategoryNameMutation
-} from "../../redux/services/categoriesApi";
-import { toast } from "react-toastify";
+} from "../../redux/services/categoriesApi"
+import { toast } from "react-toastify"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 
 const ModalSaveCategory = ({
 	show,
@@ -18,6 +22,7 @@ const ModalSaveCategory = ({
 	isEdit
 }) => {
 	const [categoryName, setCategoryName] = useState('')
+	const { formatMessage } = useIntl()
 	const [createCategories, {isLoading: isCreateCategoriesLoading}] = useCreateCategoriesMutation()
 	const [updateCategoryName, {isLoading: isUpdateCategoryNameLoader}] = useUpdateCategoryNameMutation()
 
@@ -55,12 +60,16 @@ const ModalSaveCategory = ({
 			centered={true}
 		>
 			<Modal.Header closeButton>
-				<Modal.Title>Modal heading</Modal.Title>
+				<Modal.Title>
+					{
+						isEdit ? <FormattedMessage id='editCategoryName' /> : <FormattedMessage id='createCategory' />
+					}
+				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				<Form.Control
 					type="text"
-					placeholder="Enter category name"
+					placeholder={formatMessage({id: 'enterCategoryName'})}
 					name='name_product'
 					defaultValue={isEdit && categoryNameEdit?.name}
 					onChange={e => setCategoryName(e.target.value)}
@@ -73,7 +82,7 @@ const ModalSaveCategory = ({
 					variant="secondary"
 					onClick={handleClose}
 				>
-					Close
+					<FormattedMessage id='close' />
 				</Button>
 				<Button
 					variant="primary"
@@ -84,11 +93,11 @@ const ModalSaveCategory = ({
 						alignItems: 'center'
 					}}
 				>
-					{isLoading ? <LoaderForButton /> : 'Add Category'}
+					{isLoading ? <LoaderForButton /> : <FormattedMessage id='addCategory' />}
 				</Button>
 			</Modal.Footer>
 		</Modal>
-	);
-};
+	)
+}
 
-export default ModalSaveCategory;
+export default ModalSaveCategory

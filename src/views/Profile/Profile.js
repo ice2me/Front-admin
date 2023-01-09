@@ -4,6 +4,7 @@ import viber from '../../assets/icons/viber.svg'
 import telegram from '../../assets/icons/telegram.svg'
 import instagram from '../../assets/icons/instagram.svg'
 import dots from '../../assets/icons/dotsEdit.svg'
+import { FormattedMessage } from "react-intl";
 
 const Profile = ({
 	user,
@@ -13,7 +14,7 @@ const Profile = ({
 	return (
 		<>
 			<h1 className="profile-title">
-				Profile
+				<FormattedMessage id='profile' />
 				<button
 					className='profile-title_dots'
 					onClick={() => setOpenEditProfile(true)}
@@ -40,24 +41,34 @@ const Profile = ({
 				<div className='profile-body_wrapper'>
 					<ul className="profile-body_content">
 						<li className="profile-body_content-text">
-							<span>name:</span>
+							<span>
+								<FormattedMessage id='name' />
+							</span>
 							<p>{user.username}</p>
 						</li>
 						<li className="profile-body_content-text">
-							<span>Phone:</span>
+							<span>
+								<FormattedMessage id='mobilePhone' />
+							</span>
 							<p>+{user.phone}</p>
 						</li>
 						<li className="profile-body_content-text">
-							<span>Email:</span>
+							<span>
+								<FormattedMessage id='email' />
+							</span>
 							<p>{user.email}</p>
 						</li>
 						<li className="profile-body_content-text">
-							<span>Name shop:</span>
+							<span>
+								<FormattedMessage id='nameShop' />
+							</span>
 							<p>{user.shop_name}</p>
 						</li>
 						{
 							user.description && <li className="profile-body_content-text">
-								<span>Description shop:</span>
+								<span>
+									<FormattedMessage id='descriptionShop' />
+								</span>
 								<p className='profile-body_content-text_description'>
 									{user.description}
 								</p>
@@ -65,7 +76,9 @@ const Profile = ({
 						}
 						{
 							user.shop_link && <li className="profile-body_content-text">
-								<span>Link shop:</span>
+								<span>
+									<FormattedMessage id='shopLink' />
+								</span>
 								<a href="/">{user.shop_link}</a>
 							</li>
 						}

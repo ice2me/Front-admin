@@ -16,6 +16,10 @@ import LoaderForButton from "../Loader/LoaderForButton"
 import Resizer from "react-image-file-resizer"
 import delImage from '../../assets/icons/delete.svg'
 import { toast } from "react-toastify"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl";
 
 
 const initialState = {
@@ -41,6 +45,7 @@ export default function ModalCard({
 	const [image, setImage] = useState(null)
 	const [imageName, setImageName] = useState('')
 	const [isEdit, setIsEdit] = useState(false)
+	const { formatMessage } = useIntl()
 
 	const [addItem, {isLoading: isAddItemLoader}] = useAddItemMutation()
 	const [patchItemProduct, {isLoading: isPatchItemProduct}] = usePatchItemProductMutation()
@@ -131,7 +136,7 @@ export default function ModalCard({
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id="contained-modal-title-vcenter">
-					Add Product Card
+					<FormattedMessage id='addProductCard' />
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
@@ -145,11 +150,10 @@ export default function ModalCard({
 							className='modalAddCard-form_addPhoto'
 						>
 							<Form.Label>
-								<span>{image ? imageName : 'Add Photo product'}</span>
+								<span>{image ? imageName : <FormattedMessage id='addPhotoProduct' /> }</span>
 							</Form.Label>
 							<Form.Control
 								type="file"
-								placeholder="Enter shop logo"
 								name='image_product'
 								accept="image/png, image/jpeg"
 								autoFocus
@@ -177,10 +181,12 @@ export default function ModalCard({
 							}
 						</Form.Group>
 						<Form.Group className="mb-3">
-							<Form.Label>Name product</Form.Label>
+							<Form.Label>
+								<FormattedMessage id='nameProduct' />
+							</Form.Label>
 							<Form.Control
 								type="text"
-								placeholder="Name product"
+								placeholder={formatMessage({id: 'nameEnterProduct'})}
 								name='name_product'
 								value={editItemProductCard && form?.name_product}
 								onChange={e => formUpdateHandler({[e.target.name]: e.target.value})}
@@ -190,41 +196,54 @@ export default function ModalCard({
 						<Form.Group
 							className="mb-3"
 						>
-							<Form.Label>Enter Description</Form.Label>
+							<Form.Label>
+								<FormattedMessage id='enterDescription' />
+							</Form.Label>
 							<Form.Control
 								as="textarea"
 								rows={3}
 								name='description_product'
+								placeholder={formatMessage({id: 'enterProductDescription'})}
 								value={editItemProductCard && form?.description_product}
 								onChange={(e) => formUpdateHandler({[e.target.name]: e.target.value})}
 							/>
 						</Form.Group>
 
 						<Form.Group className="mb-3">
-							<Form.Label>Units product</Form.Label>
+							<Form.Label>
+								<FormattedMessage id='unitsProduct' />
+							</Form.Label>
 							<Form.Select
 								onChange={(e) => formUpdateHandler({[e.target.name]: e.target.value})}
 								aria-label="Units product"
 								name='unit_product'
 								value={editItemProductCard ? form?.unit_product : form?.unit_product}
 							>
-								<option
-									value="piece"
-									defaultChecked
-								>piece
+								<option value={formatMessage({id: 'piece'})} defaultChecked>
+									<FormattedMessage id='piece' />
 								</option>
-								<option value="kilogram">kilogram</option>
-								<option value="gram">gram</option>
-								<option value="liter">liter</option>
-								<option value="milliliter">milliliter</option>
+								<option value={formatMessage({id: 'kilogram'})}>
+									<FormattedMessage id='kilogram' />
+								</option>
+								<option value={formatMessage({id: 'gram'})}>
+									<FormattedMessage id='gram' />
+								</option>
+								<option value={formatMessage({id: 'liter'})}>
+									<FormattedMessage id='liter' />
+								</option>
+								<option value={formatMessage({id: 'milliliter'})}>
+									<FormattedMessage id='milliliter' />
+								</option>
 							</Form.Select>
 						</Form.Group>
 
 						<Form.Group className="mb-3">
-							<Form.Label>Price product</Form.Label>
+							<Form.Label>
+								<FormattedMessage id='priceProduct' />
+							</Form.Label>
 							<Form.Control
 								type="number"
-								placeholder="Price product"
+								placeholder={formatMessage({id: 'priceEnterProduct'})}
 								name='price_product'
 								value={editItemProductCard && form?.price_product}
 								onChange={(e) => formUpdateHandler({[e.target.name]: e.target.value})}
@@ -232,7 +251,9 @@ export default function ModalCard({
 						</Form.Group>
 
 						<Form.Group className="mb-3">
-							<Form.Label>Currency product</Form.Label>
+							<Form.Label>
+								<FormattedMessage id='currencyProduct' />
+							</Form.Label>
 							<Form.Select
 								aria-label="Currency product"
 								name='currency_product'
@@ -251,7 +272,9 @@ export default function ModalCard({
 
 						<Form.Group className="mb-3">
 							<div className='modalAddCard-switch'>
-								<Form.Label>Available</Form.Label>
+								<Form.Label>
+									<FormattedMessage id='availableProduct' />
+								</Form.Label>
 								<Form.Check
 									type="switch"
 									id="example-checked"
@@ -270,36 +293,26 @@ export default function ModalCard({
 							src={image || productImg}
 							alt="image"
 						/>
-						<h3>{form?.name_product || 'Name product'}</h3>
+						<h3>{form?.name_product || <FormattedMessage id='nameProduct' /> }</h3>
 						<p>
-							{form?.description_product || 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, ipsa.'}
+							{form?.description_product || <FormattedMessage id='loremText' /> }
 						</p>
-						{/*<div className='modalAddCard-counter'>*/}
-						{/*	<button>*/}
-						{/*		-*/}
-						{/*	</button>*/}
-						{/*	<input*/}
-						{/*		type="number"*/}
-						{/*		min="1"*/}
-						{/*		max="9999"*/}
-						{/*		defaultValue={form?.amount_product || '1'}*/}
-						{/*	/>*/}
-						{/*	<button>*/}
-						{/*		+*/}
-						{/*	</button>*/}
-						{/*	<span>{form?.unit_product || 'kilogram'}</span>*/}
-						{/*</div>*/}
 						<span>
-						Unit for 1: <span>{form?.unit_product || 'piece'}</span>
+						<FormattedMessage id='unitFor' /> <span>
+							{form?.unit_product || <FormattedMessage id='piece' />}
+						</span>
 					</span>
 						<span>
-						Price: <span
+						<FormattedMessage id='price' />
+							<span
 							className='home-body_item-price'
 						>{form?.price_product || '99'} {form?.currency_product ||
 							'₴'}</span>
 					</span>
 						<div className="modalAddCard-available">
-							<span>Available: </span>
+							<span>
+								<FormattedMessage id='available' />
+							</span>
 							<Form.Check
 								type="switch"
 								id="example-checked1"
@@ -315,7 +328,7 @@ export default function ModalCard({
 					variant="secondary"
 					onClick={onHide}
 				>
-					Close
+					<FormattedMessage id='close' />
 				</Button>
 				<Button
 					variant="primary"
@@ -327,7 +340,7 @@ export default function ModalCard({
 					onClick={onSubmitForm}
 					disabled={!isEdit}
 				>
-					{isLoading ? <LoaderForButton /> : 'Save Product Card'}
+					{isLoading ? <LoaderForButton /> : <FormattedMessage id='save' />}
 				</Button>
 			</Modal.Footer>
 		</Modal>

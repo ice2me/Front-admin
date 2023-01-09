@@ -3,6 +3,7 @@ import thekeLogo from '../../assets/images/theke_logo-small.png'
 import {
 	useSelector
 } from "react-redux"
+import { FormattedMessage } from "react-intl";
 
 const Header = () => {
 	const {user} = useSelector((state) => state.userStore)
@@ -31,7 +32,8 @@ const Header = () => {
 				</span>
 			</div>
 			<span className='header-link'>
-				Shop Link: <a
+				<FormattedMessage id='shopLink' />
+				<a
 				href={`http://localhost:3001/api/link/${user?.shop_name}`}
 				target="_blank"
 			>{user?.shop_name}</a>

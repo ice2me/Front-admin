@@ -8,6 +8,7 @@ import deleteCard from "../../assets/icons/delete.svg"
 import editPen from "../../assets/icons/pencilEdit.svg"
 import ModalDelete from "../Modal/ModalDelete";
 import ModalSaveCategory from "../Modal/ModalSaveCategory"
+import { FormattedMessage } from "react-intl";
 
 const DropdownEdit = ({
 	categoryName,
@@ -64,7 +65,7 @@ const DropdownEdit = ({
 						src={editPen}
 						alt="edit category"
 					/>
-					<span>Edit</span>
+					<span><FormattedMessage id='edit' /></span>
 				</Dropdown.Item>
 				<Dropdown.Item
 					as="button"
@@ -74,7 +75,7 @@ const DropdownEdit = ({
 						src={deleteCard}
 						alt="delete category"
 					/>
-					<span>Delete</span>
+					<span><FormattedMessage id='delete' /></span>
 				</Dropdown.Item>
 			</DropdownButton>
 		</>

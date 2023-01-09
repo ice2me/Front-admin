@@ -1,34 +1,36 @@
-import backDots from "../../assets/icons/backEdit.svg";
-import photo from "../../assets/images/avatar-user.png";
-import addUserIcon from "../../assets/icons/addUserPhoto.svg";
-import delUserIcon from "../../assets/icons/delUserPhoto.svg";
-import facebook from "../../assets/icons/facebook.svg";
-import viber from "../../assets/icons/viber.svg";
-import telegram from "../../assets/icons/telegram.svg";
-import instagram from "../../assets/icons/instagram.svg";
+import backDots from "../../assets/icons/backEdit.svg"
+import photo from "../../assets/images/avatar-user.png"
+import addUserIcon from "../../assets/icons/addUserPhoto.svg"
+import delUserIcon from "../../assets/icons/delUserPhoto.svg"
+import facebook from "../../assets/icons/facebook.svg"
+import viber from "../../assets/icons/viber.svg"
+import telegram from "../../assets/icons/telegram.svg"
+import instagram from "../../assets/icons/instagram.svg"
 import { Formik } from "formik"
 import {
-	logout,
 	setUser
-} from "../../redux/slices/userSlice";
-import { toast } from "react-toastify";
-import { APP_ROUTE } from "../../utils/constants";
+} from "../../redux/slices/userSlice"
+import { toast } from "react-toastify"
+import { APP_ROUTE } from "../../utils/constants"
 import React, {
 	useEffect,
 	useState
-} from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+} from "react"
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
 import {
 	Form
 } from "react-bootstrap"
 import Resizer from "react-image-file-resizer"
 import {
-	useDeleteUserMutation,
 	useUpdateUserMutation
-} from "../../redux/services/authApi";
-import { getUpdateUserSchema } from "../../utils/validation/yupUpdateUser";
-import LoaderForButton from "../../components/Loader/LoaderForButton";
+} from "../../redux/services/authApi"
+import { getUpdateUserSchema } from "../../utils/validation/yupUpdateUser"
+import LoaderForButton from "../../components/Loader/LoaderForButton"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 
 const EditProfile = ({
 	user,
@@ -42,6 +44,7 @@ const EditProfile = ({
 	const [shopInstagram, setShopInstagram] = useState(form.socials_links.shop_instagram)
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
+	const {formatMessage} = useIntl()
 
 	useEffect(() => {
 		setForm({
@@ -54,7 +57,7 @@ const EditProfile = ({
 			}
 		})
 	}, [shopFacebook, shopViber, shopTelegram, shopInstagram])
-
+	console.log('---shopFacebook', shopFacebook)
 	const [updateUser, {isLoading: isUpdateUserLoading}] = useUpdateUserMutation()
 	// const [deleteUser, {isLoading: isDeleteUserLoading}] = useDeleteUserMutation()
 
@@ -73,12 +76,11 @@ const EditProfile = ({
 			(uri) => {
 				setImage(uri)
 			},
-			// "file",
 			"base64",
 			250,
 			200
-		);
-	};
+		)
+	}
 
 	const handleSubmit = async (values,
 		{
@@ -106,10 +108,7 @@ const EditProfile = ({
 		}
 		try {
 			const {data} = await updateUser(formDate)
-			// console.log(data)
 			dispatch(setUser(data.isUser))
-
-// const data = {}
 			if (data.isUser && !data.error) {
 				toast(data?.message)
 				navigate(APP_ROUTE.CATEGORIES_LIST)
@@ -146,7 +145,7 @@ const EditProfile = ({
 	return (
 		<>
 			<h1 className="profile-title">
-				Edit Profile
+				<FormattedMessage id='editProfile' />
 				<button
 					className='profile-title_dots'
 					onClick={() => setOpenEditProfile(false)}
@@ -173,7 +172,7 @@ const EditProfile = ({
 						shop_instagram: shopInstagram,
 					}
 				}}
-				validationSchema={getUpdateUserSchema}
+				validationSchema={getUpdateUserSchema(formatMessage)}
 				onSubmit={handleSubmit}
 				enableReinitialize
 			>
@@ -240,7 +239,9 @@ const EditProfile = ({
 						<div className='editProfile-body_wrapper'>
 							<ul className="editProfile-body_content">
 								<li className="editProfile-body_content-text">
-									<span>Name:</span>
+									<span>
+										<FormattedMessage id='name' />
+									</span>
 									<Form.Control
 										type="text"
 										placeholder="Enter name"
@@ -251,7 +252,7 @@ const EditProfile = ({
 											errors.username && touched.username ? " is-invalid" : ""
 										} editProfile-body_content_input`}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											formDateUpdateHandler({
 												[e.target.name]: e.target.value
 											})
@@ -264,7 +265,9 @@ const EditProfile = ({
 									)}
 								</li>
 								<li className="editProfile-body_content-text">
-									<span>Phone:</span>
+									<span>
+										<FormattedMessage id='mobilePhone' />
+									</span>
 									<Form.Control
 										className={`pe-5  ${touched.phone ? "is-touch " : ""} ${
 											errors.phone && touched.phone ? " is-invalid" : ""
@@ -275,7 +278,7 @@ const EditProfile = ({
 										name='phone'
 										onBlur={handleBlur}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											formDateUpdateHandler({
 												[e.target.name]: e.target.value
 											})
@@ -288,11 +291,15 @@ const EditProfile = ({
 									)}
 								</li>
 								<li className="editProfile-body_content-text">
-									<span>Email:</span>
+									<span>
+										<FormattedMessage id='email' />
+									</span>
 									<p>{user.email}</p>
 								</li>
 								<li className="editProfile-body_content-text">
-									<span>Name shop:</span>
+									<span>
+										<FormattedMessage id='nameShop' />
+									</span>
 									<Form.Control
 										className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
 											errors.shop_name && touched.shop_name ? " is-invalid" : ""
@@ -303,7 +310,7 @@ const EditProfile = ({
 										name='shop_name'
 										onBlur={handleBlur}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											formDateUpdateHandler({
 												[e.target.name]: e.target.value
 											})
@@ -316,7 +323,9 @@ const EditProfile = ({
 									)}
 								</li>
 								<li className="editProfile-body_content-text">
-									<span>Description shop:</span>
+									<span>
+										<FormattedMessage id='descriptionShop' />
+									</span>
 									<Form.Control
 										className={`pe-5  ${touched.description ? "is-touch " : ""} ${
 											errors.description && touched.description ? " is-invalid" : ""
@@ -327,7 +336,7 @@ const EditProfile = ({
 										name='description'
 										onBlur={handleBlur}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											formDateUpdateHandler({
 												[e.target.name]: e.target.value
 											})
@@ -341,7 +350,9 @@ const EditProfile = ({
 								</li>
 								{
 									user.shop_link && <li className="editProfile-body_content-text">
-										<span>Link shop:</span>
+										<span>
+											<FormattedMessage id='shopLink' />
+										</span>
 										<Form.Control
 											className={`pe-5  ${touched.shop_link ? "is-touch " : ""} ${
 												errors.shop_link && touched.shop_link ? " is-invalid" : ""
@@ -352,7 +363,7 @@ const EditProfile = ({
 											name='shop_link'
 											onBlur={handleBlur}
 											onChange={(e) => {
-												handleChange(e);
+												handleChange(e)
 												formDateUpdateHandler({
 													[e.target.name]: e.target.value
 												})
@@ -367,14 +378,14 @@ const EditProfile = ({
 								}
 							</ul>
 							<div className="editProfile-body_content-socials">
-								<a>
+								<div>
 									<img
 										src={facebook}
 										alt="facebook"
 									/>
 									<Form.Control
-										className={`pe-5  ${touched.shop_facebook ? "is-touch " : ""} ${
-											errors.shop_facebook && touched.shop_facebook ? " is-invalid" : ""
+										className={`pe-5  ${touched?.shop_facebook ? "is-touch " : ""} ${
+											errors?.shop_facebook && touched?.shop_facebook ? " is-invalid" : ""
 										} editProfile-body_content_input`}
 										type="text"
 										placeholder="Enter shop facebook"
@@ -382,18 +393,17 @@ const EditProfile = ({
 										name='shop_facebook'
 										onBlur={handleBlur}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											setShopFacebook(e.target.value)
 										}}
 									/>
-									{errors.shop_facebook && touched.shop_facebook && (
+									{errors?.shop_facebook && touched?.shop_facebook && (
 										<Form.Control.Feedback type="invalid">
-											{errors.shop_facebook}
+											{errors?.shop_facebook}
 										</Form.Control.Feedback>
 									)}
-								</a>
-
-								<a>
+								</div>
+								<div>
 									<img
 										src={viber}
 										alt="viber"
@@ -408,7 +418,7 @@ const EditProfile = ({
 										name='shop_viber'
 										onBlur={handleBlur}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											setShopViber(e.target.value)
 										}}
 									/>
@@ -417,9 +427,9 @@ const EditProfile = ({
 											{errors.shop_viber}
 										</Form.Control.Feedback>
 									)}
-								</a>
+								</div>
 
-								<a>
+								<div>
 									<img
 										src={telegram}
 										alt="telegram"
@@ -434,7 +444,7 @@ const EditProfile = ({
 										name='shop_telegram'
 										onBlur={handleBlur}
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											setShopTelegram(e.target.value)
 										}}
 									/>
@@ -443,9 +453,9 @@ const EditProfile = ({
 											{errors.shop_telegram}
 										</Form.Control.Feedback>
 									)}
-								</a>
+								</div>
 
-								<a>
+								<div>
 									<img
 										className='editProfile-body_content-socials_instagram'
 										src={instagram}
@@ -461,7 +471,7 @@ const EditProfile = ({
 										onBlur={handleBlur}
 										name='shop_instagram'
 										onChange={(e) => {
-											handleChange(e);
+											handleChange(e)
 											setShopInstagram(e.target.value)
 										}}
 									/>
@@ -470,14 +480,16 @@ const EditProfile = ({
 											{errors.socials_links?.shop_instagram}
 										</Form.Control.Feedback>
 									)}
-								</a>
+								</div>
 							</div>
 							<button
 								className="editProfile-body_content_button"
 								type='submit'
 								disabled={(!isValid && dirty) || isLoading}
 							>
-								<span>Save</span> {isLoading && <LoaderForButton />}
+								<span>
+									<FormattedMessage id='save' />
+								</span> {isLoading && <LoaderForButton />}
 							</button>
 							{/*<button*/}
 							{/*	className="editProfile-body_content_button"*/}
@@ -491,7 +503,7 @@ const EditProfile = ({
 				)}
 			</Formik>
 		</>
-	);
-};
+	)
+}
 
 export default EditProfile

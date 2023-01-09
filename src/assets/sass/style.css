@@ -847,6 +847,9 @@ input[type=radio]:focus {
   text-align: left;
   margin: 5px 0;
 }
+.registrationShop-form_title span b {
+  color: red;
+}
 .registrationShop-form_input {
   border: 1px solid #6C757D;
 }
@@ -1195,25 +1198,19 @@ input[type=file] {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
-.editProfile-body_content-socials a {
+.editProfile-body_content-socials div {
   margin: 0 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.editProfile-body_content-socials a img {
+.editProfile-body_content-socials div img {
   border-radius: 50%;
-}
-.editProfile-body_content-socials a img:hover {
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
 }
 .editProfile-body_content-socials_instagram {
   padding: 3px;
-}
-.editProfile-body_content-socials_instagram:hover {
-  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
 }
 .editProfile-body_content_button {
   max-width: 520px;

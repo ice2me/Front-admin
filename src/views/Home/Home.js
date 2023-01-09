@@ -13,6 +13,7 @@ import {
 import Loader from "../../components/Loader/Loader"
 import { setCategoriesInList } from "../../redux/slices/categoriesSlice"
 import CategoryInpName from "./CategoryInpName"
+import { FormattedMessage } from "react-intl";
 
 const Home = () => {
 	const [getCategories, {isLoading: isGetCategoriesLoading}] = useGetCategoriesMutation()
@@ -31,7 +32,7 @@ const Home = () => {
 		<div className="home">
 
 			<h1 className="home-title">
-				Category list
+				<FormattedMessage id='categoryList' />
 			</h1>
 			{isGetCategoriesLoading ? <Loader /> : <HomeCategory />}
 			<CategoryInpName />

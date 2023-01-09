@@ -151,7 +151,7 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='name' />
+									<FormattedMessage id='name' /><b> * </b>
 								</span>
 							</div>
 							<Form.Control
@@ -179,7 +179,7 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='email' />
+									<FormattedMessage id='email' /><b> * </b>
 								</span>
 							</div>
 							<Form.Control
@@ -207,7 +207,7 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='mobilePhone' />
+									<FormattedMessage id='mobilePhone' /><b> * </b>
 								</span>
 							</div>
 							<Form.Control
@@ -236,7 +236,7 @@ export const SignUp = () => {
 						<Form.Group className=" registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='password' />
+									<FormattedMessage id='password' /><b> * </b>
 								</span>
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
@@ -283,7 +283,7 @@ export const SignUp = () => {
 						<Form.Group className=" registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='passwordConfirm' />
+									<FormattedMessage id='passwordConfirm' /><b> * </b>
 								</span>
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
@@ -330,7 +330,7 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='nameShop' />
+									<FormattedMessage id='nameShop' /><b> * </b>
 								</span>
 							</div>
 							<Form.Control
@@ -369,6 +369,7 @@ export const SignUp = () => {
 								placeholder={formatMessage ({id: 'enterDescriptionShop'})}
 								value={values.description}
 								name='description'
+								onBlur={handleBlur}
 								onChange={(e) => {
 									handleChange(e);
 									formDateUpdateHandler({
@@ -417,21 +418,22 @@ export const SignUp = () => {
 								</span>
 							</div>
 							<Form.Control
-								className={`pe-5  ${touched.socials_links?.shop_facebook ? "is-touch " : ""} ${
-									errors.socials_links?.shop_facebook && touched.socials_links?.shop_facebook ? " is-invalid" : ""
+								className={`pe-5  ${touched?.shop_facebook ? "is-touch " : ""} ${
+									errors?.shop_facebook && touched?.shop_facebook ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
 								placeholder={formatMessage ({id: 'enterEnterShopFacebook'})}
 								value={shopFacebook}
+								onBlur={handleBlur}
 								name='shop_facebook'
 								onChange={(e) => {
 									handleChange(e);
 									setShopFacebook(e.target.value)
 								}}
 							/>
-							{errors.socials_links?.shop_facebook && touched.socials_links?.shop_facebook && (
+							{errors?.shop_facebook && touched?.shop_facebook && (
 								<Form.Control.Feedback type="invalid">
-									{errors.socials_links?.shop_facebook}
+									{errors?.shop_facebook}
 								</Form.Control.Feedback>
 							)}
 						</Form.Group>
@@ -442,21 +444,22 @@ export const SignUp = () => {
 								</span>
 							</div>
 							<Form.Control
-								className={`pe-5  ${touched.socials_links?.shop_viber ? "is-touch " : ""} ${
-									errors.socials_links?.shop_viber && touched.socials_links?.shop_viber ? " is-invalid" : ""
+								className={`pe-5  ${touched?.shop_viber ? "is-touch " : ""} ${
+									errors?.shop_viber && touched?.shop_viber ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
 								placeholder={formatMessage ({id: 'enterEnterShopViber'})}
 								value={shopViber}
 								name='shop_viber'
+								onBlur={handleBlur}
 								onChange={(e) => {
 									handleChange(e);
 									setShopViber(e.target.value)
 								}}
 							/>
-							{errors.socials_links?.shop_viber && touched.socials_links?.shop_viber && (
+							{errors?.shop_viber && touched?.shop_viber && (
 								<Form.Control.Feedback type="invalid">
-									{errors.socials_links?.shop_viber}
+									{errors?.shop_viber}
 								</Form.Control.Feedback>
 							)}
 						</Form.Group>
@@ -467,21 +470,22 @@ export const SignUp = () => {
 								</span>
 							</div>
 							<Form.Control
-								className={`pe-5  ${touched.socials_links?.shop_telegram ? "is-touch " : ""} ${
-									errors.socials_links?.shop_telegram && touched.socials_links?.shop_telegram ? " is-invalid" : ""
+								className={`pe-5  ${touched?.shop_telegram ? "is-touch " : ""} ${
+									errors?.shop_telegram && touched?.shop_telegram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
 								placeholder={formatMessage ({id: 'enterEnterShopTelegram'})}
 								value={shopTelegram}
 								name='shop_telegram'
+								onBlur={handleBlur}
 								onChange={(e) => {
 									handleChange(e);
 									setShopTelegram(e.target.value)
 								}}
 							/>
-							{errors.socials_links?.shop_telegram && touched.socials_links?.shop_telegram && (
+							{errors?.shop_telegram && touched?.shop_telegram && (
 								<Form.Control.Feedback type="invalid">
-									{errors.socials_links?.shop_telegram}
+									{errors?.shop_telegram}
 								</Form.Control.Feedback>
 							)}
 						</Form.Group>
@@ -492,21 +496,22 @@ export const SignUp = () => {
 								</span>
 							</div>
 							<Form.Control
-								className={`pe-5  ${touched.socials_links?.shop_instagram ? "is-touch " : ""} ${
-									errors.socials_links?.shop_instagram && touched.socials_links?.shop_instagram ? " is-invalid" : ""
+								className={`pe-5  ${touched?.shop_instagram ? "is-touch " : ""} ${
+									errors?.shop_instagram && touched?.shop_instagram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
 								placeholder={formatMessage ({id: 'enterEnterShopInstagram'})}
 								value={shopInstagram}
 								name='shop_instagram'
+								onBlur={handleBlur}
 								onChange={(e) => {
 									handleChange(e);
 									setShopInstagram(e.target.value)
 								}}
 							/>
-							{errors.socials_links?.shop_instagram && touched.socials_links?.shop_instagram && (
+							{errors?.shop_instagram && touched?.shop_instagram && (
 								<Form.Control.Feedback type="invalid">
-									{errors.socials_links?.shop_instagram}
+									{errors?.shop_instagram}
 								</Form.Control.Feedback>
 							)}
 						</Form.Group>
