@@ -16,7 +16,6 @@ const Footer = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const location = useLocation()
-
 	const logoutHandler = () => {
 		dispatch(logout())
 		navigate(APP_ROUTE.LOGIN)
@@ -40,7 +39,7 @@ const Footer = () => {
 				<button
 					onClick={() => navigate(APP_ROUTE.CONTACT_SUPPORT)}
 					className={`header-right_item-link 
-					${location.pathname === APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : '' }
+					${location.pathname === APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : ''}
 					`}
 				>
 					<img
@@ -54,7 +53,10 @@ const Footer = () => {
 				<button
 					onClick={() => navigate(APP_ROUTE.CATEGORIES_LIST)}
 					className={`header-right_item-link 
-					${location.pathname === APP_ROUTE.CATEGORIES_LIST ? 'activeButton' : '' }
+					${(location.pathname === APP_ROUTE.CATEGORIES_LIST ||
+						location.pathname === APP_ROUTE.DEFAULT ||
+						location.pathname === APP_ROUTE.PRODUCTS_LIST)
+						? 'activeButton' : ''}
 					`}
 				>
 					<img
@@ -68,7 +70,7 @@ const Footer = () => {
 				<button
 					onClick={() => navigate(APP_ROUTE.PROFILE)}
 					className={`header-right_item-link 
-					${location.pathname === APP_ROUTE.PROFILE ? 'activeButton' : '' }
+					${location.pathname === APP_ROUTE.PROFILE ? 'activeButton' : ''}
 					`}
 				>
 					<img
