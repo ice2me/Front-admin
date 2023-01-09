@@ -6,12 +6,17 @@ import contactSupport from "../../assets/icons/contact-support-icon.svg"
 import exit from "../../assets/icons/logout.svg"
 import { logout } from "../../redux/slices/userSlice"
 import { toast } from "react-toastify"
-import { useNavigate } from "react-router-dom"
+import {
+	useLocation,
+	useNavigate
+} from "react-router-dom"
 import { useDispatch } from "react-redux"
 
 const Footer = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
+	const location = useLocation()
+
 	const logoutHandler = () => {
 		dispatch(logout())
 		navigate(APP_ROUTE.LOGIN)
@@ -34,7 +39,9 @@ const Footer = () => {
 			<li className="header-right_item">
 				<button
 					onClick={() => navigate(APP_ROUTE.CONTACT_SUPPORT)}
-					className="header-right_item-link"
+					className={`header-right_item-link 
+					${location.pathname === APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : '' }
+					`}
 				>
 					<img
 						src={contactSupport}
@@ -45,8 +52,10 @@ const Footer = () => {
 			</li>
 			<li className="header-right_item">
 				<button
-					onClick={() => navigate(APP_ROUTE.DEFAULT)}
-					className="header-right_item-link"
+					onClick={() => navigate(APP_ROUTE.CATEGORIES_LIST)}
+					className={`header-right_item-link 
+					${location.pathname === APP_ROUTE.CATEGORIES_LIST ? 'activeButton' : '' }
+					`}
 				>
 					<img
 						src={myProducts}
@@ -58,7 +67,9 @@ const Footer = () => {
 			<li className="header-right_item">
 				<button
 					onClick={() => navigate(APP_ROUTE.PROFILE)}
-					className="header-right_item-link"
+					className={`header-right_item-link 
+					${location.pathname === APP_ROUTE.PROFILE ? 'activeButton' : '' }
+					`}
 				>
 					<img
 						src={myProfile}
