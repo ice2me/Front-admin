@@ -79,7 +79,7 @@ export default function ModalCard({
 			image_product: image || null,
 			name_product: form?.name_product,
 			description_product: form?.description_product,
-			unit_product: form?.unit_product || 'piece',
+			unit_product: form?.unit_product || 'шт.',
 			price_product: form?.price_product,
 			currency_product: form?.currency_product || '₴',
 			available_product: form?.available_product,

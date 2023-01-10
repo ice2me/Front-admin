@@ -57,7 +57,7 @@ const EditProfile = ({
 			}
 		})
 	}, [shopFacebook, shopViber, shopTelegram, shopInstagram])
-	console.log('---shopFacebook', shopFacebook)
+
 	const [updateUser, {isLoading: isUpdateUserLoading}] = useUpdateUserMutation()
 	// const [deleteUser, {isLoading: isDeleteUserLoading}] = useDeleteUserMutation()
 
