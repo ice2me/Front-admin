@@ -20,7 +20,7 @@ import {
 	useDispatch,
 	useSelector
 } from "react-redux";
-import HomeCardItem from "../Home/HomeCardItem";
+import CardItem from "../Category/CardItem";
 import { toast } from "react-toastify";
 import { resetItemsLIst } from "../../redux/slices/categoriesSlice";
 import arrowDown from "../../assets/icons/arrowDown.svg";
@@ -96,7 +96,7 @@ const ProductList = () => {
 	}
 
 	return (
-		<div className='home productList'>
+		<div className='category productList'>
 			<ModalCard
 				show={modalShow}
 				onHide={closeModalCard}
@@ -138,7 +138,7 @@ const ProductList = () => {
 								<div className='productList-wrapper'>
 									<ul>
 										{
-											items.map(item => <HomeCardItem
+											items.map(item => <CardItem
 												key={item._id}
 												item={item}
 												isPatchAvailableItemProductLoading={isPatchAvailableItemProductLoading}

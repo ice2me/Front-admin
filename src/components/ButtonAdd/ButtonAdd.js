@@ -8,7 +8,7 @@ const ButtonAdd = ({
 	const { formatMessage } = useIntl()
 	return (
 		<button
-			className='home-addCategory'
+			className='category-addCategory'
 			onClick={handler}
 		>
 			<img

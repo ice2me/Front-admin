@@ -10,7 +10,7 @@ const Profile = ({
 	user,
 	setOpenEditProfile
 }) => {
-
+	console.log(user)
 	return (
 		<>
 			<h1 className="profile-title">
@@ -44,49 +44,49 @@ const Profile = ({
 							<span>
 								<FormattedMessage id='name' />
 							</span>
-							<p>{user.username}</p>
+							<p>{user?.username}</p>
 						</li>
 						<li className="profile-body_content-text">
 							<span>
 								<FormattedMessage id='mobilePhone' />
 							</span>
-							<p>+{user.phone}</p>
+							<p>+{user?.phone}</p>
 						</li>
 						<li className="profile-body_content-text">
 							<span>
 								<FormattedMessage id='email' />
 							</span>
-							<p>{user.email}</p>
+							<p>{user?.email}</p>
 						</li>
 						<li className="profile-body_content-text">
 							<span>
 								<FormattedMessage id='nameShop' />
 							</span>
-							<p>{user.shop_name}</p>
+							<p>{user?.shop_name}</p>
 						</li>
 						{
-							user.description && <li className="profile-body_content-text">
+							user?.description && <li className="profile-body_content-text">
 								<span>
 									<FormattedMessage id='descriptionShop' />
 								</span>
 								<p className='profile-body_content-text_description'>
-									{user.description}
+									{user?.description}
 								</p>
 							</li>
 						}
 						{
-							user.shop_link && <li className="profile-body_content-text">
+							user?.shop_link && <li className="profile-body_content-text">
 								<span>
 									<FormattedMessage id='shopLink' />
 								</span>
-								<a href="/">{user.shop_link}</a>
+								<a href="/">{user?.shop_link}</a>
 							</li>
 						}
 					</ul>
 					<div className="profile-body_content-socials">
 						{
-							user?.socials_links.shop_facebook &&
-							<a href={user?.socials_links.shop_facebook}>
+							user?.socials_links?.shop_facebook &&
+							<a href={user?.socials_links?.shop_facebook}>
 								<img
 									src={facebook}
 									alt="facebook"
@@ -95,8 +95,8 @@ const Profile = ({
 						}
 
 						{
-							user?.socials_links.shop_viber &&
-							<a href={`viber://add?number=%${user?.socials_links.shop_viber}`}>
+							user?.socials_links?.shop_viber &&
+							<a href={`viber://add?number=%${user?.socials_links?.shop_viber}`}>
 								<img
 									src={viber}
 									alt="viber"
@@ -105,8 +105,8 @@ const Profile = ({
 						}
 
 						{
-							user?.socials_links.shop_telegram &&
-							<a href={`tg://resolve?domain=${user?.socials_links.shop_telegram}`}>
+							user?.socials_links?.shop_telegram &&
+							<a href={`tg://resolve?domain=${user?.socials_links?.shop_telegram}`}>
 								<img
 									src={telegram}
 									alt="telegram"
@@ -115,8 +115,8 @@ const Profile = ({
 						}
 
 						{
-							user?.socials_links.shop_instagram &&
-							<a href={`https://www.instagram.com/${user?.socials_links.shop_instagram}/`}>
+							user?.socials_links?.shop_instagram &&
+							<a href={`https://www.instagram.com/${user?.socials_links?.shop_instagram}/`}>
 								<img
 									className='profile-body_content-socials_instagram'
 									src={instagram}

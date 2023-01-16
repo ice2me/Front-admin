@@ -52,7 +52,7 @@ export default {
 		pleaseEnterValidViberProfile: 'Введіть дійсний номер Viber',
 		pleaseEnterValidTelegramProfile: 'Введіть дійсний профіль Telegram',
 		pleaseEnterValidInstagramProfile: 'Введіть дійсний профіль Instagram',
-		// ******************************************************** Home
+		// ******************************************************** Category
 		create: 'Додати',
 		// ******************************************************** Modal
 		close: 'Закрити',

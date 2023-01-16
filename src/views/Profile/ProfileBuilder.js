@@ -10,7 +10,7 @@ const ProfileBuilder = () => {
 	const [openEditProfile, setOpenEditProfile] = useState(false)
 
 	return (
-		<div className='home'>
+		<div className='category'>
 			{
 				openEditProfile
 					?

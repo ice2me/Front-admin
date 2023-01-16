@@ -6,8 +6,8 @@ import { FormattedMessage } from "react-intl";
 
 const ContactSupport = () => {
 	return (
-		<div className='home'>
-			<h1 className="home-title">
+		<div className='category'>
+			<h1 className="category-title">
 				<FormattedMessage id='contactSupport' />
 			</h1>
 			<div className="profile-body_wrapper h-100">

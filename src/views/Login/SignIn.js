@@ -24,7 +24,6 @@ export const SignIn = () => {
 	const [passwordType, setPasswordType] = useState("password")
 	const [login, {isLoading: isLoginLoading}] = useLoginMutation()
 	const { formatMessage } = useIntl()
-	
 	const navigate = useNavigate()
 	const handleSubmit = async (values,
 		{

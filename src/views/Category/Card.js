@@ -6,9 +6,9 @@ import {
 } from "../../redux/services/categoriesApi"
 import { toast } from "react-toastify"
 import { useSelector } from "react-redux"
-import HomeCardItem from "./HomeCardItem"
+import CardItem from "./CardItem"
 
-const HomeCard = ({
+const Card = ({
 	setEditItemProductCard,
 	showModalCard,
 	setIdItemProductCard
@@ -35,7 +35,7 @@ const HomeCard = ({
 	return (
 		<>
 			{
-				items?.map((item) => <HomeCardItem
+				items?.map((item) => <CardItem
 						key={item._id}
 						item={item}
 						isPatchAvailableItemProductLoading={isPatchAvailableItemProductLoading}
@@ -51,4 +51,4 @@ const HomeCard = ({
 	)
 }
 
-export default HomeCard
+export default Card

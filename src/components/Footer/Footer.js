@@ -18,7 +18,7 @@ const Footer = () => {
 	const location = useLocation()
 	const logoutHandler = () => {
 		dispatch(logout())
-		navigate(APP_ROUTE.LOGIN)
+		navigate(APP_ROUTE.DEFAULT)
 		toast('Your exit')
 	}
 	return (

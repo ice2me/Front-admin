@@ -52,7 +52,7 @@ export default {
 		pleaseEnterValidViberProfile: 'Please enter a valid Viber number',
 		pleaseEnterValidTelegramProfile: 'Please enter a valid Telegram profile',
 		pleaseEnterValidInstagramProfile: 'Please enter a valid Instagram profile',
-		// ******************************************************** Home
+		// ******************************************************** Category
 		create: 'Create',
 		// ******************************************************** Modal
 		close: 'Close',

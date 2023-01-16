@@ -7,7 +7,7 @@ import ModalDelete from "../../components/Modal/ModalDelete"
 import { useState } from "react"
 import { useIntl } from "react-intl"
 
-const HomeCardItem = ({
+const CardItem = ({
 	item,
 	isPatchAvailableItemProductLoading,
 	setAvailableProduct,
@@ -34,7 +34,7 @@ const HomeCardItem = ({
 			/>
 			<li
 				key={item?._id}
-				className="home-body_item"
+				className="category-body_item"
 			>
 				<img
 					src={item?.image_product ? item?.image_product : productImg}
@@ -50,11 +50,11 @@ const HomeCardItem = ({
 				</span>
 					</span>
 				<span>
-						{formatMessage ({id: 'price'})} <span className='home-body_item-price'>
+						{formatMessage ({id: 'price'})} <span className='category-body_item-price'>
 					<b>{item?.price_product}.00 {item?.currency_product}</b>
 					</span>
 					</span>
-				<div className="home-body_available">
+				<div className="category-body_available">
 					<span>
 						{formatMessage ({id: 'available'})}
 					</span>
@@ -77,7 +77,7 @@ const HomeCardItem = ({
 				</div>
 
 				<button
-					className="home-body_addProduct"
+					className="category-body_addProduct"
 					onClick={() => {
 						showModalCard()
 						setIdItemProductCard(item?._id)
@@ -91,7 +91,7 @@ const HomeCardItem = ({
 					/>
 				</button>
 				<button
-					className="home-body_addProduct home-body_addProduct-delete"
+					className="category-body_addProduct category-body_addProduct-delete"
 					onClick={showModal}
 				>
 					<img
@@ -105,4 +105,4 @@ const HomeCardItem = ({
 	)
 }
 
-export default HomeCardItem
+export default CardItem

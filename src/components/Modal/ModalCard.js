@@ -92,7 +92,6 @@ export default function ModalCard({
 					id: editItemProductCard?._id,
 					body: tehData
 				})
-				// console.log(data)
 				toast(data?.message)
 			} else {
 				const {data} = await addItem(tehData)
