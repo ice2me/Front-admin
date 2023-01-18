@@ -5,8 +5,8 @@ import {
 import thekeLogo from '../../assets/images/theke_logo-small.png'
 import blockX from '../../assets/images/blockX.png'
 import checkedImg from '../../assets/images/checked.png'
-import { useNavigate } from "react-router-dom";
-import { APP_ROUTE } from "../../utils/constants";
+import { useNavigate } from "react-router-dom"
+import { APP_ROUTE } from "../../utils/constants"
 
 const Home = () => {
 	const navigate = useNavigate()
@@ -29,7 +29,7 @@ const Home = () => {
 							variant="primary"
 							onClick={transferSingIn}
 						>
-							Sing Up
+							Get Started
 						</Button>
 					</div>
 				</Navbar>
@@ -95,7 +95,7 @@ const Home = () => {
 							</li>
 						</ul>
 						<button onClick={transferSingIn}>
-							Sing Up
+							Get Started
 						</button>
 					</div>
 				</div>
@@ -137,10 +137,70 @@ const Home = () => {
 							className="home-thirdBlock_left-button"
 							onClick={transferSingIn}
 						>
-							Sign Up
+							Get Started
 						</button>
 					</div>
 					<div className="home-thirdBlock_right"></div>
+				</div>
+				<div className="home-fourthBlock">
+					<div className="home-fourthBlock_wrapper">
+					</div>
+					<button className="home-fourthBlock_button">
+						See How It Works
+					</button>
+				</div>
+				<div className="home-fifthBlock">
+					<h2 className="home-fifthBlock_title">
+						Motivated Mornings is a virtual coworking community proven to help you do the work.
+					</h2>
+					<div className="home-fifthBlock_wrapper">
+						<div className="home-fifthBlock_wrapper-block">
+							<h3 className="home-fifthBlock_wrapper-block_title">
+								Morning Kick-Off Calls
+							</h3>
+							<p className="home-fifthBlock_wrapper-block_content">
+								Jumpstart each day with a 10min large group video call with an inspiring thought about creating. Stay
+								accountable and motivated. Offered Mon-Fri at 5am and 9am.
+							</p>
+						</div>
+						<div className="home-fifthBlock_wrapper-block">
+							<h3 className="home-fifthBlock_wrapper-block_title">
+								Morning Kick-Off Calls
+							</h3>
+							<p className="home-fifthBlock_wrapper-block_content">
+								Jumpstart each day with a 10min large group video call with an inspiring thought about creating. Stay
+								accountable and motivated. Offered Mon-Fri at 5am and 9am.
+							</p>
+						</div>
+						<div className="home-fifthBlock_wrapper-block">
+							<h3 className="home-fifthBlock_wrapper-block_title">
+								Morning Kick-Off Calls
+							</h3>
+							<p className="home-fifthBlock_wrapper-block_content">
+								Jumpstart each day with a 10min large group video call with an inspiring thought about creating. Stay
+								accountable and motivated. Offered Mon-Fri at 5am and 9am.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div className="home-sixthBlock">
+					<h2 className="home-sixthBlock_title">
+						Become a Theke.
+					</h2>
+					<div className="home-sixthBlock_block">
+						<h3 className="home-sixthBlock_block-title">
+							Theke
+						</h3>
+						<span className="home-sixthBlock_block-price">
+							$49/mo.
+						</span>
+						<p className="home-sixthBlock_block-description">
+							Get the motivation and accountability you need to get real work done.
+						</p>
+					</div>
+					<button className="home-sixthBlock_button">
+						View Plans Details
+					</button>
 				</div>
 			</div>
 		</div>
