@@ -10,7 +10,6 @@ const Profile = ({
 	user,
 	setOpenEditProfile
 }) => {
-	console.log(user)
 	return (
 		<>
 			<h1 className="profile-title">

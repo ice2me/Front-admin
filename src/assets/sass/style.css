@@ -166,6 +166,14 @@
   overflow: hidden;
   border-radius: 6px;
 }
+@media screen and (max-width: 480px) {
+  .home h2 {
+    font-size: 30px;
+  }
+  .home h3 {
+    font-size: 22px;
+  }
+}
 .home-wrapper {
   overflow: auto;
   height: 100%;
@@ -484,6 +492,12 @@
   align-content: center;
   justify-content: space-around;
   padding: 20px;
+}
+@media screen and (max-width: 880px) {
+  .home-fifthBlock_wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 .home-fifthBlock_wrapper-block {
   max-width: 320px;

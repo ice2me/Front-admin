@@ -3,6 +3,11 @@
 	height: inherit
 	overflow: hidden
 	border-radius: 6px
+	@media screen and (max-width: 480px)
+		h2
+			font-size: 30px
+		h3
+			font-size: 22px
 	&-wrapper
 		overflow: auto
 		height: 100%
@@ -256,6 +261,9 @@
 			align-content: center
 			justify-content: space-around
 			padding: 20px
+			@media screen and (max-width: 880px)
+				flex-direction: column
+				justify-content: center
 			&-block
 				max-width: 320px
 				margin: 0 12px
