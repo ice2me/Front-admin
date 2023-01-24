@@ -159,6 +159,7 @@ export const SignUp = () => {
 								placeholder={formatMessage ({id: 'enterName'})}
 								value={values.username}
 								name='username'
+								autoComplete='off'
 								onBlur={handleBlur}
 								className={`pe-5  ${touched.username ? "is-touch " : ""} ${
 									errors.username && touched.username ? " is-invalid" : ""
@@ -187,6 +188,7 @@ export const SignUp = () => {
 									errors.email && touched.email ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="email"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterEmail'})}
 								value={values.email}
 								name='email'
@@ -215,6 +217,7 @@ export const SignUp = () => {
 									errors.phone && touched.phone ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="phone"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterMobilePhone'})}
 								value={values.phone}
 								name='phone'
@@ -263,6 +266,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={passwordType}
 									name="password"
+									autoComplete='off'
 									placeholder={formatMessage ({id: 'enterPassword'})}
 									value={values.password}
 									onBlur={handleBlur}
@@ -310,6 +314,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={confirmPasswordType}
 									name="password_confirm"
+									autoComplete='off'
 									placeholder={formatMessage ({id: 'enterPasswordConfirm'})}
 									value={values.password_confirm}
 									onBlur={handleBlur}
@@ -338,6 +343,7 @@ export const SignUp = () => {
 									errors.shop_name && touched.shop_name ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterNameShop'})}
 								value={values.shop_name}
 								name='shop_name'
@@ -366,6 +372,7 @@ export const SignUp = () => {
 									errors.description && touched.description ? " is-invalid" : ""
 								} registrationShop-form_input registrationShop-form_description`}
 								as="textarea"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterDescriptionShop'})}
 								value={values.description}
 								name='description'
@@ -394,6 +401,7 @@ export const SignUp = () => {
 									errors.shop_link && touched.shop_link ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterEnterShopLink'})}
 								value={values.shop_link}
 								name='shop_link'
@@ -422,6 +430,7 @@ export const SignUp = () => {
 									errors?.shop_facebook && touched?.shop_facebook ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterEnterShopFacebook'})}
 								value={shopFacebook}
 								onBlur={handleBlur}
@@ -448,6 +457,7 @@ export const SignUp = () => {
 									errors?.shop_viber && touched?.shop_viber ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterEnterShopViber'})}
 								value={shopViber}
 								name='shop_viber'
@@ -474,6 +484,7 @@ export const SignUp = () => {
 									errors?.shop_telegram && touched?.shop_telegram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterEnterShopTelegram'})}
 								value={shopTelegram}
 								name='shop_telegram'
@@ -500,6 +511,7 @@ export const SignUp = () => {
 									errors?.shop_instagram && touched?.shop_instagram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
+								autoComplete='off'
 								placeholder={formatMessage ({id: 'enterEnterShopInstagram'})}
 								value={shopInstagram}
 								name='shop_instagram'

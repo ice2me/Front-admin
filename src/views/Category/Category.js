@@ -30,7 +30,7 @@ const Category = () => {
 
 	const categoriesListArr = useCallback(async () => {
 		await getCategories()
-	}, [])
+	}, [categoriesList])
 
 	useEffect(() => {
 		categoriesListArr()

@@ -8,6 +8,8 @@
 @import 'EditProfile'
 @import 'ProductList'
 @import 'Category'
+@import 'Navbar'
+@import '_variables'
 
 *
 	padding: 0
@@ -23,7 +25,9 @@
 
 *:disabled
 	opacity: 0.5
-
+*ul
+	padding: 0
+	margin: 0
 a:focus, a:active
 	outline: none
 
@@ -35,16 +39,16 @@ html, body
 	width: 100%
 	line-height: 1
 	font-size: 14px
-	font-family: 'Raleway', sans-serif
+	font-family: $font-fontDefault-family
 	margin: 0 auto
 	outline: none
 	scroll-behavior: smooth
 	overflow: hidden
-	background: linear-gradient(0deg, rgba(247, 206, 0, 0.5) 30%, rgba(0, 88, 181, 0.5) 70%)
+	background: rgba($gray-500, 0.1)
 	display: flex
 	align-items: center
 	justify-content: center
-	color: #505160
+	color: $basic-color
 
 input::-ms-clear
 	display: none

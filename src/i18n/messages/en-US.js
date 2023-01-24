@@ -30,6 +30,10 @@ export default {
 		enterEnterShopTelegram: 'Enter Shop Telegram',
 		shopInstagram: 'Shop Instagram: ',
 		enterEnterShopInstagram: 'Enter Shop Instagram',
+		// ******************************************************** Navbare
+		myProducts: 'My products',
+		myProfile: 'My Profile',
+		contactSupport: 'Contact Support',
 		// ******************************************************** form validation
 		nameIsRequiredField: 'Name is a required field',
 		usernameLengthMax: 'Username must be at most 65 characters',
@@ -56,7 +60,7 @@ export default {
 		create: 'Create',
 		// ******************************************************** Modal
 		close: 'Close',
-		addCategory: 'Add Category',
+		addCategory: 'Save',
 		delete: 'Delete',
 		youWantDeleteProduct: 'Are you sure you want to delete: ',
 		// ******************************************************** Category
@@ -92,7 +96,6 @@ export default {
 		piece: 'piece',
 		loremText: 'this is fish text often used in print and web design. Lorem Ipsum has been the standard "fish" for Latin texts since the early 16th century. At the time, an unnamed printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived five centuries without noticeable changes, but also stepped into electronic design.',
 		// ******************************************************** Contact Support
-		contactSupport: 'Contact Support',
 		contactSupportMessage: 'If you have any questions, problems and suggestions for improvement - you can write to me.',
 		// ******************************************************** Profile
 		profile: 'Profile',

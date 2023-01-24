@@ -1,12 +1,15 @@
+@import '_variables'
 .category
-	width: 95%
-	height: 95%
-	border-radius: 6px
-	padding: 20px
+	width: 100%
+	height: 90%
 	position: relative
 	box-shadow: 0 0 10px 3px rgba(80,81,96, 0.1)
 	color: #505160
+	background-color: $white
+	margin-top: 15px
+	border-radius: $border-radius
 	z-index: 5
+	padding: 20px 0
 	@media screen and (max-width: 1200px)
 		width: 100%
 		height: 99%
@@ -15,9 +18,9 @@
 		font-size: 30px
 		display: flex
 		align-items: center
-		justify-content: center
-		@media screen and (max-width: 480px)
-			font-size: 22px
+		justify-content: flex-start
+		margin-left: 30px
+		@include calc("font-size",34,25)
 
 	&-addCategory
 		padding: 8px 15px
@@ -26,8 +29,8 @@
 		border-radius: 6px
 		background-color: #505160
 		position: absolute
-		top: 10px
-		left: 3%
+		top: 20px
+		right: 3%
 		color: #fff
 		font-size: 18px
 		display: flex
@@ -59,7 +62,7 @@
 				position: absolute
 				color: #fff
 				top: 7px
-				right: -175px
+				left: -175px
 			&:after
 				content: ''
 				width: 0
@@ -69,8 +72,8 @@
 				border-top-width: 20px
 				border-left: 15px solid #505160
 				position: absolute
-				top: 5px
-				right: -15px
+				top: 7px
+				left: -18px
 
 	&-editCategory
 		&_inp
@@ -107,32 +110,13 @@
 
 	&-body
 		overflow-y: hidden
+		height: 92%
 		&_wrapper
 			overflow-x: auto
-			height: 95%
+			height: 92%
 			padding: 20px 0
-		&_wrapperForEdit
-			background-color: #505160
-			min-height: 280px
-			position: absolute
-			top: 0
-			right: 0
-			bottom: 0
-			left: 0
-			z-index: 998
-			opacity: 0.3
+			margin: 10px 0
 		&_list
-			min-height: 280px
-			display: flex
-			flex-direction: row
-			align-items: center
-			justify-content: flex-start
-			flex-wrap: nowrap
-			overflow-y: auto
-			padding-bottom: 5px
-			background-color: #d3e3fc
-			cursor: default
-			position: relative
 
 		&_item
 			width: 250px
@@ -252,13 +236,13 @@
 			position: absolute
 			top: 0
 			right: 5px
-			width: 20px !important
-			height: 20px !important
-			min-height: 20px !important
+			width: 22px !important
+			height: 22px !important
+			min-height: 22px !important
 			img
-				width: 20px !important
-				height: 20px !important
-				min-height: 20px !important
+				width: 22px !important
+				height: 22px !important
+				min-height: 22px !important
 				&:hover
 					transform: translate(-1px, 0px)
 					box-shadow: 5px 10px 10px -4px rgba(0, 0, 0, 0.5)
@@ -287,19 +271,18 @@
 				box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 
 .category-body_accordingHeader
-	width: 97%
+	width: 100%
 	height: 40px
 	background-color: transparent
-	box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
-	border-radius: 6px
+	border-radius: $border-radius
 	display: flex
 	align-items: center
 	justify-content: space-between
 	position: relative
-	padding: 0 20px !important
-	margin: 12px
-	font-weight: bold
-	font-size: 18px
+	padding: 0 20px 0 30px !important
+	border: 1px solid transparent
+	&:nth-child(even)
+		background-color: $basic-bg
 	span
 		width: 90%
 		height: 100%
@@ -307,8 +290,10 @@
 		display: flex
 		align-items: center
 		justify-content: flex-start
+		@include calc("font-size",16,12)
 	&:hover, &:active
-		background-color: rgba(80,81,96, 0.2)
+		border-bottom: 1px solid $basic-color-opacity
+		border-top: 1px solid $basic-color-opacity
 	&-edit
 		position: absolute
 		right: 40px
@@ -363,7 +348,7 @@ input[type="radio"]:focus
 		border: 1px solid transparent
 		&:hover, &:active, &:focus
 			background-color: transparent !important
-			border: 1px solid rgba(80,81,96, 0.5) !important
+			border: 1px solid transparent !important
 		&:after
 			display: none
 			content: ""

@@ -1,108 +1,19 @@
+@import '_variables'
 .header
-	width: 100%
-	min-height: 60px
-	border-radius: 6px
 	display: flex
 	align-items: center
 	justify-content: space-between
-	padding: 12px 30px
-	box-shadow: 0 0 10px 3px rgba(80, 81, 96, 0.1)
-	@media screen and (max-width: 480px)
-		flex-direction: column
-		min-height: auto
-
 	&-link
-		font-size: 16px
-
 		a
-			font-weight: bold
-
 	&-left
-		display: flex
-		align-items: center
-		justify-content: center
-		flex-direction: row
-		cursor: default
 		&_theke
-			height: 40px
-			margin-right: 20px
-
+			width: 150px
+			height: 35px
 		&_logo
-			width: 50px
-			height: 50px
-			border-radius: 6px
-			margin-right: 12px
-			background-position: center
-			background-repeat: no-repeat
-			background-size: cover
-			@media screen and (max-width: 580px)
-				width: 40px
-				height: 40px
-
 		&_status
-			max-width: 250px
-			background-color: transparent
-			padding: 12px 25px
-			border-radius: 6px
-			font-size: 18px
-			color: #222
-			overflow: hidden
-			text-overflow: ellipsis
-			@media screen and (max-width: 580px)
-				max-width: 180px
-
-	&-right
-		width: 100%
-		min-height: 60px
-		display: flex
-		align-items: center
-		justify-content: space-around
-		flex-direction: row
-		border-radius: 6px
-		margin: 0
-		padding: 0
-		box-shadow: 0 0 10px 3px rgba(80, 81, 96, 0.1)
-		@media screen and (max-width: 580px)
-			margin-top: 8px
-
-		&_item
-			margin: 0 8px
-
-			&-link
-				background-color: transparent
-				border-radius: 11px
-				position: relative
-				z-index: 2
-
-				img
-					border-radius: 8px
-					position: relative
-					z-index: 2
-
 		&_logout
-			padding: 5px
-			background-color: #77A6F7
-			display: flex
-			align-items: center
-			justify-content: center
-.activeButton
-	&:before
-		content: ''
-		width: 68px
-		height: 80px
-		background-color: rgb(250, 250, 250)
-		position: absolute
-		top: -28px
-		left: -12px
-		border-bottom-right-radius: 8px
-		border-bottom-left-radius: 8px
-		box-shadow: 0 3px 5px 3px rgb(80 81 96 / 10%)
-		z-index: 1
-@keyframes animationButton
-	0%
-		top: -46px
-		border-radius: 50%
-	100%
-		top: 0
-		opacity: 1
-		transform: rotate(180deg)
+			background-color: transparent
+			img
+				width: 25px
+				height: 25px
+				margin-right: 6px
