@@ -3,17 +3,79 @@
 	display: flex
 	align-items: center
 	justify-content: space-between
+	@include calc("font-size",18,14)
+	@media screen and (max-width: 992px)
+		display: none
+
 	&-link
 		a
+
 	&-left
+		@include centering
 		&_theke
 			width: 150px
 			height: 35px
 		&_logo
+			width: 40px
+			height: 40px
+			background-size: cover
+			background-position: center
+			background-repeat: no-repeat
+			margin-right: 8px
 		&_status
+			@include calc("font-size",18,14)
 		&_logout
 			background-color: transparent
+
 			img
 				width: 25px
 				height: 25px
 				margin-right: 6px
+
+
+	&-mob
+		@include calc("font-size",18,14)
+		@media screen and (min-width: 992px)
+			display: none
+		&_left
+			margin-top: 30px
+			display: flex
+			align-items: center
+			&_theke
+				width: 150px
+				height: 35px
+			&_logo
+				width: 60px
+				height: 60px
+				background-size: cover
+				background-position: center
+				background-repeat: no-repeat
+				margin-right: 12px
+		&_link
+			margin: 20px 0
+			text-align: center
+		&_center-wrapper
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-wrap: wrap
+			margin: 30px 0
+			&_item
+				padding: 10px 15px
+				border: 1px solid transparent
+				border-radius: $border-radius
+				img
+					width: 25px
+					height: 25px
+					margin-right: 10px
+		&-bottom
+			position: relative
+			&_logout
+				background-color: transparent
+				position: absolute
+				right: 10px
+				bottom: 0
+				img
+					width: 25px
+					height: 25px
+					margin-right: 10px

@@ -1,5 +1,5 @@
 @import '_variables'
-.navbar
+.navbarApp
 	width: 250px
 	height: 100%
 	display: flex
@@ -8,7 +8,9 @@
 	padding-top: 55px
 	background-color: $white
 	position: relative
-
+	white-space: nowrap
+	@media screen and (max-width: 992px)
+		display: none
 	&_item
 		width: 100%
 		padding: 10px 10px 10px 20px
@@ -19,9 +21,6 @@
 			width: 28px
 			height: 28px
 			margin-right: 10px
-
-	&_logout
-
 	&_eye
 		position: absolute
 		left: 8px

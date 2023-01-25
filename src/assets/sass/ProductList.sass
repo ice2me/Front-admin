@@ -16,12 +16,16 @@
 		border-radius: 6px
 		&:hover
 			box-shadow: 5px 10px 10px -4px rgba(80,81,96, 0.1)
+		@media screen and (max-width: 992px)
+			img
+				width: 25px
+				height: 25px
 	&-wrapper
 		overflow: hidden
 		padding: 10px
-		height: 59vh
+		height: 95%
 		ul
-			height: 58vh
+			height: inherit
 			display: flex
 			align-items: center
 			justify-content: center
@@ -30,7 +34,6 @@
 			padding: 10px 0
 			@media screen and (max-width: 480px)
 				min-height: 50vh
-				max-height: 60vh
 	&-arrowDown
 		height: 100%
 		text-align: center

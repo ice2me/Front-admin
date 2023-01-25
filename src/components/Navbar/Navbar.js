@@ -17,9 +17,9 @@ const Navbar = () => {
 	const location = useLocation()
 
 	return (
-		<ul className={`navbar ${toggleNavbar ? "hideNavbar" : ""}`}>
+		<ul className={`navbarApp ${toggleNavbar ? "hideNavbar" : ""}`}>
 			<button
-				className='navbar_eye'
+				className='navbarApp_eye'
 				onClick={() => setToggleNavbar(!toggleNavbar)}
 			>
 				<img
@@ -28,7 +28,7 @@ const Navbar = () => {
 				/>
 			</button>
 			<li
-				className={`navbar_item ${(location.pathname === APP_ROUTE.CATEGORIES_LIST ||
+				className={`navbarApp_item ${(location.pathname === APP_ROUTE.CATEGORIES_LIST ||
 					location.pathname === APP_ROUTE.DEFAULT ||
 					location.pathname === APP_ROUTE.PRODUCTS_LIST)
 					? 'activeButton' : ''}`}
@@ -42,7 +42,7 @@ const Navbar = () => {
 				{!toggleNavbar && <FormattedMessage id='myProducts' />}
 			</li>
 			<li
-				className={`navbar_item
+				className={`navbarApp_item
 					${location.pathname === APP_ROUTE.PROFILE ? 'activeButton' : ''}
 					`}
 				onClick={() => navigate(APP_ROUTE.PROFILE)}
@@ -56,7 +56,7 @@ const Navbar = () => {
 				{!toggleNavbar && <FormattedMessage id='myProfile' />}
 			</li>
 			<li
-				className={`navbar_item
+				className={`navbarApp_item
 					${location.pathname === APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : ''}
 					`}
 				onClick={() => navigate(APP_ROUTE.CONTACT_SUPPORT)}

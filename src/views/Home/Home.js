@@ -2,7 +2,7 @@ import {
 	Button,
 	Navbar
 } from "react-bootstrap"
-import thekeLogo from '../../assets/images/theke_logo-small.png'
+import thekeLogo from '../../assets/images/theke-logo-white.png'
 import blockX from '../../assets/images/blockX.png'
 import checkedImg from '../../assets/images/checked.png'
 import { useNavigate } from "react-router-dom"

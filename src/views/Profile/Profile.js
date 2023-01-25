@@ -4,7 +4,7 @@ import viber from '../../assets/icons/viber.svg'
 import telegram from '../../assets/icons/telegram.svg'
 import instagram from '../../assets/icons/instagram.svg'
 import dots from '../../assets/icons/dotsEdit.svg'
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl"
 
 const Profile = ({
 	user,
@@ -30,7 +30,8 @@ const Profile = ({
 						className="profile-body_photo"
 						style={
 						user?.image_logo
-							? {backgroundImage: `url(${user?.image_logo})`}
+							?
+							{backgroundImage: `url(${user?.image_logo})`}
 							:
 							{backgroundImage: `url(${photo})`}
 						}
@@ -78,7 +79,7 @@ const Profile = ({
 								<span>
 									<FormattedMessage id='shopLink' />
 								</span>
-								<a href="/">{user?.shop_link}</a>
+								<a href={`https://${user?.shop_link}`}>{user?.shop_link}</a>
 							</li>
 						}
 					</ul>

@@ -96,7 +96,8 @@ export default {
 		piece: 'piece',
 		loremText: 'this is fish text often used in print and web design. Lorem Ipsum has been the standard "fish" for Latin texts since the early 16th century. At the time, an unnamed printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived five centuries without noticeable changes, but also stepped into electronic design.',
 		// ******************************************************** Contact Support
-		contactSupportMessage: 'If you have any questions, problems and suggestions for improvement - you can write to me.',
+		contactSupportMessage: 'If you have any questions, problems and suggestions',
+		contactSupportMessage2: 'for improvement - you can write to me.',
 		// ******************************************************** Profile
 		profile: 'Profile',
 		editProfile: 'Edit Profile'
