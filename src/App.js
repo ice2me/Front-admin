@@ -8,7 +8,7 @@ import {
 	useDispatch,
 	useSelector
 } from "react-redux"
-import {
+import React, {
 	useEffect,
 	useState
 } from "react"
@@ -37,11 +37,13 @@ function App() {
 
 
 	useEffect(() => {
-		if (isLogin) <Loader />
+		if (isLogin) {
+			<Loader />
+		}
 		if (window.navigator.language === LOCALES.EN) {
-			setLanguageLocal( LOCALES.EN)
+			setLanguageLocal(LOCALES.EN)
 		} else {
-			setLanguageLocal( LOCALES.UKR)
+			setLanguageLocal(LOCALES.UKR)
 		}
 	}, [isLogin])
 
@@ -52,24 +54,24 @@ function App() {
 				messages={messages[languageLocal]}
 				defaultLocale={LOCALES.EN}
 			>
-			<AuthContext.Provider
-				value={ {
-					token,
-					login,
-					logout,
-					user,
-					isAuthenticated
-				} }
-			>
-				<ToastContainer position='top-right' />
-				{
-					(isAuthenticated && user?.email && token)
-						? <Layout>
-							<RoutesLink />
-						</Layout>
-						: <RoutesLinkLogin />
-				}
-			</AuthContext.Provider>
+				<AuthContext.Provider
+					value={{
+						token,
+						login,
+						logout,
+						user,
+						isAuthenticated
+					}}
+				>
+					<ToastContainer position='top-right' />
+					{
+						(isAuthenticated && user?.email && token)
+							? <Layout>
+								<RoutesLink />
+							</Layout>
+							: <RoutesLinkLogin />
+					}
+				</AuthContext.Provider>
 			</IntlProvider>
 		</div>
 	)

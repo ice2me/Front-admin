@@ -38,7 +38,8 @@ const Header = () => {
 		navigate(APP_ROUTE.DEFAULT)
 		toast('Your exit')
 	}
-	return (<>
+	return (
+		<>
 			<div className="header">
 				<img
 					className='header-left_theke'
@@ -137,7 +138,8 @@ const Header = () => {
 									</li>
 									<li
 										className={
-											`header-mob_center-wrapper_item ${location.pathname === APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : ''}`
+											`header-mob_center-wrapper_item ${location.pathname ===
+											APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : ''}`
 										}
 										onClick={() => navigate(APP_ROUTE.CONTACT_SUPPORT)}
 									>
@@ -168,7 +170,6 @@ const Header = () => {
 				</Container>
 			</Navbar>
 		</>
-
 	)
 }
 

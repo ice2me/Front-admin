@@ -5,5 +5,5 @@ export const apiBaseUrl =
 		: `${window.location.origin}/api/`;
 // || 'theke.com.ua/api
 export const makeUrl = (urlSuff) => {
-	`${apiBaseUrl}/${urlSuff}`
+	return `${apiBaseUrl}/${urlSuff}`
 }

@@ -14,7 +14,6 @@ export const RoutesLink = () => {
 			<Route path={APP_ROUTE.ENTRY} element={<Category/>}/>
 			<Route path={APP_ROUTE.CATEGORIES_LIST} element={<Category/>}/>
 			<Route path={APP_ROUTE.PRODUCTS_LIST} element={<ProductList/>}/>
-			{/*<Route path={APP_ROUTE.LOGIN} element={<Login/>}/>*/}
 			<Route path={APP_ROUTE.PROFILE} element={<ProfileBuilder/>}/>
 			<Route path={APP_ROUTE.CONTACT_SUPPORT} element={<ContactSupport/>}/>
 		</Routes>
