@@ -9,7 +9,7 @@ export const APP_ROUTE = {
 	CONTACT_SUPPORT: '/contact-support'
 }
 
-export const LINK_FOR_CLIENT = 'http://localhost:3001/api/link/'
+export const LINK_FOR_CLIENT = 'http://localhost:3001/'
 
 export const AUTH_API = {
 	SIGNUP: "/auth/register",

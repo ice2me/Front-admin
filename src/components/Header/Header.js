@@ -59,7 +59,7 @@ const Header = () => {
 				<span className='header-link'>
 				<FormattedMessage id='shopLink' />
 				<a
-					href={`http://localhost:3001/api/link/${user?.shop_name}`}
+					href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
 					target="_blank"
 				>{user?.shop_name}</a>
 				</span>
@@ -99,7 +99,8 @@ const Header = () => {
 								</div>
 								<span className="header-mob_left_status">{user?.shop_name}</span>
 							</div>
-							<span className='header-mob_link'><FormattedMessage id='shopLink' />
+							<span className='header-mob_link'>
+								<FormattedMessage id='shopLink' />
 								<a
 									href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
 									target="_blank"
