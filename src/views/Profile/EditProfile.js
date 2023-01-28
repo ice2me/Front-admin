@@ -38,6 +38,7 @@ const EditProfile = ({
 }) => {
 	const [form, setForm] = useState(user)
 	const [image, setImage] = useState(user.image_logo || '')
+	const [openShopToggle, setOpenShopToggle] = useState(form?.open_shop)
 	const [shopFacebook, setShopFacebook] = useState(form?.socials_links?.shop_facebook)
 	const [shopViber, setShopViber] = useState(form?.socials_links?.shop_viber)
 	const [shopTelegram, setShopTelegram] = useState(form?.socials_links?.shop_telegram)
@@ -104,6 +105,17 @@ const EditProfile = ({
 				shop_viber: shopViber,
 				shop_telegram: shopTelegram,
 				shop_instagram: shopInstagram,
+			},
+			open_shop: values.open_shop,
+			style_shop: {
+				text_color: "",
+				background_color: "",
+			},
+			pay_package: values.pay_package || "Standart",
+			qr_code: {
+				text_color: "",
+				background_color: "",
+				typeQr: ""
 			}
 		}
 		try {
@@ -131,6 +143,7 @@ const EditProfile = ({
 	}
 
 	const formDateUpdateHandler = (opt) => {
+		console.log(opt)
 		setForm({...form, ...opt})
 	}
 
@@ -170,6 +183,17 @@ const EditProfile = ({
 						shop_viber: shopViber,
 						shop_telegram: shopTelegram,
 						shop_instagram: shopInstagram,
+					},
+					open_shop: form.open_shop,
+					style_shop: {
+						text_color: "",
+						background_color: "",
+					},
+					pay_package: form.pay_package,
+					qr_code: {
+						text_color: "",
+						background_color: "",
+						typeQr: ""
 					}
 				}}
 				validationSchema={getUpdateUserSchema(formatMessage)}
@@ -321,6 +345,29 @@ const EditProfile = ({
 											{errors.shop_name}
 										</Form.Control.Feedback>
 									)}
+								</li>
+								<li className="editProfile-body_content-text flex-column">
+									<p>
+										<FormattedMessage id='allowYourCustomersVisitOtherStoresOfThisPlatform' />
+									</p>
+									<Form.Check
+										type="checkbox"
+										id="custom-switch"
+										name='open_shop'
+										value={openShopToggle}
+										onBlur={handleBlur}
+										defaultChecked={openShopToggle}
+										className='customCheckbox'
+										label={openShopToggle
+											?
+											<FormattedMessage id='yes' />
+											:
+											<FormattedMessage id='no' />}
+										onChange={(e) => {
+											handleChange(e)
+											setOpenShopToggle(!openShopToggle)
+										}}
+									/>
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>

@@ -900,6 +900,17 @@ input[type=file] {
   display: none;
 }
 
+.customCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.customCheckbox input {
+  width: 30px;
+  height: 30px !important;
+  margin-right: 20px;
+}
+
 .modalAddCard {
   display: flex;
   align-items: center;

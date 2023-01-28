@@ -18,12 +18,11 @@ import {
 import { APP_ROUTE } from "../../utils/constants";
 import LoaderForButton from "../../components/Loader/LoaderForButton";
 import { useDispatch } from "react-redux";
-import Resizer from "react-image-file-resizer";
 import { setUser } from "../../redux/slices/userSlice";
 import {
 	FormattedMessage,
 	useIntl
-} from "react-intl";
+} from "react-intl"
 
 export const SignUp = () => {
 
@@ -63,7 +62,8 @@ export const SignUp = () => {
 				shop_viber: shopViber,
 				shop_telegram: shopTelegram,
 				shop_instagram: shopInstagram,
-			}
+			},
+			open_shop: values.open_shop
 		}
 
 		try {
@@ -128,7 +128,8 @@ export const SignUp = () => {
 						shop_viber: '',
 						shop_telegram: '',
 						shop_instagram: '',
-					}
+					},
+					open_shop: 'true'
 				}}
 				validationSchema={getRegistrationSchema(formatMessage)}
 				onSubmit={handleSubmit}
@@ -159,7 +160,7 @@ export const SignUp = () => {
 								placeholder={formatMessage ({id: 'enterName'})}
 								value={values.username}
 								name='username'
-								autoComplete='off'
+								autoComplete='on'
 								onBlur={handleBlur}
 								className={`pe-5  ${touched.username ? "is-touch " : ""} ${
 									errors.username && touched.username ? " is-invalid" : ""
@@ -188,7 +189,7 @@ export const SignUp = () => {
 									errors.email && touched.email ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="email"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterEmail'})}
 								value={values.email}
 								name='email'
@@ -217,7 +218,7 @@ export const SignUp = () => {
 									errors.phone && touched.phone ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="phone"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterMobilePhone'})}
 								value={values.phone}
 								name='phone'
@@ -266,7 +267,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={passwordType}
 									name="password"
-									autoComplete='off'
+									autoComplete='on'
 									placeholder={formatMessage ({id: 'enterPassword'})}
 									value={values.password}
 									onBlur={handleBlur}
@@ -314,7 +315,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={confirmPasswordType}
 									name="password_confirm"
-									autoComplete='off'
+									autoComplete='on'
 									placeholder={formatMessage ({id: 'enterPasswordConfirm'})}
 									value={values.password_confirm}
 									onBlur={handleBlur}
@@ -343,7 +344,7 @@ export const SignUp = () => {
 									errors.shop_name && touched.shop_name ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterNameShop'})}
 								value={values.shop_name}
 								name='shop_name'
@@ -364,6 +365,34 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
+									<FormattedMessage id='allowYourCustomersVisitOtherStoresOfThisPlatform' />
+								</span>
+							</div>
+						<Form.Check
+							type="checkbox"
+							id="custom-switch"
+							name='open_shop'
+							value={values?.open_shop}
+							onBlur={handleBlur}
+							defaultChecked
+							className='customCheckbox'
+							label={values?.open_shop
+								?
+								<FormattedMessage id='yes' />
+								:
+								<FormattedMessage id='no' />}
+							onChange={(e) => {
+								console.log(e.target.value)
+								handleChange(e);
+								formDateUpdateHandler({
+									[e.target.name]: e.target.value
+								})
+							}}
+						/>
+						</Form.Group>
+						<Form.Group className="registrationShop-form_label">
+							<div className='registrationShop-form_title'>
+								<span>
 									<FormattedMessage id='descriptionShop' />
 								</span>
 							</div>
@@ -372,7 +401,7 @@ export const SignUp = () => {
 									errors.description && touched.description ? " is-invalid" : ""
 								} registrationShop-form_input registrationShop-form_description`}
 								as="textarea"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterDescriptionShop'})}
 								value={values.description}
 								name='description'
@@ -401,7 +430,7 @@ export const SignUp = () => {
 									errors.shop_link && touched.shop_link ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterEnterShopLink'})}
 								value={values.shop_link}
 								name='shop_link'
@@ -430,7 +459,7 @@ export const SignUp = () => {
 									errors?.shop_facebook && touched?.shop_facebook ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterEnterShopFacebook'})}
 								value={shopFacebook}
 								onBlur={handleBlur}
@@ -457,7 +486,7 @@ export const SignUp = () => {
 									errors?.shop_viber && touched?.shop_viber ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterEnterShopViber'})}
 								value={shopViber}
 								name='shop_viber'
@@ -484,7 +513,7 @@ export const SignUp = () => {
 									errors?.shop_telegram && touched?.shop_telegram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterEnterShopTelegram'})}
 								value={shopTelegram}
 								name='shop_telegram'
@@ -511,7 +540,7 @@ export const SignUp = () => {
 									errors?.shop_instagram && touched?.shop_instagram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage ({id: 'enterEnterShopInstagram'})}
 								value={shopInstagram}
 								name='shop_instagram'
