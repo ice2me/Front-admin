@@ -116,10 +116,8 @@ const EditProfile = ({
 				text_color: "",
 				background_color: "",
 				typeQr: ""
-			},
-			variant_trading: user?.variant_trading
+			}
 		}
-		console.log(formDate)
 		try {
 			const {data} = await updateUser(formDate)
 			dispatch(setUser(data.isUser))
