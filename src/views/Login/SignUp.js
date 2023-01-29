@@ -2,7 +2,10 @@ import React, {
 	useState
 } from 'react'
 import {
-	Form
+	Button,
+	Form,
+	OverlayTrigger,
+	Popover,
 } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -10,15 +13,15 @@ import eye from '../../assets/icons/eye.svg'
 import eyeBlocked from '../../assets/icons/eye-blocked.svg'
 import {
 	getRegistrationSchema
-} from "../../utils/validation/yupLoginEmail";
+} from "../../utils/validation/yupLoginEmail"
 import { Formik } from "formik"
 import {
 	useRegisterUserMutation,
-} from "../../redux/services/authApi";
-import { APP_ROUTE } from "../../utils/constants";
-import LoaderForButton from "../../components/Loader/LoaderForButton";
-import { useDispatch } from "react-redux";
-import { setUser } from "../../redux/slices/userSlice";
+} from "../../redux/services/authApi"
+import { APP_ROUTE } from "../../utils/constants"
+import LoaderForButton from "../../components/Loader/LoaderForButton"
+import { useDispatch } from "react-redux"
+import { setUser } from "../../redux/slices/userSlice"
 import {
 	FormattedMessage,
 	useIntl
@@ -33,8 +36,9 @@ export const SignUp = () => {
 	const [shopInstagram, setShopInstagram] = useState('')
 	const [passwordType, setPasswordType] = useState("password")
 	const [confirmPasswordType, setConfirmPasswordType] = useState("password")
+	const [shopVariantTrading, setShopVariantTrading] = useState('Shop')
 	const [registerUser, {isLoading: isRegisterUserLoading}] = useRegisterUserMutation()
-	const { formatMessage } = useIntl()
+	const {formatMessage} = useIntl()
 
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
@@ -63,10 +67,12 @@ export const SignUp = () => {
 				shop_telegram: shopTelegram,
 				shop_instagram: shopInstagram,
 			},
-			open_shop: values.open_shop
+			open_shop: values.open_shop,
+			variant_trading: shopVariantTrading
 		}
 
 		try {
+			console.log(formDate)
 			const {data} = await registerUser(formDate)
 			dispatch(setUser(data.newUser))
 			if (data.newUser && data.token && !data.error) {
@@ -107,6 +113,16 @@ export const SignUp = () => {
 			? setConfirmPasswordType("text")
 			: setConfirmPasswordType("password")
 
+	const popover = (
+		<Popover id="popover-basic">
+			<Popover.Header as="h3">Popover right</Popover.Header>
+			<Popover.Body>
+				And here's some <strong>amazing</strong> content. It's very engaging.
+				right?
+			</Popover.Body>
+		</Popover>
+	);
+
 	return (
 		<div className='registrationShop'>
 			<h1>
@@ -129,7 +145,8 @@ export const SignUp = () => {
 						shop_telegram: '',
 						shop_instagram: '',
 					},
-					open_shop: 'true'
+					open_shop: 'true',
+					variant_trading: 'Shop'
 				}}
 				validationSchema={getRegistrationSchema(formatMessage)}
 				onSubmit={handleSubmit}
@@ -157,7 +174,7 @@ export const SignUp = () => {
 							</div>
 							<Form.Control
 								type="text"
-								placeholder={formatMessage ({id: 'enterName'})}
+								placeholder={formatMessage({id: 'enterName'})}
 								value={values.username}
 								name='username'
 								autoComplete='on'
@@ -190,7 +207,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="email"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterEmail'})}
+								placeholder={formatMessage({id: 'enterEmail'})}
 								value={values.email}
 								name='email'
 								onBlur={handleBlur}
@@ -219,7 +236,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="phone"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterMobilePhone'})}
+								placeholder={formatMessage({id: 'enterMobilePhone'})}
 								value={values.phone}
 								name='phone'
 								onBlur={handleBlur}
@@ -268,7 +285,7 @@ export const SignUp = () => {
 									type={passwordType}
 									name="password"
 									autoComplete='on'
-									placeholder={formatMessage ({id: 'enterPassword'})}
+									placeholder={formatMessage({id: 'enterPassword'})}
 									value={values.password}
 									onBlur={handleBlur}
 									onChange={(e) => {
@@ -316,7 +333,7 @@ export const SignUp = () => {
 									type={confirmPasswordType}
 									name="password_confirm"
 									autoComplete='on'
-									placeholder={formatMessage ({id: 'enterPasswordConfirm'})}
+									placeholder={formatMessage({id: 'enterPasswordConfirm'})}
 									value={values.password_confirm}
 									onBlur={handleBlur}
 									onChange={(e) => {
@@ -333,10 +350,43 @@ export const SignUp = () => {
 								)}
 							</div>
 						</Form.Group>
+
+						<Form.Group className="registrationShop-form_label">
+							<OverlayTrigger
+								trigger="focus"
+								placement="top"
+								overlay={popover}
+								className='mb-10'
+							>
+								<Button
+									variant={(shopVariantTrading === "Shop") ? "secondary" : "light"}
+									onClick={() => setShopVariantTrading("Shop")}
+									className='mb-1 mt-3'
+								>
+									<FormattedMessage id='iWantShop' />
+								</Button>
+							</OverlayTrigger>
+							<OverlayTrigger
+								trigger="focus"
+								placement="top"
+								overlay={popover}
+							>
+								<Button
+									variant={(shopVariantTrading === "Menu") ? "secondary" : "light"}
+									onClick={() => setShopVariantTrading("Menu")}
+								>
+									<FormattedMessage id='iWantMenu' />
+								</Button>
+							</OverlayTrigger>
+						</Form.Group>
+
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='nameShop' /><b> * </b>
+									<FormattedMessage
+										id='nameShop'
+										values={{total: shopVariantTrading}}
+									/><b> * </b>
 								</span>
 							</div>
 							<Form.Control
@@ -345,7 +395,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="text"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterNameShop'})}
+								placeholder={formatMessage({id: 'enterNameShop'})}
 								value={values.shop_name}
 								name='shop_name'
 								onBlur={handleBlur}
@@ -362,38 +412,43 @@ export const SignUp = () => {
 								</Form.Control.Feedback>
 							)}
 						</Form.Group>
+
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
 									<FormattedMessage id='allowYourCustomersVisitOtherStoresOfThisPlatform' />
 								</span>
 							</div>
-						<Form.Check
-							type="checkbox"
-							id="custom-switch"
-							name='open_shop'
-							value={values?.open_shop}
-							onBlur={handleBlur}
-							defaultChecked
-							className='customCheckbox'
-							label={values?.open_shop
-								?
-								<FormattedMessage id='yes' />
-								:
-								<FormattedMessage id='no' />}
-							onChange={(e) => {
-								console.log(e.target.value)
-								handleChange(e);
-								formDateUpdateHandler({
-									[e.target.name]: e.target.value
-								})
-							}}
-						/>
+							<Form.Check
+								type="checkbox"
+								id="custom-switch"
+								name='open_shop'
+								value={values?.open_shop}
+								onBlur={handleBlur}
+								defaultChecked
+								className='customCheckbox'
+								label={values?.open_shop
+									?
+									<FormattedMessage id='yes' />
+									:
+									<FormattedMessage id='no' />}
+								onChange={(e) => {
+									console.log(e.target.value)
+									handleChange(e);
+									formDateUpdateHandler({
+										[e.target.name]: e.target.value
+									})
+								}}
+							/>
 						</Form.Group>
+
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='descriptionShop' />
+									<FormattedMessage
+										id='descriptionShop'
+										values={{total: shopVariantTrading}}
+									/>
 								</span>
 							</div>
 							<Form.Control
@@ -402,7 +457,7 @@ export const SignUp = () => {
 								} registrationShop-form_input registrationShop-form_description`}
 								as="textarea"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterDescriptionShop'})}
+								placeholder={formatMessage({id: 'enterDescriptionShop'})}
 								value={values.description}
 								name='description'
 								onBlur={handleBlur}
@@ -422,7 +477,10 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='shopLink' />
+									<FormattedMessage
+										id='shopLink'
+										values={{total: shopVariantTrading}}
+									/>
 								</span>
 							</div>
 							<Form.Control
@@ -431,7 +489,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="text"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterEnterShopLink'})}
+								placeholder={formatMessage({id: 'enterEnterShopLink'})}
 								value={values.shop_link}
 								name='shop_link'
 								onBlur={handleBlur}
@@ -451,7 +509,10 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='shopFacebook' />
+									<FormattedMessage
+										id='shopFacebook'
+										values={{total: shopVariantTrading}}
+									/>
 								</span>
 							</div>
 							<Form.Control
@@ -460,7 +521,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="text"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterEnterShopFacebook'})}
+								placeholder={formatMessage({id: 'enterEnterShopFacebook'})}
 								value={shopFacebook}
 								onBlur={handleBlur}
 								name='shop_facebook'
@@ -478,7 +539,10 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='shopViber' />
+									<FormattedMessage
+										id='shopViber'
+										values={{total: shopVariantTrading}}
+									/>
 								</span>
 							</div>
 							<Form.Control
@@ -487,7 +551,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="text"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterEnterShopViber'})}
+								placeholder={formatMessage({id: 'enterEnterShopViber'})}
 								value={shopViber}
 								name='shop_viber'
 								onBlur={handleBlur}
@@ -505,7 +569,10 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='shopTelegram' />
+									<FormattedMessage
+										id='shopTelegram'
+										values={{total: shopVariantTrading}}
+									/>
 								</span>
 							</div>
 							<Form.Control
@@ -514,7 +581,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="text"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterEnterShopTelegram'})}
+								placeholder={formatMessage({id: 'enterEnterShopTelegram'})}
 								value={shopTelegram}
 								name='shop_telegram'
 								onBlur={handleBlur}
@@ -532,7 +599,10 @@ export const SignUp = () => {
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
-									<FormattedMessage id='shopInstagram' />
+									<FormattedMessage
+										id='shopInstagram'
+										values={{total: shopVariantTrading}}
+									/>
 								</span>
 							</div>
 							<Form.Control
@@ -541,7 +611,7 @@ export const SignUp = () => {
 								} registrationShop-form_input`}
 								type="text"
 								autoComplete='on'
-								placeholder={formatMessage ({id: 'enterEnterShopInstagram'})}
+								placeholder={formatMessage({id: 'enterEnterShopInstagram'})}
 								value={shopInstagram}
 								name='shop_instagram'
 								onBlur={handleBlur}

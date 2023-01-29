@@ -116,8 +116,10 @@ const EditProfile = ({
 				text_color: "",
 				background_color: "",
 				typeQr: ""
-			}
+			},
+			variant_trading: user?.variant_trading
 		}
+		console.log(formDate)
 		try {
 			const {data} = await updateUser(formDate)
 			dispatch(setUser(data.isUser))
@@ -322,7 +324,7 @@ const EditProfile = ({
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='nameShop' />
+										<FormattedMessage id='nameShop' values={{total: user?.variant_trading}}/>
 									</span>
 									<Form.Control
 										className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
@@ -371,7 +373,7 @@ const EditProfile = ({
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='descriptionShop' />
+										<FormattedMessage id='descriptionShop' values={{total: user?.variant_trading}}/>
 									</span>
 									<Form.Control
 										className={`pe-5  ${touched.description ? "is-touch " : ""} ${
@@ -398,7 +400,7 @@ const EditProfile = ({
 								{
 									user.shop_link && <li className="editProfile-body_content-text">
 										<span>
-											<FormattedMessage id='shopLink' />
+											<FormattedMessage id='shopLink' values={{total: user?.variant_trading}}/>
 										</span>
 										<Form.Control
 											className={`pe-5  ${touched.shop_link ? "is-touch " : ""} ${

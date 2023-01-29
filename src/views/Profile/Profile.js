@@ -60,14 +60,14 @@ const Profile = ({
 						</li>
 						<li className="profile-body_content-text">
 							<span>
-								<FormattedMessage id='nameShop' />
+								<FormattedMessage id='nameShop' values={{total: user?.variant_trading}}/>
 							</span>
 							<p>{user?.shop_name}</p>
 						</li>
 						{
 							user?.description && <li className="profile-body_content-text">
 								<span>
-									<FormattedMessage id='descriptionShop' />
+									<FormattedMessage id='descriptionShop' values={{total: user?.variant_trading}}/>
 								</span>
 								<p className='profile-body_content-text_description'>
 									{user?.description}
@@ -77,7 +77,7 @@ const Profile = ({
 						{
 							user?.shop_link && <li className="profile-body_content-text">
 								<span>
-									<FormattedMessage id='shopLink' />
+									<FormattedMessage id='shopLink' values={{total: user?.variant_trading}}/>
 								</span>
 								<a href={`https://${user?.shop_link}`}>{user?.shop_link}</a>
 							</li>

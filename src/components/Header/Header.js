@@ -57,7 +57,10 @@ const Header = () => {
 				</span>
 				</div>
 				<span className='header-link'>
-				<FormattedMessage id='shopLink' />
+				<FormattedMessage
+					id='shopLink'
+					values={{total: user?.variant_trading}}
+				/>
 				<a
 					href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
 					target="_blank"
@@ -100,7 +103,10 @@ const Header = () => {
 								<span className="header-mob_left_status">{user?.shop_name}</span>
 							</div>
 							<span className='header-mob_link'>
-								<FormattedMessage id='shopLink' />
+								<FormattedMessage
+									id='shopLink'
+									values={{total: user?.variant_trading}}
+								/>
 								<a
 									href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
 									target="_blank"
