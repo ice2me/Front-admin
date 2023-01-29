@@ -45,7 +45,7 @@ export default function ModalCard({
 	const [image, setImage] = useState(null)
 	const [imageName, setImageName] = useState('')
 	const [isEdit, setIsEdit] = useState(false)
-	const { formatMessage } = useIntl()
+	const {formatMessage} = useIntl()
 
 	const [addItem, {isLoading: isAddItemLoader}] = useAddItemMutation()
 	const [patchItemProduct, {isLoading: isPatchItemProduct}] = usePatchItemProductMutation()
@@ -149,7 +149,7 @@ export default function ModalCard({
 							className='modalAddCard-form_addPhoto'
 						>
 							<Form.Label>
-								<span>{image ? imageName : <FormattedMessage id='addPhotoProduct' /> }</span>
+								<span>{image ? imageName : <FormattedMessage id='addPhotoProduct' />}</span>
 							</Form.Label>
 							<Form.Control
 								type="file"
@@ -218,7 +218,10 @@ export default function ModalCard({
 								name='unit_product'
 								value={editItemProductCard ? form?.unit_product : form?.unit_product}
 							>
-								<option value={formatMessage({id: 'piece'})} defaultChecked>
+								<option
+									value={formatMessage({id: 'piece'})}
+									defaultChecked
+								>
 									<FormattedMessage id='piece' />
 								</option>
 								<option value={formatMessage({id: 'kilogram'})}>
@@ -292,21 +295,32 @@ export default function ModalCard({
 							src={image || productImg}
 							alt="image"
 						/>
-						<h3>{form?.name_product || <FormattedMessage id='nameProduct' /> }</h3>
+						<h3>{form?.name_product || <FormattedMessage id='nameProduct' />}</h3>
 						<p>
-							{form?.description_product || <FormattedMessage id='loremText' /> }
+							{form?.description_product}
 						</p>
 						<span>
-						<FormattedMessage id='unitFor' /> <span>
+							<FormattedMessage
+								id='unitFor'
+								values={{
+									unit: form?.unit_product === 'gram' ||
+									form?.unit_product === 'грам' ||
+									form?.unit_product === 'milliliter' ||
+									form?.unit_product === 'мілілітр'
+										? '100'
+										: '1'
+								}}
+							/>
+							<span>
 							{form?.unit_product || <FormattedMessage id='piece' />}
 						</span>
 					</span>
 						<span>
 						<FormattedMessage id='price' />
 							<span
-							className='home-body_item-price'
-						>{form?.price_product || '99'} {form?.currency_product ||
-							'₴'}</span>
+								className='home-body_item-price'
+							>{form?.price_product || '99'} {form?.currency_product ||
+								'₴'}</span>
 					</span>
 						<div className="modalAddCard-available">
 							<span>

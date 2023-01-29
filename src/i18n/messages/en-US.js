@@ -82,7 +82,7 @@ export default {
 		createProductCard: 'Create Product Card',
 		editProductCard: 'Edit Product Card',
 		deleteProductCard: 'Delete Product Card',
-		unitFor: 'Unit for 1: ',
+		unitFor: 'Unit for {unit}: ',
 		price: 'Price: ',
 		available: 'Available: ',
 		addPhotoProduct: 'Add Photo product',

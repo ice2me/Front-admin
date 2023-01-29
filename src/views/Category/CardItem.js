@@ -5,7 +5,10 @@ import pencilEdit from "../../assets/icons/pencilEdit.svg"
 import deleteCard from "../../assets/icons/delete.svg"
 import ModalDelete from "../../components/Modal/ModalDelete"
 import { useState } from "react"
-import { useIntl } from "react-intl"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 
 const CardItem = ({
 	item,
@@ -46,17 +49,29 @@ const CardItem = ({
 				}
 
 				<span>
-					{formatMessage ({id: 'unitFor'})} <span><b>{item?.unit_product}</b>
+					<FormattedMessage
+						id='unitFor'
+						values={{
+							unit:
+								item?.unit_product === 'gram' ||
+								item?.unit_product === 'грам' ||
+								item?.unit_product === 'milliliter' ||
+								item?.unit_product === 'мілілітр'
+									? '100'
+									: '1'
+						}}
+					/>
+					<span><b>{item?.unit_product}</b>
 				</span>
 					</span>
 				<span>
-						{formatMessage ({id: 'price'})} <span className='category-body_item-price'>
+						{formatMessage({id: 'price'})} <span className='category-body_item-price'>
 					<b>{item?.price_product}.00 {item?.currency_product}</b>
 					</span>
 					</span>
 				<div className="category-body_available">
 					<span>
-						{formatMessage ({id: 'available'})}
+						{formatMessage({id: 'available'})}
 					</span>
 					{
 						isPatchAvailableItemProductLoading &&
@@ -87,7 +102,7 @@ const CardItem = ({
 					<img
 						src={pencilEdit}
 						alt="edit"
-						title={formatMessage ({id: 'editProductCard'})}
+						title={formatMessage({id: 'editProductCard'})}
 					/>
 				</button>
 				<button
@@ -97,7 +112,7 @@ const CardItem = ({
 					<img
 						src={deleteCard}
 						alt="delete"
-						title={formatMessage ({id: 'deleteProductCard'})}
+						title={formatMessage({id: 'deleteProductCard'})}
 					/>
 				</button>
 			</li>
