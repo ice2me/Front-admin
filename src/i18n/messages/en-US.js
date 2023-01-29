@@ -25,6 +25,8 @@ export default {
 		no: "No",
 		iWantShop: 'I want Shop',
 		iWantMenu: 'I want Menu',
+		ifYouChooseShopYourCustomers: 'If you choose a Shop - your customers will be able to order online!',
+		ifYouChooseMenuYourCustomers: 'If you choose a Menu - your customers will NOT be able to order online!',
 		shopLink: '{total} Link: ',
 		enterEnterShopLink: 'Enter Link',
 		shopFacebook: '{total} Facebook: ',
