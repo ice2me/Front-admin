@@ -6,11 +6,10 @@ import {
 import {
 	useDeleteCategoryMutation,
 	useDeleteItemProductMutation,
-	useUpdateCategoryNameMutation
 } from "../../redux/services/categoriesApi"
 import { toast } from "react-toastify"
-import LoaderForButton from "../Loader/LoaderForButton"
 import { FormattedMessage } from "react-intl";
+import Loader from "../Loader/Loader";
 
 const ModalDelete = ({
 	show,
@@ -36,6 +35,10 @@ const ModalDelete = ({
 		} catch (e) {
 			console.log(e)
 		}
+	}
+
+	if (isLoading) {
+		return <Loader />
 	}
 
 	return (
@@ -66,7 +69,7 @@ const ModalDelete = ({
 					}}
 					onClick={() => deleteHandler(content.id)}
 				>
-					{isLoading ? <LoaderForButton /> : <FormattedMessage id='delete' />}
+					<FormattedMessage id='delete' />
 				</Button>
 				<Button onClick={() => onHide(false)}>
 					<FormattedMessage id='close' />

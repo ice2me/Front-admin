@@ -19,13 +19,13 @@ import {
 	useRegisterUserMutation,
 } from "../../redux/services/authApi"
 import { APP_ROUTE } from "../../utils/constants"
-import LoaderForButton from "../../components/Loader/LoaderForButton"
 import { useDispatch } from "react-redux"
 import { setUser } from "../../redux/slices/userSlice"
 import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
+import Loader from "../../components/Loader/Loader";
 
 export const SignUp = () => {
 
@@ -122,7 +122,11 @@ export const SignUp = () => {
 				<FormattedMessage id={shopVariantTrading === "Shop" ? 'ifYouChooseShopYourCustomers' : 'ifYouChooseMenuYourCustomers'} />
 			</Popover.Body>
 		</Popover>
-	);
+	)
+
+	if (isRegisterUserLoading) {
+		return <Loader />
+	}
 
 	return (
 		<div className='registrationShop'>
@@ -634,7 +638,7 @@ export const SignUp = () => {
 						>
 							<span>
 								<FormattedMessage id='signUp' />
-							</span> {isRegisterUserLoading && <LoaderForButton />}
+							</span>
 						</button>
 					</Form>
 				)}

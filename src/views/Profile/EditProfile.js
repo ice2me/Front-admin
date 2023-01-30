@@ -26,11 +26,11 @@ import {
 	useUpdateUserMutation
 } from "../../redux/services/authApi"
 import { getUpdateUserSchema } from "../../utils/validation/yupUpdateUser"
-import LoaderForButton from "../../components/Loader/LoaderForButton"
 import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
+import Loader from "../../components/Loader/Loader";
 
 const EditProfile = ({
 	user,
@@ -123,7 +123,8 @@ const EditProfile = ({
 			dispatch(setUser(data.isUser))
 			if (data.isUser && !data.error) {
 				toast(data?.message)
-				navigate(APP_ROUTE.CATEGORIES_LIST)
+				navigate(APP_ROUTE.PROFILE)
+				setOpenEditProfile(false)
 			} else {
 				toast(
 					data?.error.username ||
@@ -153,6 +154,10 @@ const EditProfile = ({
 		// toast(data?.message || data.error.message)
 		// logout()
 		// navigate(APP_ROUTE.LOGIN)
+	}
+
+	if (isLoading) {
+		return <Loader />
 	}
 
 	return (
@@ -536,7 +541,7 @@ const EditProfile = ({
 							>
 								<span>
 									<FormattedMessage id='save' />
-								</span> {isLoading && <LoaderForButton />}
+								</span>
 							</button>
 							{/*<button*/}
 							{/*	className="editProfile-body_content_button"*/}

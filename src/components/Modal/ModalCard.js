@@ -12,7 +12,6 @@ import {
 	useAddItemMutation,
 	usePatchItemProductMutation
 } from "../../redux/services/categoriesApi"
-import LoaderForButton from "../Loader/LoaderForButton"
 import Resizer from "react-image-file-resizer"
 import delImage from '../../assets/icons/delete.svg'
 import { toast } from "react-toastify"
@@ -20,6 +19,7 @@ import {
 	FormattedMessage,
 	useIntl
 } from "react-intl";
+import Loader from "../Loader/Loader";
 
 
 const initialState = {
@@ -123,7 +123,9 @@ export default function ModalCard({
 			50
 		)
 	}
-
+if (isLoading) {
+	return <Loader />
+}
 	return (
 		<Modal
 			show={show}
@@ -353,7 +355,7 @@ export default function ModalCard({
 					onClick={onSubmitForm}
 					disabled={!isEdit}
 				>
-					{isLoading ? <LoaderForButton /> : <FormattedMessage id='save' />}
+					<FormattedMessage id='save' />
 				</Button>
 			</Modal.Footer>
 		</Modal>

@@ -4,7 +4,6 @@ import {
 	Form,
 	Modal
 } from "react-bootstrap"
-import LoaderForButton from "../Loader/LoaderForButton"
 import {
 	useCreateCategoriesMutation,
 	useUpdateCategoryNameMutation
@@ -14,6 +13,7 @@ import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
+import Loader from "../Loader/Loader"
 
 const ModalSaveCategory = ({
 	show,
@@ -53,6 +53,11 @@ const ModalSaveCategory = ({
 		}
 
 	}
+
+	if (isLoading) {
+		return <Loader />
+	}
+
 	return (
 		<Modal
 			show={show}
@@ -93,7 +98,7 @@ const ModalSaveCategory = ({
 						alignItems: 'center'
 					}}
 				>
-					{isLoading ? <LoaderForButton /> : <FormattedMessage id='addCategory' />}
+					 <FormattedMessage id='addCategory' />
 				</Button>
 			</Modal.Footer>
 		</Modal>

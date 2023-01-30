@@ -12,11 +12,11 @@ import eye from "../../assets/icons/eye.svg"
 import eyeBlocked from "../../assets/icons/eye-blocked.svg"
 import { getLoginWithEmailSchema } from "../../utils/validation/yupLoginEmail"
 import { Formik } from "formik"
-import LoaderForButton from "../../components/Loader/LoaderForButton"
 import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
+import Loader from "../../components/Loader/Loader";
 
 export const SignIn = () => {
 	const [email, setEmail] = useState('')
@@ -56,6 +56,10 @@ export const SignIn = () => {
 		} else {
 			setPasswordType("password")
 		}
+	}
+
+	if (isLoginLoading) {
+		return <Loader />
 	}
 	
 	return (
@@ -162,7 +166,7 @@ export const SignIn = () => {
 						>
 							<span>
 								<FormattedMessage id='signIn' />
-							</span> { isLoginLoading && <LoaderForButton /> }
+							</span>
 						</button>
 					</Form>
 				) }

@@ -1,5 +1,4 @@
 import productImg from "../../assets/images/happySocks.png"
-import LoaderForButton from "../../components/Loader/LoaderForButton"
 import { Form } from "react-bootstrap"
 import pencilEdit from "../../assets/icons/pencilEdit.svg"
 import deleteCard from "../../assets/icons/delete.svg"
@@ -9,6 +8,7 @@ import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
+import Loader from "../../components/Loader/Loader";
 
 const CardItem = ({
 	item,
@@ -23,6 +23,10 @@ const CardItem = ({
 	const {formatMessage} = useIntl()
 	const showModal = () => setModalShow(true)
 	const hideModal = () => setModalShow(false)
+
+	if (isPatchAvailableItemProductLoading) {
+		return <Loader />
+	}
 
 	return (
 		<>
@@ -73,12 +77,6 @@ const CardItem = ({
 					<span>
 						{formatMessage({id: 'available'})}
 					</span>
-					{
-						isPatchAvailableItemProductLoading &&
-						<div className='small-loader'>
-							<LoaderForButton />
-						</div>
-					}
 					<Form.Check
 						type="switch"
 						id="example-checked12"
