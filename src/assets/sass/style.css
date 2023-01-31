@@ -583,7 +583,7 @@
   justify-content: flex-start;
   padding: 30px;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 992px) {
   .profile-body {
     height: 85%;
     flex-direction: column;
@@ -666,7 +666,12 @@
 }
 .profile-body_content-text span, .profile-body_content-text p, .profile-body_content-text a {
   max-width: 380px;
-  min-height: 21px;
+  min-height: 30px;
+}
+@media screen and (max-width: 992px) {
+  .profile-body_content-text span, .profile-body_content-text p, .profile-body_content-text a {
+    min-height: 21px;
+  }
 }
 .profile-body_content-text p {
   overflow: auto;
