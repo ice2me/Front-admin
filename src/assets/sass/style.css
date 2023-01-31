@@ -638,7 +638,7 @@
 }
 .profile-body_content {
   width: 100%;
-  font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1440 - 320)));
 }
 @media screen and (max-width: 480px) {
   .profile-body_content {
