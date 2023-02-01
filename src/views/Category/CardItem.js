@@ -48,9 +48,10 @@ const CardItem = ({
 					alt="photo product"
 				/>
 				<h3>{item?.name_product}</h3>
-				{
-					item?.description_product && <p>{item?.description_product}</p>
-				}
+				<div className='category-body_item-description'>
+					<span><FormattedMessage id='description' /> </span>
+					<p>{item?.description_product ? item?.description_product : ''}</p>
+				</div>
 
 				<span>
 					<FormattedMessage

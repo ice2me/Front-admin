@@ -9,9 +9,7 @@ export const APP_ROUTE = {
 	CONTACT_SUPPORT: '/contact-support'
 }
 
-// export const LINK_FOR_CLIENT = 'http://localhost:3001/'
-export const LINK_FOR_CLIENT = 'http://localhost:8080/'
-
+export const LINK_FOR_CLIENT = 'http://client.theke.com.ua/'
 
 export const AUTH_API = {
 	SIGNUP: "/auth/register",

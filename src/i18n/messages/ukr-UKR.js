@@ -82,6 +82,7 @@ export default {
 		createProductCard: 'Створити картки товарів',
 		editProductCard: 'Редагувати картку товару',
 		deleteProductCard: 'Видалити картку продукту',
+		description: 'Опис продукту',
 		unitFor: 'За {unit}: ',
 		price: 'Ціна: ',
 		available: 'В наявності: ',

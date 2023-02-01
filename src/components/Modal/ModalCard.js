@@ -123,9 +123,9 @@ export default function ModalCard({
 			50
 		)
 	}
-if (isLoading) {
-	return <Loader />
-}
+	if (isLoading) {
+		return <Loader />
+	}
 	return (
 		<Modal
 			show={show}
@@ -299,7 +299,7 @@ if (isLoading) {
 						/>
 						<h3>{form?.name_product || <FormattedMessage id='nameProduct' />}</h3>
 						<p>
-							{form?.description_product}
+							{form?.description_product || <FormattedMessage id='loremText' /> }
 						</p>
 						<span>
 							<FormattedMessage

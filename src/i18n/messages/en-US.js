@@ -82,6 +82,7 @@ export default {
 		createProductCard: 'Create Product Card',
 		editProductCard: 'Edit Product Card',
 		deleteProductCard: 'Delete Product Card',
+		description: 'Description Product',
 		unitFor: 'Unit for {unit}: ',
 		price: 'Price: ',
 		available: 'Available: ',
@@ -111,3 +112,4 @@ export default {
 
 	}
 }
+
