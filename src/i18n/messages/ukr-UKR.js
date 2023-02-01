@@ -108,6 +108,24 @@ export default {
 		contactSupportMessage2: 'щодо покращення - ви можете написати мені.',
 		// ******************************************************** Profile
 		profile: 'Профіль',
-		editProfile: 'Редагувати профіль'
+		editProfile: 'Редагувати профіль',
+		// ******************************************************** HOME
+		getStarted: 'Розпочати',
+		stopPrepping: 'Припиніть готуватися.',
+		startDoing: 'Почніть займатися своєю справою.',
+		createYourOnlineStoreEasilyStartEarningToday: 'Створи свій онлайн-магазин легко та активуй свій бізнес вже сьогодні.',
+		learnMore: 'Дізнатися більше',
+		TiredOfNotDoing: 'Втомився не робити',
+		whatImportant: "що важливо.",
+		yourBusinessNotOnline: 'Ваш бізнес не в Інтернеті.',
+		yourCustomerBaseIsNotGrowing: 'Ваша клієнтська база не зростає.',
+		youCannotQuicklyPresentYourProductClient: 'Ви не можете швидко представити свій продукт клієнту.',
+		youSpendLotTimeTakingOrdersFromEachClient: 'Ви витрачаєте багато часу на прийом замовлень від кожного клієнта.',
+		theresBetterWay: 'Є кращий спосіб.',
+		easeOfUse: 'Простота використання.',
+		speed: 'Швидкість.',
+		benefit: 'Вигода.',
+		fastCommunicationWithClients: 'Прямий зв\'язок із клієнтом.',
+		seeHowItWorks: 'Дивись, як це працює',
 	}
 }

@@ -108,8 +108,25 @@ export default {
 		contactSupportMessage2: 'for improvement - you can write to me.',
 		// ******************************************************** Profile
 		profile: 'Profile',
-		editProfile: 'Edit Profile'
-
+		editProfile: 'Edit Profile',
+		// ******************************************************** HOME
+		getStarted: 'Get Started',
+		stopPrepping: 'Stop prepping.',
+		startDoing: 'Start doing your business.',
+		createYourOnlineStoreEasilyStartEarningToday: 'Create your online store easily and activate your business today.',
+		learnMore: 'Learn more',
+		TiredOfNotDoing: 'Tired of not doing',
+		whatImportant: "what's important.",
+		yourBusinessNotOnline: 'Your business is not online.',
+		yourCustomerBaseIsNotGrowing: 'Your customer base is not growing.',
+		youCannotQuicklyPresentYourProductClient: 'You cannot quickly present your product to a client.',
+		youSpendLotTimeTakingOrdersFromEachClient: 'You spend a lot of time taking orders from each client.',
+		theresBetterWay: 'There\`s a better way.',
+		easeOfUse: 'Ease of use.',
+		speed: 'Speed',
+		benefit: 'Benefit',
+		fastCommunicationWithClients: 'Direct communication with the client.',
+		seeHowItWorks: 'See How It Works',
 	}
 }
 

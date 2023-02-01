@@ -7,6 +7,7 @@ import blockX from '../../assets/images/blockX.png'
 import checkedImg from '../../assets/images/checked.png'
 import { useNavigate } from "react-router-dom"
 import { APP_ROUTE } from "../../utils/constants"
+import { FormattedMessage } from "react-intl";
 
 const Home = () => {
 	const navigate = useNavigate()
@@ -29,7 +30,7 @@ const Home = () => {
 							variant="primary"
 							onClick={transferSingIn}
 						>
-							Get Started
+							<FormattedMessage id='getStarted' />
 						</Button>
 					</div>
 				</Navbar>
@@ -37,14 +38,15 @@ const Home = () => {
 				<div className="home-firstBlock">
 					<div className="home-firstBlock_title">
 						<h1>
-							Stop prepping.<br />
-							Start doing.
+							<FormattedMessage id='stopPrepping' />
+							<br />
+							<FormattedMessage id='startDoing' />
 						</h1>
 						<p>
-							Create your online store easily and start earning today.
+							<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday' />
 						</p>
 						<button>
-							Learn more
+							<FormattedMessage id='learnMore' />
 						</button>
 					</div>
 					<div className="home-firstBlock_image"></div>
@@ -53,8 +55,8 @@ const Home = () => {
 					<div className="home-secondBlock_image"></div>
 					<div className="home-secondBlock_title">
 						<h2>
-							Tired of not doing<br />
-							what's important.
+							<FormattedMessage id='TiredOfNotDoing' /> <br />
+							<FormattedMessage id='whatImportant' />
 						</h2>
 						<ul className='home-secondBlock_list'>
 							<li className="home-secondBlock_list-li">
@@ -63,7 +65,7 @@ const Home = () => {
 									alt="x"
 								/>
 								<span>
-									line one
+									<FormattedMessage id='yourBusinessNotOnline' />
 								</span>
 							</li>
 							<li className="home-secondBlock_list-li">
@@ -72,7 +74,7 @@ const Home = () => {
 									alt="x"
 								/>
 								<span>
-									line two
+									<FormattedMessage id='yourCustomerBaseIsNotGrowing' />
 								</span>
 							</li>
 							<li className="home-secondBlock_list-li">
@@ -81,7 +83,7 @@ const Home = () => {
 									alt="x"
 								/>
 								<span>
-									line there
+									<FormattedMessage id='youCannotQuicklyPresentYourProductClient' />
 								</span>
 							</li>
 							<li className="home-secondBlock_list-li">
@@ -90,19 +92,19 @@ const Home = () => {
 									alt="x"
 								/>
 								<span>
-									line four
+									<FormattedMessage id='youSpendLotTimeTakingOrdersFromEachClient' />
 								</span>
 							</li>
 						</ul>
 						<button onClick={transferSingIn}>
-							Get Started
+							<FormattedMessage id='getStarted' />
 						</button>
 					</div>
 				</div>
 				<div className="home-thirdBlock">
 					<div className="home-thirdBlock_left">
 						<h2 className="home-thirdBlock_left-title">
-							There`s a better way.
+							<FormattedMessage id='theresBetterWay' />
 						</h2>
 						<ul className="home-thirdBlock_left-list">
 							<li className="home-thirdBlock_left-list_li">
@@ -111,7 +113,7 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									Lorem ipsum dolor sit amet.
+									<FormattedMessage id='easeOfUse' />
 								</span>
 							</li>
 							<li className="home-thirdBlock_left-list_li">
@@ -120,7 +122,7 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									Lorem ipsum dolor sit amet, consectetur adipisicing.
+									<FormattedMessage id='speed' />
 								</span>
 							</li>
 							<li className="home-thirdBlock_left-list_li">
@@ -129,7 +131,16 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									Lorem ipsum dolor sit amet, consectetur.
+									<FormattedMessage id='benefit' />
+								</span>
+							</li>
+							<li className="home-thirdBlock_left-list_li">
+								<img
+									src={checkedImg}
+									alt="checked image"
+								/>
+								<span>
+									<FormattedMessage id='fastCommunicationWithClients' />
 								</span>
 							</li>
 						</ul>
@@ -137,7 +148,7 @@ const Home = () => {
 							className="home-thirdBlock_left-button"
 							onClick={transferSingIn}
 						>
-							Get Started
+							<FormattedMessage id='getStarted' />
 						</button>
 					</div>
 					<div className="home-thirdBlock_right"></div>
@@ -192,7 +203,8 @@ const Home = () => {
 							Theke
 						</h3>
 						<span className="home-sixthBlock_block-price">
-							$49/mo.
+							{/*$49/mo.*/}
+							$0/mo.
 						</span>
 						<p className="home-sixthBlock_block-description">
 							Get the motivation and accountability you need to get real work done.
