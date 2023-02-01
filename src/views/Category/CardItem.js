@@ -8,7 +8,8 @@ import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../components/Loader/Loader"
+import close from '../../assets/icons/exit.svg'
 
 const CardItem = ({
 	item,
@@ -20,6 +21,7 @@ const CardItem = ({
 	setEditItemProductCard
 }) => {
 	const [modalShow, setModalShow] = useState(false)
+	const [showDescription, setShowDescription] = useState(false)
 	const {formatMessage} = useIntl()
 	const showModal = () => setModalShow(true)
 	const hideModal = () => setModalShow(false)
@@ -48,10 +50,33 @@ const CardItem = ({
 					alt="photo product"
 				/>
 				<h3>{item?.name_product}</h3>
-				<div className='category-body_item-description'>
-					<span><FormattedMessage id='description' /> </span>
-					<p>{item?.description_product ? item?.description_product : ''}</p>
-				</div>
+
+				{
+					item?.description_product
+						?
+						<div
+							className='category-body_item-description'
+							onClick={() => setShowDescription(true)}
+						>
+							<span><FormattedMessage id='description' /> </span>
+							<div style={{zIndex: showDescription ? '999' : '-1'}}>
+								<button
+									onClick={(e) => {
+										e.stopPropagation()
+										setShowDescription(false)
+									}}
+								>
+									<img
+										src={close}
+										alt="close"
+									/>
+								</button>
+								{item?.description_product ? item?.description_product : ''}
+							</div>
+						</div>
+						:
+						<div className='category-body_item-description'></div>
+				}
 
 				<span>
 					<FormattedMessage

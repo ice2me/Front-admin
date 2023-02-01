@@ -9,7 +9,7 @@ export const APP_ROUTE = {
 	CONTACT_SUPPORT: '/contact-support'
 }
 
-export const LINK_FOR_CLIENT = 'http://client.theke.com.ua/'
+export const LINK_FOR_CLIENT = 'https://client.theke.com.ua/'
 
 export const AUTH_API = {
 	SIGNUP: "/auth/register",

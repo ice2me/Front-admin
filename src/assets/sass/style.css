@@ -1495,6 +1495,7 @@ input[type=file] {
   padding: 5px 0;
   overflow: hidden;
   position: relative;
+  background-color: #fff;
 }
 .category-body_item img {
   min-height: 100px;
@@ -1525,24 +1526,38 @@ input[type=file] {
 }
 .category-body_item-description {
   width: 100%;
-  height: 100%;
   padding: 0 10px;
 }
-.category-body_item-description p {
+.category-body_item-description span {
+  cursor: pointer;
+}
+.category-body_item-description div {
   position: absolute;
   background-color: #fff;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: -1;
   overflow-y: auto;
   font-size: 14px;
-  padding: 0 5px;
-  margin: 0 0 15px 0;
+  padding: 10px;
+  margin: 0;
   hyphens: auto;
   word-break: break-all;
-  line-height: 1.2;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+.category-body_item-description button {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+.category-body_item-description button img {
+  min-height: 25px;
+  width: 20px;
+  height: 20px;
 }
 .category-body_counter {
   display: flex;
