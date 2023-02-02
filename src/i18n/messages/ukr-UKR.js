@@ -41,6 +41,7 @@ export default {
 		myProducts: 'Мої товари',
 		myProfile: 'Мій профіль',
 		contactSupport: 'Служба підтримки',
+		share: 'Поділіться',
 		// ******************************************************** form validation
 		nameIsRequiredField: "Ім'я є обов'язковим полем",
 		usernameLengthMax: "Ім'я користувача має містити не більше 65 символів",

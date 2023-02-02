@@ -24,9 +24,20 @@ import contactSupport from "../../assets/icons/contact-support-icon.svg";
 import React, { useState } from "react";
 import {
 	Container,
+	Dropdown,
 	Nav,
 	Navbar
 } from "react-bootstrap";
+import {
+	FacebookIcon,
+	FacebookShareButton,
+	InstapaperIcon,
+	InstapaperShareButton,
+	TelegramIcon,
+	TelegramShareButton,
+	ViberIcon,
+	ViberShareButton
+} from "react-share";
 
 const Header = () => {
 	const {user} = useSelector((state) => state.userStore)
@@ -56,15 +67,57 @@ const Header = () => {
 					{user?.shop_name}
 				</span>
 				</div>
+				<div className='header-link'>
+					<Dropdown className="d-inline mx-2">
+						<Dropdown.Toggle id="dropdown-autoclose-true" variant='secondary'>
+							<FormattedMessage id='share' />
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
+							{
+								user?.socials_links?.shop_facebook
+								&&
+								<FacebookShareButton
+									url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+									quote='shared from theke.com.ua'
+									hashtag='#theke'
+								>
+									<FacebookIcon />
+								</FacebookShareButton>
+							}
+							{
+								user?.socials_links?.shop_telegram
+								&&
+								<TelegramShareButton
+									url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+									title='shared from theke.com.ua'
+								>
+									<TelegramIcon />
+								</TelegramShareButton>
+							}
+							{
+								user?.socials_links?.shop_viber
+								&&
+								<ViberShareButton
+									url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+									// title='shared from theke.com.ua_____ '
+								>
+									<ViberIcon />
+								</ViberShareButton>
+							}
+						</Dropdown.Menu>
+					</Dropdown>
+				</div>
 				<span className='header-link'>
-				<FormattedMessage
-					id='shopLink'
-					values={{total: user?.variant_trading}}
-				/>
-				<a
-					href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-					target="_blank"
-				>{user?.shop_name}</a>
+					<FormattedMessage
+						id='shopLink'
+						values={{total: user?.variant_trading}}
+					/>
+					<a
+						href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+						target="_blank"
+					>
+						{user?.shop_name}
+					</a>
 				</span>
 				<button
 					onClick={logoutHandler}
@@ -78,6 +131,7 @@ const Header = () => {
 					Log Out
 				</button>
 			</div>
+			{/*TODO************************************MOB******************************** */}
 			<Navbar
 				bg="light"
 				expand="lg"
@@ -114,6 +168,46 @@ const Header = () => {
 									{user?.shop_name}
 								</a>
 							</span>
+							<div className='header-link'>
+								<Dropdown className="d-inline mx-2">
+									<Dropdown.Toggle id="dropdown-autoclose-true">
+										<FormattedMessage id='share' />
+									</Dropdown.Toggle>
+									<Dropdown.Menu>
+										{
+											user?.socials_links?.shop_facebook
+											&&
+											<FacebookShareButton
+												url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+												quote='shared from theke.com.ua'
+												hashtag='#theke'
+											>
+												<FacebookIcon />
+											</FacebookShareButton>
+										}
+										{
+											user?.socials_links?.shop_telegram
+											&&
+											<TelegramShareButton
+												url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+												title='shared from theke.com.ua'
+											>
+												<TelegramIcon />
+											</TelegramShareButton>
+										}
+										{
+											user?.socials_links?.shop_viber
+											&&
+											<ViberShareButton
+												url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+												// title='shared from theke.com.ua_____ '
+											>
+												<ViberIcon />
+											</ViberShareButton>
+										}
+									</Dropdown.Menu>
+								</Dropdown>
+							</div>
 							<div className="header-mob_center">
 								<ul className='header-mob_center-wrapper'>
 									<li

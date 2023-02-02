@@ -41,6 +41,7 @@ export default {
 		myProducts: 'My products',
 		myProfile: 'My Profile',
 		contactSupport: 'Contact Support',
+		share: 'Share',
 		// ******************************************************** form validation
 		nameIsRequiredField: 'Name is a required field',
 		usernameLengthMax: 'Username must be at most 65 characters',

@@ -61,6 +61,9 @@
     display: none;
   }
 }
+.header-link {
+  font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1440 - 320)));
+}
 .header-left {
   display: flex;
   align-items: center;
@@ -148,6 +151,19 @@
   width: 25px;
   height: 25px;
   margin-right: 10px;
+}
+
+.react-share__ShareButton {
+  margin: 3px;
+}
+.react-share__ShareButton svg {
+  width: 35px;
+  height: 35px;
+  border-radius: 50% !important;
+}
+
+.dropdown-menu.show {
+  display: flex !important;
 }
 
 .home {

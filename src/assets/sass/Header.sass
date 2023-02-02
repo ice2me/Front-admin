@@ -8,6 +8,7 @@
 		display: none
 
 	&-link
+		@include calc("font-size",14,12)
 		a
 
 	&-left
@@ -78,3 +79,13 @@
 					width: 25px
 					height: 25px
 					margin-right: 10px
+
+
+.react-share__ShareButton
+	margin: 3px
+	svg
+		width: 35px
+		height: 35px
+		border-radius: 50% !important
+.dropdown-menu.show
+	display: flex !important
