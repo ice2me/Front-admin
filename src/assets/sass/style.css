@@ -976,8 +976,8 @@ input[type=file] {
 .modalAddCard-wrapper {
   width: 250px;
   height: 350px;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
-  background-color: #D3E3FC;
+  box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,7 +7,7 @@ import blockX from '../../assets/images/blockX.png'
 import checkedImg from '../../assets/images/checked.png'
 import { useNavigate } from "react-router-dom"
 import { APP_ROUTE } from "../../utils/constants"
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl"
 
 const Home = () => {
 	const navigate = useNavigate()
