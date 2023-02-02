@@ -115,7 +115,7 @@ export default {
 		startDoing: 'Start doing your business.',
 		createYourOnlineStoreEasilyStartEarningToday: 'Create your online store easily and activate your business today.',
 		learnMore: 'Learn more',
-		TiredOfNotDoing: 'Tired of not doing',
+		tiredOfNotDoing: 'Tired of not doing',
 		whatImportant: "what's important.",
 		yourBusinessNotOnline: 'Your business is not online.',
 		yourCustomerBaseIsNotGrowing: 'Your customer base is not growing.',
@@ -127,6 +127,18 @@ export default {
 		benefit: 'Benefit',
 		fastCommunicationWithClients: 'Direct communication with the client.',
 		seeHowItWorks: 'See How It Works',
+		howItWorks: 'How it works?',
+		step1: 'Step 1',
+		createCategoryFillWithProductCards: 'Create a category and fill it with product cards of your store.',
+		step2: 'Step 2',
+		sendLinkYourStoreYourCustomersConvenientWay: 'Send a link to your store to your customers in any convenient way.',
+		step3: 'Step 3',
+		theClientClicksOnYourLinkAndMakesOrderYourStore: 'The client clicks on your link and makes an order in your store.',
+		becomeTheke: 'Subscribe to Theke.',
+		cost: 'Cost:',
+		priceTheke: '$0/month.',
+		subscribeThekeAndGetYourBusinessGrowingRightNow: 'Subscribe to Theke and get your business growing right now.',
+		viewPlansDetails: 'View Plans Details',
 	}
 }
 

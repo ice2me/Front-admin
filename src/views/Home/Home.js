@@ -8,6 +8,9 @@ import checkedImg from '../../assets/images/checked.png'
 import { useNavigate } from "react-router-dom"
 import { APP_ROUTE } from "../../utils/constants"
 import { FormattedMessage } from "react-intl"
+import step1 from '../../assets/images/step1.png'
+import step2 from '../../assets/images/step2.png'
+import step3 from '../../assets/images/step3.png'
 
 const Home = () => {
 	const navigate = useNavigate()
@@ -55,7 +58,7 @@ const Home = () => {
 					<div className="home-secondBlock_image"></div>
 					<div className="home-secondBlock_title">
 						<h2>
-							<FormattedMessage id='TiredOfNotDoing' /> <br />
+							<FormattedMessage id='tiredOfNotDoing' /> <br />
 							<FormattedMessage id='whatImportant' />
 						</h2>
 						<ul className='home-secondBlock_list'>
@@ -157,61 +160,72 @@ const Home = () => {
 					<div className="home-fourthBlock_wrapper">
 					</div>
 					<button className="home-fourthBlock_button">
-						See How It Works
+						<FormattedMessage id='seeHowItWorks' />
 					</button>
 				</div>
 				<div className="home-fifthBlock">
 					<h2 className="home-fifthBlock_title">
-						Motivated Mornings is a virtual coworking community proven to help you do the work.
+						<FormattedMessage id='howItWorks' />
 					</h2>
 					<div className="home-fifthBlock_wrapper">
 						<div className="home-fifthBlock_wrapper-block">
 							<h3 className="home-fifthBlock_wrapper-block_title">
-								Morning Kick-Off Calls
+								<FormattedMessage id='step1' />
 							</h3>
+							<img
+								className='home-fifthBlock_wrapper-block_step'
+								src={step1}
+								alt="step image"
+							/>
 							<p className="home-fifthBlock_wrapper-block_content">
-								Jumpstart each day with a 10min large group video call with an inspiring thought about creating. Stay
-								accountable and motivated. Offered Mon-Fri at 5am and 9am.
+								<FormattedMessage id='createCategoryFillWithProductCards' />
 							</p>
 						</div>
 						<div className="home-fifthBlock_wrapper-block">
 							<h3 className="home-fifthBlock_wrapper-block_title">
-								Morning Kick-Off Calls
+								<FormattedMessage id='step2' />
 							</h3>
+							<img
+								className='home-fifthBlock_wrapper-block_step'
+								src={step2}
+								alt="step image"
+							/>
 							<p className="home-fifthBlock_wrapper-block_content">
-								Jumpstart each day with a 10min large group video call with an inspiring thought about creating. Stay
-								accountable and motivated. Offered Mon-Fri at 5am and 9am.
+								<FormattedMessage id='sendLinkYourStoreYourCustomersConvenientWay' />
 							</p>
 						</div>
 						<div className="home-fifthBlock_wrapper-block">
 							<h3 className="home-fifthBlock_wrapper-block_title">
-								Morning Kick-Off Calls
+								<FormattedMessage id='step3' />
 							</h3>
+							<img
+								className='home-fifthBlock_wrapper-block_step'
+								src={step3}
+								alt="step image"
+							/>
 							<p className="home-fifthBlock_wrapper-block_content">
-								Jumpstart each day with a 10min large group video call with an inspiring thought about creating. Stay
-								accountable and motivated. Offered Mon-Fri at 5am and 9am.
+								<FormattedMessage id='theClientClicksOnYourLinkAndMakesOrderYourStore' />
 							</p>
 						</div>
 					</div>
 				</div>
 				<div className="home-sixthBlock">
 					<h2 className="home-sixthBlock_title">
-						Become a Theke.
+						<FormattedMessage id='becomeTheke' />
 					</h2>
 					<div className="home-sixthBlock_block">
 						<h3 className="home-sixthBlock_block-title">
-							Theke
+							<FormattedMessage id='cost' />
 						</h3>
 						<span className="home-sixthBlock_block-price">
-							{/*$49/mo.*/}
-							$0/mo.
+							<FormattedMessage id='priceTheke' />
 						</span>
 						<p className="home-sixthBlock_block-description">
-							Get the motivation and accountability you need to get real work done.
+							<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
 						</p>
 					</div>
 					<button className="home-sixthBlock_button">
-						View Plans Details
+						<FormattedMessage id='viewPlansDetails' />
 					</button>
 				</div>
 			</div>
