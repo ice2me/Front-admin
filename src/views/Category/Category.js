@@ -4,7 +4,8 @@ import {
 } from "react-redux"
 import React, {
 	useCallback,
-	useEffect
+	useEffect,
+	useMemo
 } from "react"
 import DropdownEdit from "../../components/DropdownEdit/DropdownEdit";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +31,7 @@ const Category = () => {
 
 	const categoriesListArr = useCallback(async () => {
 		await getCategories()
-	}, [categoriesList])
+	}, [])
 
 	useEffect(() => {
 		categoriesListArr()
@@ -78,7 +79,6 @@ const Category = () => {
 			<CategoryInpName />
 		</div>
 	)
-
 }
 
 export default Category
