@@ -24,12 +24,12 @@ const ModalDelete = ({
 		try {
 			if (content.where === 'product') {
 				const {data} = await deleteItemProduct(id)
-				toast(data?.message)
+				// toast(data?.message)
 				onHide(false)
 			}
 			if (content.where === 'category') {
 				const {data} = await deleteCategory(id)
-				toast(data?.message)
+				// toast(data?.message)
 				onHide(false)
 			}
 		} catch (e) {

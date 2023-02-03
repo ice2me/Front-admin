@@ -92,10 +92,10 @@ export default function ModalCard({
 					id: editItemProductCard?._id,
 					body: tehData
 				})
-				toast(data?.message)
+				// toast(data?.message)
 			} else {
 				const {data} = await addItem(tehData)
-				toast(data?.message)
+				// toast(data?.message)
 			}
 			onHide()
 			setForm(initialState)

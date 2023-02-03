@@ -1642,6 +1642,7 @@ input[type=file] {
   min-height: 22px !important;
 }
 .category-body_addProduct img {
+  background-color: #fff;
   width: 22px !important;
   height: 22px !important;
   min-height: 22px !important;

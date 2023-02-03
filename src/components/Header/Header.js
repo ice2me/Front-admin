@@ -29,6 +29,8 @@ import {
 	Navbar
 } from "react-bootstrap";
 import {
+	EmailIcon,
+	EmailShareButton,
 	FacebookIcon,
 	FacebookShareButton,
 	InstapaperIcon,
@@ -49,6 +51,7 @@ const Header = () => {
 		navigate(APP_ROUTE.DEFAULT)
 		toast('Your exit')
 	}
+
 	return (
 		<>
 			<div className="header">
@@ -67,46 +70,53 @@ const Header = () => {
 					{user?.shop_name}
 				</span>
 				</div>
-				<div className='header-link'>
-					<Dropdown className="d-inline mx-2">
-						<Dropdown.Toggle id="dropdown-autoclose-true" variant='secondary'>
-							<FormattedMessage id='share' />
-						</Dropdown.Toggle>
-						<Dropdown.Menu>
-							{
-								user?.socials_links?.shop_facebook
-								&&
-								<FacebookShareButton
-									url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-									quote='shared from theke.com.ua'
-									hashtag='#theke'
-								>
-									<FacebookIcon />
-								</FacebookShareButton>
-							}
-							{
-								user?.socials_links?.shop_telegram
-								&&
-								<TelegramShareButton
-									url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-									title='shared from theke.com.ua'
-								>
-									<TelegramIcon />
-								</TelegramShareButton>
-							}
-							{
-								user?.socials_links?.shop_viber
-								&&
-								<ViberShareButton
-									url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-									// title='shared from theke.com.ua_____ '
-								>
-									<ViberIcon />
-								</ViberShareButton>
-							}
-						</Dropdown.Menu>
-					</Dropdown>
-				</div>
+				{( user?.socials_links.shop_facebook || user?.socials_links.shop_viber || user?.socials_links.shop_telegram || user?.socials_links.shop_instagram)
+					&&
+					<div className='header-link'>
+						<Dropdown className="d-inline mx-2">
+							<Dropdown.Toggle
+								id="dropdown-autoclose-true"
+								variant='secondary'
+							>
+								<FormattedMessage id='share' />
+							</Dropdown.Toggle>
+							<Dropdown.Menu>
+								{
+									user?.socials_links?.shop_facebook
+									&&
+									<FacebookShareButton
+										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+										quote='shared from theke.com.ua'
+										hashtag='#theke'
+									>
+										<FacebookIcon />
+									</FacebookShareButton>
+								}
+								{
+									user?.socials_links?.shop_telegram
+									&&
+									<TelegramShareButton
+										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+										title='shared from theke.com.ua'
+									>
+										<TelegramIcon />
+									</TelegramShareButton>
+								}
+								{
+									user?.socials_links?.shop_viber
+									&&
+									<ViberShareButton
+										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+										// title='shared from theke.com.ua_____ '
+									>
+										<ViberIcon />
+									</ViberShareButton>
+								}
+							</Dropdown.Menu>
+						</Dropdown>
+					</div>
+				}
+
 				<span className='header-link'>
 					<FormattedMessage
 						id='shopLink'

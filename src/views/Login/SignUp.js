@@ -46,19 +46,14 @@ export const SignUp = () => {
 	const formDateUpdateHandler = (opt) => {
 		setForm({...form, ...opt})
 	}
-
-	const handleSubmit = async (values,
-		{
-			setErrors,
-			resetForm
-		}) => {
+	const handleSubmit = async (values, {setErrors, resetForm}) => {
 		const formDate = {
 			username: values.username,
 			email: values.email.trim().toLowerCase(),
 			phone: values.phone,
 			password: values.password,
 			password_confirm: values.password_confirm,
-			shop_name: values.shop_name,
+			shop_name: values.shop_name.trim(),
 			description: values.description,
 			shop_link: values.shop_link.trim().toLowerCase(),
 			socials_links: {
@@ -72,11 +67,10 @@ export const SignUp = () => {
 		}
 
 		try {
-			console.log(formDate)
 			const {data} = await registerUser(formDate)
-			dispatch(setUser(data.newUser))
-			if (data.newUser && data.token && !data.error) {
-				toast(data?.message)
+			dispatch(setUser(data?.newUser))
+			if (data?.newUser && data?.token && !data?.error) {
+				// toast(data?.message)
 				navigate(APP_ROUTE.CATEGORIES_LIST)
 			} else {
 				toast(
@@ -84,14 +78,14 @@ export const SignUp = () => {
 					data?.error.email ||
 					data?.error.phone ||
 					data?.error.shop_name ||
-					data.error.password
+					data?.error.password
 				)
 				setErrors({
 					username: data?.error.username,
 					email: data?.error.email,
 					phone: data?.error.phone,
 					shop_name: data?.error.shop_name,
-					password: data.error.password
+					password: data?.error.password
 				})
 			}
 		} catch (e) {
@@ -119,7 +113,7 @@ export const SignUp = () => {
 				<FormattedMessage id={shopVariantTrading} />
 			</Popover.Header>
 			<Popover.Body>
-				<FormattedMessage id={shopVariantTrading === "Shop" ? 'ifYouChooseShopYourCustomers' : 'ifYouChooseMenuYourCustomers'} />
+				<FormattedMessage id={shopVariantTrading === "shop" ? 'ifYouChooseShopYourCustomers' : 'ifYouChooseMenuYourCustomers'} />
 			</Popover.Body>
 		</Popover>
 	)
@@ -136,22 +130,22 @@ export const SignUp = () => {
 			<Formik
 				validateOnChange
 				initialValues={{
-					username: '',
-					email: '',
-					phone: '',
-					password: '',
-					password_confirm: '',
-					shop_name: '',
-					description: '',
-					shop_link: '',
+					username: form.username || '',
+					email: form.email || '',
+					phone: form.phone || '',
+					password: form.password || '',
+					password_confirm: form.password_confirm || '',
+					shop_name: form.shop_name || '',
+					description: form.description || '',
+					shop_link: form.shop_link || '',
 					socials_links: {
-						shop_facebook: '',
-						shop_viber: '',
-						shop_telegram: '',
-						shop_instagram: '',
+						shop_facebook: shopFacebook || '',
+						shop_viber: shopViber || '',
+						shop_telegram: shopTelegram || '',
+						shop_instagram: shopInstagram || '',
 					},
 					open_shop: 'true',
-					variant_trading: 'Shop'
+					variant_trading: shopVariantTrading
 				}}
 				validationSchema={getRegistrationSchema(formatMessage)}
 				onSubmit={handleSubmit}
@@ -182,7 +176,7 @@ export const SignUp = () => {
 								placeholder={formatMessage({id: 'enterName'})}
 								value={values.username}
 								name='username'
-								autoComplete='off'
+								autoComplete='on'
 								onBlur={handleBlur}
 								className={`pe-5  ${touched.username ? "is-touch " : ""} ${
 									errors.username && touched.username ? " is-invalid" : ""
@@ -211,7 +205,7 @@ export const SignUp = () => {
 									errors.email && touched.email ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="email"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEmail'})}
 								value={values.email}
 								name='email'
@@ -240,7 +234,7 @@ export const SignUp = () => {
 									errors.phone && touched.phone ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="phone"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterMobilePhone'})}
 								value={values.phone}
 								name='phone'
@@ -259,7 +253,7 @@ export const SignUp = () => {
 							)}
 						</Form.Group>
 
-						<Form.Group className=" registrationShop-form_label">
+						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
 									<FormattedMessage id='password' /><b> * </b>
@@ -289,7 +283,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={passwordType}
 									name="password"
-									autoComplete='off'
+									autoComplete='on'
 									placeholder={formatMessage({id: 'enterPassword'})}
 									value={values.password}
 									onBlur={handleBlur}
@@ -337,7 +331,7 @@ export const SignUp = () => {
 									} registrationShop-form_input`}
 									type={confirmPasswordType}
 									name="password_confirm"
-									autoComplete='off'
+									autoComplete='on'
 									placeholder={formatMessage({id: 'enterPasswordConfirm'})}
 									value={values.password_confirm}
 									onBlur={handleBlur}
@@ -399,7 +393,7 @@ export const SignUp = () => {
 									errors.shop_name && touched.shop_name ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterNameShop'})}
 								value={values.shop_name}
 								name='shop_name'
@@ -438,7 +432,6 @@ export const SignUp = () => {
 									:
 									<FormattedMessage id='no' />}
 								onChange={(e) => {
-									console.log(e.target.value)
 									handleChange(e);
 									formDateUpdateHandler({
 										[e.target.name]: e.target.value
@@ -461,7 +454,7 @@ export const SignUp = () => {
 									errors.description && touched.description ? " is-invalid" : ""
 								} registrationShop-form_input registrationShop-form_description`}
 								as="textarea"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterDescriptionShop'})}
 								value={values.description}
 								name='description'
@@ -493,7 +486,7 @@ export const SignUp = () => {
 									errors.shop_link && touched.shop_link ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEnterShopLink'})}
 								value={values.shop_link}
 								name='shop_link'
@@ -525,7 +518,7 @@ export const SignUp = () => {
 									errors?.shop_facebook && touched?.shop_facebook ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEnterShopFacebook'})}
 								value={shopFacebook}
 								onBlur={handleBlur}
@@ -555,7 +548,7 @@ export const SignUp = () => {
 									errors?.shop_viber && touched?.shop_viber ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEnterShopViber'})}
 								value={shopViber}
 								name='shop_viber'
@@ -585,7 +578,7 @@ export const SignUp = () => {
 									errors?.shop_telegram && touched?.shop_telegram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEnterShopTelegram'})}
 								value={shopTelegram}
 								name='shop_telegram'
@@ -615,7 +608,7 @@ export const SignUp = () => {
 									errors?.shop_instagram && touched?.shop_instagram ? " is-invalid" : ""
 								} registrationShop-form_input`}
 								type="text"
-								autoComplete='off'
+								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEnterShopInstagram'})}
 								value={shopInstagram}
 								name='shop_instagram'

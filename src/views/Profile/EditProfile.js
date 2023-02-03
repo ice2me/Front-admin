@@ -91,13 +91,13 @@ const EditProfile = ({
 
 		const formDate = {
 			id: user._id,
-			username: values?.username,
-			email: values?.email.trim().toLowerCase(),
+			// username: values?.username,
+			// email: values?.email.trim().toLowerCase(),
 			image_logo: image,
-			phone: values?.phone,
+			// phone: values?.phone,
 			password: values?.password,
 			password_confirm: values?.password_confirm,
-			shop_name: values?.shop_name,
+			// shop_name: values?.shop_name,
 			description: values?.description,
 			shop_link: values?.shop_link.trim().toLowerCase(),
 			socials_links: {
@@ -126,11 +126,6 @@ const EditProfile = ({
 				navigate(APP_ROUTE.PROFILE)
 				setOpenEditProfile(false)
 			} else {
-				toast(
-					data?.error.username ||
-					data?.error.phone ||
-					data?.error.shop_name
-				)
 				setErrors({
 					username: data?.error.username,
 					phone: data?.error.phone,
@@ -139,12 +134,11 @@ const EditProfile = ({
 			}
 		} catch (e) {
 			console.log(e)
-			resetForm()
+			// resetForm()
 		}
 	}
 
 	const formDateUpdateHandler = (opt) => {
-		console.log(opt)
 		setForm({...form, ...opt})
 	}
 
@@ -271,53 +265,13 @@ const EditProfile = ({
 									<span>
 										<FormattedMessage id='name' />
 									</span>
-									<Form.Control
-										type="text"
-										placeholder="Enter name"
-										value={values.username}
-										name='username'
-										onBlur={handleBlur}
-										className={`pe-5  ${touched.username ? "is-touch " : ""} ${
-											errors.username && touched.username ? " is-invalid" : ""
-										} editProfile-body_content_input`}
-										onChange={(e) => {
-											handleChange(e)
-											formDateUpdateHandler({
-												[e.target.name]: e.target.value
-											})
-										}}
-									/>
-									{errors.username && touched.username && (
-										<Form.Control.Feedback type="invalid">
-											{errors.username}
-										</Form.Control.Feedback>
-									)}
+									<p>{user.username}</p>
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
 										<FormattedMessage id='mobilePhone' />
 									</span>
-									<Form.Control
-										className={`pe-5  ${touched.phone ? "is-touch " : ""} ${
-											errors.phone && touched.phone ? " is-invalid" : ""
-										} editProfile-body_content_input`}
-										type="number"
-										placeholder="Enter mobile phone"
-										value={values.phone}
-										name='phone'
-										onBlur={handleBlur}
-										onChange={(e) => {
-											handleChange(e)
-											formDateUpdateHandler({
-												[e.target.name]: e.target.value
-											})
-										}}
-									/>
-									{errors.phone && touched.phone && (
-										<Form.Control.Feedback type="invalid">
-											{errors.phone}
-										</Form.Control.Feedback>
-									)}
+									<p>{user.phone}</p>
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
@@ -329,27 +283,7 @@ const EditProfile = ({
 									<span>
 										<FormattedMessage id='nameShop' values={{total: user?.variant_trading}}/>
 									</span>
-									<Form.Control
-										className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
-											errors.shop_name && touched.shop_name ? " is-invalid" : ""
-										} editProfile-body_content_input`}
-										type="text"
-										placeholder="Enter shop name"
-										value={values.shop_name}
-										name='shop_name'
-										onBlur={handleBlur}
-										onChange={(e) => {
-											handleChange(e)
-											formDateUpdateHandler({
-												[e.target.name]: e.target.value
-											})
-										}}
-									/>
-									{errors.shop_name && touched.shop_name && (
-										<Form.Control.Feedback type="invalid">
-											{errors.shop_name}
-										</Form.Control.Feedback>
-									)}
+									<p>{user.shop_name}</p>
 								</li>
 								<li className="editProfile-body_content-text flex-column">
 									<p>

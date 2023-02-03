@@ -37,7 +37,7 @@ const ModalSaveCategory = ({
 					body: {category_name: categoryName}
 				})
 				handleClose()
-				toast(data?.message)
+				// toast(data?.message)
 			} catch (e) {
 				console.log(e)
 			}

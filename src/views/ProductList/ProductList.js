@@ -84,7 +84,7 @@ const ProductList = () => {
 					available_product: availableItem
 				}
 			})
-			toast(data?.message)
+			// toast(data?.message)
 		} catch (e) {
 			console.log(e)
 		}

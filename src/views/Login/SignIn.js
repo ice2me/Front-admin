@@ -38,12 +38,12 @@ export const SignIn = () => {
 			const {data} = await login(formData)
 			resetForm()
 			if (data.user && data.token) {
-				toast('Your sign in')
+				// toast('Your sign in')
 				navigate(APP_ROUTE.CATEGORIES_LIST)
 			} else {
 				setErrors(data.error.message)
 				navigate(APP_ROUTE.LOGIN)
-				return toast(data.error.message)
+				// return toast(data.error.message)
 			}
 		} catch (e) {
 			console.log(e)
