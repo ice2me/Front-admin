@@ -158,10 +158,17 @@ const Home = () => {
 				</div>
 				<div className="home-fourthBlock">
 					<div className="home-fourthBlock_wrapper">
+						<iframe
+							src="https://www.youtube.com/embed/WvJxQEJRp4I"
+							title="YouTube video player"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							// allowFullScreen
+						></iframe>
 					</div>
-					<button className="home-fourthBlock_button">
-						<FormattedMessage id='seeHowItWorks' />
-					</button>
+					{/*<button className="home-fourthBlock_button">*/}
+					{/*	<FormattedMessage id='seeHowItWorks' />*/}
+					{/*</button>*/}
 				</div>
 				<div className="home-fifthBlock">
 					<h2 className="home-fifthBlock_title">

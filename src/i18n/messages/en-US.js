@@ -28,7 +28,7 @@ export default {
 		ifYouChooseShopYourCustomers: 'If you choose a Shop - your customers will be able to order online!',
 		ifYouChooseMenuYourCustomers: 'If you choose a Menu - your customers will NOT be able to order online!',
 		shopLink: '{total} Link: ',
-		enterEnterShopLink: 'Enter Link',
+		enterEnterShopLink: 'https://...',
 		shopFacebook: '{total} Facebook: ',
 		enterEnterShopFacebook: 'Enter Facebook',
 		shopViber: '{total} Viber: ',

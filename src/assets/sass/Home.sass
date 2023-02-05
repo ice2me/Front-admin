@@ -216,35 +216,18 @@
 		min-height: 350px
 		max-height: 450px
 		height: 100%
-		position: relative
-		background: url("../images/shot1.jpg")
-		background-size: cover
-		background-repeat: no-repeat
-		background-position: bottom
-		z-index: 1
+		border: 3px solid $basic-color-opacity
+		border-radius: $border-radius
 		&_wrapper
 			width: 100%
 			height: 100%
 			display: flex
 			align-items: center
 			justify-content: center
-			z-index: 2
-			background-color: #505160
-			opacity: 0.8
-		&_button
-			width: 320px
-			height: 60px
-			border: 2px solid #505160
-			background-color: #F7CE00
-			position: absolute
-			top: 50%
-			left: 50%
-			transform: translate(-50%, -25%)
-			border-radius: 6px
-			@include calc("font-size",22,16)
-			color: #505160
-			z-index: 3
-			opacity: 1
+			iframe
+				width: 100%
+				height: 100%
+				border-radius: $border-radius
 	&-fifthBlock
 		width: 100%
 		height: max-content

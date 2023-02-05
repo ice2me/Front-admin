@@ -28,7 +28,7 @@ export default {
 		ifYouChooseShopYourCustomers: 'Якщо ви вибираєте Shop - ваші клієнти зможуть робити онлайн замовлення!',
 		ifYouChooseMenuYourCustomers: 'Якщо ви вибираєте Menu - ваші клієнти НЕ зможуть робити онлайн замовлення!',
 		shopLink: "Посилання на {total}: ",
-		enterEnterShopLink: 'Введіть Посилання',
+		enterEnterShopLink: 'https://...',
 		shopFacebook: "Facebook {total} ",
 		enterEnterShopFacebook: "Введіть Facebook",
 		shopViber: "Viber {total} ",

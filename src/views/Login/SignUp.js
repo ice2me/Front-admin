@@ -18,7 +18,10 @@ import { Formik } from "formik"
 import {
 	useRegisterUserMutation,
 } from "../../redux/services/authApi"
-import { APP_ROUTE } from "../../utils/constants"
+import {
+	APP_ROUTE,
+	WEBSITE_REGEXP
+} from "../../utils/constants"
 import { useDispatch } from "react-redux"
 import { setUser } from "../../redux/slices/userSlice"
 import {
@@ -46,6 +49,7 @@ export const SignUp = () => {
 	const formDateUpdateHandler = (opt) => {
 		setForm({...form, ...opt})
 	}
+
 	const handleSubmit = async (values, {setErrors, resetForm}) => {
 		const formDate = {
 			username: values.username,
