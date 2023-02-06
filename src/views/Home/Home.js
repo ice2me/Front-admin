@@ -39,17 +39,21 @@ const Home = () => {
 				</Navbar>
 
 				<div className="home-firstBlock">
-					<div className="home-firstBlock_title">
-						<h1>
-							<br />
-							<FormattedMessage id='startDoing' />
-						</h1>
-						<p>
-							<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday' />
-						</p>
-						<a href='#video'>
-							<FormattedMessage id='learnMore' />
-						</a>
+					<div className="home-firstBlock_wrapper">
+						<h1><FormattedMessage id='createAnOnlineShowcaseForYourStore' /></h1>
+						<h2><FormattedMessage id='createAnOnlineShowcaseForYourStore1' /></h2>
+						<div className="home-firstBlock_title">
+							<h2>
+								<br />
+								<FormattedMessage id='startDoing' />
+							</h2>
+							<p>
+								<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday' />
+							</p>
+							<a href='#video'>
+								<FormattedMessage id='learnMore' />
+							</a>
+						</div>
 					</div>
 					<div className="home-firstBlock_image"></div>
 				</div>
