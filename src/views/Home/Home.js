@@ -41,16 +41,15 @@ const Home = () => {
 				<div className="home-firstBlock">
 					<div className="home-firstBlock_title">
 						<h1>
-							<FormattedMessage id='stopPrepping' />
 							<br />
 							<FormattedMessage id='startDoing' />
 						</h1>
 						<p>
 							<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday' />
 						</p>
-						<button>
+						<a href='#video'>
 							<FormattedMessage id='learnMore' />
-						</button>
+						</a>
 					</div>
 					<div className="home-firstBlock_image"></div>
 				</div>
@@ -157,7 +156,7 @@ const Home = () => {
 					<div className="home-thirdBlock_right"></div>
 				</div>
 				<div className="home-fourthBlock">
-					<div className="home-fourthBlock_wrapper">
+					<div className="home-fourthBlock_wrapper" id='video'>
 						<iframe
 							src="https://www.youtube.com/embed/WvJxQEJRp4I"
 							title="YouTube video player"
@@ -231,9 +230,9 @@ const Home = () => {
 							<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
 						</p>
 					</div>
-					<button className="home-sixthBlock_button">
-						<FormattedMessage id='viewPlansDetails' />
-					</button>
+					{/*<button className="home-sixthBlock_button">*/}
+					{/*	<FormattedMessage id='viewPlansDetails' />*/}
+					{/*</button>*/}
 				</div>
 			</div>
 		</div>

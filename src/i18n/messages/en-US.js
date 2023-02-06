@@ -112,9 +112,8 @@ export default {
 		editProfile: 'Edit Profile',
 		// ******************************************************** HOME
 		getStarted: 'Get Started',
-		stopPrepping: 'Stop prepping.',
-		startDoing: 'Start doing your business.',
-		createYourOnlineStoreEasilyStartEarningToday: 'Create your online store easily and activate your business today.',
+		startDoing: 'Start doing your business now!',
+		createYourOnlineStoreEasilyStartEarningToday: 'Create easily your online store and activate your business today.',
 		learnMore: 'Learn more',
 		tiredOfNotDoing: 'Tired of not doing',
 		whatImportant: "what's important.",
@@ -137,7 +136,7 @@ export default {
 		theClientClicksOnYourLinkAndMakesOrderYourStore: 'The client clicks on your link and makes an order in your store.',
 		becomeTheke: 'Subscribe to Theke.',
 		cost: 'Cost:',
-		priceTheke: '$0/month.',
+		priceTheke: '$39/month.',
 		subscribeThekeAndGetYourBusinessGrowingRightNow: 'Subscribe to Theke and get your business growing right now.',
 		viewPlansDetails: 'View Plans Details',
 	}

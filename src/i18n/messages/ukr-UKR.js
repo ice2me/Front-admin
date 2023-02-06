@@ -112,9 +112,8 @@ export default {
 		editProfile: 'Редагувати профіль',
 		// ******************************************************** HOME
 		getStarted: 'Розпочати',
-		stopPrepping: 'Припиніть готуватися.',
-		startDoing: 'Почніть займатися своєю справою.',
-		createYourOnlineStoreEasilyStartEarningToday: 'Створи свій онлайн-магазин легко та активуй свій бізнес вже сьогодні.',
+		startDoing: 'Почніть зараз займатися своєю справою!',
+		createYourOnlineStoreEasilyStartEarningToday: 'Створи легко свій онлайн-магазин  та активуй свій бізнес вже сьогодні.',
 		learnMore: 'Дізнатися більше',
 		tiredOfNotDoing: 'Втомився не робити',
 		whatImportant: "що важливо.",
@@ -137,7 +136,7 @@ export default {
 		theClientClicksOnYourLinkAndMakesOrderYourStore: 'Клієнт переходить по вашому посиланню і робить замовлення у вашому магазині.',
 		becomeTheke: 'Підписка на Theke',
 		cost: 'Вартість:',
-		priceTheke: '$0/місяць.',
+		priceTheke: '$39/місяць.',
 		subscribeThekeAndGetYourBusinessGrowingRightNow: 'Підпишись на Theke та отримай розвиток свого бізнесу саме зараз.',
 		viewPlansDetails: 'Переглянути деталі планів',
 	}

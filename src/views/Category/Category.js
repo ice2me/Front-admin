@@ -36,7 +36,6 @@ const Category = () => {
 					console.log(e)
 				}
 			}
-
 			getProductsList()
 		}
 	}, [categoryIdState, shopProductsList, getItemList])

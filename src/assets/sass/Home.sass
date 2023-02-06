@@ -5,6 +5,7 @@
 	height: 90vh
 	overflow: hidden
 	border-radius: 6px
+	scroll-behavior: smooth
 	&-wrapper
 		overflow: auto
 		height: 100%
@@ -44,7 +45,7 @@
 			justify-content: center
 			flex-direction: column
 			padding: 0 30px
-			text-align: end
+			text-align: center
 			position: relative
 			z-index: 2
 			h1
@@ -54,13 +55,16 @@
 			p
 				margin-top: 30px
 				font-size: 20px
-			button
+				text-align: end
+			button, a
 				width: 200px
 				height: 50px
 				border: 2px solid #505160
+				@include centering
 				border-radius: 6px
 				background-color: transparent
 				margin-top: 20px
+				cursor: pointer
 				@include calc("font-size",20,16)
 				color: #505160
 			@media screen and (max-width: 992px)
