@@ -165,7 +165,7 @@
 
 .home {
   color: #505160;
-  max-width: 1280px;
+  width: 100vw;
   height: 90vh;
   overflow: hidden;
   border-radius: 6px;
