@@ -73,14 +73,14 @@ export default {
 		youWantDeleteProduct: 'Ви впевнені, що хочете видалити: ',
 		// ******************************************************** Category
 		category: 'Категорію',
-		createCategory: 'Створити категорію',
+		createCategory: 'Немає категорій',
 		categoryList: 'Список категорій',
 		editCategoryName: 'Редагувати назву категорії',
 		enterCategoryName: 'Введіть назву категорії',
 		edit: 'Редагувати',
 		// ******************************************************** Card
 		product: 'Продукт',
-		createProductCard: 'Створити картки товарів',
+		createProductCard: 'Немає товарів',
 		editProductCard: 'Редагувати картку товару',
 		deleteProductCard: 'Видалити картку продукту',
 		description: 'Опис продукту',

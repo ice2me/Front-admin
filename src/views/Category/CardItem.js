@@ -14,7 +14,6 @@ import close from '../../assets/icons/exit.svg'
 const CardItem = ({
 	item,
 	isPatchAvailableItemProductLoading,
-	setAvailableProduct,
 	availableCheckedProduct,
 	showModalCard,
 	setIdItemProductCard,
@@ -108,7 +107,6 @@ const CardItem = ({
 						id="example-checked12"
 						defaultChecked={item?.available_product}
 						onChange={() => {
-							setAvailableProduct(!item?.available_product)
 							availableCheckedProduct(item?._id, !item?.available_product)
 						}
 						}

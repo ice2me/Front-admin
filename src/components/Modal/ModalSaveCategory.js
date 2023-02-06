@@ -19,10 +19,9 @@ const ModalSaveCategory = ({
 	show,
 	handleClose,
 	categoryNameEdit,
-	isEdit
 }) => {
 	const [categoryName, setCategoryName] = useState('')
-	const { formatMessage } = useIntl()
+	const {formatMessage} = useIntl()
 	const [createCategories, {isLoading: isCreateCategoriesLoading}] = useCreateCategoriesMutation()
 	const [updateCategoryName, {isLoading: isUpdateCategoryNameLoader}] = useUpdateCategoryNameMutation()
 
@@ -30,14 +29,13 @@ const ModalSaveCategory = ({
 
 	const handlerSaveCategory = async (e) => {
 		e.stopPropagation()
-		if (isEdit) {
+		if (categoryNameEdit?.id) {
 			try {
 				const {data} = await updateCategoryName({
-					id: categoryNameEdit.id,
+					id: categoryNameEdit?.id,
 					body: {category_name: categoryName}
 				})
 				handleClose()
-				// toast(data?.message)
 			} catch (e) {
 				console.log(e)
 			}
@@ -63,11 +61,16 @@ const ModalSaveCategory = ({
 			show={show}
 			onHide={handleClose}
 			centered={true}
+			backdrop="static"
 		>
 			<Modal.Header closeButton>
 				<Modal.Title>
 					{
-						isEdit ? <FormattedMessage id='editCategoryName' /> : <FormattedMessage id='createCategory' />
+						categoryNameEdit?.id
+							?
+							<FormattedMessage id='editCategoryName' />
+							:
+							<FormattedMessage id='createCategory' />
 					}
 				</Modal.Title>
 			</Modal.Header>
@@ -76,7 +79,7 @@ const ModalSaveCategory = ({
 					type="text"
 					placeholder={formatMessage({id: 'enterCategoryName'})}
 					name='name_product'
-					defaultValue={isEdit && categoryNameEdit?.name}
+					defaultValue={categoryNameEdit?.id && categoryNameEdit?.name}
 					onChange={e => setCategoryName(e.target.value)}
 					autoFocus='on'
 					autoComplete='off'
@@ -98,7 +101,7 @@ const ModalSaveCategory = ({
 						alignItems: 'center'
 					}}
 				>
-					 <FormattedMessage id='addCategory' />
+					<FormattedMessage id='addCategory' />
 				</Button>
 			</Modal.Footer>
 		</Modal>

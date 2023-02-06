@@ -16,7 +16,6 @@ const CategoryInpName = () => {
 			show={show}
 			handleClose={handleClose}
 			/>
-
 			<ButtonAdd
 				handler={handleShow}
 				title={formatMessage({id: 'category'})}

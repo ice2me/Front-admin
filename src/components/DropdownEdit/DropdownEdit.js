@@ -16,10 +16,10 @@ const DropdownEdit = ({
 }) => {
 
 	const [modalDeleteShow, setModalDeleteShow] = useState(false)
-	const [showModalEdit, setShowModalEdit] = useState(false);
+	const [showModalEdit, setShowModalEdit] = useState(false)
 
-	const handleCloseModalEdit = () => setShowModalEdit(false);
-	const handleShowModalEdit = () => setShowModalEdit(true);
+	const handleCloseModalEdit = () => setShowModalEdit(false)
+	const handleShowModalEdit = () => setShowModalEdit(true)
 	const showModalDelete = () => setModalDeleteShow(true)
 	const hideModalDelete = () => setModalDeleteShow(false)
 	const stopPropagation = (e) => e.stopPropagation()
@@ -33,7 +33,6 @@ const DropdownEdit = ({
 					name: categoryName,
 					id: id
 				}}
-				isEdit={true}
 			/>
 
 			<ModalDelete
@@ -79,7 +78,7 @@ const DropdownEdit = ({
 				</Dropdown.Item>
 			</DropdownButton>
 		</>
-	);
-};
+	)
+}
 
 export default DropdownEdit

@@ -73,14 +73,14 @@ export default {
 		youWantDeleteProduct: 'Are you sure you want to delete: ',
 		// ******************************************************** Category
 		category: 'Category',
-		createCategory: 'Create Category',
+		createCategory: 'No Category',
 		categoryList: 'Category list',
 		editCategoryName: 'Edit Category Name',
 		enterCategoryName: 'Enter category name',
 		edit: 'Edit',
 		// ******************************************************** Card
 		product: 'Product',
-		createProductCard: 'Create Product Card',
+		createProductCard: 'No products',
 		editProductCard: 'Edit Product Card',
 		deleteProductCard: 'Delete Product Card',
 		description: 'Description Product',

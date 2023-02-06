@@ -10,10 +10,10 @@ const categoriesSlice = createSlice({
 	name: "categories",
 	initialState,
 	reducers: {
-		resetCategories: () => initialState,
-		setCategoriesInList: (state, action) => {
-			state.categories = action.payload
-		},
+		// resetCategories: () => initialState,
+		// setCategoriesInList: (state, action) => {
+		// 	state.categories = action.payload
+		// },
 		resetItemsLIst: (state, action) => {
 			state.items = []
 		}
@@ -21,21 +21,21 @@ const categoriesSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addMatcher(
-				categoriesAPi.endpoints.createCategories.matchFulfilled,
+				categoriesAPi?.endpoints.createCategories.matchFulfilled,
 				(state,
 					action) => {
-					state.categories = [action.payload, ...state.categories]
+					state.categories = [action?.payload, ...state.categories ]
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.getCategories.matchFulfilled,
+				categoriesAPi?.endpoints.getCategories.matchFulfilled,
 				(state,
 					action) => {
 					state.categories = action.payload.categories
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.updateCategoryName.matchFulfilled,
+				categoriesAPi?.endpoints.updateCategoryName.matchFulfilled,
 				(state,
 					action) => {
 					const index = state.categories.findIndex(
@@ -47,7 +47,7 @@ const categoriesSlice = createSlice({
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.deleteCategory.matchFulfilled,
+				categoriesAPi?.endpoints.deleteCategory.matchFulfilled,
 				(state,
 					action) => {
 					const categoryId = action.payload.data._id
@@ -57,7 +57,7 @@ const categoriesSlice = createSlice({
 
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.addItem.matchFulfilled,
+				categoriesAPi?.endpoints.addItem.matchFulfilled,
 				(state,
 					action) => {
 					state.items = [action.payload.newItems, ...state.items]
@@ -66,7 +66,7 @@ const categoriesSlice = createSlice({
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.patchAvailableItemProduct.matchFulfilled,
+				categoriesAPi?.endpoints.patchAvailableItemProduct.matchFulfilled,
 				(state,
 					action) => {
 					const editAvailable = action.payload.isAvailableProduct
@@ -76,7 +76,7 @@ const categoriesSlice = createSlice({
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.patchItemProduct.matchFulfilled,
+				categoriesAPi?.endpoints.patchItemProduct.matchFulfilled,
 				(state,
 					action) => {
 					const index = state.items.findIndex(
@@ -86,14 +86,14 @@ const categoriesSlice = createSlice({
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.getItemList.matchFulfilled,
+				categoriesAPi?.endpoints.getItemList.matchFulfilled,
 				(state,
 					action) => {
 					state.items = action.payload
 				}
 			)
 			.addMatcher(
-				categoriesAPi.endpoints.deleteItemProduct.matchFulfilled,
+				categoriesAPi?.endpoints.deleteItemProduct.matchFulfilled,
 				(state,
 					action) => {
 					const idToDelete = action.payload.data._id
