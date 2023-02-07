@@ -2,14 +2,18 @@ import * as yup from "yup"
 import {
 	FACEBOOK_REGEXP,
 	INSTAGRAM_REGEXP,
-	PHONE_REGEXP,
 	TELEGRAM_REGEXP,
 	VIBER_REGEXP,
 	WEBSITE_REGEXP
 } from "../constants"
 
-export const getUpdateUserSchema = (formatMessage) => {
+export const getRegistrationShopSchema = (formatMessage) => {
 	return yup.object().shape({
+		shop_name: yup
+			.string()
+			.required(formatMessage ({id: "nameIsRequiredField"}))
+			.min(3, formatMessage ({id: "shopNameLengthMin"}))
+			.max(65, formatMessage ({id: "shopNameLengthMax"})),
 		description: yup
 			.string()
 			.max(3500,  formatMessage ({id: "shopDescriptionLengthMax"})),

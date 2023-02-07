@@ -15,6 +15,7 @@ const ContactSupport = () => {
 					<a
 						href={`viber://add?number=%380669696402`}
 						target='_blank'
+						rel="noreferrer noopener"
 					>
 						<img
 							src={viber}
@@ -24,6 +25,7 @@ const ContactSupport = () => {
 					<a
 						href={`tg://resolve?domain=@ice2me`}
 						target='_blank'
+						rel="noreferrer noopener"
 					>
 						<img
 							src={telegram}
@@ -33,6 +35,7 @@ const ContactSupport = () => {
 					<a
 						href={`https://www.instagram.com/serhiizuiev/`}
 						target='_blank'
+						rel="noreferrer noopener"
 					>
 						<img
 							src={instagram}

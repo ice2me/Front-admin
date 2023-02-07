@@ -42,12 +42,6 @@ const Profile = ({
 					<ul className="profile-body_content">
 						<li className="profile-body_content-text">
 							<span>
-								<FormattedMessage id='name' />
-							</span>
-							<p>{user?.username}</p>
-						</li>
-						<li className="profile-body_content-text">
-							<span>
 								<FormattedMessage id='mobilePhone' />
 							</span>
 							<p>+{user?.phone}</p>

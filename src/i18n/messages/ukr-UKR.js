@@ -65,6 +65,7 @@ export default {
 		pleaseEnterValidTelegramProfile: 'Введіть дійсний профіль Telegram',
 		pleaseEnterValidInstagramProfile: 'Введіть дійсний профіль Instagram',
 		// ******************************************************** Category
+		createShopOrMenu: 'Створіть свій магазин або меню',
 		create: 'Додати',
 		// ******************************************************** Modal
 		close: 'Закрити',

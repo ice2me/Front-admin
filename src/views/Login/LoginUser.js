@@ -18,7 +18,7 @@ import {
 } from "react-intl"
 import Loader from "../../components/Loader/Loader";
 
-export const SignIn = () => {
+export const LoginUser = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [passwordType, setPasswordType] = useState("password")

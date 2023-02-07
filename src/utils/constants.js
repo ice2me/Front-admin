@@ -13,6 +13,7 @@ export const LINK_FOR_CLIENT = 'https://client.theke.com.ua/'
 
 export const AUTH_API = {
 	SIGNUP: "/auth/register",
+	REGISTRATION_SHOP: "/auth/register-shop",
 	UPDATE: "/auth/update",
 	LOGIN: "/auth/login",
 	ME: "/auth/me",
@@ -33,7 +34,8 @@ export const CATEGORIES_API = {
 export const URLS_PROCESSED_IN_COMPONENTS = [
 	AUTH_API.SIGNUP,
 	AUTH_API.LOGIN,
-	AUTH_API.ME
+	AUTH_API.ME,
+	AUTH_API.REGISTRATION_SHOP
 ];
 
 export const EMAIL_REGEXP = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;

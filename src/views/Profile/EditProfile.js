@@ -91,13 +91,9 @@ const EditProfile = ({
 
 		const formDate = {
 			id: user._id,
-			// username: values?.username,
-			// email: values?.email.trim().toLowerCase(),
 			image_logo: image,
-			// phone: values?.phone,
-			password: values?.password,
-			password_confirm: values?.password_confirm,
-			// shop_name: values?.shop_name,
+			// password: values?.password,
+			// password_confirm: values?.password_confirm,
 			description: values?.description,
 			shop_link: values?.shop_link.trim().toLowerCase(),
 			socials_links: {
@@ -106,7 +102,7 @@ const EditProfile = ({
 				shop_telegram: shopTelegram,
 				shop_instagram: shopInstagram,
 			},
-			open_shop: values.open_shop,
+			open_shop: values.open_shop || false,
 			style_shop: {
 				text_color: "",
 				background_color: "",
@@ -134,7 +130,6 @@ const EditProfile = ({
 			}
 		} catch (e) {
 			console.log(e)
-			// resetForm()
 		}
 	}
 
@@ -263,51 +258,45 @@ const EditProfile = ({
 							<ul className="editProfile-body_content">
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='name' />
-									</span>
-									<p>{user.username}</p>
-								</li>
-								<li className="editProfile-body_content-text">
-									<span>
 										<FormattedMessage id='mobilePhone' />
 									</span>
-									<p>{user.phone}</p>
+									<p>{user?.phone}</p>
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
 										<FormattedMessage id='email' />
 									</span>
-									<p>{user.email}</p>
+									<p>{user?.email}</p>
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
 										<FormattedMessage id='nameShop' values={{total: user?.variant_trading}}/>
 									</span>
-									<p>{user.shop_name}</p>
+									<p>{user?.shop_name}</p>
 								</li>
-								<li className="editProfile-body_content-text flex-column">
-									<p>
-										<FormattedMessage id='allowYourCustomersVisitOtherStoresOfThisPlatform' />
-									</p>
-									<Form.Check
-										type="checkbox"
-										id="custom-switch"
-										name='open_shop'
-										value={openShopToggle}
-										onBlur={handleBlur}
-										defaultChecked={openShopToggle}
-										className='customCheckbox'
-										label={openShopToggle
-											?
-											<FormattedMessage id='yes' />
-											:
-											<FormattedMessage id='no' />}
-										onChange={(e) => {
-											handleChange(e)
-											setOpenShopToggle(!openShopToggle)
-										}}
-									/>
-								</li>
+								{/*<li className="editProfile-body_content-text flex-column">*/}
+								{/*	<p>*/}
+								{/*		<FormattedMessage id='allowYourCustomersVisitOtherStoresOfThisPlatform' />*/}
+								{/*	</p>*/}
+								{/*	<Form.Check*/}
+								{/*		type="checkbox"*/}
+								{/*		id="custom-switch"*/}
+								{/*		name='open_shop'*/}
+								{/*		value={openShopToggle}*/}
+								{/*		onBlur={handleBlur}*/}
+								{/*		defaultChecked={openShopToggle}*/}
+								{/*		className='customCheckbox'*/}
+								{/*		label={openShopToggle*/}
+								{/*			?*/}
+								{/*			<FormattedMessage id='yes' />*/}
+								{/*			:*/}
+								{/*			<FormattedMessage id='no' />}*/}
+								{/*		onChange={(e) => {*/}
+								{/*			handleChange(e)*/}
+								{/*			setOpenShopToggle(!openShopToggle)*/}
+								{/*		}}*/}
+								{/*	/>*/}
+								{/*</li>*/}
 								<li className="editProfile-body_content-text">
 									<span>
 										<FormattedMessage id='descriptionShop' values={{total: user?.variant_trading}}/>
@@ -334,8 +323,7 @@ const EditProfile = ({
 										</Form.Control.Feedback>
 									)}
 								</li>
-								{
-									user.shop_link && <li className="editProfile-body_content-text">
+								<li className="editProfile-body_content-text">
 										<span>
 											<FormattedMessage id='shopLink' values={{total: user?.variant_trading}}/>
 										</span>
@@ -361,7 +349,6 @@ const EditProfile = ({
 											</Form.Control.Feedback>
 										)}
 									</li>
-								}
 							</ul>
 							<div className="editProfile-body_content-socials">
 								<div>

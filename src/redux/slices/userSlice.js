@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "../services/authApi";
+import { createSlice } from "@reduxjs/toolkit"
+import { authApi } from "../services/authApi"
 
 const initialState = {
 	user: {
@@ -21,7 +21,7 @@ const initialState = {
 	token: null,
 	isLogin: false,
 	status: null
-};
+}
 
 const userSlice = createSlice({
 	name: "user",
@@ -30,6 +30,9 @@ const userSlice = createSlice({
 		logout: () => initialState,
 		setUser: (state, action) => {
 			state.user = action.payload
+		},
+		setShop: (state, action) => {
+			state.user = {...state.user, ...action.payload}
 		},
 		setToken: (state, action) => {
 			state.token = action.payload
@@ -57,15 +60,16 @@ const userSlice = createSlice({
 				state.isLogin = true
 			})
 	}
-});
+})
 
 const {
 	actions,
 	reducer
-} = userSlice;
+} = userSlice
 export const {
 	logout,
 	setUser,
+	setShop,
 	setToken
-} = actions;
-export default reducer;
+} = actions
+export default reducer

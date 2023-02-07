@@ -1,6 +1,6 @@
 import { Tab, Tabs } from "react-bootstrap"
-import { SignIn } from "./SignIn"
-import { SignUp } from "./SignUp"
+import { LoginUser } from "./LoginUser"
+import { RegistrationUser } from "./RegistrationUser"
 import { useIntl } from "react-intl";
 
 const Login = () => {
@@ -9,23 +9,23 @@ const Login = () => {
 		<div className='login'>
 			<div className='login-wrapper'>
 				<Tabs
-					defaultActiveKey='Sign In'
+					defaultActiveKey='RegistrationUser'
 					id="fill-tab-example"
 					fill
 				>
 					<Tab
-						eventKey="Sign In"
+						eventKey="LoginUser"
 						title={formatMessage ({id: 'signIn'})}
 						className='h-100'
 					>
-						<SignIn />
+						<LoginUser />
 					</Tab >
 					<Tab
-						eventKey="Sign Up"
+						eventKey="RegistrationUser"
 						title={formatMessage ({id: 'signUp'})}
 						className='h-100'
 					>
-						<SignUp/>
+						<RegistrationUser/>
 					</Tab >
 				</Tabs >
 			</div >

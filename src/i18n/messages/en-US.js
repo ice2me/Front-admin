@@ -65,6 +65,7 @@ export default {
 		pleaseEnterValidTelegramProfile: 'Please enter a valid Telegram profile',
 		pleaseEnterValidInstagramProfile: 'Please enter a valid Instagram profile',
 		// ******************************************************** Category
+		createShopOrMenu: 'Create your Shop or Menu',
 		create: 'Create',
 		// ******************************************************** Modal
 		close: 'Close',

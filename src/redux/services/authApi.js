@@ -57,6 +57,14 @@ export const authApi = createApi({
 				body: id
 			})
 		}),
+
+		registerShop: builder.mutation({
+			query: (credentials) => ({
+				url: AUTH_API.REGISTRATION_SHOP,
+				method: "POST",
+				body: credentials
+			})
+		}),
 	})
 });
 
@@ -66,6 +74,7 @@ export const {
 	useUpdateUserMutation,
 	useDeleteUserMutation,
 	useGetMeMutation,
+	useRegisterShopMutation
 
 
 } = authApi;

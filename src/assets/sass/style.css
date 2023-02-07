@@ -665,12 +665,12 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.profile-body_content-text:nth-child(5) {
+.profile-body_content-text:nth-child(4) {
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 10px;
 }
-.profile-body_content-text:nth-child(5) span {
+.profile-body_content-text:nth-child(4) span {
   margin-bottom: 5px;
 }
 .profile-body_content-text a {
@@ -928,6 +928,26 @@ input[type=file] {
   width: 30px;
   height: 30px !important;
   margin-right: 20px;
+}
+
+.regShop-container {
+  overflow: hidden;
+  padding: 10px;
+  height: 95%;
+}
+.regShop-container_form {
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: auto;
+  padding: 20px;
+}
+.regShop-container_form button span {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modalAddCard {
@@ -1197,15 +1217,8 @@ input[type=file] {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.editProfile-body_content-text .invalid-feedback {
-  text-align: center;
-  width: auto;
-}
-@media screen and (max-width: 992px) {
-  .editProfile-body_content-text .invalid-feedback {
-    width: 100%;
-    text-align: center;
-  }
+.editProfile-body_content-text span {
+  font-weight: bold !important;
 }
 .editProfile-body_content span, .editProfile-body_content p {
   min-width: 120px;

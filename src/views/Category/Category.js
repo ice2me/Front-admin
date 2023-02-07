@@ -15,17 +15,24 @@ import {
 import Loader from "../../components/Loader/Loader"
 import CategoryInpName from "./CategoryInpName"
 import ProductList from "../ProductList/ProductList"
+import { RegistrationShop } from "../Login/RegistrationShop";
 
 
 const Category = () => {
-	const {categories} = useSelector(state => state.categories)
+	const {
+		categories
+	} = useSelector(state => state.categories)
+	const {user} = useSelector((state) => state.userStore)
 	const [getCategories, {isLoading: isGetCategoriesLoading}] = useGetCategoriesMutation()
 	const [getItemList, {isLoading: isGetItemListLoading}] = useGetItemListMutation()
 	const [shopProductsList, setShopProductsList] = useState(false)
 	const [categoryIdState, setCategoryIdState] = useState(null)
+	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
 	const categoriesList = categories || []
 	const showList = () => setShopProductsList(true)
 	const hideList = () => setShopProductsList(false)
+	const showRegistrationShopWindow = () => setOpenRegistrationShopWindow(true)
+	const hideRegistrationShopWindow = () => setOpenRegistrationShopWindow(false)
 
 	const openProductList = useCallback(() => {
 		if (shopProductsList) {
@@ -36,6 +43,7 @@ const Category = () => {
 					console.log(e)
 				}
 			}
+
 			getProductsList()
 		}
 	}, [categoryIdState, shopProductsList, getItemList])
@@ -59,26 +67,39 @@ const Category = () => {
 		/>
 	}
 
+	if (openRegistrationShopWindow) {
+		return openRegistrationShopWindow && <RegistrationShop />
+	}
+
 	return (
-		<div className="category">
+		<div className="category ">
 			<h1 className="category-title">
 				<FormattedMessage id='categoryList' />
 			</h1>
 			{
-				isGetCategoriesLoading ? <Loader /> : <>
-					{
-						categoriesList.length < 1
-						&&
-						<h1 className="productList-arrowDown">
-							<FormattedMessage id='createCategory' />
-						</h1>
-					}
-					<div className='category-body_wrapper'>
-						{
-							categoriesList?.map((category, index) => <div
-									className="category-body_accordingHeader"
-									key={category?._id}
-								>
+				user?.shop_name !== undefined
+					?
+					isGetCategoriesLoading
+						?
+						<Loader />
+						:
+						<>
+							{
+								categoriesList.length < 1
+								&&
+								<h1 className="productList-arrowDown">
+									{
+										<FormattedMessage id='createCategory' />
+
+									}
+								</h1>
+							}
+							<div className='category-body_wrapper'>
+								{
+									categoriesList?.map((category, index) => <div
+											className="category-body_accordingHeader"
+											key={category?._id}
+										>
 							<span
 								onClick={() => {
 									showList()
@@ -87,17 +108,28 @@ const Category = () => {
 							>
 								{category?.category_name}
 							</span>
-									<DropdownEdit
-										categoryName={category?.category_name}
-										id={category?._id}
-									/>
-								</div>
-							)
-						}
+											<DropdownEdit
+												categoryName={category?.category_name}
+												id={category?._id}
+											/>
+										</div>
+									)
+								}
+							</div>
+						</>
+					:
+					<div className='h-100 w100 d-flex align-items-center justify-content-center'>
+						<button className="editProfile-body_content_button" onClick={showRegistrationShopWindow}>
+						<span>
+							<FormattedMessage id='createShopOrMenu' />
+						</span>
+						</button>
 					</div>
-				</>
 			}
-			<CategoryInpName />
+
+			{
+				user?.shop_name && <CategoryInpName />
+			}
 		</div>
 	)
 }

@@ -60,17 +60,21 @@ const Header = () => {
 					src={thekeLogo}
 					alt="company logo theke"
 				/>
-				<div className="header-left">
-					<div
-						className='header-left_logo'
-						style={user.image_logo ? {backgroundImage: `url(${user.image_logo})`} : {backgroundImage: `url(${photo})`}}
-					>
-					</div>
-					<span className="header-left_status">
-					{user?.shop_name}
+				{
+					user?.shop_name
+					&&
+					<div className="header-left">
+						<div
+							className='header-left_logo'
+							style={user.image_logo ? {backgroundImage: `url(${user.image_logo})`} : {backgroundImage: `url(${photo})`}}
+						>
+						</div>
+						<span className="header-left_status">
+					{user?.shop_name || ''}
 				</span>
-				</div>
-				{( user?.socials_links.shop_facebook || user?.socials_links.shop_viber || user?.socials_links.shop_telegram || user?.socials_links.shop_instagram)
+					</div>
+				}
+				{( user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber || user?.socials_links?.shop_telegram || user?.socials_links?.shop_instagram)
 					&&
 					<div className='header-link'>
 						<Dropdown className="d-inline mx-2">
@@ -116,8 +120,10 @@ const Header = () => {
 						</Dropdown>
 					</div>
 				}
-
-				<span className='header-link'>
+				{
+					user?.shop_name
+					&&
+					<span className='header-link'>
 					<FormattedMessage
 						id='shopLink'
 						values={{total: user?.variant_trading}}
@@ -125,10 +131,13 @@ const Header = () => {
 					<a
 						href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
 						target="_blank"
+						rel="noreferrer noopener"
 					>
 						{user?.shop_name}
 					</a>
 				</span>
+				}
+
 				<button
 					onClick={logoutHandler}
 					className="header-left_logout"
@@ -174,6 +183,7 @@ const Header = () => {
 								<a
 									href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
 									target="_blank"
+									rel="noreferrer noopener"
 								>
 									{user?.shop_name}
 								</a>
