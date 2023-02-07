@@ -4,7 +4,10 @@ import {
 	useDispatch,
 	useSelector
 } from "react-redux"
-import { FormattedMessage } from "react-intl";
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl";
 import exit from "../../assets/icons/logout.svg";
 import { logout } from "../../redux/slices/userSlice";
 import {
@@ -21,7 +24,10 @@ import eye from "../../assets/icons/eye.svg";
 import myProducts from "../../assets/icons/note-list-icon.svg";
 import myProfile from "../../assets/icons/profile-icon.svg";
 import contactSupport from "../../assets/icons/contact-support-icon.svg";
-import React, { useState } from "react";
+import React, {
+	useEffect,
+	useState
+} from "react";
 import {
 	Container,
 	Dropdown,
@@ -42,14 +48,23 @@ import {
 } from "react-share";
 
 const Header = () => {
+	const [expanded, setExpanded] = useState(false)
 	const {user} = useSelector((state) => state.userStore)
 	const location = useLocation()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
+	const [shopOrMenu, setShopOrMenu] = useState(null)
+	const {formatMessage} = useIntl()
+
+	useEffect(() => {
+		if (user?.variant_trading) {
+			return setShopOrMenu(<FormattedMessage id={user?.variant_trading} />)
+		}
+	}, [user?.variant_trading])
+
 	const logoutHandler = () => {
 		dispatch(logout())
 		navigate(APP_ROUTE.DEFAULT)
-		toast('Your exit')
 	}
 
 	return (
@@ -74,13 +89,15 @@ const Header = () => {
 				</span>
 					</div>
 				}
-				{( user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber || user?.socials_links?.shop_telegram || user?.socials_links?.shop_instagram)
+				{(user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber || user?.socials_links?.shop_telegram ||
+						user?.socials_links?.shop_instagram) && user?.shop_name
 					&&
 					<div className='header-link'>
 						<Dropdown className="d-inline mx-2">
 							<Dropdown.Toggle
 								id="dropdown-autoclose-true"
 								variant='secondary'
+
 							>
 								<FormattedMessage id='share' />
 							</Dropdown.Toggle>
@@ -126,7 +143,7 @@ const Header = () => {
 					<span className='header-link'>
 					<FormattedMessage
 						id='shopLink'
-						values={{total: user?.variant_trading}}
+						values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 					/>
 					<a
 						href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
@@ -157,6 +174,8 @@ const Header = () => {
 				sticky='top'
 				className="header-mob"
 				collapseOnSelect='true'
+				expanded={expanded}
+
 			>
 				<Container>
 					<img
@@ -164,21 +183,31 @@ const Header = () => {
 						src={thekeLogo}
 						alt="company logo theke"
 					/>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Toggle
+						aria-controls="basic-navbar-nav"
+						onClick={() => setExpanded(expanded ? false : "expanded")}
+					/>
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<div className="header-mob_left">
-								<div
-									className='header-mob_left_logo'
-									style={user.image_logo ? {backgroundImage: `url(${user.image_logo})`} : {backgroundImage: `url(${photo})`}}
-								>
+							{
+								user?.shop_name
+								&&
+								<div className="header-mob_left">
+									<div
+										className='header-mob_left_logo'
+										style={user.image_logo ? {backgroundImage: `url(${user.image_logo})`} : {backgroundImage: `url(${photo})`}}
+									>
+									</div>
+									<span className="header-mob_left_status">{user?.shop_name}</span>
 								</div>
-								<span className="header-mob_left_status">{user?.shop_name}</span>
-							</div>
-							<span className='header-mob_link'>
+							}
+							{
+								user?.shop_name
+								&&
+								<span className='header-mob_link'>
 								<FormattedMessage
 									id='shopLink'
-									values={{total: user?.variant_trading}}
+									values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 								/>
 								<a
 									href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
@@ -188,53 +217,67 @@ const Header = () => {
 									{user?.shop_name}
 								</a>
 							</span>
-							<div className='header-link'>
-								<Dropdown className="d-inline mx-2">
-									<Dropdown.Toggle id="dropdown-autoclose-true">
-										<FormattedMessage id='share' />
-									</Dropdown.Toggle>
-									<Dropdown.Menu>
-										{
-											user?.socials_links?.shop_facebook
-											&&
-											<FacebookShareButton
-												url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-												quote='shared from theke.com.ua'
-												hashtag='#theke'
-											>
-												<FacebookIcon />
-											</FacebookShareButton>
-										}
-										{
-											user?.socials_links?.shop_telegram
-											&&
-											<TelegramShareButton
-												url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-												title='shared from theke.com.ua'
-											>
-												<TelegramIcon />
-											</TelegramShareButton>
-										}
-										{
-											user?.socials_links?.shop_viber
-											&&
-											<ViberShareButton
-												url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-												// title='shared from theke.com.ua_____ '
-											>
-												<ViberIcon />
-											</ViberShareButton>
-										}
-									</Dropdown.Menu>
-								</Dropdown>
-							</div>
+							}
+
 							<div className="header-mob_center">
 								<ul className='header-mob_center-wrapper'>
+									{(user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber ||
+											user?.socials_links?.shop_telegram || user?.socials_links?.shop_instagram) && user?.shop_name
+										&&
+										<li
+											className={`header-mob_center-wrapper_item`}
+											onClick={() => navigate(APP_ROUTE.CATEGORIES_LIST)}
+										>
+											<div className='header-link mt-2'>
+												<Dropdown className="d-inline mx-2">
+													<Dropdown.Toggle id="dropdown-autoclose-true">
+														<FormattedMessage id='share' />
+													</Dropdown.Toggle>
+													<Dropdown.Menu>
+														{
+															user?.socials_links?.shop_facebook
+															&&
+															<FacebookShareButton
+																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+																quote='shared from theke.com.ua'
+																hashtag='#theke'
+															>
+																<FacebookIcon />
+															</FacebookShareButton>
+														}
+														{
+															user?.socials_links?.shop_telegram
+															&&
+															<TelegramShareButton
+																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+																title='shared from theke.com.ua'
+															>
+																<TelegramIcon />
+															</TelegramShareButton>
+														}
+														{
+															user?.socials_links?.shop_viber
+															&&
+															<ViberShareButton
+																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+																// title='shared from theke.com.ua_____ '
+															>
+																<ViberIcon />
+															</ViberShareButton>
+														}
+													</Dropdown.Menu>
+												</Dropdown>
+											</div>
+										</li>
+									}
 									<li
 										className={`header-mob_center-wrapper_item ${(location.pathname === APP_ROUTE.CATEGORIES_LIST ||
 											location.pathname === APP_ROUTE.DEFAULT || location.pathname ===
 											APP_ROUTE.PRODUCTS_LIST) ? 'activeButton' : ''}`}
-										onClick={() => navigate(APP_ROUTE.CATEGORIES_LIST)}
+										onClick={() => {
+											setExpanded(false)
+											navigate(APP_ROUTE.CATEGORIES_LIST)
+										}}
 									>
 										<img
 											src={myProducts}
@@ -247,7 +290,10 @@ const Header = () => {
 										className={
 											`header-mob_center-wrapper_item ${location.pathname === APP_ROUTE.PROFILE ? 'activeButton' : ''}`
 										}
-										onClick={() => navigate(APP_ROUTE.PROFILE)}
+										onClick={() => {
+											setExpanded(false)
+											navigate(APP_ROUTE.PROFILE)
+										}}
 									>
 										<img
 											src={myProfile}
@@ -262,7 +308,10 @@ const Header = () => {
 											`header-mob_center-wrapper_item ${location.pathname ===
 											APP_ROUTE.CONTACT_SUPPORT ? 'activeButton' : ''}`
 										}
-										onClick={() => navigate(APP_ROUTE.CONTACT_SUPPORT)}
+										onClick={() => {
+											setExpanded(false)
+											navigate(APP_ROUTE.CONTACT_SUPPORT)
+										}}
 									>
 										<img
 											src={contactSupport}

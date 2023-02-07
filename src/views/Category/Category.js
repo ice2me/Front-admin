@@ -100,14 +100,15 @@ const Category = () => {
 											className="category-body_accordingHeader"
 											key={category?._id}
 										>
-							<span
+							<p
+								title={category?.category_name.length > 20 ? category?.category_name : ''}
 								onClick={() => {
 									showList()
 									setCategoryIdState(category?._id)
 								}}
 							>
 								{category?.category_name}
-							</span>
+							</p>
 											<DropdownEdit
 												categoryName={category?.category_name}
 												id={category?._id}

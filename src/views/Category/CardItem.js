@@ -49,6 +49,11 @@ const CardItem = ({
 					alt="photo product"
 				/>
 				<h3>{item?.name_product}</h3>
+				<span className='text-center'>
+						{formatMessage({id: 'price'})} <span className='category-body_item-price'>
+					<b>{item?.price_product}.00 {item?.currency_product}</b>
+					</span>
+				</span>
 
 				{
 					item?.description_product
@@ -57,7 +62,11 @@ const CardItem = ({
 							className='category-body_item-description'
 							onClick={() => setShowDescription(true)}
 						>
-							<span><FormattedMessage id='description' /> </span>
+							<span>
+								{
+									item?.description_product
+								}
+							</span>
 							<div style={{zIndex: showDescription ? '999' : '-1'}}>
 								<button
 									onClick={(e) => {
@@ -70,7 +79,18 @@ const CardItem = ({
 										alt="close"
 									/>
 								</button>
-								{item?.description_product ? item?.description_product : ''}
+								<p>{item?.description_product ? item?.description_product : ''}</p>
+								<button
+									onClick={(e) => {
+										e.stopPropagation()
+										setShowDescription(false)
+									}}
+								>
+									<img
+										src={close}
+										alt="close"
+									/>
+								</button>
 							</div>
 						</div>
 						:
@@ -92,11 +112,6 @@ const CardItem = ({
 					/>
 					<span><b>{item?.unit_product}</b>
 				</span>
-					</span>
-				<span>
-						{formatMessage({id: 'price'})} <span className='category-body_item-price'>
-					<b>{item?.price_product}.00 {item?.currency_product}</b>
-					</span>
 					</span>
 				<div className="category-body_available">
 					<span>

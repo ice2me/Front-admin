@@ -32,16 +32,6 @@ const ContactSupport = () => {
 							alt="telegram"
 						/>
 					</a>
-					<a
-						href={`https://www.instagram.com/serhiizuiev/`}
-						target='_blank'
-						rel="noreferrer noopener"
-					>
-						<img
-							src={instagram}
-							alt="instagram"
-						/>
-					</a>
 				</div>
 				<h2 className='text-center mt-4'>
 					<FormattedMessage id='contactSupportMessage' />

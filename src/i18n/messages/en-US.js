@@ -37,6 +37,8 @@ export default {
 		enterEnterShopTelegram: 'Enter Telegram',
 		shopInstagram: '{total} Instagram: ',
 		enterEnterShopInstagram: 'Enter Instagram',
+		Shop: 'Shop',
+		Menu: 'Menu',
 		// ******************************************************** Navbare
 		myProducts: 'My products',
 		myProfile: 'My Profile',
@@ -84,7 +86,6 @@ export default {
 		createProductCard: 'No products',
 		editProductCard: 'Edit Product Card',
 		deleteProductCard: 'Delete Product Card',
-		description: 'Description Product',
 		unitFor: 'Unit for {unit}: ',
 		price: 'Price: ',
 		available: 'Available: ',

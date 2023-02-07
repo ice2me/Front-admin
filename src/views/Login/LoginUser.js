@@ -42,6 +42,7 @@ export const LoginUser = () => {
 				navigate(APP_ROUTE.CATEGORIES_LIST)
 			} else {
 				setErrors(data.error.message)
+				toast(data.error.message)
 				navigate(APP_ROUTE.LOGIN)
 				// return toast(data.error.message)
 			}

@@ -37,6 +37,8 @@ export default {
 		enterEnterShopTelegram: "Введіть Telegram",
 		shopInstagram: "Instagram {total} ",
 		enterEnterShopInstagram: "Введіть Instagram",
+		Shop: 'Магазин',
+		Menu: 'Меню',
 		// ******************************************************** Navbare
 		myProducts: 'Мої товари',
 		myProfile: 'Мій профіль',
@@ -84,7 +86,6 @@ export default {
 		createProductCard: 'Немає товарів',
 		editProductCard: 'Редагувати картку товару',
 		deleteProductCard: 'Видалити картку продукту',
-		description: 'Опис продукту',
 		unitFor: 'За {unit}: ',
 		price: 'Ціна: ',
 		available: 'В наявності: ',

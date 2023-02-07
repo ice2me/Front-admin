@@ -4,12 +4,16 @@ import viber from '../../assets/icons/viber.svg'
 import telegram from '../../assets/icons/telegram.svg'
 import instagram from '../../assets/icons/instagram.svg'
 import dots from '../../assets/icons/dotsEdit.svg'
-import { FormattedMessage } from "react-intl"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 
 const Profile = ({
 	user,
 	setOpenEditProfile
 }) => {
+	const {formatMessage} = useIntl()
 	return (
 		<>
 			<h1 className="profile-title">
@@ -54,14 +58,14 @@ const Profile = ({
 						</li>
 						<li className="profile-body_content-text">
 							<span>
-								<FormattedMessage id='nameShop' values={{total: user?.variant_trading}}/>
+								<FormattedMessage id='nameShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 							</span>
 							<p>{user?.shop_name}</p>
 						</li>
 						{
 							user?.description && <li className="profile-body_content-text">
 								<span>
-									<FormattedMessage id='descriptionShop' values={{total: user?.variant_trading}}/>
+									<FormattedMessage id='descriptionShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 								</span>
 								<p className='profile-body_content-text_description'>
 									{user?.description}
@@ -71,7 +75,7 @@ const Profile = ({
 						{
 							user?.shop_link && <li className="profile-body_content-text">
 								<span>
-									<FormattedMessage id='shopLink' values={{total: user?.variant_trading}}/>
+									<FormattedMessage id='shopLink' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 								</span>
 								<a href={`https://${user?.shop_link}`}>{user?.shop_link}</a>
 							</li>

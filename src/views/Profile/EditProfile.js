@@ -62,8 +62,7 @@ const EditProfile = ({
 	const [updateUser, {isLoading: isUpdateUserLoading}] = useUpdateUserMutation()
 	// const [deleteUser, {isLoading: isDeleteUserLoading}] = useDeleteUserMutation()
 
-	const isLoading =
-		isUpdateUserLoading
+	const isLoading = isUpdateUserLoading
 	// isDeleteUserLoading
 
 	const resizeFile = (file) => {
@@ -270,7 +269,7 @@ const EditProfile = ({
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='nameShop' values={{total: user?.variant_trading}}/>
+										<FormattedMessage id='nameShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 									</span>
 									<p>{user?.shop_name}</p>
 								</li>
@@ -299,7 +298,7 @@ const EditProfile = ({
 								{/*</li>*/}
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='descriptionShop' values={{total: user?.variant_trading}}/>
+										<FormattedMessage id='descriptionShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 									</span>
 									<Form.Control
 										className={`pe-5  ${touched.description ? "is-touch " : ""} ${
@@ -325,7 +324,7 @@ const EditProfile = ({
 								</li>
 								<li className="editProfile-body_content-text">
 										<span>
-											<FormattedMessage id='shopLink' values={{total: user?.variant_trading}}/>
+											<FormattedMessage id='shopLink' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 										</span>
 										<Form.Control
 											className={`pe-5  ${touched.shop_link ? "is-touch " : ""} ${
