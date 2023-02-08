@@ -62,11 +62,7 @@ const CardItem = ({
 							className='category-body_item-description'
 							onClick={() => setShowDescription(true)}
 						>
-							<span>
-								{
-									item?.description_product
-								}
-							</span>
+							<span>{item?.description_product}</span>
 							<div style={{zIndex: showDescription ? '999' : '-1'}}>
 								<button
 									onClick={(e) => {

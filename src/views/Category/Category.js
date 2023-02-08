@@ -99,13 +99,13 @@ const Category = () => {
 									categoriesList?.map((category, index) => <div
 											className="category-body_accordingHeader"
 											key={category?._id}
+											onClick={() => {
+												showList()
+												setCategoryIdState(category?._id)
+											}}
 										>
 							<p
 								title={category?.category_name.length > 20 ? category?.category_name : ''}
-								onClick={() => {
-									showList()
-									setCategoryIdState(category?._id)
-								}}
 							>
 								{category?.category_name}
 							</p>

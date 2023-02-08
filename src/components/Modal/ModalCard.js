@@ -263,6 +263,7 @@ export default function ModalCard({
 								name='currency_product'
 								value={editItemProductCard && form?.currency_product}
 								onChange={(e) => formUpdateHandler({[e.target.name]: e.target.value})}
+								disabled
 							>
 								<option
 									value="₴"
@@ -298,6 +299,14 @@ export default function ModalCard({
 							alt="image"
 						/>
 						<h3>{form?.name_product || <FormattedMessage id='nameProduct' />}</h3>
+						<span className='text-center'>
+						<FormattedMessage id='price' />
+							<span
+								className='category-body_item-price'
+							>
+								{form?.price_product || '99'} {form?.currency_product || '₴'}
+							</span>
+						</span>
 						<p>
 							{form?.description_product || <FormattedMessage id='loremText' /> }
 						</p>
@@ -316,13 +325,6 @@ export default function ModalCard({
 							<span>
 							{form?.unit_product || <FormattedMessage id='piece' />}
 						</span>
-					</span>
-						<span>
-						<FormattedMessage id='price' />
-							<span
-								className='home-body_item-price'
-							>{form?.price_product || '99'} {form?.currency_product ||
-								'₴'}</span>
 					</span>
 						<div className="modalAddCard-available">
 							<span>
