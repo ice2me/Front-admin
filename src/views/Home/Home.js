@@ -227,6 +227,11 @@ const Home = () => {
 						<h3 className="home-sixthBlock_block-title">
 							<FormattedMessage id='cost' />
 						</h3>
+						<div className="home-sixthBlock_block-sale">
+							<h2>
+								<FormattedMessage id='firstMonthIsFree' />
+							</h2>
+						</div>
 						<span className="home-sixthBlock_block-price">
 							<FormattedMessage id='priceTheke' />
 						</span>

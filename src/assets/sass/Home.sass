@@ -55,7 +55,8 @@
 			h1, h2
 				width: 100%
 				text-align: center
-				@include calc("font-size", 38, 26)
+				@include calc("font-size", 50, 26)
+				text-shadow: $basic-color 1px 1px
 				font-weight: bold
 
 		&_title
@@ -72,10 +73,11 @@
 			font-weight: bold
 
 			h2
-				@include calc("font-size", 28, 18)
+				@include calc("font-size", 35, 18)
 				font-weight: lighter
 				text-align: center
 				font-weight: bold
+				text-shadow: none
 
 			p
 				margin-top: 30px
@@ -134,9 +136,11 @@
 			text-align: start
 			position: relative
 			z-index: 2
+			min-width: 250px
+			max-width: 500px
 
 			h2
-				@include calc("font-size", 22, 18)
+				@include calc("font-size", 20, 18)
 				font-weight: bold
 
 			@media screen and (max-width: 992px)
@@ -159,8 +163,6 @@
 			align-items: flex-start
 			justify-content: flex-start
 			flex-direction: column
-			min-width: 250px
-			max-width: 500px
 
 			&-li
 				margin: 15px 0
@@ -170,9 +172,8 @@
 				padding: 0 8px
 
 				span
-					font-size: 18px
+					@include calc("font-size", 16, 14)
 					margin-left: 8px
-					max-width: 500px
 
 				img
 					width: 20px
@@ -210,10 +211,11 @@
 			padding-left: 30px
 			position: relative
 			z-index: 3
+			min-width: 250px
+			max-width: 500px
 
 			&-title
-				max-width: 320px
-				@include calc("font-size", 22, 18)
+				@include calc("font-size", 20, 18)
 				font-weight: bold
 
 			&-list
@@ -221,7 +223,6 @@
 				align-items: flex-start
 				justify-content: center
 				flex-direction: column
-				min-width: 250px
 
 				&_li
 					margin: 15px 0
@@ -231,7 +232,7 @@
 					padding: 0 8px
 
 					span
-						font-size: 18px
+						@include calc("font-size", 16, 14)
 						margin-left: 8px
 
 					img
@@ -339,6 +340,7 @@
 		align-items: center
 		justify-content: center
 		flex-direction: column
+		overflow: hidden
 
 		&_title
 			text-align: center
@@ -353,10 +355,46 @@
 			align-items: center
 			justify-content: center
 			flex-direction: column
+			position: relative
 
 			&-title
 				font-size: 30px
 				font-weight: bold
+			&-sale
+				position: absolute
+				transform: rotate(-42deg)
+				left: -70px
+				top: 80px
+				@media screen and (max-width: 680px)
+					left: 10px
+					transform: rotate(0deg)
+				h2
+					@include calc("font-size", 30, 22)
+					color: $red
+					text-shadow: $basic-color 1px 2px
+					position: relative
+					font-weight: bold
+
+					&:before
+						content: 'SALE'
+						width: 150px
+						height: 150px
+						background-color: transparent
+						position: absolute
+						top: -160px
+						left: 100px
+						color: $white
+						font-size: 50px
+						text-shadow: $basic-color 3px 3px
+						border-radius: 50%
+						border-bottom: 75px solid #F7CE00
+						border-top: 75px solid #0058B5
+						transform: rotate(-8deg)
+						@include centering
+						z-index: 2
+						@media screen and (max-width: 680px)
+							display: none
+
 
 			&-price
 				@include calc("font-size", 40, 26)
