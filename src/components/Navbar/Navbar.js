@@ -12,7 +12,7 @@ import {
 import { FormattedMessage } from "react-intl";
 
 const Navbar = () => {
-	const [toggleNavbar, setToggleNavbar] = useState(false)
+	const [toggleNavbar, setToggleNavbar] = useState(true)
 	const navigate = useNavigate()
 	const location = useLocation()
 

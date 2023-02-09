@@ -8,36 +8,46 @@ import {
 	FormattedMessage,
 	useIntl
 } from "react-intl"
+import React, { useState } from "react";
+import { RegistrationShop } from "../Login/RegistrationShop";
 
 const Profile = ({
 	user,
 	setOpenEditProfile
 }) => {
+	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
+	const showRegistrationShopWindow = () => setOpenRegistrationShopWindow(true)
 	const {formatMessage} = useIntl()
+	if (openRegistrationShopWindow) {
+		return openRegistrationShopWindow && <RegistrationShop />
+	}
 	return (
 		<>
 			<h1 className="profile-title">
 				<FormattedMessage id='profile' />
-				<button
-					className='profile-title_dots'
-					onClick={() => setOpenEditProfile(true)}
-				>
-					<img
-						src={dots}
-						alt="dots edit profile"
-					/>
-				</button>
+				{
+					user?.shop_name && <button
+						className='profile-title_dots'
+						onClick={() => setOpenEditProfile(true)}
+					>
+						<img
+							src={dots}
+							alt="dots edit profile"
+						/>
+					</button>
+				}
+
 			</h1>
 			<div className='profile-body'>
 				<div className='profile-body_wrapper'>
 					<div
 						className="profile-body_photo"
 						style={
-						user?.image_logo
-							?
-							{backgroundImage: `url(${user?.image_logo})`}
-							:
-							{backgroundImage: `url(${photo})`}
+							user?.image_logo
+								?
+								{backgroundImage: `url(${user?.image_logo})`}
+								:
+								{backgroundImage: `url(${photo})`}
 						}
 					>
 					</div>
@@ -56,16 +66,39 @@ const Profile = ({
 							</span>
 							<p>{user?.email}</p>
 						</li>
-						<li className="profile-body_content-text">
+						{!user?.shop_name &&
+							<li>
+								<div className='h-100 w100 d-flex align-items-center justify-content-center'>
+									<button
+										className="editProfile-body_content_button"
+										onClick={showRegistrationShopWindow}
+									>
+						<span>
+							<FormattedMessage id='createShopOrMenu' />
+						</span>
+									</button>
+								</div>
+							</li>
+						}
+
+						{
+							user?.shop_name && <li className="profile-body_content-text">
 							<span>
-								<FormattedMessage id='nameShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
+								<FormattedMessage
+									id='nameShop'
+									values={{total: formatMessage({id: `${user?.variant_trading}`})}}
+								/>
 							</span>
-							<p>{user?.shop_name}</p>
-						</li>
+								<p>{user?.shop_name}</p>
+							</li>
+						}
 						{
 							user?.description && <li className="profile-body_content-text">
 								<span>
-									<FormattedMessage id='descriptionShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
+									<FormattedMessage
+										id='descriptionShop'
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
+									/>
 								</span>
 								<p className='profile-body_content-text_description'>
 									{user?.description}
@@ -75,7 +108,10 @@ const Profile = ({
 						{
 							user?.shop_link && <li className="profile-body_content-text">
 								<span>
-									<FormattedMessage id='shopLink' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
+									<FormattedMessage
+										id='shopLink'
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
+									/>
 								</span>
 								<a href={`https://${user?.shop_link}`}>{user?.shop_link}</a>
 							</li>

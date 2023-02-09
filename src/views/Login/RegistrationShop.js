@@ -61,8 +61,10 @@ export const RegistrationShop = () => {
 		try {
 			const {data} = await registerShop(formDate)
 			dispatch(setShop(data?.isUser))
+			console.log('data.isUser', data.isUser)
+			console.log('!data?.error', !data?.error)
 			if (data.isUser && !data?.error) {
-				navigate(APP_ROUTE.PROFILE)
+				navigate(APP_ROUTE.CATEGORIES_LIST)
 			} else {
 				toast(
 					data?.error.shop_name
@@ -147,7 +149,10 @@ export const RegistrationShop = () => {
 									onClick={() => setShopVariantTrading("Shop")}
 									className='mb-1 mt-3'
 								>
-									<FormattedMessage id='iWantShop' />
+									<FormattedMessage
+										id='iWantShop'
+										values={{total: formatMessage({id: 'Shop'})}}
+									/>
 								</Button>
 							</OverlayTrigger>
 							<OverlayTrigger
@@ -159,7 +164,10 @@ export const RegistrationShop = () => {
 									variant={(shopVariantTrading === "Menu") ? "secondary" : "light"}
 									onClick={() => setShopVariantTrading("Menu")}
 								>
-									<FormattedMessage id='iWantMenu' />
+									<FormattedMessage
+										id='iWantShop'
+										values={{total: formatMessage({id: 'Menu'})}}
+									/>
 								</Button>
 							</OverlayTrigger>
 						</Form.Group>
@@ -169,7 +177,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='nameShop'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/><b> * </b>
 								</span>
 							</div>
@@ -230,7 +238,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='descriptionShop'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/>
 								</span>
 							</div>
@@ -262,7 +270,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='shopLink'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/>
 								</span>
 							</div>
@@ -294,7 +302,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='shopFacebook'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/>
 								</span>
 							</div>
@@ -324,7 +332,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='shopViber'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/>
 								</span>
 							</div>
@@ -354,7 +362,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='shopTelegram'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/>
 								</span>
 							</div>
@@ -384,7 +392,7 @@ export const RegistrationShop = () => {
 								<span>
 									<FormattedMessage
 										id='shopInstagram'
-										values={{total: shopVariantTrading}}
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
 									/>
 								</span>
 							</div>
