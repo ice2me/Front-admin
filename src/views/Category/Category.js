@@ -68,7 +68,9 @@ const Category = () => {
 	}
 
 	if (openRegistrationShopWindow) {
-		return openRegistrationShopWindow && <RegistrationShop />
+		return openRegistrationShopWindow
+			&&
+			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
 	}
 
 	return (
@@ -104,11 +106,11 @@ const Category = () => {
 												setCategoryIdState(category?._id)
 											}}
 										>
-							<p
-								title={category?.category_name.length > 20 ? category?.category_name : ''}
-							>
-								{category?.category_name}
-							</p>
+											<p
+												title={category?.category_name.length > 20 ? category?.category_name : ''}
+											>
+												{category?.category_name}
+											</p>
 											<DropdownEdit
 												categoryName={category?.category_name}
 												id={category?._id}
@@ -120,7 +122,10 @@ const Category = () => {
 						</>
 					:
 					<div className='h-100 w100 d-flex align-items-center justify-content-center'>
-						<button className="editProfile-body_content_button" onClick={showRegistrationShopWindow}>
+						<button
+							className="editProfile-body_content_button"
+							onClick={showRegistrationShopWindow}
+						>
 						<span>
 							<FormattedMessage id='createShopOrMenu' />
 						</span>

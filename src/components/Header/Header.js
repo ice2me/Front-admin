@@ -85,7 +85,7 @@ const Header = () => {
 						>
 						</div>
 						<span className="header-left_status">
-					{user?.shop_name || ''}
+					{user?.shop_name.replace(/_/ig, ' ') || ''}
 				</span>
 					</div>
 				}
@@ -150,7 +150,7 @@ const Header = () => {
 						target="_blank"
 						rel="noreferrer noopener"
 					>
-						{user?.shop_name}
+						{user?.shop_name.replace(/_/ig, ' ')}
 					</a>
 				</span>
 				}

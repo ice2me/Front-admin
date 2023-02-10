@@ -22,7 +22,7 @@ import { Formik } from "formik"
 import { getRegistrationShopSchema } from "../../utils/validation/YupRegistrationShop";
 import { toast } from "react-toastify";
 
-export const RegistrationShop = () => {
+export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	const [form, setForm] = useState({})
 	const [shopFacebook, setShopFacebook] = useState('')
 	const [shopViber, setShopViber] = useState('')
@@ -61,10 +61,9 @@ export const RegistrationShop = () => {
 		try {
 			const {data} = await registerShop(formDate)
 			dispatch(setShop(data?.isUser))
-			console.log('data.isUser', data.isUser)
-			console.log('!data?.error', !data?.error)
-			if (data.isUser && !data?.error) {
-				navigate(APP_ROUTE.CATEGORIES_LIST)
+			if (data.isUser) {
+				navigate(APP_ROUTE.DEFAULT)
+				hideRegistrationShopWindow()
 			} else {
 				toast(
 					data?.error.shop_name

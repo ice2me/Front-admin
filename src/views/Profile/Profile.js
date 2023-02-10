@@ -17,9 +17,12 @@ const Profile = ({
 }) => {
 	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
 	const showRegistrationShopWindow = () => setOpenRegistrationShopWindow(true)
+	const hideRegistrationShopWindow = () => setOpenRegistrationShopWindow(false)
 	const {formatMessage} = useIntl()
 	if (openRegistrationShopWindow) {
-		return openRegistrationShopWindow && <RegistrationShop />
+		return openRegistrationShopWindow
+			&&
+			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
 	}
 	return (
 		<>
