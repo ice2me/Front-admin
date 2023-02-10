@@ -46,6 +46,7 @@ import {
 	ViberIcon,
 	ViberShareButton
 } from "react-share";
+import { addSpace } from "../../utils/toggleSpaceString";
 
 const Header = () => {
 	const [expanded, setExpanded] = useState(false)
@@ -53,14 +54,8 @@ const Header = () => {
 	const location = useLocation()
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const [shopOrMenu, setShopOrMenu] = useState(null)
 	const {formatMessage} = useIntl()
 
-	useEffect(() => {
-		if (user?.variant_trading) {
-			return setShopOrMenu(<FormattedMessage id={user?.variant_trading} />)
-		}
-	}, [user?.variant_trading])
 
 	const logoutHandler = () => {
 		dispatch(logout())
@@ -85,7 +80,7 @@ const Header = () => {
 						>
 						</div>
 						<span className="header-left_status">
-					{user?.shop_name.replace(/_/ig, ' ') || ''}
+					{addSpace(user?.shop_name) || ''}
 				</span>
 					</div>
 				}
@@ -150,7 +145,7 @@ const Header = () => {
 						target="_blank"
 						rel="noreferrer noopener"
 					>
-						{user?.shop_name.replace(/_/ig, ' ')}
+						{addSpace(user?.shop_name)}
 					</a>
 				</span>
 				}
@@ -198,7 +193,7 @@ const Header = () => {
 										style={user.image_logo ? {backgroundImage: `url(${user.image_logo})`} : {backgroundImage: `url(${photo})`}}
 									>
 									</div>
-									<span className="header-mob_left_status">{user?.shop_name}</span>
+									<span className="header-mob_left_status">{addSpace(user?.shop_name)}</span>
 								</div>
 							}
 							{
@@ -214,7 +209,7 @@ const Header = () => {
 									target="_blank"
 									rel="noreferrer noopener"
 								>
-									{user?.shop_name}
+									{addSpace(user?.shop_name)}
 								</a>
 							</span>
 							}

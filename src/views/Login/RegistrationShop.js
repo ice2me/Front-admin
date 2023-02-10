@@ -21,6 +21,7 @@ import Loader from "../../components/Loader/Loader"
 import { Formik } from "formik"
 import { getRegistrationShopSchema } from "../../utils/validation/YupRegistrationShop";
 import { toast } from "react-toastify";
+import { deleteSpace } from "../../utils/toggleSpaceString";
 
 export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	const [form, setForm] = useState({})
@@ -46,7 +47,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	}) => {
 		const formDate = {
 			id: user._id,
-			shop_name: values.shop_name.trim().replace(/ /ig, '_'),
+			shop_name: deleteSpace(values.shop_name),
 			description: values.description,
 			shop_link: values.shop_link.trim().toLowerCase(),
 			socials_links: {

@@ -10,6 +10,7 @@ import {
 } from "react-intl"
 import React, { useState } from "react";
 import { RegistrationShop } from "../Login/RegistrationShop";
+import { addSpace } from "../../utils/toggleSpaceString";
 
 const Profile = ({
 	user,
@@ -92,7 +93,7 @@ const Profile = ({
 									values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 								/>
 							</span>
-								<p>{user?.shop_name}</p>
+								<p>{addSpace(user?.shop_name)}</p>
 							</li>
 						}
 						{

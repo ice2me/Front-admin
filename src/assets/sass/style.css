@@ -1389,7 +1389,7 @@ input[type=file] {
   justify-content: center;
   flex-wrap: wrap;
   overflow: auto;
-  padding: 10px 0;
+  padding: 35px 0 20px 0;
 }
 @media screen and (max-width: 480px) {
   .productList-wrapper ul {

@@ -31,6 +31,7 @@ import {
 	useIntl
 } from "react-intl"
 import Loader from "../../components/Loader/Loader";
+import { addSpace } from "../../utils/toggleSpaceString";
 
 const EditProfile = ({
 	user,
@@ -271,7 +272,7 @@ const EditProfile = ({
 									<span>
 										<FormattedMessage id='nameShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
 									</span>
-									<p>{user?.shop_name}</p>
+									<p>{addSpace(user?.shop_name)}</p>
 								</li>
 								{/*<li className="editProfile-body_content-text flex-column">*/}
 								{/*	<p>*/}
