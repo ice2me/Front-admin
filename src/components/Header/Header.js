@@ -220,59 +220,6 @@ const Header = () => {
 
 							<div className="header-mob_center">
 								<ul className='header-mob_center-wrapper'>
-									{(user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber ||
-											user?.socials_links?.shop_telegram || user?.socials_links?.shop_instagram) && user?.shop_name
-										&&
-										<li
-											className={`header-mob_center-wrapper_item`}
-											onClick={() => navigate(APP_ROUTE.CATEGORIES_LIST)}
-										>
-											<div className='header-link mt-2'>
-												<Dropdown className="d-inline mx-2">
-													<Dropdown.Toggle id="dropdown-autoclose-true" variant='secondary'>
-														{/*<FormattedMessage id='share' />*/}
-														<img
-															src={share}
-															alt="share"
-														/>
-													</Dropdown.Toggle>
-													<Dropdown.Menu>
-														{
-															user?.socials_links?.shop_facebook
-															&&
-															<FacebookShareButton
-																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-																quote='shared from theke.com.ua'
-																hashtag='#theke'
-															>
-																<FacebookIcon />
-															</FacebookShareButton>
-														}
-														{
-															user?.socials_links?.shop_telegram
-															&&
-															<TelegramShareButton
-																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-																title='shared from theke.com.ua'
-															>
-																<TelegramIcon />
-															</TelegramShareButton>
-														}
-														{
-															user?.socials_links?.shop_viber
-															&&
-															<ViberShareButton
-																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-																// title='shared from theke.com.ua_____ '
-															>
-																<ViberIcon />
-															</ViberShareButton>
-														}
-													</Dropdown.Menu>
-												</Dropdown>
-											</div>
-										</li>
-									}
 									<li
 										className={`header-mob_center-wrapper_item ${(location.pathname === APP_ROUTE.CATEGORIES_LIST ||
 											location.pathname === APP_ROUTE.DEFAULT || location.pathname ===
@@ -323,6 +270,62 @@ const Header = () => {
 										/>
 										<FormattedMessage id='contactSupport' />
 									</li>
+									{(user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber ||
+											user?.socials_links?.shop_telegram || user?.socials_links?.shop_instagram) && user?.shop_name
+										&&
+										<li
+											className={`header-mob_center-wrapper_item`}
+											onClick={() => navigate(APP_ROUTE.CATEGORIES_LIST)}
+										>
+											<div className='header-link mt-2'>
+												<Dropdown className="d-inline mx-2">
+													<Dropdown.Toggle
+														id="dropdown-button-drop-up"
+														drop='up'
+														variant='secondary'
+													>
+														<img
+															src={share}
+															alt="share"
+														/>
+													</Dropdown.Toggle>
+													<Dropdown.Menu>
+														{
+															user?.socials_links?.shop_facebook
+															&&
+															<FacebookShareButton
+																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+																quote='shared from theke.com.ua'
+																hashtag='#theke'
+															>
+																<FacebookIcon />
+															</FacebookShareButton>
+														}
+														{
+															user?.socials_links?.shop_telegram
+															&&
+															<TelegramShareButton
+																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+																title='shared from theke.com.ua'
+															>
+																<TelegramIcon />
+															</TelegramShareButton>
+														}
+														{
+															user?.socials_links?.shop_viber
+															&&
+															<ViberShareButton
+																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+																// title='shared from theke.com.ua_____ '
+															>
+																<ViberIcon />
+															</ViberShareButton>
+														}
+													</Dropdown.Menu>
+												</Dropdown>
+											</div>
+										</li>
+									}
 								</ul>
 							</div>
 							<div className="header-mob-bottom">
