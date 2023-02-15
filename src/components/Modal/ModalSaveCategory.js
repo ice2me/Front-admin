@@ -80,7 +80,10 @@ const ModalSaveCategory = ({
 					placeholder={formatMessage({id: 'enterCategoryName'})}
 					name='name_product'
 					defaultValue={categoryNameEdit?.id && categoryNameEdit?.name}
-					onChange={e => setCategoryName(e.target.value)}
+					onChange={e => {
+						e.stopPropagation()
+						setCategoryName(e.target.value)
+					}}
 					autoFocus='on'
 					autoComplete='off'
 				/>

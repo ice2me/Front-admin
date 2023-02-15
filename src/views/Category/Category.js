@@ -98,19 +98,22 @@ const Category = () => {
 							}
 							<div className='category-body_wrapper'>
 								{
-									categoriesList?.map((category, index) => <div
-											className="category-body_accordingHeader"
-											key={category?._id}
-											onClick={() => {
-												showList()
-												setCategoryIdState(category?._id)
-											}}
-										>
-											<p
-												title={category?.category_name.length > 20 ? category?.category_name : ''}
+									categoriesList?.map((category, index) => <div className='category-body_accordingHeader'>
+											<div
+												className="category-body_accordingHeader-block"
+												key={category?._id}
+												onClick={() => {
+													showList()
+													setCategoryIdState(category?._id)
+												}}
 											>
-												{category?.category_name}
-											</p>
+												<p
+													title={category?.category_name.length > 20 ? category?.category_name : ''}
+												>
+													{category?.category_name}
+												</p>
+
+											</div>
 											<DropdownEdit
 												categoryName={category?.category_name}
 												id={category?._id}
