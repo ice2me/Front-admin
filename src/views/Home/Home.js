@@ -52,7 +52,7 @@ const Home = () => {
 							<p>
 								<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday' />
 							</p>
-							<a href='#video'>
+							<a href='#infoTheke'>
 								<FormattedMessage id='learnMore' />
 							</a>
 						</div>
@@ -161,22 +161,25 @@ const Home = () => {
 					</div>
 					<div className="home-thirdBlock_right"></div>
 				</div>
-				<div className="home-fourthBlock">
-					<div
-						className="home-fourthBlock_wrapper"
-						id='video'
-					>
-						<iframe
-							src="https://www.youtube.com/embed/WvJxQEJRp4I"
-							title="YouTube video player"
-							frameBorder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							// allowFullScreen
-						></iframe>
+				<div className="home-fourthBlock" id='infoTheke'>
+					<h2 className="home-fifthBlock_title">
+						<FormattedMessage id='whatIsTheke' />
+					</h2>
+					<div className='home-fourthBlock_content'>
+						<p>
+							Theke якісна інтернет-платформа для бізнесу, що створена в Україні для українців. З Theke, Ви власник онлайн-вітрини з її простим та зрозумілим управлінням.
+						</p>
+						<p>
+							Ваші клієнти отримують доступ магазину/меню за індивідуальним посиланням.
+							Розсилаючи посилання на Вашу Theke-вітрину через месенджери, Ви залучаєте  клієнтів лише у Ваш магазин/меню.
+						</p>
+						<p>
+							Ваші клієнти отримують зручний і красивий інтерфейс, де вибравши товар, зможуть його замовити в 1 клік, а Ви отримаєте лист на Email з повним описом товару та контактними даними клієнта.
+						</p>
+						<p>
+							Наша технічна підтримка працює 24/7 і допоможе Вам у вирішенні будь-якого питання.
+						</p>
 					</div>
-					{/*<button className="home-fourthBlock_button">*/}
-					{/*	<FormattedMessage id='seeHowItWorks' />*/}
-					{/*</button>*/}
 				</div>
 				<div className="home-fifthBlock">
 					<h2 className="home-fifthBlock_title">
@@ -225,14 +228,17 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="home-carousel">
+					<h2 className="home-fifthBlock_title mt-5">
+						<FormattedMessage id='customerReviews' />
+					</h2>
 					<Carousel
 						variant="dark"
 						className='home-carousel_wrapper'
 						touch={true}
-						interval={5000000000}
+						interval={5000}
 						keyboard={true}
 						fade={false}
-						slide={false}
+						slide={true}
 					>
 						<Carousel.Item
 							className='home-carousel_wrapper-item'
@@ -240,7 +246,8 @@ const Home = () => {
 							<div className="home-carousel_content">
 								<h3>Влад</h3>
 								<p>
-									На платформі Theke я запустив свій перший інтернет-магазин, тому порівнювати мені нема з чим, але з упевненістю можу сказати, що недолік мого досвіду компенсували співробітники платформи, надаючи дуже прості і в одночас корисні консультації. За сплачені гроші я отримав можливості з перевищенням очікувань, тому що інші компанії за передбачуваний бюджет пропонували набагато менший функціонал. Загалом співпраця з цією платформою я задоволен.
+									На платформі Theke я запустив свій перший інтернет-магазин. Досвіду користування такими речами раінше не мав. Трохи переживав з цього приводу.
+									щоАле недолік мого досвіду компенсували співробітники платформи, надаючи дуже прості і водночас корисні консультації. Результат перевищив мої очікування, тому що інші компанії бюджет вимагали глибші знання онлайн-платформ та за той же бюджет пропонували набагато менший функціонал. Загалом співпрацею з цією платформою я задоволен.
 								</p>
 							</div>
 						</Carousel.Item>
@@ -256,7 +263,7 @@ const Home = () => {
 							<div className="home-carousel_content">
 								<h3>Сашко</h3>
 								<p>
-									Працюємо разом із самого старту платформи, запустив вже 1 магазин та 1 меню. За функціоналом майданчика Theke питань взагалі немає все просто, створив категорію, наповнив її товаром та розшарив посилання своїм клієнтам через месенджери та починаєш роботу, дуже швидкий старт. Дякую за те, що заощаджували мій час та гроші, і не потрібно мучитися з особистим інтернет-магазином. Плюс платформа Theke в рази дешевша за повноцінний інтернет-магазин.
+									Працюємо разом із самого старту платформи, запустив вже 2 магазини та 1 меню доставки їжі. За функціоналом майданчика Theke питань взагалі немає все просто, створив категорію, наповнив її товаром та розшарив посилання своїм клієнтам через месенджери та починаєш роботу, дуже швидкий старт. Дякую за те, що заощаджували мій час та гроші, і не потрібно мучитися з особистим інтернет-магазином. Плюс платформа Theke в рази дешевша за повноцінний інтернет-магазин.
 								</p>
 							</div>
 						</Carousel.Item>

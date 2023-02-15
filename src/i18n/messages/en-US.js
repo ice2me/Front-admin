@@ -143,7 +143,9 @@ export default {
 		priceTheke: '$39/month.',
 		subscribeThekeAndGetYourBusinessGrowingRightNow: 'Subscribe to Theke and get your business growing right now.',
 		viewPlansDetails: 'View Plans Details',
-		firstMonthIsFree: 'The first month is Free!!!'
+		firstMonthIsFree: 'The first month is Free!!!',
+		customerReviews: 'Customer Reviews',
+		whatIsTheke: 'What is Theke?'
 	}
 }
 

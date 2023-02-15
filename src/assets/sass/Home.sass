@@ -265,22 +265,18 @@
 	&-fourthBlock
 		width: 100%
 		min-height: 350px
-		max-height: 450px
-		height: 100%
-		border: 3px solid $basic-color-opacity
-		border-radius: $border-radius
-
-		&_wrapper
+		@include centering
+		flex-direction: column
+		padding: 30px 10px
+		&_content
 			width: 100%
-			height: 100%
-			display: flex
-			align-items: center
-			justify-content: center
-
-			iframe
-				width: 100%
-				height: 100%
-				border-radius: $border-radius
+			height: max-content
+			text-align: center
+			@include calc("font-size", 20, 16)
+			@include calc("max-width", 600, 300)
+			margin-top: 30px
+			p
+				line-height: 35px
 
 	&-fifthBlock
 		width: 100%

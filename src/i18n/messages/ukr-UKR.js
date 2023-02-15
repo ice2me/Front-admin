@@ -143,6 +143,8 @@ export default {
 		priceTheke: '$39/місяць',
 		subscribeThekeAndGetYourBusinessGrowingRightNow: 'Підпишись на Theke та отримай розвиток свого бізнесу саме зараз',
 		viewPlansDetails: 'Переглянути деталі планів',
-		firstMonthIsFree: 'Перший місяц Безкоштовно !!!'
+		firstMonthIsFree: 'Перший місяц Безкоштовно !!!',
+		customerReviews: 'Відгуки клієнтів',
+		whatIsTheke: 'Що таке Theke?'
 	}
 }

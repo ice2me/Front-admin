@@ -10,7 +10,18 @@ const ContactSupport = () => {
 			<h1 className="category-title">
 				<FormattedMessage id='contactSupport' />
 			</h1>
-			<div className="profile-body_wrapper h-100 w-100">
+			<div className="profile-body_wrapper h-100 w-100 m-0">
+				<div
+					className="profile-body_wrapper-video"
+				>
+					<iframe
+						src="https://www.youtube.com/embed/WvJxQEJRp4I"
+						title="YouTube video player"
+						frameBorder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					>
+					</iframe>
+				</div>
 				<div className='d-inline-flex align-items-center justify-content-center'>
 					<a
 						href={`viber://add?number=%380669696402`}
