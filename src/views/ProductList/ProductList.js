@@ -24,7 +24,8 @@ const initialState = {
 
 const ProductList = ({
 	hideList,
-	categoryIdState
+	categoryIdState,
+	categoryNameOpen
 }) => {
 	const [modalShow, setModalShow] = useState(false)
 	const [editItemProductCard, setEditItemProductCard] = useState(initialState)
@@ -75,7 +76,7 @@ const ProductList = ({
 			{
 				<>
 					<h1 className="productList-title">
-						{state?.name}
+						{categoryNameOpen}
 						<button
 							className='productList-button'
 							onClick={backToHomePage}

@@ -27,6 +27,7 @@ const Category = () => {
 	const [getItemList, {isLoading: isGetItemListLoading}] = useGetItemListMutation()
 	const [shopProductsList, setShopProductsList] = useState(false)
 	const [categoryIdState, setCategoryIdState] = useState(null)
+	const [categoryNameOpen, setCategoryNameOpen] = useState(null)
 	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
 	const categoriesList = categories || []
 	const showList = () => setShopProductsList(true)
@@ -64,6 +65,7 @@ const Category = () => {
 		return isGetItemListLoading ? <Loader /> : <ProductList
 			hideList={hideList}
 			categoryIdState={categoryIdState}
+			categoryNameOpen={categoryNameOpen}
 		/>
 	}
 
@@ -98,13 +100,16 @@ const Category = () => {
 							}
 							<div className='category-body_wrapper'>
 								{
-									categoriesList?.map((category, index) => <div className='category-body_accordingHeader'>
+									categoriesList?.map((category, index) => <div
+											key={category?._id}
+											className='category-body_accordingHeader'
+										>
 											<div
 												className="category-body_accordingHeader-block"
-												key={category?._id}
 												onClick={() => {
 													showList()
 													setCategoryIdState(category?._id)
+													setCategoryNameOpen(category?.category_name)
 												}}
 											>
 												<p
