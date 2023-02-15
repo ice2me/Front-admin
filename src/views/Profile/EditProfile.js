@@ -92,8 +92,6 @@ const EditProfile = ({
 		const formDate = {
 			id: user._id,
 			image_logo: image,
-			// password: values?.password,
-			// password_confirm: values?.password_confirm,
 			description: values?.description,
 			shop_link: values?.shop_link.trim().toLowerCase(),
 			socials_links: {

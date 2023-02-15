@@ -1,5 +1,6 @@
 import {
 	Button,
+	Carousel,
 	Navbar
 } from "react-bootstrap"
 import thekeLogo from '../../assets/images/theke-logo-white.png'
@@ -11,6 +12,7 @@ import { FormattedMessage } from "react-intl"
 import step1 from '../../assets/images/step1.png'
 import step2 from '../../assets/images/step2.png'
 import step3 from '../../assets/images/step3.png'
+import bgForSlider from '../../assets/images/goldBg.png'
 
 const Home = () => {
 	const navigate = useNavigate()
@@ -160,7 +162,10 @@ const Home = () => {
 					<div className="home-thirdBlock_right"></div>
 				</div>
 				<div className="home-fourthBlock">
-					<div className="home-fourthBlock_wrapper" id='video'>
+					<div
+						className="home-fourthBlock_wrapper"
+						id='video'
+					>
 						<iframe
 							src="https://www.youtube.com/embed/WvJxQEJRp4I"
 							title="YouTube video player"
@@ -218,6 +223,44 @@ const Home = () => {
 							</p>
 						</div>
 					</div>
+				</div>
+				<div className="home-carousel">
+					<Carousel
+						variant="dark"
+						className='home-carousel_wrapper'
+						touch={true}
+						interval={5000000000}
+						keyboard={true}
+						fade={false}
+						slide={false}
+					>
+						<Carousel.Item
+							className='home-carousel_wrapper-item'
+						>
+							<div className="home-carousel_content">
+								<h3>Влад</h3>
+								<p>
+									На платформі Theke я запустив свій перший інтернет-магазин, тому порівнювати мені нема з чим, але з упевненістю можу сказати, що недолік мого досвіду компенсували співробітники платформи, надаючи дуже прості і в одночас корисні консультації. За сплачені гроші я отримав можливості з перевищенням очікувань, тому що інші компанії за передбачуваний бюджет пропонували набагато менший функціонал. Загалом співпраця з цією платформою я задоволен.
+								</p>
+							</div>
+						</Carousel.Item>
+						<Carousel.Item>
+							<div className="home-carousel_content">
+								<h3>Наталія</h3>
+								<p>
+									Хочу подякувати всій команді Theke за відмінну, злагоджену роботу. Вочевидь, ви створили та продовжуєте покращувати відмінне рішення для інтернет-підприємців. Ми, як партнери, дякуємо вам за те, що чуєте наші побажання та впроваджуєте доопрацювання, які просять ваші клієнти! Команда Theke, так тримати, прокачуйте свій проект і надалі.
+								</p>
+							</div>
+						</Carousel.Item>
+						<Carousel.Item>
+							<div className="home-carousel_content">
+								<h3>Сашко</h3>
+								<p>
+									Працюємо разом із самого старту платформи, запустив вже 1 магазин та 1 меню. За функціоналом майданчика Theke питань взагалі немає все просто, створив категорію, наповнив її товаром та розшарив посилання своїм клієнтам через месенджери та починаєш роботу, дуже швидкий старт. Дякую за те, що заощаджували мій час та гроші, і не потрібно мучитися з особистим інтернет-магазином. Плюс платформа Theke в рази дешевша за повноцінний інтернет-магазин.
+								</p>
+							</div>
+						</Carousel.Item>
+					</Carousel>
 				</div>
 				<div className="home-sixthBlock">
 					<h2 className="home-sixthBlock_title">

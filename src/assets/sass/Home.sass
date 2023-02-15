@@ -409,3 +409,38 @@
 			@include calc("font-size", 22, 18)
 			color: #fff
 			margin-top: 20px
+
+	&-carousel
+		min-height: 500px
+		&_wrapper
+			min-height: 500px
+			height: 100%
+			//background-color: $basic-color-opacity
+			@include centering
+			&-item
+				margin: 0 !important
+		&_content
+			@include starting
+			flex-direction: column
+			min-height: 350px
+			overflow: hidden
+			width: 100%
+			height: 100%
+			h3
+				@include calc("font-size", 26, 18)
+			p
+				@include calc("font-size", 14, 12)
+				@include calc("width", 600, 300)
+				overflow: auto
+				height: 150px
+				line-height: 25px
+				padding: 0 8px
+
+.carousel-inner
+	height: 250px
+	@include starting
+	align-items: flex-start
+.carousel-item
+	margin: 0 !important
+.carousel-control-next, .carousel-control-prev, .carousel-control-next-icon, .carousel-control-prev-icon
+	cursor: pointer

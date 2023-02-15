@@ -85,7 +85,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 			</Popover.Header>
 			<Popover.Body>
 				<FormattedMessage
-					id={shopVariantTrading === "shop"
+					id={shopVariantTrading === "Shop"
 						?
 						'ifYouChooseShopYourCustomers'
 						:

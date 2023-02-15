@@ -24,6 +24,7 @@ import eye from "../../assets/icons/eye.svg";
 import myProducts from "../../assets/icons/note-list-icon.svg";
 import myProfile from "../../assets/icons/profile-icon.svg";
 import contactSupport from "../../assets/icons/contact-support-icon.svg";
+import share from "../../assets/icons/share.svg";
 import React, {
 	useEffect,
 	useState
@@ -92,9 +93,12 @@ const Header = () => {
 							<Dropdown.Toggle
 								id="dropdown-autoclose-true"
 								variant='secondary'
-
 							>
-								<FormattedMessage id='share' />
+								{/*<FormattedMessage id='share' />*/}
+								<img
+									src={share}
+									alt="share"
+								/>
 							</Dropdown.Toggle>
 							<Dropdown.Menu>
 								{
@@ -225,8 +229,12 @@ const Header = () => {
 										>
 											<div className='header-link mt-2'>
 												<Dropdown className="d-inline mx-2">
-													<Dropdown.Toggle id="dropdown-autoclose-true">
-														<FormattedMessage id='share' />
+													<Dropdown.Toggle id="dropdown-autoclose-true" variant='secondary'>
+														{/*<FormattedMessage id='share' />*/}
+														<img
+															src={share}
+															alt="share"
+														/>
 													</Dropdown.Toggle>
 													<Dropdown.Menu>
 														{
