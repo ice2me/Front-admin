@@ -31,11 +31,14 @@ const ModalSaveCategory = ({
 		e.stopPropagation()
 		if (categoryNameEdit?.id) {
 			try {
-				const {data} = await updateCategoryName({
-					id: categoryNameEdit?.id,
-					body: {category_name: categoryName}
-				})
-				handleClose()
+				if (categoryName !== '') {
+					const {data} = await updateCategoryName({
+						id: categoryNameEdit?.id,
+						body: {category_name: categoryName}
+					})
+					handleClose()
+				}
+
 			} catch (e) {
 				console.log(e)
 			}
