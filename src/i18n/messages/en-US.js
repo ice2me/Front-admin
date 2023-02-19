@@ -76,7 +76,8 @@ export default {
 		youWantDeleteProduct: 'Are you sure you want to delete: ',
 		// ******************************************************** Category
 		category: 'Category',
-		createCategory: 'No Category',
+		createCategory: 'Creat Category',
+		noCategory: 'No Category',
 		categoryList: 'Category list',
 		editCategoryName: 'Edit Category Name',
 		enterCategoryName: 'Enter category name',

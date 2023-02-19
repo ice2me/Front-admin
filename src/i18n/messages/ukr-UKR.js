@@ -76,7 +76,8 @@ export default {
 		youWantDeleteProduct: 'Ви впевнені, що хочете видалити: ',
 		// ******************************************************** Category
 		category: 'Категорію',
-		createCategory: 'Немає категорій',
+		createCategory: 'Створити категорію',
+		noCategory: 'Немає категорий',
 		categoryList: 'Список категорій',
 		editCategoryName: 'Редагувати назву категорії',
 		enterCategoryName: 'Введіть назву категорії',

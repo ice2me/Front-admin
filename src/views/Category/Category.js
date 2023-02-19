@@ -93,7 +93,7 @@ const Category = () => {
 								&&
 								<h1 className="productList-arrowDown">
 									{
-										<FormattedMessage id='createCategory' />
+										<FormattedMessage id='noCategory' />
 
 									}
 								</h1>
