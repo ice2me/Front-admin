@@ -6,7 +6,13 @@ export const APP_ROUTE = {
 	PRODUCTS_LIST: '/products-list',
 	CATEGORIES_LIST: '/categories-list',
 	PROFILE: '/profile',
-	CONTACT_SUPPORT: '/contact-support'
+	CONTACT_SUPPORT: '/contact-support',
+	QR_CODE: '/qr-code',
+}
+
+export const EXTENSION = {
+	PNG: 'png',
+	PDF: 'pdf'
 }
 
 export const LINK_FOR_CLIENT = 'https://client.theke.com.ua/'

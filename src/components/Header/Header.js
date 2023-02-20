@@ -48,6 +48,7 @@ import {
 	ViberShareButton
 } from "react-share";
 import { addSpace } from "../../utils/toggleSpaceString";
+import qrCode from "../../assets/icons/qrCode.svg";
 
 const Header = () => {
 	const [expanded, setExpanded] = useState(false)
@@ -252,6 +253,22 @@ const Header = () => {
 										/>
 
 										<FormattedMessage id='myProfile' />
+									</li>
+									<li
+										className={
+											`header-mob_center-wrapper_item ${location.pathname === APP_ROUTE.QR_CODE ? 'activeButton' : ''}`
+										}
+										onClick={() => {
+											setExpanded(false)
+											navigate(APP_ROUTE.QR_CODE)
+										}}
+									>
+										<img
+											src={qrCode}
+											alt="My Qr code"
+											title="My Qr code"
+										/>
+										<FormattedMessage id='qrCode' />
 									</li>
 									<li
 										className={

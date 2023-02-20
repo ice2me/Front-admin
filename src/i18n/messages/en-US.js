@@ -44,6 +44,7 @@ export default {
 		myProfile: 'My Profile',
 		contactSupport: 'Contact Support',
 		share: 'Share',
+		qrCode: 'QR Code',
 		// ******************************************************** form validation
 		nameIsRequiredField: 'Name is a required field',
 		usernameLengthMax: 'Username must be at most 65 characters',
@@ -146,7 +147,13 @@ export default {
 		viewPlansDetails: 'View Plans Details',
 		firstMonthIsFree: 'The first month is Free!!!',
 		customerReviews: 'Customer Reviews',
-		whatIsTheke: 'What is Theke?'
+		whatIsTheke: 'What is Theke?',
+		// ******************************************************** QR Code
+		qrColorStyle: 'Change QR Color:',
+		qrColorBgStyle: 'Change the QR background color:',
+		downloadPNG: 'Download PNG',
+		createPDF: 'Create PDF',
+		downloadPDF: 'Download PDF',
 	}
 }
 
