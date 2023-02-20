@@ -5,11 +5,12 @@ import myProfile from "../../assets/icons/profile-icon.svg"
 import contactSupport from "../../assets/icons/contact-support-icon.svg"
 import eye from "../../assets/icons/eye.svg"
 import eyeOff from "../../assets/icons/eye-blocked.svg"
+import qrCode from "../../assets/icons/qrCode.svg"
 import {
 	useLocation,
 	useNavigate
 } from "react-router-dom"
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl"
 
 const Navbar = () => {
 	const [toggleNavbar, setToggleNavbar] = useState(true)
@@ -54,6 +55,20 @@ const Navbar = () => {
 				/>
 
 				{!toggleNavbar && <FormattedMessage id='myProfile' />}
+			</li>
+			<li
+				className={`navbarApp_item
+					${location.pathname === APP_ROUTE.QR_CODE ? 'activeButton' : ''}
+					`}
+				onClick={() => navigate(APP_ROUTE.QR_CODE)}
+			>
+				<img
+					src={qrCode}
+					alt="My Qr code"
+					title="My qr code"
+				/>
+
+				{!toggleNavbar && <FormattedMessage id='qrCode' />}
 			</li>
 			<li
 				className={`navbarApp_item

@@ -44,6 +44,7 @@ export default {
 		myProfile: 'Мій профіль',
 		contactSupport: 'Служба підтримки',
 		share: 'Поділіться',
+		qrCode: 'QR Код',
 		// ******************************************************** form validation
 		nameIsRequiredField: "Ім'я є обов'язковим полем",
 		usernameLengthMax: "Ім'я користувача має містити не більше 65 символів",
@@ -146,6 +147,12 @@ export default {
 		viewPlansDetails: 'Переглянути деталі планів',
 		firstMonthIsFree: 'Перший місяц Безкоштовно !!!',
 		customerReviews: 'Відгуки клієнтів',
-		whatIsTheke: 'Що таке Theke?'
+		whatIsTheke: 'Що таке Theke?',
+		// ******************************************************** QR Code
+		qrColorStyle: 'Змінити колір',
+		qrColorBgStyle: 'Змінити колір фону',
+		downloadPNG: 'Завантажити в PNG',
+		createPDF: 'Створити PDF',
+		downloadPDF: 'Завантажити в PDF',
 	}
 }
