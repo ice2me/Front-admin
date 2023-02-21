@@ -785,12 +785,12 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.profile-body_content-text:nth-child(4) {
+.profile-body_content-text:nth-child(5) {
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 10px;
 }
-.profile-body_content-text:nth-child(4) span {
+.profile-body_content-text:nth-child(5) span {
   margin-bottom: 5px;
 }
 .profile-body_content-text a {
@@ -965,6 +965,18 @@
 }
 .registrationShop-form_title span b {
   color: red;
+}
+.registrationShop-form_checkbox {
+  width: 50px;
+  margin: 0 8px;
+}
+.registrationShop-form_checkbox input {
+  width: 100%;
+}
+.registrationShop-form_checkbox-wrapper {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 .registrationShop-form_input {
   border: 1px solid #6C757D;

@@ -40,7 +40,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	const formDateUpdateHandler = (opt) => {
 		setForm({...form, ...opt})
 	}
-
+	console.log(form.calculate_total_cost)
 	const handleSubmit = async (values, {
 		setErrors,
 		resetForm
@@ -57,7 +57,8 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 				shop_instagram: shopInstagram,
 			},
 			open_shop: values.open_shop || false,
-			variant_trading: shopVariantTrading
+			variant_trading: shopVariantTrading,
+			calculate_total_cost: values.calculate_total_cost || false
 		}
 		try {
 			const {data} = await registerShop(formDate)
@@ -107,17 +108,18 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 			<Formik
 				validateOnChange
 				initialValues={{
-					shop_name: form.shop_name || '',
-					description: form.description || '',
-					shop_link: form.shop_link || '',
+					shop_name: form?.shop_name || '',
+					description: form?.description || '',
+					shop_link: form?.shop_link || '',
 					socials_links: {
 						shop_facebook: shopFacebook || '',
 						shop_viber: shopViber || '',
 						shop_telegram: shopTelegram || '',
 						shop_instagram: shopInstagram || '',
 					},
-					open_shop: 'false',
-					variant_trading: shopVariantTrading
+					open_shop: false,
+					variant_trading: shopVariantTrading,
+					calculate_total_cost: form?.calculate_total_cost || false
 				}}
 				validationSchema={getRegistrationShopSchema(formatMessage)}
 				onSubmit={handleSubmit}
@@ -416,6 +418,37 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 									{errors?.shop_instagram}
 								</Form.Control.Feedback>
 							)}
+						</Form.Group>
+						<Form.Group className="registrationShop-form_label registrationShop-form_checkbox-wrapper">
+							<div className='registrationShop-form_title'>
+								<span>
+									<FormattedMessage id='calculateTotalCost' />
+								</span>
+							</div>
+							<Form.Check
+								className='registrationShop-form_checkbox'
+								type="checkbox"
+								defaultChecked={form?.calculate_total_cost}
+								value={values?.calculate_total_cost}
+								name='calculate_total_cost'
+								onChange={(e) => {
+									handleChange(e)
+									formDateUpdateHandler({
+										[e.target.name]: e.target.checked
+									})
+								}}
+							/>
+							<div className='registrationShop-form_title'>
+								<span>
+									{
+										form.calculate_total_cost
+											?
+										<FormattedMessage id='yes' />
+											:
+											<FormattedMessage id='no' />
+									}
+								</span>
+							</div>
 						</Form.Group>
 						<button
 							className="registrationShop-form_button"
