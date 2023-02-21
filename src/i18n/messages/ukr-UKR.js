@@ -39,6 +39,7 @@ export default {
 		enterEnterShopInstagram: "Введіть Instagram",
 		Shop: 'Магазин',
 		Menu: 'Меню',
+		calculateTotalCost: 'Підраховувати загальну вартість?',
 		// ******************************************************** Navbare
 		myProducts: 'Мої товари',
 		myProfile: 'Мій профіль',

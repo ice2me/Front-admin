@@ -39,6 +39,7 @@ export default {
 		enterEnterShopInstagram: 'Enter Instagram',
 		Shop: 'Shop',
 		Menu: 'Menu',
+		calculateTotalCost: 'Calculate total cost?',
 		// ******************************************************** Navbare
 		myProducts: 'My products',
 		myProfile: 'My Profile',

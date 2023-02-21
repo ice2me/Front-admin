@@ -11,6 +11,7 @@ import {
 import React, { useState } from "react";
 import { RegistrationShop } from "../Login/RegistrationShop";
 import { addSpace } from "../../utils/toggleSpaceString";
+import { Form } from "react-bootstrap";
 
 const Profile = ({
 	user,
@@ -70,20 +71,41 @@ const Profile = ({
 							</span>
 							<p>{user?.email}</p>
 						</li>
-						{!user?.shop_name &&
+						{
+							!user?.shop_name &&
 							<li>
 								<div className='h-100 w100 d-flex align-items-center justify-content-center'>
 									<button
 										className="editProfile-body_content_button"
 										onClick={showRegistrationShopWindow}
 									>
-						<span>
-							<FormattedMessage id='createShopOrMenu' />
-						</span>
+									<span>
+										<FormattedMessage id='createShopOrMenu' />
+									</span>
 									</button>
 								</div>
 							</li>
 						}
+						<li>
+							<Form.Group className="registrationShop-form_label registrationShop-form_checkbox-wrapper">
+								<div className='registrationShop-form_title'>
+											<span>
+												<FormattedMessage id='calculateTotalCost' />
+											</span>
+								</div>
+								<div className='registrationShop-form_title'>
+											<span className='m-2'>
+												{
+													user?.calculate_total_cost
+														?
+														<FormattedMessage id='yes' />
+														:
+														<FormattedMessage id='no' />
+												}
+											</span>
+								</div>
+							</Form.Group>
+						</li>
 
 						{
 							user?.shop_name && <li className="profile-body_content-text">

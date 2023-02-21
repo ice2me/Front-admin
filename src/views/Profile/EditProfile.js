@@ -94,6 +94,7 @@ const EditProfile = ({
 			image_logo: image,
 			description: values?.description,
 			shop_link: values?.shop_link.trim().toLowerCase(),
+			calculate_total_cost: values.calculate_total_cost,
 			socials_links: {
 				shop_facebook: shopFacebook,
 				shop_viber: shopViber,
@@ -170,6 +171,7 @@ const EditProfile = ({
 					shop_name: form.shop_name,
 					description: form.description,
 					shop_link: form.shop_link,
+					calculate_total_cost: form.calculate_total_cost,
 					socials_links: {
 						shop_facebook: shopFacebook,
 						shop_viber: shopViber,
@@ -268,7 +270,10 @@ const EditProfile = ({
 								</li>
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='nameShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
+										<FormattedMessage
+											id='nameShop'
+											values={{total: formatMessage({id: `${user?.variant_trading}`})}}
+										/>
 									</span>
 									<p>{addSpace(user?.shop_name)}</p>
 								</li>
@@ -297,7 +302,10 @@ const EditProfile = ({
 								{/*</li>*/}
 								<li className="editProfile-body_content-text">
 									<span>
-										<FormattedMessage id='descriptionShop' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
+										<FormattedMessage
+											id='descriptionShop'
+											values={{total: formatMessage({id: `${user?.variant_trading}`})}}
+										/>
 									</span>
 									<Form.Control
 										className={`pe-5  ${touched.description ? "is-touch " : ""} ${
@@ -323,30 +331,33 @@ const EditProfile = ({
 								</li>
 								<li className="editProfile-body_content-text">
 										<span>
-											<FormattedMessage id='shopLink' values={{total: formatMessage({id: `${user?.variant_trading}`})}}/>
+											<FormattedMessage
+												id='shopLink'
+												values={{total: formatMessage({id: `${user?.variant_trading}`})}}
+											/>
 										</span>
-										<Form.Control
-											className={`pe-5  ${touched.shop_link ? "is-touch " : ""} ${
-												errors.shop_link && touched.shop_link ? " is-invalid" : ""
-											} editProfile-body_content_input`}
-											type="text"
-											placeholder="Enter shop link"
-											value={values.shop_link}
-											name='shop_link'
-											onBlur={handleBlur}
-											onChange={(e) => {
-												handleChange(e)
-												formDateUpdateHandler({
-													[e.target.name]: e.target.value
-												})
-											}}
-										/>
-										{errors.shop_link && touched.shop_link && (
-											<Form.Control.Feedback type="invalid">
-												{errors.shop_link}
-											</Form.Control.Feedback>
-										)}
-									</li>
+									<Form.Control
+										className={`pe-5  ${touched.shop_link ? "is-touch " : ""} ${
+											errors.shop_link && touched.shop_link ? " is-invalid" : ""
+										} editProfile-body_content_input`}
+										type="text"
+										placeholder="Enter shop link"
+										value={values.shop_link}
+										name='shop_link'
+										onBlur={handleBlur}
+										onChange={(e) => {
+											handleChange(e)
+											formDateUpdateHandler({
+												[e.target.name]: e.target.value
+											})
+										}}
+									/>
+									{errors.shop_link && touched.shop_link && (
+										<Form.Control.Feedback type="invalid">
+											{errors.shop_link}
+										</Form.Control.Feedback>
+									)}
+								</li>
 							</ul>
 							<div className="editProfile-body_content-socials">
 								<div>
@@ -451,6 +462,39 @@ const EditProfile = ({
 											{errors.socials_links?.shop_instagram}
 										</Form.Control.Feedback>
 									)}
+								</div>
+								<div>
+									<Form.Group className="registrationShop-form_label registrationShop-form_checkbox-wrapper">
+										<div className='registrationShop-form_title'>
+											<span>
+												<FormattedMessage id='calculateTotalCost' />
+											</span>
+										</div>
+										<Form.Check
+											className='registrationShop-form_checkbox'
+											type="checkbox"
+											defaultChecked={form.calculate_total_cost}
+											value={values.calculate_total_cost}
+											name='calculate_total_cost'
+											onChange={(e) => {
+												handleChange(e)
+												formDateUpdateHandler({
+													[e.target.name]: e.target.checked
+												})
+											}}
+										/>
+										<div className='registrationShop-form_title'>
+											<span>
+												{
+													form.calculate_total_cost
+														?
+														<FormattedMessage id='yes' />
+														:
+														<FormattedMessage id='no' />
+												}
+											</span>
+										</div>
+									</Form.Group>
 								</div>
 							</div>
 							<button
