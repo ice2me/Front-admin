@@ -128,7 +128,7 @@ const Header = () => {
 									&&
 									<ViberShareButton
 										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-										// title='shared from theke.com.ua_____ '
+										title='shared from theke.com.ua ------>>>>>'
 									>
 										<ViberIcon />
 									</ViberShareButton>
