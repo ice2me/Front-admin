@@ -1,4 +1,4 @@
-import productImg from "../../assets/images/happySocks.png"
+import productImg from "../../assets/icons/happySocks.svg"
 import { Form } from "react-bootstrap"
 import pencilEdit from "../../assets/icons/pencilEdit.svg"
 import deleteCard from "../../assets/icons/delete.svg"

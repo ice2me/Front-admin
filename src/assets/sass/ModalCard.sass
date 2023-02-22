@@ -48,17 +48,19 @@
       box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
   &-wrapper
     width: 250px
-    height: 350px
-    box-shadow: $box-shadow
-    background-color: $white
+    min-width: 250px
+    height: 380px
+    box-shadow: 0 0 10px 3px rgb(0 0 0 / 10%)
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: space-between
     flex-direction: column
     border-radius: 6px
     margin: 8px
     padding: 5px 0
     overflow: hidden
+    position: relative
+    background-color: $white
 
     img
       min-height: 150px
@@ -67,12 +69,13 @@
       border-radius: 6px
 
     h3
+      min-height: 42px
+      max-height: 50px
       width: inherit
-      min-height: 25px
-      font-size: 16px
+      @include calc("font-size",16,14)
       font-weight: bold
-      white-space: nowrap
-      overflow: hidden
+      white-space: normal
+      overflow: auto
       text-overflow: ellipsis
       padding: 0 3px
       text-align: center
@@ -101,10 +104,10 @@
   &-item
     &_price
       width: 90%
-      font-size: 18px
+      font-size: 22px !important
+      font-style: italic
       text-align: end
       margin-bottom: 15px
-      font-weight: bold
 
   &-counter
     display: flex

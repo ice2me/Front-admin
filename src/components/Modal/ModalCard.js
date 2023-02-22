@@ -3,7 +3,7 @@ import {
 	Form,
 	Modal
 } from "react-bootstrap"
-import productImg from "../../assets/images/happySocks.png"
+import productImg from "../../assets/icons/happySocks.svg"
 import {
 	useEffect,
 	useState
@@ -77,10 +77,10 @@ export default function ModalCard({
 		e.preventDefault()
 		const tehData = {
 			image_product: image || null,
-			name_product: form?.name_product,
+			name_product: form?.name_product || 'no name',
 			description_product: form?.description_product,
 			unit_product: form?.unit_product || 'шт.',
-			price_product: form?.price_product,
+			price_product: form?.price_product || '0',
 			currency_product: form?.currency_product || '₴',
 			available_product: form?.available_product,
 			category_id: editItemProductCard?._id ? editItemProductCard?._id : id
@@ -109,10 +109,10 @@ export default function ModalCard({
 	const resizeFile = (file) => {
 		Resizer.imageFileResizer(
 			file,
+			200,
 			150,
-			100,
 			"JPEG",
-			80,
+			100,
 			0,
 			(uri) => {
 				setImage(uri)
@@ -189,6 +189,7 @@ export default function ModalCard({
 								type="text"
 								placeholder={formatMessage({id: 'nameEnterProduct'})}
 								name='name_product'
+								required
 								value={editItemProductCard && form?.name_product}
 								onChange={e => formUpdateHandler({[e.target.name]: e.target.value})}
 							/>
@@ -247,6 +248,7 @@ export default function ModalCard({
 							</Form.Label>
 							<Form.Control
 								type="number"
+								required
 								placeholder={formatMessage({id: 'priceEnterProduct'})}
 								name='price_product'
 								value={editItemProductCard && form?.price_product}
@@ -355,7 +357,7 @@ export default function ModalCard({
 						alignItems: 'center'
 					}}
 					onClick={onSubmitForm}
-					disabled={!isEdit}
+					disabled={!isEdit || ((form.price_product && form.name_product) === "")}
 				>
 					<FormattedMessage id='save' />
 				</Button>

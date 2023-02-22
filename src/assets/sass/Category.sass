@@ -146,7 +146,7 @@
 		&_item
 			width: 250px
 			min-width: 250px
-			height: 350px
+			height: 380px
 			box-shadow: 0 0 10px 3px rgb(0 0 0 / 10%)
 			display: flex
 			align-items: center
@@ -165,12 +165,13 @@
 				border-radius: 6px
 
 			h3
+				min-height: 42px
+				max-height: 50px
 				width: inherit
-				min-height: 25px
-				font-size: 16px
+				@include calc("font-size",17,16)
 				font-weight: bold
-				white-space: nowrap
-				overflow: hidden
+				white-space: normal
+				overflow: auto
 				text-overflow: ellipsis
 				padding: 0 3px
 				text-align: center
@@ -185,6 +186,7 @@
 				font-style: italic
 				text-align: end
 				margin-bottom: 15px
+				font-weight: bold
 			&-description
 				width: 100%
 				padding: 0 10px
@@ -347,10 +349,10 @@
 		width: 100%
 		height: 100%
 		cursor: pointer
-		white-space: nowrap
+		white-space: normal
 		overflow: hidden
 		text-overflow: ellipsis
-		transform: translate(0%, 50%)
+		transform: translate(0%, 47%)
 		font-weight: bold
 		text-align: center
 		@include calc("font-size",16,12)
