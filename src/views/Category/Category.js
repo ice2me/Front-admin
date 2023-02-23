@@ -1,4 +1,5 @@
 import {
+	useDispatch,
 	useSelector
 } from "react-redux"
 import React, {
@@ -15,10 +16,12 @@ import {
 import Loader from "../../components/Loader/Loader"
 import CategoryInpName from "./CategoryInpName"
 import ProductList from "../ProductList/ProductList"
-import { RegistrationShop } from "../Login/RegistrationShop";
+import { RegistrationShop } from "../Login/RegistrationShop"
+import squareView from '../../assets/icons/checkbox-unchecked.svg'
+import listView from '../../assets/icons/list.svg'
 
 
-const Category = () => {
+const Category = ({toggleViewHandler, toggleView}) => {
 	const {
 		categories
 	} = useSelector(state => state.categories)
@@ -29,9 +32,13 @@ const Category = () => {
 	const [categoryIdState, setCategoryIdState] = useState(null)
 	const [categoryNameOpen, setCategoryNameOpen] = useState(null)
 	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
+
 	const categoriesList = categories || []
+	const dispatch = useDispatch()
+
 	const showList = () => setShopProductsList(true)
 	const hideList = () => setShopProductsList(false)
+
 	const showRegistrationShopWindow = () => setOpenRegistrationShopWindow(true)
 	const hideRegistrationShopWindow = () => setOpenRegistrationShopWindow(false)
 
@@ -61,6 +68,12 @@ const Category = () => {
 		openProductList()
 	}, [shopProductsList, categoryIdState, getItemList])
 
+	if (openRegistrationShopWindow) {
+		return openRegistrationShopWindow
+			&&
+			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
+	}
+
 	if (shopProductsList) {
 		return isGetItemListLoading ? <Loader /> : <ProductList
 			hideList={hideList}
@@ -69,11 +82,6 @@ const Category = () => {
 		/>
 	}
 
-	if (openRegistrationShopWindow) {
-		return openRegistrationShopWindow
-			&&
-			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
-	}
 
 	return (
 		<div className="category ">
@@ -98,14 +106,20 @@ const Category = () => {
 									}
 								</h1>
 							}
-							<div className='category-body_wrapper'>
+							<div className={`category-body_wrapper
+							${toggleView ? 'category-body_wrapper-listView' : ''}
+							`}
+							>
 								{
 									categoriesList?.map((category, index) => <div
 											key={category?._id}
-											className='category-body_accordingHeader'
+											className={`category-body_accordingHeader
+											${toggleView ? 'category-body_accordingHeader-listView' : ''}
+											`}
 										>
 											<div
-												className="category-body_accordingHeader-block"
+												className={`category-body_accordingHeader-block 
+												${toggleView ? 'category-body_accordingHeader-listView_block' : ''}`}
 												onClick={() => {
 													showList()
 													setCategoryIdState(category?._id)
@@ -126,6 +140,28 @@ const Category = () => {
 										</div>
 									)
 								}
+								<div className='category-body_wrapper-view'>
+									<button
+										className="category-body_wrapper-view_button"
+										onClick={toggleViewHandler}
+									>
+										{
+											toggleView
+												?
+												<img
+													src={squareView}
+													alt="List View"
+												/>
+												:
+												<img
+													src={listView}
+													alt="Square View"
+												/>
+										}
+
+
+									</button>
+								</div>
 							</div>
 						</>
 					:

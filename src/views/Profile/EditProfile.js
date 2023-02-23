@@ -370,7 +370,7 @@ const EditProfile = ({
 											errors?.shop_facebook && touched?.shop_facebook ? " is-invalid" : ""
 										} editProfile-body_content_input`}
 										type="text"
-										placeholder="Enter shop facebook"
+										placeholder="https://www.facebook.com/..."
 										value={shopFacebook}
 										name='shop_facebook'
 										onBlur={handleBlur}
@@ -395,7 +395,7 @@ const EditProfile = ({
 											errors.shop_viber && touched.shop_viber ? " is-invalid" : ""
 										} editProfile-body_content_input`}
 										type="text"
-										placeholder="Enter shop viber"
+										placeholder="https://invite.viber.com..."
 										value={shopViber}
 										name='shop_viber'
 										onBlur={handleBlur}
@@ -421,7 +421,7 @@ const EditProfile = ({
 											errors.shop_telegram && touched.shop_telegram ? " is-invalid" : ""
 										} editProfile-body_content_input`}
 										type="text"
-										placeholder="Enter shop telegram"
+										placeholder="@name-user"
 										value={shopTelegram}
 										name='shop_telegram'
 										onBlur={handleBlur}
@@ -448,7 +448,7 @@ const EditProfile = ({
 											errors.socials_links?.shop_instagram && touched.socials_links?.shop_instagram ? " is-invalid" : ""
 										} editProfile-body_content_input`}
 										type="text"
-										placeholder="Enter shop instagram"
+										placeholder="name account"
 										value={shopInstagram}
 										onBlur={handleBlur}
 										name='shop_instagram'

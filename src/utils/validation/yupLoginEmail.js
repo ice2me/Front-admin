@@ -16,6 +16,7 @@ export const getRegistrationSchema = (formatMessage) => {
 			.string()
 			.trim()
 			.required(formatMessage ({id: "mobileIsRequiredField"}))
+			.length(12, formatMessage ({id: "mobileNumberIsNotValid"}))
 			.matches(PHONE_REGEXP, formatMessage ({id: "mobileNumberIsNotValid"})),
 		email: yup
 			.string()

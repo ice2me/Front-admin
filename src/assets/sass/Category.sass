@@ -437,7 +437,40 @@ input[type="radio"]:focus
 		cursor: pointer
 		min-height: 25px
 .dropdown-menu
+	position: fixed !important
 	z-index: 999 !important
+
+.category-body_wrapper-view
+	position: absolute
+	bottom: 5px
+	right: 5px
+	@media screen and (max-width: 992px)
+		bottom: 35px
+	&_button
+		width: 20px
+		height: 20px
+		background-color: transparent
+		margin: 0 2px
+		img
+			width: 100%
+			height: 100%
+.category-body_wrapper-listView
+	flex-direction: column
+	@media screen and (max-width: 992px)
+		justify-content: flex-start
+.category-body_accordingHeader-listView
+	max-width: 100%
+	height: 50px
+	margin: 5px 0
+.category-body_accordingHeader-listView_block
+	display: flex
+	align-items: center
+	justify-content: flex-start
+	p
+		text-align: left
+		margin: 0
+		height: max-content
+		transform: none
 
 @keyframes ShowNotification
 	0%
