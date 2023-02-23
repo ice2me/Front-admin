@@ -22,7 +22,7 @@ export const RoutesLink = () => {
 		localStorage.setItem('viewCategories', JSON.stringify({'view': !toggleView}))
 	}
 	const getLocalStorageViewOption = useCallback(() => {
-		const teh = JSON?.parse(localStorage?.getItem('viewCategories')).view
+		const teh = JSON?.parse(localStorage?.getItem('viewCategories'))?.view
 		setToggleView(teh)
 	}, [])
 
