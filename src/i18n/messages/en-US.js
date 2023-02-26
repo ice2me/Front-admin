@@ -84,6 +84,7 @@ export default {
 		editCategoryName: 'Edit Category Name',
 		enterCategoryName: 'Enter category name',
 		edit: 'Edit',
+		addPhotoCategory: 'Add Photo category',
 		// ******************************************************** Card
 		product: 'Product',
 		createProductCard: 'No products',

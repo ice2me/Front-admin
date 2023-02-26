@@ -14,39 +14,49 @@ import {
 	useIntl
 } from "react-intl"
 import Loader from "../Loader/Loader"
+import Resizer from "react-image-file-resizer";
+import delImage from "../../assets/icons/delete.svg";
 
 const ModalSaveCategory = ({
 	show,
 	handleClose,
 	categoryNameEdit,
 }) => {
-	const [categoryName, setCategoryName] = useState('')
+	const [categoryName, setCategoryName] = useState(categoryNameEdit?.name || '')
+	const [image, setImage] = useState(categoryNameEdit?.image || null)
+	const [imageName, setImageName] = useState(categoryNameEdit?.image || '')
 	const {formatMessage} = useIntl()
 	const [createCategories, {isLoading: isCreateCategoriesLoading}] = useCreateCategoriesMutation()
 	const [updateCategoryName, {isLoading: isUpdateCategoryNameLoader}] = useUpdateCategoryNameMutation()
 
 	const isLoading = isUpdateCategoryNameLoader || isCreateCategoriesLoading
-
+	console.log(categoryNameEdit?.image)
 	const handlerSaveCategory = async (e) => {
 		e.stopPropagation()
+		const tehData = {
+			category_image: image || null,
+			category_name: categoryName
+		}
+
 		if (categoryNameEdit?.id) {
 			try {
 				if (categoryName !== '') {
 					const {data} = await updateCategoryName({
 						id: categoryNameEdit?.id,
-						body: {category_name: categoryName}
+						body: tehData
 					})
 					handleClose()
 				}
-
 			} catch (e) {
 				console.log(e)
 			}
 		} else {
 			if (categoryName) {
 				try {
-					await createCategories({category_name: categoryName})
+					await createCategories(tehData)
 					handleClose()
+					setImage(null)
+
 				} catch (e) {
 					console.log(e)
 				}
@@ -57,6 +67,23 @@ const ModalSaveCategory = ({
 
 	if (isLoading) {
 		return <Loader />
+	}
+
+	const resizeFile = (file) => {
+		Resizer.imageFileResizer(
+			file,
+			200,
+			150,
+			"JPEG",
+			100,
+			0,
+			(uri) => {
+				setImage(uri)
+			},
+			"base64",
+			50,
+			50
+		)
 	}
 
 	return (
@@ -78,6 +105,42 @@ const ModalSaveCategory = ({
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
+				<Form.Group
+					controlId="formFile"
+					className='modalAddCard-form_addPhoto'
+				>
+					<Form.Label>
+						<span>{image ? imageName : <FormattedMessage id='addPhotoCategory' />}</span>
+					</Form.Label>
+					<Form.Control
+						type="file"
+						name='image_product'
+						accept="image/png, image/jpeg"
+						autoFocus
+						onChange={e => {
+							resizeFile(e.target.files[0])
+							setImageName((e.target.files[0].name))
+						}}
+					/>
+					{
+						image
+						&&
+						<button
+							className='modalAddCard-form_delPhoto'
+							onClick={() => {
+								setImage(null)
+								setImageName('')
+							}
+							}
+						>
+							<img
+								src={delImage}
+								alt="delete Image"
+								title='delete image'
+							/>
+						</button>
+					}
+				</Form.Group>
 				<Form.Control
 					type="text"
 					placeholder={formatMessage({id: 'enterCategoryName'})}

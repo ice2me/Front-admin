@@ -84,6 +84,7 @@ export default {
 		editCategoryName: 'Редагувати назву категорії',
 		enterCategoryName: 'Введіть назву категорії',
 		edit: 'Редагувати',
+		addPhotoCategory: 'Додати фото категорії',
 		// ******************************************************** Card
 		product: 'Продукт',
 		createProductCard: 'Немає товарів',

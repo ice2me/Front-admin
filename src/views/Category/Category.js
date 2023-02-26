@@ -19,9 +19,15 @@ import ProductList from "../ProductList/ProductList"
 import { RegistrationShop } from "../Login/RegistrationShop"
 import squareView from '../../assets/icons/checkbox-unchecked.svg'
 import listView from '../../assets/icons/list.svg'
+import noImage from '../../assets/icons/happySocks.svg'
+// import noImage from '../../assets/images/shot1.jpg'
+// import noImage from '../../assets/images/meet.jpg'
 
 
-const Category = ({toggleViewHandler, toggleView}) => {
+const Category = ({
+	toggleViewHandler,
+	toggleView
+}) => {
 	const {
 		categories
 	} = useSelector(state => state.categories)
@@ -106,38 +112,63 @@ const Category = ({toggleViewHandler, toggleView}) => {
 									}
 								</h1>
 							}
-							<div className={`category-body_wrapper
+							<div
+								className={`category-body_wrapper
 							${toggleView ? 'category-body_wrapper-listView' : ''}
 							`}
 							>
 								{
-									categoriesList?.map((category, index) => <div
-											key={category?._id}
-											className={`category-body_accordingHeader
+									categoriesList?.map((category, index) => (
+											<div
+												key={category?._id}
+												className={`category-body_accordingHeader
 											${toggleView ? 'category-body_accordingHeader-listView' : ''}
 											`}
-										>
-											<div
-												className={`category-body_accordingHeader-block 
-												${toggleView ? 'category-body_accordingHeader-listView_block' : ''}`}
-												onClick={() => {
-													showList()
-													setCategoryIdState(category?._id)
-													setCategoryNameOpen(category?.category_name)
+												style={{
+													backgroundImage: `${toggleView
+														?
+														''
+														:
+														`url(${
+															category?.category_image
+																?
+																category?.category_image
+																:
+																noImage
+														})`}`
 												}}
 											>
-												<p
-													title={category?.category_name.length > 20 ? category?.category_name : ''}
+												<div
+													className={`category-body_accordingHeader-block 
+												${toggleView ? 'category-body_accordingHeader-listView_block' : ''}`}
+													onClick={() => {
+														showList()
+														setCategoryIdState(category?._id)
+														setCategoryNameOpen(category?.category_name)
+													}}
 												>
-													{category?.category_name}
-												</p>
+													{
+														toggleView
+														&&
+														<img
+															src={category?.category_image ? category?.category_image : noImage}
+															alt='no Image'
+														/>
+													}
+													<p>
+														<b>
+															{category?.category_name}
+														</b>
+													</p>
 
+												</div>
+												<DropdownEdit
+													categoryName={category?.category_name}
+													categoryImage={category?.category_image}
+													id={category?._id}
+												/>
 											</div>
-											<DropdownEdit
-												categoryName={category?.category_name}
-												id={category?._id}
-											/>
-										</div>
+										)
 									)
 								}
 								<div className='category-body_wrapper-view'>

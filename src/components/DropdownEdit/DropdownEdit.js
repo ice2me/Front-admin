@@ -12,6 +12,7 @@ import { FormattedMessage } from "react-intl";
 
 const DropdownEdit = ({
 	categoryName,
+	categoryImage,
 	id
 }) => {
 
@@ -31,6 +32,7 @@ const DropdownEdit = ({
 				handleClose={handleCloseModalEdit}
 				categoryNameEdit={{
 					name: categoryName,
+					image: categoryImage,
 					id: id
 				}}
 			/>
