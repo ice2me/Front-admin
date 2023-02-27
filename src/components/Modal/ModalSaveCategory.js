@@ -30,7 +30,7 @@ const ModalSaveCategory = ({
 	const [updateCategoryName, {isLoading: isUpdateCategoryNameLoader}] = useUpdateCategoryNameMutation()
 
 	const isLoading = isUpdateCategoryNameLoader || isCreateCategoriesLoading
-	console.log(categoryNameEdit?.image)
+
 	const handlerSaveCategory = async (e) => {
 		e.stopPropagation()
 		const tehData = {

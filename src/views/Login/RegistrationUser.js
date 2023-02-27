@@ -55,6 +55,7 @@ export const RegistrationUser = () => {
 			dispatch(setUser(data?.newUser))
 			if (data?.newUser && data?.token && !data?.error) {
 				navigate(APP_ROUTE.CATEGORIES_LIST)
+				toast(data?.message)
 			} else {
 				toast(
 					data?.error.email ||

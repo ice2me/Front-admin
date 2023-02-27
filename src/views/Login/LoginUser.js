@@ -38,7 +38,7 @@ export const LoginUser = () => {
 			const {data} = await login(formData)
 			resetForm()
 			if (data.user && data.token) {
-				// toast('Your sign in')
+				toast(data.message)
 				navigate(APP_ROUTE.CATEGORIES_LIST)
 			} else {
 				setErrors(data.error.message)

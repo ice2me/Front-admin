@@ -40,7 +40,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	const formDateUpdateHandler = (opt) => {
 		setForm({...form, ...opt})
 	}
-	console.log(form.calculate_total_cost)
+
 	const handleSubmit = async (values, {
 		setErrors,
 		resetForm
@@ -65,6 +65,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 			dispatch(setShop(data?.isUser))
 			if (data.isUser) {
 				navigate(APP_ROUTE.DEFAULT)
+				toast(data?.message)
 				hideRegistrationShopWindow()
 			} else {
 				toast(
