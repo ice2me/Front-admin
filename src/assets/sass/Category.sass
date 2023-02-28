@@ -10,6 +10,10 @@
 	border-radius: $border-radius
 	padding: 10px
 	z-index: 5
+	display: flex
+	align-items: flex-start
+	justify-content: flex-start
+	flex-direction: column
 	@include calc("font-size",18,12)
 	@media screen and (max-width: 992px)
 		width: 100%
@@ -131,6 +135,7 @@
 		height: 92%
 		&_wrapper
 			overflow-x: auto
+			width: inherit
 			height: 92%
 			padding: 20px 0
 			margin: 10px 0
@@ -328,14 +333,14 @@
 				box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 
 .category-body_accordingHeader
-	max-width: 300px
-	max-height: 200px
+	max-width: 130px
+	max-height: 130px
 	width: 100%
 	height: 100%
 	background-color: transparent
 	border-radius: $border-radius
 	position: relative
-	margin: 5px
+	margin: 10px
 	padding-right: 20px
 	text-align: start
 	cursor: pointer
@@ -353,14 +358,14 @@
 		opacity: 0
 	p
 		width: 100%
-		height: 40%
+		height: 50%
 		cursor: pointer
 		white-space: normal
 		overflow: auto
 		text-overflow: ellipsis
 		font-weight: bold
 		text-align: center
-		@include calc("font-size",15,12)
+		@include calc("font-size",13,13)
 	&:hover, &:active, &:focus
 		&:before
 			opacity: 1
@@ -375,10 +380,10 @@
 			justify-content: center
 			b
 				background-color: $basic-bg-opacity
-				line-height: 25px
+				line-height: 15px
 				border-radius: 4px
 				font-style: italic
-				padding: 0 10px
+				padding: 5px
 	&-edit
 		&_button
 			background-color: transparent
@@ -449,15 +454,18 @@ input[type="radio"]:focus
 	justify-content: flex-start
 	border-radius: 6px
 	span
-		font-size: 16px
+		font-size: 13px
 		font-weight: bold
 		margin-left: 8px
 		color: #505160
 		cursor: pointer
 		min-height: 25px
+		display: flex
+		align-items: center
 .dropdown-menu
 	position: fixed !important
 	z-index: 999 !important
+	width: 100px !important
 
 .category-body_wrapper-view
 	width: 30px
