@@ -1867,10 +1867,8 @@ input[type=file] {
 }
 
 .category-body_accordingHeader {
-  max-width: 130px;
-  max-height: 130px;
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
   background-color: transparent;
   border-radius: 10px;
   position: relative;
