@@ -35,6 +35,8 @@ export const CATEGORIES_API = {
 	PATCH_CATEGORIES_ITEM_UPDATE: "/categories/product/",
 	PATCH_CATEGORIES_AVAILABLE_ITEM_UPDATE: "/categories/product-available/",
 	DELETE_PRODUCT_ITEM: "/categories/product/",
+	SEARCH_PRODUCT: "/categories/search",
+	SEARCH_PRODUCT_TAG: "/categories/search_tag",
 }
 
 export const URLS_PROCESSED_IN_COMPONENTS = [

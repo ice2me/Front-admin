@@ -93,6 +93,13 @@ const categoriesSlice = createSlice({
 				}
 			)
 			.addMatcher(
+				categoriesAPi?.endpoints.searchProduct.matchFulfilled,
+				(state,
+					action) => {
+					state.items = action.payload
+				}
+			)
+			.addMatcher(
 				categoriesAPi?.endpoints.deleteItemProduct.matchFulfilled,
 				(state,
 					action) => {

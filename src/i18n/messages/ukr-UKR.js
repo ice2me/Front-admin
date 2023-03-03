@@ -150,6 +150,7 @@ export default {
 		firstMonthIsFree: 'Перший місяц Безкоштовно !!!',
 		customerReviews: 'Відгуки клієнтів',
 		whatIsTheke: 'Що таке Theke?',
+		search: 'Пошук',
 		// ******************************************************** QR Code
 		qrColorStyle: 'Змінити колір',
 		qrColorBgStyle: 'Змінити колір фону',

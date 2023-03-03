@@ -27,7 +27,45 @@
 		justify-content: flex-start
 		margin-left: 30px
 		@include calc("font-size",34,25)
-
+		@media screen and (max-width: 792px)
+			margin: 0
+	&-header
+		width: 80%
+		display: flex
+		align-items: center
+		justify-content: space-between
+		@media screen and (max-width: 792px)
+			width: 100%
+			flex-direction: column
+			align-items: center
+			justify-content: center
+		&_wrapper
+			display: flex
+			align-items: center
+			justify-content: flex-end
+			position: relative
+			margin-right: 25px
+			@media screen and (max-width: 692px)
+				margin-top: 8px
+				margin-right: 0
+			button
+				//background-color: $basic-color
+				border: $basic-color
+				&:disabled
+					background-color: $basic-color
+			img
+				width: 20px
+				height: 20px
+				position: absolute
+				left: 5px
+				z-index: 9999999999
+			div
+				input
+					max-width: 250px
+					padding-left: 28px
+			&_search
+				max-width: 250px
+				padding-left: 28px
 	&-addCategory
 		padding: 8px 15px
 		width: 50px
@@ -35,7 +73,7 @@
 		border-radius: 6px
 		background-color: #505160
 		position: absolute
-		top: 20px
+		top: 10px
 		right: 3%
 		color: #fff
 		font-size: 18px
@@ -488,7 +526,7 @@ input[type="radio"]:focus
 	@media screen and (max-width: 992px)
 		justify-content: flex-start
 .category-body_accordingHeader-listView
-	max-width: 98%
+	width: 98%
 	height: 50px
 	min-height: 50px
 	margin: 5px 0
@@ -528,6 +566,9 @@ input[type="radio"]:focus
 			overflow: auto
 			text-overflow: ellipsis
 			background-color: transparent
+.rbt-menu
+	width: 280px !important
+	//transform: translate(0, 35px) !important
 
 @keyframes ShowNotification
 	0%

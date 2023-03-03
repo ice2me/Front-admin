@@ -1526,6 +1526,59 @@ input[type=file] {
   margin-left: 30px;
   font-size: calc(25px + (34 - 25) * ((100vw - 320px) / (1440 - 320)));
 }
+@media screen and (max-width: 792px) {
+  .category-title {
+    margin: 0;
+  }
+}
+.category-header {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width: 792px) {
+  .category-header {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.category-header_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  margin-right: 25px;
+}
+@media screen and (max-width: 692px) {
+  .category-header_wrapper {
+    margin-top: 8px;
+    margin-right: 0;
+  }
+}
+.category-header_wrapper button {
+  border: rgb(80, 81, 96);
+}
+.category-header_wrapper button:disabled {
+  background-color: rgb(80, 81, 96);
+}
+.category-header_wrapper img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  z-index: 9999999999;
+}
+.category-header_wrapper div input {
+  max-width: 250px;
+  padding-left: 28px;
+}
+.category-header_wrapper_search {
+  max-width: 250px;
+  padding-left: 28px;
+}
 .category-addCategory {
   padding: 8px 15px;
   width: 50px;
@@ -1533,7 +1586,7 @@ input[type=file] {
   border-radius: 6px;
   background-color: #505160;
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 3%;
   color: #fff;
   font-size: 18px;
@@ -2056,7 +2109,7 @@ input[type=radio]:focus {
 }
 
 .category-body_accordingHeader-listView {
-  max-width: 98%;
+  width: 98%;
   height: 50px;
   min-height: 50px;
   margin: 5px 0;
@@ -2105,6 +2158,10 @@ input[type=radio]:focus {
   overflow: auto;
   text-overflow: ellipsis;
   background-color: transparent;
+}
+
+.rbt-menu {
+  width: 280px !important;
 }
 
 @keyframes ShowNotification {

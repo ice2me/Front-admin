@@ -150,6 +150,7 @@ export default {
 		firstMonthIsFree: 'The first month is Free!!!',
 		customerReviews: 'Customer Reviews',
 		whatIsTheke: 'What is Theke?',
+		search: 'Search',
 		// ******************************************************** QR Code
 		qrColorStyle: 'Change QR Color:',
 		qrColorBgStyle: 'Change the QR background color:',

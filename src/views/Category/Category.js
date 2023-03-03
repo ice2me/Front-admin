@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 import {
 	useDispatch,
 	useSelector
@@ -8,10 +10,15 @@ import React, {
 	useState
 } from "react"
 import DropdownEdit from "../../components/DropdownEdit/DropdownEdit"
-import { FormattedMessage } from "react-intl"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 import {
 	useGetCategoriesMutation,
-	useGetItemListMutation
+	useGetItemListMutation,
+	useSearchProductMutation,
+	useSearchTagMutation
 } from "../../redux/services/categoriesApi"
 import Loader from "../../components/Loader/Loader"
 import CategoryInpName from "./CategoryInpName"
@@ -20,13 +27,18 @@ import { RegistrationShop } from "../Login/RegistrationShop"
 import squareView from '../../assets/icons/checkbox-unchecked.svg'
 import listView from '../../assets/icons/list.svg'
 import noImage from '../../assets/icons/happySocks.svg'
-// import noImage from '../../assets/images/shot1.jpg'
-// import noImage from '../../assets/images/meet.jpg'
-
+import {
+	Button,
+	Form
+} from "react-bootstrap";
+import { Typeahead } from "react-bootstrap-typeahead"
+import searchIcon from '../../assets/icons/search.svg'
 
 const Category = ({
 	toggleViewHandler,
-	toggleView
+	toggleView,
+	optionsSearch,
+	isSearchTagLoading
 }) => {
 	const {
 		categories
@@ -38,15 +50,21 @@ const Category = ({
 	const [categoryIdState, setCategoryIdState] = useState(null)
 	const [categoryNameOpen, setCategoryNameOpen] = useState(null)
 	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
+	const [searchValueArr, setSearchValueArr] = useState([])
+	const [searchValue, setSearchValue] = useState('')
+	const [showSearchWindow, setShowSearchWindow] = useState(false)
+	const [searchProduct, {isLoading: isSearchProductLoading}] = useSearchProductMutation()
 
 	const categoriesList = categories || []
 	const dispatch = useDispatch()
+	const {formatMessage} = useIntl()
 
 	const showList = () => setShopProductsList(true)
 	const hideList = () => setShopProductsList(false)
 
 	const showRegistrationShopWindow = () => setOpenRegistrationShopWindow(true)
 	const hideRegistrationShopWindow = () => setOpenRegistrationShopWindow(false)
+	const toggleSearchWindow = () => setShowSearchWindow(!showSearchWindow)
 
 	const openProductList = useCallback(() => {
 		if (shopProductsList) {
@@ -80,6 +98,19 @@ const Category = ({
 			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
 	}
 
+	useEffect(() => {
+		setSearchValue(searchValueArr.length >= 1 ? searchValueArr?.slice(0, 1).shift() : '')
+	}, [searchValueArr])
+
+	const searchHandler = async () => {
+		await searchProduct({
+			id: user._id,
+			product_name: searchValue
+		})
+		setSearchValueArr([])
+		toggleSearchWindow()
+	}
+
 	if (shopProductsList) {
 		return isGetItemListLoading ? <Loader /> : <ProductList
 			hideList={hideList}
@@ -87,13 +118,47 @@ const Category = ({
 			categoryNameOpen={categoryNameOpen}
 		/>
 	}
-
+	else if (showSearchWindow) {
+		return isSearchProductLoading ? <Loader /> : <ProductList
+			hideList={toggleSearchWindow}
+			categoryIdState={categoryIdState}
+			categoryNameOpen={formatMessage({id: 'search'})}
+		/>
+	}
 
 	return (
 		<div className="category ">
-			<h1 className="category-title">
-				<FormattedMessage id='categoryList' />
-			</h1>
+			<div className="category-header">
+				<h1 className="category-title">
+					<FormattedMessage id='categoryList' />
+				</h1>
+				<Form className='category-header_wrapper'>
+					<img
+						src={searchIcon}
+						alt=""
+					/>
+					<Form.Group>
+						<Typeahead
+							id="basic-typeahead-single"
+							labelKey="searchProduct"
+							onChange={setSearchValueArr}
+							options={optionsSearch}
+							placeholder={formatMessage({id: 'nameProduct'})}
+							selected={searchValueArr}
+						/>
+					</Form.Group>
+					<Button
+						onClick={searchHandler}
+						disabled={searchValueArr.length < 1}
+					>
+						{isSearchTagLoading
+							?
+							'Loading'
+							:
+							<FormattedMessage id='search' />
+						}</Button>
+				</Form>
+			</div>
 			{
 				user?.shop_name !== undefined
 					?

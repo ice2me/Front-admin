@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, {
+	useMemo,
+	useState
+} from 'react'
 import { useLocation } from "react-router-dom"
 import { usePatchAvailableItemProductMutation } from "../../redux/services/categoriesApi"
 import ModalCard from "../../components/Modal/ModalCard"
@@ -37,6 +40,7 @@ const ProductList = ({
 	const [patchAvailableItemProduct, {isLoading: isPatchAvailableItemProductLoading}] = usePatchAvailableItemProductMutation()
 	const {state} = useLocation()
 	const dispatch = useDispatch()
+
 	const showModalCard = () => setModalShow(true)
 	const closeModalCard = () => {
 		setModalShow(false)

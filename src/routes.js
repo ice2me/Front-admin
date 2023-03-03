@@ -14,9 +14,14 @@ import {
 	useEffect,
 	useCallback
 } from "react"
+import { useSearchTagMutation } from "./redux/services/categoriesApi";
+import { useSelector } from "react-redux";
 
 export const RoutesLink = () => {
 	const [toggleView, setToggleView] = useState(false)
+	const [optionsSearch, setOptionsSearch] = useState([])
+	const {user} = useSelector((state) => state.userStore)
+	const [searchTag, {isLoading: isSearchTagLoading}] = useSearchTagMutation()
 	const toggleViewHandler = () => {
 		setToggleView(!toggleView)
 		localStorage.setItem('viewCategories', JSON.stringify({'view': !toggleView}))
@@ -26,9 +31,19 @@ export const RoutesLink = () => {
 		setToggleView(teh)
 	}, [])
 
+	const searchTagOptions = useCallback(async () => {
+		const data = await searchTag({
+			id: user._id
+		})
+		setOptionsSearch(data?.data)
+	}, [user])
+
 	useEffect(() => {
 		getLocalStorageViewOption()
+		searchTagOptions().then()
 	}, [])
+
+
 
 	return (
 		<Routes>
@@ -37,6 +52,8 @@ export const RoutesLink = () => {
 				element={<Category
 					toggleViewHandler={toggleViewHandler}
 					toggleView={toggleView}
+					optionsSearch={optionsSearch}
+					isSearchTagLoading={isSearchTagLoading}
 				/>}
 			/>
 			<Route
@@ -44,6 +61,8 @@ export const RoutesLink = () => {
 				element={<Category
 					toggleViewHandler={toggleViewHandler}
 					toggleView={toggleView}
+					optionsSearch={optionsSearch}
+					isSearchTagLoading={isSearchTagLoading}
 				/>}
 			/>
 			<Route
@@ -51,6 +70,8 @@ export const RoutesLink = () => {
 				element={<Category
 					toggleViewHandler={toggleViewHandler}
 					toggleView={toggleView}
+					optionsSearch={optionsSearch}
+					isSearchTagLoading={isSearchTagLoading}
 				/>}
 			/>
 			<Route
