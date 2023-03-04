@@ -34,6 +34,11 @@ export const getRegistrationSchema = (formatMessage) => {
 			.required(formatMessage ({id: "passwordConfirmIsRequiredField"}))
 			.min(6, formatMessage ({id: "passwordConfirmIsRequiredFieldLengthMin"}))
 			.matches(PASSWORD_REGEXP, formatMessage ({id: "passwordConfirmIsRequiredField"})),
+		shop_name: yup
+			.string()
+			.required(formatMessage ({id: "nameIsRequiredField"}))
+			.min(3, formatMessage ({id: "shopNameLengthMin"}))
+			.max(65, formatMessage ({id: "shopNameLengthMax"})),
 	});
 };
 

@@ -31,7 +31,7 @@ const Profile = ({
 			<h1 className="profile-title">
 				<FormattedMessage id='profile' />
 				{
-					user?.shop_name && <button
+					user?.created_shop && <button
 						className='profile-title_dots'
 						onClick={() => setOpenEditProfile(true)}
 					>
@@ -72,7 +72,7 @@ const Profile = ({
 							<p>{user?.email}</p>
 						</li>
 						{
-							!user?.shop_name &&
+							!user?.created_shop &&
 							<li>
 								<div className='h-100 w100 d-flex align-items-center justify-content-center'>
 									<button

@@ -3,7 +3,6 @@ import { authApi } from "../services/authApi"
 
 const initialState = {
 	user: {
-		username: '',
 		email: '',
 		phone: '',
 		password: '',

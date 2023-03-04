@@ -92,12 +92,6 @@ const Category = ({
 		openProductList()
 	}, [shopProductsList, categoryIdState, getItemList])
 
-	if (openRegistrationShopWindow) {
-		return openRegistrationShopWindow
-			&&
-			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
-	}
-
 	useEffect(() => {
 		setSearchValue(searchValueArr.length >= 1 ? searchValueArr?.slice(0, 1).shift() : '')
 	}, [searchValueArr])
@@ -117,13 +111,16 @@ const Category = ({
 			categoryIdState={categoryIdState}
 			categoryNameOpen={categoryNameOpen}
 		/>
-	}
-	else if (showSearchWindow) {
+	} else if (showSearchWindow) {
 		return isSearchProductLoading ? <Loader /> : <ProductList
 			hideList={toggleSearchWindow}
 			categoryIdState={categoryIdState}
 			categoryNameOpen={formatMessage({id: 'search'})}
 		/>
+	}else if (openRegistrationShopWindow) {
+		return openRegistrationShopWindow
+			&&
+			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
 	}
 
 	return (
@@ -160,7 +157,7 @@ const Category = ({
 				</Form>
 			</div>
 			{
-				user?.shop_name !== undefined
+				(user?.created_shop)
 					?
 					isGetCategoriesLoading
 						?
@@ -261,7 +258,7 @@ const Category = ({
 							</div>
 						</>
 					:
-					<div className='h-100 w100 d-flex align-items-center justify-content-center'>
+					<div className='h-100 w-100 d-flex align-items-center justify-content-center'>
 						<button
 							className="editProfile-body_content_button"
 							onClick={showRegistrationShopWindow}

@@ -2,7 +2,10 @@ import React, {
 	useState
 } from 'react'
 import {
-	Form
+	Button,
+	Form,
+	OverlayTrigger,
+	Popover
 } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -25,12 +28,14 @@ import {
 	useIntl
 } from "react-intl"
 import Loader from "../../components/Loader/Loader"
+import { deleteSpace } from "../../utils/toggleSpaceString";
 
 export const RegistrationUser = () => {
 	const [form, setForm] = useState({})
 	const [passwordType, setPasswordType] = useState("password")
 	const [confirmPasswordType, setConfirmPasswordType] = useState("password")
 	const [registerUser, {isLoading: isRegisterUserLoading}] = useRegisterUserMutation()
+	const [shopVariantTrading, setShopVariantTrading] = useState('Shop')
 	const {formatMessage} = useIntl()
 
 	const navigate = useNavigate()
@@ -49,23 +54,27 @@ export const RegistrationUser = () => {
 			phone: values.phone,
 			password: values.password,
 			password_confirm: values.password_confirm,
+			shop_name: deleteSpace(values.shop_name),
+			variant_trading: shopVariantTrading,
 		}
 		try {
 			const {data} = await registerUser(formDate)
 			dispatch(setUser(data?.newUser))
 			if (data?.newUser && data?.token && !data?.error) {
 				navigate(APP_ROUTE.CATEGORIES_LIST)
-				toast(data?.message)
+				// toast(data?.message)
 			} else {
 				toast(
 					data?.error.email ||
 					data?.error.phone ||
-					data?.error.password
+					data?.error.password ||
+					data?.error.shop_name
 				)
 				setErrors({
 					email: data?.error.email,
 					phone: data?.error.phone,
-					password: data?.error.password
+					password: data?.error.password,
+					shop_name: data?.error.shop_name
 				})
 			}
 		} catch (e) {
@@ -90,6 +99,23 @@ export const RegistrationUser = () => {
 		return <Loader />
 	}
 
+	const popover = (
+		<Popover id="popover-basic">
+			<Popover.Header as="h3">
+				<FormattedMessage id={shopVariantTrading} />
+			</Popover.Header>
+			<Popover.Body>
+				<FormattedMessage
+					id={shopVariantTrading === "Shop"
+						?
+						'ifYouChooseShopYourCustomers'
+						:
+						'ifYouChooseMenuYourCustomers'}
+				/>
+			</Popover.Body>
+		</Popover>
+	)
+
 	return (
 		<div className='registrationShop'>
 			<h1>
@@ -102,6 +128,8 @@ export const RegistrationUser = () => {
 					phone: form.phone || '',
 					password: form.password || '',
 					password_confirm: form.password_confirm || '',
+					shop_name: form?.shop_name || '',
+					variant_trading: shopVariantTrading,
 				}}
 				validationSchema={getRegistrationSchema(formatMessage)}
 				onSubmit={handleSubmit}
@@ -277,6 +305,74 @@ export const RegistrationUser = () => {
 									</Form.Control.Feedback>
 								)}
 							</div>
+						</Form.Group>
+
+						<Form.Group className="registrationShop-form_label">
+							<OverlayTrigger
+								trigger="focus"
+								placement="bottom"
+								overlay={popover}
+								className='mb-10'
+							>
+								<Button
+									variant={(shopVariantTrading === "Shop") ? "secondary" : "light"}
+									onClick={() => setShopVariantTrading("Shop")}
+									className='mb-1 mt-3'
+								>
+									<FormattedMessage
+										id='iWantShop'
+										values={{total: formatMessage({id: 'Shop'})}}
+									/>
+								</Button>
+							</OverlayTrigger>
+							<OverlayTrigger
+								trigger="focus"
+								placement="bottom"
+								overlay={popover}
+							>
+								<Button
+									variant={(shopVariantTrading === "Menu") ? "secondary" : "light"}
+									onClick={() => setShopVariantTrading("Menu")}
+								>
+									<FormattedMessage
+										id='iWantShop'
+										values={{total: formatMessage({id: 'Menu'})}}
+									/>
+								</Button>
+							</OverlayTrigger>
+						</Form.Group>
+
+						<Form.Group className="registrationShop-form_label">
+							<div className='registrationShop-form_title'>
+								<span>
+									<FormattedMessage
+										id='nameShop'
+										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+									/><b> * </b>
+								</span>
+							</div>
+							<Form.Control
+								className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
+									errors.shop_name && touched.shop_name ? " is-invalid" : ""
+								} registrationShop-form_input`}
+								type="text"
+								autoComplete='on'
+								placeholder={formatMessage({id: 'enterNameShop'})}
+								value={values.shop_name}
+								name='shop_name'
+								onBlur={handleBlur}
+								onChange={(e) => {
+									handleChange(e)
+									formDateUpdateHandler({
+										[e.target.name]: e.target.value
+									})
+								}}
+							/>
+							{errors.shop_name && touched.shop_name && (
+								<Form.Control.Feedback type="invalid">
+									{errors.shop_name}
+								</Form.Control.Feedback>
+							)}
 						</Form.Group>
 
 						<button

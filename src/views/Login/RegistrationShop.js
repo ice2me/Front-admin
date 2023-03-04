@@ -12,16 +12,12 @@ import {
 import { setShop } from "../../redux/slices/userSlice"
 import { APP_ROUTE } from "../../utils/constants"
 import {
-	Button,
 	Form,
-	OverlayTrigger,
-	Popover
 } from "react-bootstrap"
 import Loader from "../../components/Loader/Loader"
 import { Formik } from "formik"
 import { getRegistrationShopSchema } from "../../utils/validation/YupRegistrationShop";
 import { toast } from "react-toastify";
-import { deleteSpace } from "../../utils/toggleSpaceString";
 
 export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	const [form, setForm] = useState({})
@@ -29,7 +25,6 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	const [shopViber, setShopViber] = useState('')
 	const [shopTelegram, setShopTelegram] = useState('')
 	const [shopInstagram, setShopInstagram] = useState('')
-	const [shopVariantTrading, setShopVariantTrading] = useState('Shop')
 	const [registerShop, {isLoading: isRegisterShopLoading}] = useRegisterShopMutation()
 	const {user} = useSelector(state => state.userStore)
 	const {formatMessage} = useIntl()
@@ -41,13 +36,9 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 		setForm({...form, ...opt})
 	}
 
-	const handleSubmit = async (values, {
-		setErrors,
-		resetForm
-	}) => {
+	const handleSubmit = async (values) => {
 		const formDate = {
 			id: user._id,
-			shop_name: deleteSpace(values.shop_name),
 			description: values.description,
 			shop_link: values.shop_link.trim().toLowerCase(),
 			socials_links: {
@@ -57,59 +48,33 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 				shop_instagram: shopInstagram,
 			},
 			open_shop: values.open_shop || false,
-			variant_trading: shopVariantTrading,
 			calculate_total_cost: values.calculate_total_cost || false
 		}
 		try {
 			const {data} = await registerShop(formDate)
-			dispatch(setShop(data?.isUser))
-			if (data.isUser) {
+			dispatch(setShop(data?.isShop))
+			if (data.isShop) {
 				navigate(APP_ROUTE.DEFAULT)
 				toast(data?.message)
 				hideRegistrationShopWindow()
-			} else {
-				toast(
-					data?.error.shop_name
-				)
-				setErrors({
-					shop_name: data?.error,
-				})
 			}
 		} catch (e) {
 			console.log(e)
 		}
 	}
 
-	const popover = (
-		<Popover id="popover-basic">
-			<Popover.Header as="h3">
-				<FormattedMessage id={shopVariantTrading} />
-			</Popover.Header>
-			<Popover.Body>
-				<FormattedMessage
-					id={shopVariantTrading === "Shop"
-						?
-						'ifYouChooseShopYourCustomers'
-						:
-						'ifYouChooseMenuYourCustomers'}
-				/>
-			</Popover.Body>
-		</Popover>
-	)
-
 	if (isRegisterShopLoading) {
 		return <Loader />
 	}
 
 	return (
-		<div className='registrationShop regShop-container'>
+		<div className='registrationShop regShop-container w-100'>
 			<h1 className='category-title'>
 				<FormattedMessage id="createShopOrMenu" />
 			</h1>
 			<Formik
 				validateOnChange
 				initialValues={{
-					shop_name: form?.shop_name || '',
 					description: form?.description || '',
 					shop_link: form?.shop_link || '',
 					socials_links: {
@@ -119,7 +84,6 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 						shop_instagram: shopInstagram || '',
 					},
 					open_shop: false,
-					variant_trading: shopVariantTrading,
 					calculate_total_cost: form?.calculate_total_cost || false
 				}}
 				validationSchema={getRegistrationShopSchema(formatMessage)}
@@ -140,108 +104,13 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 						className="registrationShop-form regShop-container_form"
 						onSubmit={handleSubmit}
 					>
-						<Form.Group className="registrationShop-form_label">
-							<OverlayTrigger
-								trigger="focus"
-								placement="bottom"
-								overlay={popover}
-								className='mb-10'
-							>
-								<Button
-									variant={(shopVariantTrading === "Shop") ? "secondary" : "light"}
-									onClick={() => setShopVariantTrading("Shop")}
-									className='mb-1 mt-3'
-								>
-									<FormattedMessage
-										id='iWantShop'
-										values={{total: formatMessage({id: 'Shop'})}}
-									/>
-								</Button>
-							</OverlayTrigger>
-							<OverlayTrigger
-								trigger="focus"
-								placement="bottom"
-								overlay={popover}
-							>
-								<Button
-									variant={(shopVariantTrading === "Menu") ? "secondary" : "light"}
-									onClick={() => setShopVariantTrading("Menu")}
-								>
-									<FormattedMessage
-										id='iWantShop'
-										values={{total: formatMessage({id: 'Menu'})}}
-									/>
-								</Button>
-							</OverlayTrigger>
-						</Form.Group>
-
-						<Form.Group className="registrationShop-form_label">
-							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage
-										id='nameShop'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
-									/><b> * </b>
-								</span>
-							</div>
-							<Form.Control
-								className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
-									errors.shop_name && touched.shop_name ? " is-invalid" : ""
-								} registrationShop-form_input`}
-								type="text"
-								autoComplete='on'
-								placeholder={formatMessage({id: 'enterNameShop'})}
-								value={values.shop_name}
-								name='shop_name'
-								onBlur={handleBlur}
-								onChange={(e) => {
-									handleChange(e)
-									formDateUpdateHandler({
-										[e.target.name]: e.target.value
-									})
-								}}
-							/>
-							{errors.shop_name && touched.shop_name && (
-								<Form.Control.Feedback type="invalid">
-									{errors.shop_name}
-								</Form.Control.Feedback>
-							)}
-						</Form.Group>
-
-						{/*<Form.Group className="registrationShop-form_label">*/}
-						{/*	<div className='registrationShop-form_title'>*/}
-						{/*		<span>*/}
-						{/*			<FormattedMessage id='allowYourCustomersVisitOtherStoresOfThisPlatform' />*/}
-						{/*		</span>*/}
-						{/*	</div>*/}
-						{/*	<Form.Check*/}
-						{/*		type="checkbox"*/}
-						{/*		id="custom-switch"*/}
-						{/*		name='open_shop'*/}
-						{/*		value={values?.open_shop}*/}
-						{/*		onBlur={handleBlur}*/}
-						{/*		defaultChecked*/}
-						{/*		className='customCheckbox'*/}
-						{/*		label={values?.open_shop*/}
-						{/*			?*/}
-						{/*			<FormattedMessage id='yes' />*/}
-						{/*			:*/}
-						{/*			<FormattedMessage id='no' />}*/}
-						{/*		onChange={(e) => {*/}
-						{/*			handleChange(e)*/}
-						{/*			formDateUpdateHandler({*/}
-						{/*				[e.target.name]: e.target.value*/}
-						{/*			})*/}
-						{/*		}}*/}
-						{/*	/>*/}
-						{/*</Form.Group>*/}
 
 						<Form.Group className="registrationShop-form_label">
 							<div className='registrationShop-form_title'>
 								<span>
 									<FormattedMessage
 										id='descriptionShop'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 									/>
 								</span>
 							</div>
@@ -273,7 +142,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 								<span>
 									<FormattedMessage
 										id='shopLink'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 									/>
 								</span>
 							</div>
@@ -305,7 +174,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 								<span>
 									<FormattedMessage
 										id='shopFacebook'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 									/>
 								</span>
 							</div>
@@ -335,7 +204,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 								<span>
 									<FormattedMessage
 										id='shopViber'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 									/>
 								</span>
 							</div>
@@ -365,7 +234,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 								<span>
 									<FormattedMessage
 										id='shopTelegram'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 									/>
 								</span>
 							</div>
@@ -395,7 +264,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 								<span>
 									<FormattedMessage
 										id='shopInstagram'
-										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
+										values={{total: formatMessage({id: `${user?.variant_trading}`})}}
 									/>
 								</span>
 							</div>
