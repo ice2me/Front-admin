@@ -2,7 +2,7 @@
 *ul
 	padding-left: 0 !important
 .editProfile
-	@include calc("font-size",18,12)
+	@include calc("font-size",14,12)
 	&-body
 		width: 100%
 		height: 85%
@@ -29,7 +29,7 @@
 			background-position: center
 			background-repeat: no-repeat
 			background-size: cover
-			box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1)
+			box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 			@media screen and (max-width: 992px)
 				width: 170px
 				height: 270px
@@ -50,7 +50,7 @@
 				position: relative
 				margin: 0 3px
 				&:hover
-					box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1)
+					box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 				@media screen and (max-width: 992px)
 					width: 28px
 					height: 28px
@@ -59,20 +59,20 @@
 						height: 22px
 		&_content
 			width: 100%
+			@include calc("font-size",14,12)
 			@media screen and (max-width: 992px)
 				margin-top: 20px
 
 			&-text
 				width: 100%
-				margin: 20px 0
+				margin: 10px 0
 				display: flex
-				justify-content: flex-end
+				justify-content: flex-start
 				flex-direction: row
 				flex-wrap: wrap
 				span
 					font-weight: bold !important
 			span, p
-				min-width: 120px
 				text-align: end
 				margin: 0 0 0 8px
 

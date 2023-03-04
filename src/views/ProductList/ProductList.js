@@ -13,7 +13,10 @@ import {
 } from "react-redux"
 import CardItem from "../Category/CardItem"
 import { resetItemsLIst } from "../../redux/slices/categoriesSlice"
-import { useIntl } from "react-intl"
+import {
+	FormattedMessage,
+	useIntl
+} from "react-intl"
 
 const initialState = {
 	image_product: '',
@@ -28,7 +31,8 @@ const initialState = {
 const ProductList = ({
 	hideList,
 	categoryIdState,
-	categoryNameOpen
+	categoryNameOpen,
+	searchMarker
 }) => {
 	const [modalShow, setModalShow] = useState(false)
 	const [editItemProductCard, setEditItemProductCard] = useState(initialState)
@@ -116,11 +120,13 @@ const ProductList = ({
 					}
 				</>
 			}
+			{searchMarker &&
+				<ButtonAdd
+					handler={showModalCard}
+					title={formatMessage({id: 'product'})}
+				/>
+			}
 
-			<ButtonAdd
-				handler={showModalCard}
-				title={formatMessage({id: 'product'})}
-			/>
 		</div>
 	)
 }

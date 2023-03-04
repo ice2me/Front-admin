@@ -110,12 +110,14 @@ const Category = ({
 			hideList={hideList}
 			categoryIdState={categoryIdState}
 			categoryNameOpen={categoryNameOpen}
+			searchMarker={true}
 		/>
 	} else if (showSearchWindow) {
 		return isSearchProductLoading ? <Loader /> : <ProductList
 			hideList={toggleSearchWindow}
 			categoryIdState={categoryIdState}
 			categoryNameOpen={formatMessage({id: 'search'})}
+			searchMarker={false}
 		/>
 	}else if (openRegistrationShopWindow) {
 		return openRegistrationShopWindow
