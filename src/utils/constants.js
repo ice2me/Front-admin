@@ -15,7 +15,7 @@ export const EXTENSION = {
 	PDF: 'pdf'
 }
 
-export const LINK_FOR_CLIENT = 'https://client.theke.com.ua/'
+export const LINK_FOR_CLIENT = 'client.theke.com.ua/'
 
 export const AUTH_API = {
 	SIGNUP: "/auth/register",
