@@ -46,6 +46,8 @@ export default {
 		contactSupport: 'Служба підтримки',
 		share: 'Поділіться',
 		qrCode: 'QR Код',
+		copyLink: 'Копіювати посилання',
+		linkCopied: 'Посилання було скопійовано в буфер обміну',
 		// ******************************************************** form validation
 		nameIsRequiredField: "Ім'я є обов'язковим полем",
 		usernameLengthMax: "Ім'я користувача має містити не більше 65 символів",

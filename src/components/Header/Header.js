@@ -7,48 +7,44 @@ import {
 import {
 	FormattedMessage,
 	useIntl
-} from "react-intl";
-import exit from "../../assets/icons/logout.svg";
-import { logout } from "../../redux/slices/userSlice";
+} from "react-intl"
+import exit from "../../assets/icons/logout.svg"
+import { logout } from "../../redux/slices/userSlice"
 import {
 	APP_ROUTE,
 	LINK_FOR_CLIENT
-} from "../../utils/constants";
-import { toast } from "react-toastify";
+} from "../../utils/constants"
 import {
 	useLocation,
 	useNavigate
-} from "react-router-dom";
-import eyeOff from "../../assets/icons/eye-blocked.svg";
-import eye from "../../assets/icons/eye.svg";
-import myProducts from "../../assets/icons/note-list-icon.svg";
-import myProfile from "../../assets/icons/profile-icon.svg";
-import contactSupport from "../../assets/icons/contact-support-icon.svg";
-import share from "../../assets/icons/share.svg";
+} from "react-router-dom"
+import myProducts from "../../assets/icons/note-list-icon.svg"
+import myProfile from "../../assets/icons/profile-icon.svg"
+import contactSupport from "../../assets/icons/contact-support-icon.svg"
+import share from "../../assets/icons/share.svg"
 import React, {
-	useEffect,
+	useRef,
 	useState
-} from "react";
+} from "react"
 import {
+	Button,
 	Container,
 	Dropdown,
 	Nav,
-	Navbar
-} from "react-bootstrap";
+	Navbar,
+	Overlay,
+	Tooltip
+} from "react-bootstrap"
 import {
-	EmailIcon,
-	EmailShareButton,
 	FacebookIcon,
 	FacebookShareButton,
-	InstapaperIcon,
-	InstapaperShareButton,
 	TelegramIcon,
 	TelegramShareButton,
 	ViberIcon,
 	ViberShareButton
-} from "react-share";
-import { addSpace } from "../../utils/toggleSpaceString";
-import qrCode from "../../assets/icons/qrCode.svg";
+} from "react-share"
+import { addSpace } from "../../utils/toggleSpaceString"
+import qrCode from "../../assets/icons/qrCode.svg"
 
 const Header = () => {
 	const [expanded, setExpanded] = useState(false)
@@ -57,7 +53,19 @@ const Header = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const {formatMessage} = useIntl()
+	const [showClipboard, setShowClipboard] = useState(false)
+	const target = useRef(null)
 
+	const copyClipboard = async () => {
+		const text = `Відвідати магазин ${user?.shop_name} можна за цим посиланням -->> ${LINK_FOR_CLIENT}${user?.shop_name}`
+		setShowClipboard(!showClipboard)
+		try {
+			await navigator.clipboard.writeText(text)
+		} catch (err) {
+			console.error('Error in copying text: ', err)
+		}
+		setTimeout(() => {setShowClipboard(false)}, 1500)
+	}
 
 	const logoutHandler = () => {
 		dispatch(logout())
@@ -86,8 +94,8 @@ const Header = () => {
 				</span>
 					</div>
 				}
-				{(user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber || user?.socials_links?.shop_telegram ||
-						user?.socials_links?.shop_instagram) && user?.shop_name
+				{
+					user?.created_shop
 					&&
 					<div className='header-link'>
 						<Dropdown className="d-inline mx-2">
@@ -95,7 +103,6 @@ const Header = () => {
 								id="dropdown-autoclose-true"
 								variant='secondary'
 							>
-								{/*<FormattedMessage id='share' />*/}
 								<img
 									src={share}
 									alt="share"
@@ -107,7 +114,7 @@ const Header = () => {
 									&&
 									<FacebookShareButton
 										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-										quote='shared from theke.com.ua'
+										quote='Shared from theke.com.ua'
 										hashtag='#theke'
 									>
 										<FacebookIcon />
@@ -118,7 +125,7 @@ const Header = () => {
 									&&
 									<TelegramShareButton
 										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-										title='shared from theke.com.ua'
+										title='Shared from theke.com.ua'
 									>
 										<TelegramIcon />
 									</TelegramShareButton>
@@ -128,11 +135,28 @@ const Header = () => {
 									&&
 									<ViberShareButton
 										url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-										title={`відвідати магазин ${user?.shop_name} можна за цим посиланням -->> `}
+										title={`Відвідати магазин ${user?.shop_name} можна за цим посиланням -->> `}
 									>
 										<ViberIcon />
 									</ViberShareButton>
 								}
+								<div className='header-left_clipboard'>
+									<button
+										ref={target}
+										onClick={copyClipboard}
+									>
+										<FormattedMessage id='copyLink' />
+									</button>
+									<Overlay
+										target={target.current}
+										show={showClipboard}
+										placement="right"
+									>
+										<Tooltip id="overlay-example">
+											<FormattedMessage id='linkCopied' />
+										</Tooltip>
+									</Overlay>
+								</div>
 							</Dropdown.Menu>
 						</Dropdown>
 					</div>
@@ -287,8 +311,8 @@ const Header = () => {
 										/>
 										<FormattedMessage id='contactSupport' />
 									</li>
-									{(user?.socials_links?.shop_facebook || user?.socials_links?.shop_viber ||
-											user?.socials_links?.shop_telegram || user?.socials_links?.shop_instagram) && user?.shop_name
+									{
+										user?.created_shop
 										&&
 										<li
 											className={`header-mob_center-wrapper_item`}
@@ -333,11 +357,28 @@ const Header = () => {
 															&&
 															<ViberShareButton
 																url={`${LINK_FOR_CLIENT}${user?.shop_name}`}
-																// title='shared from theke.com.ua_____ '
+																title={`Відвідати магазин ${user?.shop_name} можна за цим посиланням -->> `}
 															>
 																<ViberIcon />
 															</ViberShareButton>
 														}
+														<div className='header-left_clipboard'>
+															<button
+																ref={target}
+																onClick={copyClipboard}
+															>
+																<FormattedMessage id='copyLink' />
+															</button>
+															<Overlay
+																target={target.current}
+																show={showClipboard}
+																placement="right"
+															>
+																<Tooltip id="overlay-example">
+																	<FormattedMessage id='linkCopied' />
+																</Tooltip>
+															</Overlay>
+														</div>
 													</Dropdown.Menu>
 												</Dropdown>
 											</div>

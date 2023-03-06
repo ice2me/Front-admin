@@ -95,6 +95,20 @@
   height: 25px;
   margin-right: 6px;
 }
+.header-left_clipboard {
+  width: 100%;
+}
+.header-left_clipboard button {
+  width: 100%;
+  margin-top: 5px;
+  background-color: rgb(80, 81, 96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: calc(10px + (12 - 10) * ((100vw - 320px) / (1440 - 320)));
+  padding: 8px 3px;
+}
 .header-mob {
   font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)));
 }

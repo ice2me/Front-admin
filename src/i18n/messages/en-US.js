@@ -46,6 +46,8 @@ export default {
 		contactSupport: 'Contact Support',
 		share: 'Share',
 		qrCode: 'QR Code',
+		copyLink: 'Copy Link',
+		linkCopied: 'Link has been copied to clipboard',
 		// ******************************************************** form validation
 		nameIsRequiredField: 'Name is a required field',
 		usernameLengthMax: 'Username must be at most 65 characters',
