@@ -1526,7 +1526,7 @@ input[type=file] {
   align-items: center;
   justify-content: flex-start;
   margin-left: 30px;
-  font-size: calc(24px + (30 - 24) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(24px + (29 - 24) * ((100vw - 320px) / (1440 - 320)));
 }
 @media screen and (max-width: 792px) {
   .category-title {

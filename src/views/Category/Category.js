@@ -127,25 +127,28 @@ const Category = ({
 
 	return (
 		<div className="category ">
-			<div className="category-header">
-				<h1 className="category-title">
-					<FormattedMessage id='categoryList' />
-				</h1>
-				<Form className='category-header_wrapper'>
-					<img
-						src={searchIcon}
-						alt=""
-					/>
-					<Form.Group>
-						<Typeahead
-							id="basic-typeahead-single"
-							labelKey="searchProduct"
-							onChange={setSearchValueArr}
-							options={optionsSearch}
-							placeholder={formatMessage({id: 'nameProduct'})}
-							selected={searchValueArr}
+			{
+				user?.created_shop
+				&&
+				<div className="category-header">
+					<h1 className="category-title">
+						<FormattedMessage id='categoryList' />
+					</h1>
+					<Form className='category-header_wrapper'>
+						<img
+							src={searchIcon}
+							alt=""
 						/>
-					</Form.Group>
+						<Form.Group>
+							<Typeahead
+								id="basic-typeahead-single"
+								labelKey="searchProduct"
+								onChange={setSearchValueArr}
+								options={optionsSearch}
+								placeholder={formatMessage({id: 'nameProduct'})}
+								selected={searchValueArr}
+							/>
+						</Form.Group>
 						<Button
 							onClick={searchHandler}
 							disabled={searchValueArr.length < 1}
@@ -158,8 +161,9 @@ const Category = ({
 								<FormattedMessage id='search' />
 							}
 						</Button>
-				</Form>
-			</div>
+					</Form>
+				</div>
+			}
 			{
 				(user?.created_shop)
 					?
@@ -275,7 +279,7 @@ const Category = ({
 			}
 
 			{
-				user?.shop_name && <CategoryInpName />
+				user?.created_shop && <CategoryInpName />
 			}
 		</div>
 	)
