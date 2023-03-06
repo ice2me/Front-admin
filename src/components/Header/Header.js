@@ -372,7 +372,7 @@ const Header = () => {
 															<Overlay
 																target={target.current}
 																show={showClipboard}
-																placement="right"
+																placement="bottom"
 															>
 																<Tooltip id="overlay-example">
 																	<FormattedMessage id='linkCopied' />
