@@ -1453,8 +1453,8 @@ input[type=file] {
 .productList-button {
   background-color: transparent;
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 0;
+  top: 0;
   border-radius: 6px;
 }
 .productList-button:hover {
