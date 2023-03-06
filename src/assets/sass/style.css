@@ -54,7 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1440 - 320)));
 }
 @media screen and (max-width: 992px) {
   .header {
@@ -83,10 +83,12 @@
   border-radius: 10px;
 }
 .header-left_status {
-  font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1440 - 320)));
 }
 .header-left_logout {
   background-color: transparent;
+  font-size: calc(10px + (12 - 10) * ((100vw - 320px) / (1440 - 320)));
+  color: rgb(80, 81, 96);
 }
 .header-left_logout img {
   width: 25px;
@@ -681,7 +683,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-left: 30px;
-  font-size: calc(25px + (34 - 25) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(24px + (30 - 24) * ((100vw - 320px) / (1440 - 320)));
 }
 .profile-title_dots {
   width: 30px;
@@ -1524,7 +1526,7 @@ input[type=file] {
   align-items: center;
   justify-content: flex-start;
   margin-left: 30px;
-  font-size: calc(25px + (34 - 25) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(24px + (30 - 24) * ((100vw - 320px) / (1440 - 320)));
 }
 @media screen and (max-width: 792px) {
   .category-title {
@@ -1581,8 +1583,8 @@ input[type=file] {
 }
 .category-addCategory {
   padding: 8px 15px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 6px;
   background-color: #505160;
   position: absolute;
@@ -1592,11 +1594,8 @@ input[type=file] {
   font-size: 18px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   z-index: 998;
-}
-.category-addCategory img {
-  margin-right: 8px;
 }
 .category-addCategory:hover span {
   opacity: 1;
@@ -1621,7 +1620,7 @@ input[type=file] {
   background-color: #505160;
   position: absolute;
   color: #fff;
-  top: 7px;
+  top: 0px;
   left: -175px;
 }
 .category-addCategory span:after {
@@ -1633,7 +1632,7 @@ input[type=file] {
   border-top-width: 20px;
   border-left: 15px solid #505160;
   position: absolute;
-  top: 7px;
+  top: 0px;
   left: -18px;
 }
 @media screen and (max-width: 992px) {
@@ -1743,7 +1742,7 @@ input[type=file] {
   min-height: 42px;
   max-height: 50px;
   width: inherit;
-  font-size: calc(16px + (17 - 16) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1440 - 320)));
   font-weight: bold;
   white-space: normal;
   overflow: auto;
@@ -2075,11 +2074,11 @@ input[type=radio]:focus {
 }
 
 .category-body_wrapper-view {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   position: absolute;
   bottom: 5px;
-  right: 25px;
+  right: 10px;
   background-color: rgb(247, 250, 255);
 }
 @media screen and (max-width: 992px) {
@@ -2088,8 +2087,8 @@ input[type=radio]:focus {
   }
 }
 .category-body_wrapper-view_button {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   background-color: transparent;
   margin: 0 2px;
 }
@@ -2161,7 +2160,7 @@ input[type=radio]:focus {
 }
 
 .rbt-menu {
-  width: 280px !important;
+  width: 220px !important;
 }
 
 @keyframes ShowNotification {

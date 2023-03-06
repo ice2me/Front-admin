@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, {
+	useCallback,
+	useEffect,
+	useState
+} from 'react'
 import { APP_ROUTE } from "../../utils/constants"
 import myProducts from "../../assets/icons/note-list-icon.svg"
 import myProfile from "../../assets/icons/profile-icon.svg"
@@ -16,12 +20,25 @@ const Navbar = () => {
 	const [toggleNavbar, setToggleNavbar] = useState(true)
 	const navigate = useNavigate()
 	const location = useLocation()
+	const toggleMenuHandler = (opt) => {
+		if (opt === 'menu') {
+			setToggleNavbar(!toggleNavbar)
+			localStorage.setItem('toggleMenu', JSON.stringify({'menu': !toggleNavbar}))
+		}
+	}
+	const getLocalStorageMenuOption = useCallback(() => {
+		const teh = JSON?.parse(localStorage?.getItem('toggleMenu'))?.menu
+		setToggleNavbar(teh)
+	}, [])
 
+	useEffect(() => {
+		getLocalStorageMenuOption()
+	}, [])
 	return (
 		<ul className={`navbarApp ${toggleNavbar ? "hideNavbar" : ""}`}>
 			<button
 				className='navbarApp_eye'
-				onClick={() => setToggleNavbar(!toggleNavbar)}
+				onClick={() => toggleMenuHandler('menu')}
 			>
 				<img
 					src={toggleNavbar ? eyeOff : eye}

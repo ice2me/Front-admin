@@ -22,9 +22,11 @@ export const RoutesLink = () => {
 	const [optionsSearch, setOptionsSearch] = useState([])
 	const {user} = useSelector((state) => state.userStore)
 	const [searchTag, {isLoading: isSearchTagLoading}] = useSearchTagMutation()
-	const toggleViewHandler = () => {
-		setToggleView(!toggleView)
-		localStorage.setItem('viewCategories', JSON.stringify({'view': !toggleView}))
+	const toggleViewHandler = (opt) => {
+		if (opt === 'view') {
+			setToggleView(!toggleView)
+			localStorage.setItem('viewCategories', JSON.stringify({'view': !toggleView}))
+		}
 	}
 	const getLocalStorageViewOption = useCallback(() => {
 		const teh = JSON?.parse(localStorage?.getItem('viewCategories'))?.view
@@ -42,8 +44,6 @@ export const RoutesLink = () => {
 		getLocalStorageViewOption()
 		searchTagOptions().then()
 	}, [])
-
-
 
 	return (
 		<Routes>

@@ -119,7 +119,7 @@ const Category = ({
 			categoryNameOpen={formatMessage({id: 'search'})}
 			searchMarker={false}
 		/>
-	}else if (openRegistrationShopWindow) {
+	} else if (openRegistrationShopWindow) {
 		return openRegistrationShopWindow
 			&&
 			<RegistrationShop hideRegistrationShopWindow={hideRegistrationShopWindow} />
@@ -146,16 +146,18 @@ const Category = ({
 							selected={searchValueArr}
 						/>
 					</Form.Group>
-					<Button
-						onClick={searchHandler}
-						disabled={searchValueArr.length < 1}
-					>
-						{isSearchTagLoading
-							?
-							'Loading'
-							:
-							<FormattedMessage id='search' />
-						}</Button>
+						<Button
+							onClick={searchHandler}
+							disabled={searchValueArr.length < 1}
+							style={{opacity: `${searchValueArr.length >= 1 ? '1' : '0'}`}}
+						>
+							{isSearchTagLoading
+								?
+								'Loading'
+								:
+								<FormattedMessage id='search' />
+							}
+						</Button>
 				</Form>
 			</div>
 			{
@@ -238,7 +240,7 @@ const Category = ({
 								<div className='category-body_wrapper-view'>
 									<button
 										className="category-body_wrapper-view_button"
-										onClick={toggleViewHandler}
+										onClick={() => toggleViewHandler('view')}
 									>
 										{
 											toggleView

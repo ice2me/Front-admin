@@ -3,7 +3,7 @@
 	display: flex
 	align-items: center
 	justify-content: space-between
-	@include calc("font-size",18,14)
+	@include calc("font-size",16,14)
 	@media screen and (max-width: 992px)
 		display: none
 
@@ -25,10 +25,11 @@
 			margin-right: 8px
 			border-radius: $border-radius
 		&_status
-			@include calc("font-size",18,14)
+			@include calc("font-size",14,12)
 		&_logout
 			background-color: transparent
-
+			@include calc("font-size",12,10)
+			color: $basic-color
 			img
 				width: 25px
 				height: 25px
