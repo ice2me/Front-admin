@@ -106,7 +106,7 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: calc(10px + (12 - 10) * ((100vw - 320px) / (1440 - 320)));
+  font-size: calc(10px + (11 - 10) * ((100vw - 320px) / (1440 - 320)));
   padding: 8px 3px;
 }
 .header-mob {
