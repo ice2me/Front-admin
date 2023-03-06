@@ -27,7 +27,7 @@
 }
 
 .contentBox {
-  max-width: 1050px;
+  max-width: 1200px;
   max-height: 744px;
   width: 100%;
   height: 100%;
@@ -2122,7 +2122,7 @@ input[type=radio]:focus {
 }
 
 .category-body_accordingHeader-listView {
-  width: 98%;
+  width: 100%;
   height: 50px;
   min-height: 50px;
   margin: 5px 0;
