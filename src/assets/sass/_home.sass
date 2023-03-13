@@ -1,12 +1,12 @@
 @import '_variables'
 .home
-	color: #505160
 	max-width: 1280px
 	width: 100vw
 	height: 90vh
 	overflow: hidden
 	border-radius: 6px
 	scroll-behavior: smooth
+	color: $basic-color-text
 
 	&-wrapper
 		overflow: auto
@@ -24,7 +24,7 @@
 		display: flex
 		align-items: center
 		justify-content: space-between
-		background: linear-gradient(to bottom, rgba(250, 250, 250, 0.12) 40%, rgba(227, 232, 248, 0.3) 100%)
+		background: $basic-bg-opacity
 
 		img
 			max-height: 40px
@@ -34,8 +34,8 @@
 				margin: 0 6px
 
 				&:last-child
-					background-color: #505160
-					border-color: #505160
+					background-color: $basic-color
+					border-color: $basic-color
 
 					&:hover
 						border-color: #f3f8ff
@@ -56,8 +56,10 @@
 				width: 100%
 				text-align: center
 				@include calc("font-size", 50, 26)
-				text-shadow: $basic-color 1px 1px
 				font-weight: bold
+
+			h1
+				font-weight: 900
 
 		&_title
 			width: 550px
@@ -80,21 +82,21 @@
 				text-shadow: none
 
 			p
-				margin-top: 30px
+				margin-top: 20px
 				font-size: 20px
 				@include calc("font-size", 18, 16)
 
 			button, a
 				width: 200px
 				height: 50px
-				border: 2px solid #505160
+				border: 2px solid $basic-color
 				@include centering
 				border-radius: 6px
 				background-color: transparent
 				margin-top: 20px
 				cursor: pointer
 				@include calc("font-size", 18, 16)
-				color: #505160
+				color: $basic-color
 
 			@media screen and (max-width: 992px)
 				width: 100%
@@ -103,7 +105,7 @@
 				padding: 0 6px
 
 		&_image
-			width: 350px
+			width: 650px
 			min-height: 400px
 			background: url("../images/theke-one.png")
 			background-size: contain
@@ -125,6 +127,7 @@
 		justify-content: flex-end
 		position: relative
 		margin-top: 20px
+		background-color: $white
 
 		&_title
 			height: 500px
@@ -154,7 +157,7 @@
 
 			button
 				padding: 15px 30px
-				background-color: #505160
+				background-color: $basic-color
 				color: #fff
 				border-radius: 6px
 
@@ -182,7 +185,7 @@
 		&_image
 			width: 485px
 			min-height: 400px
-			background: url("../images/theke-two.png")
+			background: url("../images/theke-two.jpg")
 			background-size: contain
 			background-repeat: no-repeat
 			background-position: right
@@ -191,8 +194,8 @@
 			bottom: 30px
 			z-index: 1
 			@media screen and (max-width: 992px)
-				opacity: 0.5
-				width: 200px
+				opacity: 0.2
+				width: 100%
 				min-height: 170px
 
 	&-thirdBlock
@@ -200,12 +203,12 @@
 		min-height: 560px
 		display: flex
 		align-items: center
-		justify-content: flex-start
+		justify-content: center
 		position: relative
 		background: url("../images/goldBgrotate.png")
 		background-size: contain
 		background-repeat: no-repeat
-		background-position: bottom
+		background-position: center
 
 		&_left
 			padding-left: 30px
@@ -241,25 +244,25 @@
 
 			&-button
 				padding: 15px 30px
-				background-color: #505160
+				background-color: $basic-color
 				color: #fff
 				border-radius: 6px
 
 		&_right
 			width: 650px
 			min-height: 400px
-			background: url("../images/theke-there.png")
+			background: url("../images/theke-there.jpg")
 			background-size: contain
 			background-repeat: no-repeat
 			background-position: top
-			position: absolute
-			right: 0
-			bottom: 0
 			z-index: 1
 			@media screen and (max-width: 992px)
-				width: 400px
+				width: 100%
 				min-height: 250px
-				opacity: 0.5
+				position: absolute
+				bottom: 0
+				right: 0
+				opacity: 0.2
 				background-position: bottom
 
 	&-fourthBlock
@@ -268,27 +271,35 @@
 		@include centering
 		flex-direction: column
 		padding: 30px 10px
+		background-color: $white
+		&_title
+			color: $basic-color-text
+			text-align: center
+			@include calc("font-size", 25, 18)
+			font-weight: bold
 		&_content
 			width: 100%
 			height: max-content
 			text-align: center
-			@include calc("font-size", 20, 16)
-			@include calc("max-width", 600, 300)
+			@include calc("font-size", 18, 16)
+			@include calc("max-width", 700, 300)
 			margin-top: 30px
+
 			p
 				line-height: 35px
 
 	&-fifthBlock
 		width: 100%
 		height: max-content
-		background-color: #fff
+		background-color: $basic-color-text
 		padding: 30px 0
-		color: #505160
+		color: $basic-color-text
 
 		&_title
 			text-align: center
 			@include calc("font-size", 25, 18)
 			font-weight: bold
+			color: $white
 
 		&_wrapper
 			width: 100%
@@ -301,36 +312,25 @@
 
 			&-block
 				max-width: 320px
-				margin: 0 12px
+				margin: 0 6px
 				text-align: center
-
-				&_title
-					font-size: 26px
-
+				padding: 15px 10px
+				border-radius: $border-radius
+				background-color: $white
+				@media screen and (max-width: 1040px)
+					margin: 5px 0
 				&_step
-					min-width: 240px
-					min-height: 150px
-					width: 240px
-					height: 150px
-					@media screen and (min-width: 992px)
-						&:active
-							width: 500px
-							height: 350px
-							position: absolute
-							top: 50%
-							left: 50%
-							transform: translate(-50%, -50%)
+					width: 100px
+					height: 100px
 
 				&_content
-					line-height: 30px
-					@include calc("font-size", 18, 14)
+					margin-top: 15px
+					line-height: 25px
+					@include calc("font-size", 16, 14)
 
 	&-sixthBlock
 		width: 100%
-		background: url("../images/goldBg.png")
-		background-size: cover
-		background-repeat: no-repeat
-		background-position: center
+		background-color: $basic-color-text
 		padding: 30px 0
 		display: flex
 		align-items: center
@@ -339,82 +339,72 @@
 		overflow: hidden
 
 		&_title
+			color: $white
 			text-align: center
 			@include calc("font-size", 25, 18)
 			font-weight: bold
 
+		&_wrapper
+			width: 100%
+			display: flex
+			align-items: center
+			justify-content: center
+			@media screen and (max-width: 992px)
+				flex-direction: column
+
 		&_block
 			border-radius: 6px
-			padding: 50px
+			padding: 30px
 			background-color: #fff
 			display: flex
 			align-items: center
 			justify-content: center
 			flex-direction: column
 			position: relative
+			margin: 10px
 
 			&-title
-				font-size: 30px
+				@include calc("font-size", 26, 20)
 				font-weight: bold
+
 			&-sale
-				position: absolute
-				transform: rotate(-30deg)
-				left: -70px
-				top: 90px
-				@media screen and (max-width: 680px)
-					left: 10px
-					transform: rotate(0deg)
 				h2
-					@include calc("font-size", 30, 22)
 					color: $red
-					text-shadow: $basic-color 1px 2px
-					position: relative
-					font-weight: bold
-
-					&:before
-						content: 'SALE'
-						width: 150px
-						height: 150px
-						background-color: transparent
-						position: absolute
-						top: -160px
-						left: 100px
-						color: $white
-						font-size: 50px
-						text-shadow: $basic-color 3px 3px
-						border-radius: 50%
-						border-bottom: 75px solid #F7CE00
-						border-top: 75px solid #0058B5
-						transform: rotate(-8deg)
-						@include centering
-						z-index: 2
-						@media screen and (max-width: 680px)
-							display: none
-
+					@include calc("font-size", 22, 18)
+					font-style: italic
 
 			&-price
-				@include calc("font-size", 40, 26)
+				@include calc("font-size", 36, 26)
 				margin: 20px 0 30px 0
-		//&-description
+
+			&-option
+				color: $red
+				font-style: italic
+				font-weight: 900
+				@include calc("font-size", 12, 11)
+				text-align: center
+
 		&_button
 			width: 320px
 			height: 60px
-			border: 2px solid #505160
-			background-color: #505160
+			border: 2px solid $basic-color
+			background-color: $basic-color
 			border-radius: 6px
 			@include calc("font-size", 22, 18)
 			color: #fff
 			margin-top: 20px
 
 	&-carousel
-		min-height: 500px
+		min-height: 350px
+
 		&_wrapper
-			min-height: 500px
+			min-height: 350px
 			height: 100%
-			//background-color: $basic-color-opacity
 			@include centering
+
 			&-item
 				margin: 0 !important
+
 		&_content
 			@include starting
 			flex-direction: column
@@ -422,8 +412,10 @@
 			overflow: hidden
 			width: 100%
 			height: 100%
+
 			h3
 				@include calc("font-size", 26, 18)
+
 			p
 				@include calc("font-size", 14, 12)
 				@include calc("width", 600, 300)
@@ -431,12 +423,27 @@
 				height: 150px
 				line-height: 25px
 				padding: 0 8px
+	&-seventhBlock
+		min-height: 200px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-direction: column
+		background-color: $white
+		&_title
+			color: $basic-color-text
+			text-align: center
+			@include calc("font-size", 25, 18)
+			font-weight: bold
+			@include calc("margin-top", 30, 20)
 
 .carousel-inner
 	height: 250px
 	@include starting
 	align-items: flex-start
+
 .carousel-item
 	margin: 0 !important
+
 .carousel-control-next, .carousel-control-prev, .carousel-control-next-icon, .carousel-control-prev-icon
 	cursor: pointer

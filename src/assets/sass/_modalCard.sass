@@ -10,7 +10,7 @@
     font-weight: bold
     &_addPhoto
       height: 40px
-      border: 1px solid #ced4da
+      border: 1px solid $basic-color-opacity
       border-radius: 6px
       margin-bottom: 20px
       cursor: pointer
@@ -45,12 +45,12 @@
     background-color: transparent
     z-index: 99
     &:hover
-      box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
+      box-shadow: $box-shadow
   &-wrapper
     width: 250px
     min-width: 250px
     height: 380px
-    box-shadow: 0 0 10px 3px rgb(0 0 0 / 10%)
+    box-shadow: $box-shadow
     display: flex
     align-items: center
     justify-content: space-between
@@ -118,7 +118,7 @@
     button
       width: 30px
       height: 25px
-      background-color: #505160
+      background-color: $basic-color-opacity
       color: #fff
       font-size: 20px
       display: flex
@@ -149,7 +149,7 @@
 
   &-available
     width: 90%
-    color: #505160
+    color: $basic-color
     margin-right: 5px
     font-size: 18px
     text-align: start
@@ -163,5 +163,5 @@
       margin-right: 20px
 
 .form-check-input:checked
-  background-color: #505160
-  border-color: #505160
+  background-color: $basic-color
+  border-color: $basic-color-opacity

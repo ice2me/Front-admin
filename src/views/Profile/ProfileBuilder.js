@@ -26,7 +26,7 @@ const ProfileBuilder = () => {
 
 			}
 		</div>
-	);
-};
+	)
+}
 
 export default ProfileBuilder

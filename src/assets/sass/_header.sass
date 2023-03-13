@@ -8,9 +8,12 @@
 		display: none
 
 	&-link
+		color: $basic-color-text
 		@include calc("font-size",14,12)
-		a
-
+		&_toggle
+			background-color: $basic-color-text
+			&:hover, &:active, &:focus
+				background-color: $basic-color-opacity
 	&-left
 		@include centering
 		&_theke
@@ -25,11 +28,13 @@
 			margin-right: 8px
 			border-radius: $border-radius
 		&_status
+			color: $basic-color-text
 			@include calc("font-size",14,12)
 		&_logout
 			background-color: transparent
 			@include calc("font-size",12,10)
-			color: $basic-color
+			color: $basic-color-text
+			font-weight: bold
 			img
 				width: 25px
 				height: 25px
@@ -65,6 +70,7 @@
 				margin-right: 12px
 				border-radius: $border-radius
 		&_link
+			color: $basic-color-text
 			text-align: center
 		&_center-wrapper
 			display: flex
@@ -103,6 +109,10 @@
 		border-radius: 50% !important
 .navbar-nav .dropdown-menu
 	position: absolute !important
+	background-color: #fff
 	top: 30px
 	left: -30px
 	padding: 5px 5px 5px 7px
+
+.dropdown-menu
+	background-color: $basic-color-text !important

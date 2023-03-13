@@ -217,7 +217,7 @@ export const RegistrationUser = () => {
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
                   <span
-										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-secondary"
+										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-primary"
 										onClick={reversePasswordType}
 									>
                     {passwordType === "password" && (
@@ -266,7 +266,7 @@ export const RegistrationUser = () => {
 							</div>
 							<div className='registrationShop-form_eye position-relative'>
                   <span
-										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-secondary"
+										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-primary"
 										onClick={reverseConfirmPasswordType}
 									>
                     {confirmPasswordType === "password" && (
@@ -315,7 +315,7 @@ export const RegistrationUser = () => {
 								className='mb-10'
 							>
 								<Button
-									variant={(shopVariantTrading === "Shop") ? "secondary" : "light"}
+									variant={(shopVariantTrading === "Shop") ? "primary" : "light"}
 									onClick={() => setShopVariantTrading("Shop")}
 									className='mb-1 mt-3'
 								>
@@ -331,7 +331,7 @@ export const RegistrationUser = () => {
 								overlay={popover}
 							>
 								<Button
-									variant={(shopVariantTrading === "Menu") ? "secondary" : "light"}
+									variant={(shopVariantTrading === "Menu") ? "primary" : "light"}
 									onClick={() => setShopVariantTrading("Menu")}
 								>
 									<FormattedMessage

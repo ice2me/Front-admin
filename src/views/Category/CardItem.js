@@ -1,6 +1,6 @@
 import productImg from "../../assets/icons/happySocks.svg"
 import { Form } from "react-bootstrap"
-import pencilEdit from "../../assets/icons/pencilEdit.svg"
+import pencilEdit from "../../assets/icons/pencilEditColor.svg"
 import deleteCard from "../../assets/icons/delete.svg"
 import ModalDelete from "../../components/Modal/ModalDelete"
 import { useState } from "react"

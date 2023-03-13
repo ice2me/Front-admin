@@ -12,7 +12,10 @@ import { FormattedMessage } from "react-intl"
 import step1 from '../../assets/images/step1.png'
 import step2 from '../../assets/images/step2.png'
 import step3 from '../../assets/images/step3.png'
-import bgForSlider from '../../assets/images/goldBg.png'
+import viber from "../../assets/icons/viber.svg"
+import telegram from "../../assets/icons/telegram.svg"
+import email from "../../assets/icons/mail.svg"
+import React from "react"
 
 const Home = () => {
 	const navigate = useNavigate()
@@ -161,20 +164,26 @@ const Home = () => {
 					</div>
 					<div className="home-thirdBlock_right"></div>
 				</div>
-				<div className="home-fourthBlock" id='infoTheke'>
-					<h2 className="home-fifthBlock_title">
+				<div
+					className="home-fourthBlock"
+					id='infoTheke'
+				>
+					<h2 className="home-fourthBlock_title">
 						<FormattedMessage id='whatIsTheke' />
 					</h2>
 					<div className='home-fourthBlock_content'>
 						<p>
-							Theke якісна інтернет-платформа для бізнесу, що створена в Україні для українців. З Theke, Ви власник онлайн-вітрини з її простим та зрозумілим управлінням.
+							Theke якісна інтернет-платформа для бізнесу, що створена в Україні для українців. З Theke, Ви власник
+							онлайн-вітрини з її простим та зрозумілим управлінням.
 						</p>
 						<p>
 							Ваші клієнти отримують доступ магазину/меню за індивідуальним посиланням.
-							Розсилаючи посилання на Вашу Theke-вітрину через месенджери, Ви залучаєте  клієнтів лише у Ваш магазин/меню.
+							Розсилаючи посилання на Вашу Theke-вітрину через месенджери, Ви залучаєте клієнтів лише у Ваш
+							магазин/меню.
 						</p>
 						<p>
-							Ваші клієнти отримують зручний і красивий інтерфейс, де вибравши товар, зможуть його замовити в 1 клік, а Ви отримаєте лист на Email з повним описом товару та контактними даними клієнта.
+							Ваші клієнти отримують зручний і красивий інтерфейс, де вибравши товар, зможуть його замовити в 1 клік, а
+							Ви отримаєте лист на Email з повним описом товару та контактними даними клієнта.
 						</p>
 						<p>
 							Наша технічна підтримка працює 24/7 і допоможе Вам у вирішенні будь-якого питання.
@@ -187,9 +196,6 @@ const Home = () => {
 					</h2>
 					<div className="home-fifthBlock_wrapper">
 						<div className="home-fifthBlock_wrapper-block">
-							<h3 className="home-fifthBlock_wrapper-block_title">
-								<FormattedMessage id='step1' />
-							</h3>
 							<img
 								className='home-fifthBlock_wrapper-block_step'
 								src={step1}
@@ -200,9 +206,6 @@ const Home = () => {
 							</p>
 						</div>
 						<div className="home-fifthBlock_wrapper-block">
-							<h3 className="home-fifthBlock_wrapper-block_title">
-								<FormattedMessage id='step2' />
-							</h3>
 							<img
 								className='home-fifthBlock_wrapper-block_step'
 								src={step2}
@@ -213,9 +216,6 @@ const Home = () => {
 							</p>
 						</div>
 						<div className="home-fifthBlock_wrapper-block">
-							<h3 className="home-fifthBlock_wrapper-block_title">
-								<FormattedMessage id='step3' />
-							</h3>
 							<img
 								className='home-fifthBlock_wrapper-block_step'
 								src={step3}
@@ -228,7 +228,7 @@ const Home = () => {
 					</div>
 				</div>
 				<div className="home-carousel">
-					<h2 className="home-fifthBlock_title mt-5">
+					<h2 className="home-fourthBlock_title mt-5">
 						<FormattedMessage id='customerReviews' />
 					</h2>
 					<Carousel
@@ -246,8 +246,12 @@ const Home = () => {
 							<div className="home-carousel_content">
 								<h3>Влад</h3>
 								<p>
-									На платформі Theke я запустив свій перший інтернет-магазин. Досвіду користування такими речами раінше не мав. Трохи переживав з цього приводу.
-									щоАле недолік мого досвіду компенсували співробітники платформи, надаючи дуже прості і водночас корисні консультації. Результат перевищив мої очікування, тому що інші компанії бюджет вимагали глибші знання онлайн-платформ та за той же бюджет пропонували набагато менший функціонал. Загалом співпрацею з цією платформою я задоволен.
+									На платформі Theke я запустив свій перший інтернет-магазин. Досвіду користування такими речами раінше
+									не мав. Трохи переживав з цього приводу.
+									щоАле недолік мого досвіду компенсували співробітники платформи, надаючи дуже прості і водночас
+									корисні консультації. Результат перевищив мої очікування, тому що інші компанії бюджет вимагали глибші
+									знання онлайн-платформ та за той же бюджет пропонували набагато менший функціонал. Загалом співпрацею
+									з цією платформою я задоволен.
 								</p>
 							</div>
 						</Carousel.Item>
@@ -255,7 +259,10 @@ const Home = () => {
 							<div className="home-carousel_content">
 								<h3>Наталія</h3>
 								<p>
-									Хочу подякувати всій команді Theke за відмінну, злагоджену роботу. Вочевидь, ви створили та продовжуєте покращувати відмінне рішення для інтернет-підприємців. Ми, як партнери, дякуємо вам за те, що чуєте наші побажання та впроваджуєте доопрацювання, які просять ваші клієнти! Команда Theke, так тримати, прокачуйте свій проект і надалі.
+									Хочу подякувати всій команді Theke за відмінну, злагоджену роботу. Вочевидь, ви створили та
+									продовжуєте покращувати відмінне рішення для інтернет-підприємців. Ми, як партнери, дякуємо вам за те,
+									що чуєте наші побажання та впроваджуєте доопрацювання, які просять ваші клієнти! Команда Theke, так
+									тримати, прокачуйте свій проект і надалі.
 								</p>
 							</div>
 						</Carousel.Item>
@@ -263,7 +270,11 @@ const Home = () => {
 							<div className="home-carousel_content">
 								<h3>Сашко</h3>
 								<p>
-									Працюємо разом із самого старту платформи, запустив вже 2 магазини та 1 меню доставки їжі. За функціоналом майданчика Theke питань взагалі немає все просто, створив категорію, наповнив її товаром та розшарив посилання своїм клієнтам через месенджери та починаєш роботу, дуже швидкий старт. Дякую за те, що заощаджували мій час та гроші, і не потрібно мучитися з особистим інтернет-магазином. Плюс платформа Theke в рази дешевша за повноцінний інтернет-магазин.
+									Працюємо разом із самого старту платформи, запустив вже 2 магазини та 1 меню доставки їжі. За
+									функціоналом майданчика Theke питань взагалі немає все просто, створив категорію, наповнив її товаром
+									та розшарив посилання своїм клієнтам через месенджери та починаєш роботу, дуже швидкий старт. Дякую за
+									те, що заощаджували мій час та гроші, і не потрібно мучитися з особистим інтернет-магазином. Плюс
+									платформа Theke в рази дешевша за повноцінний інтернет-магазин.
 								</p>
 							</div>
 						</Carousel.Item>
@@ -273,26 +284,99 @@ const Home = () => {
 					<h2 className="home-sixthBlock_title">
 						<FormattedMessage id='becomeTheke' />
 					</h2>
-					<div className="home-sixthBlock_block">
-						<h3 className="home-sixthBlock_block-title">
-							<FormattedMessage id='cost' />
-						</h3>
-						<div className="home-sixthBlock_block-sale">
-							<h2>
-								<FormattedMessage id='firstMonthIsFree' />
-							</h2>
-						</div>
-						<span className="home-sixthBlock_block-price">
-							<FormattedMessage id='priceTheke' />
+					<div className="home-sixthBlock_wrapper">
+						<div className="home-sixthBlock_block">
+							<h3 className="home-sixthBlock_block-title">
+								<FormattedMessage id='costMenu' />
+							</h3>
+							<div className="home-sixthBlock_block-sale">
+								<h2>
+									<FormattedMessage id='firstMonthIsFree' />
+								</h2>
+							</div>
+							<span className="home-sixthBlock_block-price">
+							<FormattedMessage id='priceThekeMenu' />
 						</span>
-						<p className="home-sixthBlock_block-description">
-							<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
-						</p>
+							<p className='home-sixthBlock_block-option'>
+								<FormattedMessage id='ifYouChooseMenuYourCustomers' />
+							</p>
+							<p className="home-sixthBlock_block-description">
+								<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
+							</p>
+							<button
+								className="home-thirdBlock_left-button"
+								onClick={transferSingIn}
+							>
+								<FormattedMessage id='getStarted' />
+							</button>
+						</div>
+						<div className="home-sixthBlock_block">
+							<h3 className="home-sixthBlock_block-title">
+								<FormattedMessage id='costShop' />
+							</h3>
+							<div className="home-sixthBlock_block-sale">
+								<h2>
+									<FormattedMessage id='firstMonthIsFree' />
+								</h2>
+							</div>
+							<span className="home-sixthBlock_block-price">
+							<FormattedMessage id='priceThekeShop' />
+						</span>
+							<p className='home-sixthBlock_block-option'>
+								<FormattedMessage id='ifYouChooseShopYourCustomers' />
+							</p>
+							<p className="home-sixthBlock_block-description">
+								<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
+							</p>
+							<button
+								className="home-thirdBlock_left-button"
+								onClick={transferSingIn}
+							>
+								<FormattedMessage id='getStarted' />
+							</button>
+						</div>
 					</div>
-					{/*<button className="home-sixthBlock_button">*/}
-					{/*	<FormattedMessage id='viewPlansDetails' />*/}
-					{/*</button>*/}
 				</div>
+				<footer className="home-seventhBlock">
+					<h2 className="home-seventhBlock_title">
+						<FormattedMessage id='contactSupportTitle' />
+					</h2>
+					<div className="profile-body_wrapper h-100 w-100 m-0">
+						<div className='d-inline-flex align-items-center justify-content-center'>
+							<a
+								href={`viber://add?number=%380669696402`}
+								target='_blank'
+								rel="noreferrer noopener"
+							>
+								<img
+									src={viber}
+									alt="viber"
+								/>
+							</a>
+							<a
+								href={`tg://resolve?domain=@ice2me`}
+								target='_blank'
+								rel="noreferrer noopener"
+							>
+								<img
+									src={telegram}
+									alt="telegram"
+								/>
+							</a>
+							<a
+								href='mailto:ice2me1989@gmail.com'
+								target='_blank'
+								rel="noreferrer noopener"
+							>
+								<img
+									src={email}
+									alt="email"
+								/>
+							</a>
+						</div>
+					</div>
+					<span className='w-100 text-center'>© Theke.com.ua</span>
+				</footer>
 			</div>
 		</div>
 	)

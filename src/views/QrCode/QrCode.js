@@ -15,7 +15,7 @@ import QrCodeGenerationDocument from "./QrCodeGenerationDocument";
 
 const QrCode = () => {
 	const {user} = useSelector((state) => state.userStore)
-	const [changeFgColorQR, setChangeFgColorQR] = useState('#505160')
+	const [changeFgColorQR, setChangeFgColorQR] = useState('#274772')
 	const [changeBgColorQR, setChangeBgColorQR] = useState('#ffffff')
 	const [qrCodeURL, setQrCodeURL] = useState(null)
 

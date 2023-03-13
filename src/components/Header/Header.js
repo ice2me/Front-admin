@@ -102,6 +102,7 @@ const Header = () => {
 							<Dropdown.Toggle
 								id="dropdown-autoclose-true"
 								variant='secondary'
+								className='header-link_toggle'
 							>
 								<img
 									src={share}

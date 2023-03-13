@@ -51,7 +51,7 @@ html, body
 	display: flex
 	align-items: center
 	justify-content: center
-	color: $basic-color
+	color: $basic-color-text
 
 input::-ms-clear
 	display: none
@@ -112,17 +112,18 @@ ul li
 h1, h2, h3, h4, h5, h6
 	font-size: inherit
 	cursor: default
+	font-weight: bold
 
 p, span
 	cursor: default
 
 html:not(.touch-screen)::-webkit-scrollbar-track, html:not(.touch-screen) *::-webkit-scrollbar-track
-	background: #ffffff
+	background: $white
 	border-radius: 6px
 	width: 6px
 
 html:not(.touch-screen)::-webkit-scrollbar-thumb, html:not(.touch-screen) *::-webkit-scrollbar-thumb
-	background: #505160
+	background: $basic-color-text
 	border-radius: 6px
 	width: 6px
 
@@ -147,13 +148,13 @@ html:not(.touch-screen)::-webkit-scrollbar, html:not(.touch-screen) *::-webkit-s
 	min-width: 250px
 	height: 350px
 	border-radius: 6px
-	box-shadow: 3px 0 15px 3px rgba(0, 0, 0, 0.1)
+	box-shadow: $box-shadow
 	margin: 8px
 	padding: 5px 0
 	display: flex
 	align-items: center
 	justify-content: center
-	background-color: rgba(199,206,225, 0.3)
+	background-color: $basic-color-opacity
 .small-loader
 	width: 10px
 	height: 10px
