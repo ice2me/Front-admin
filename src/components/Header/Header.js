@@ -101,7 +101,6 @@ const Header = () => {
 						<Dropdown className="d-inline mx-2">
 							<Dropdown.Toggle
 								id="dropdown-autoclose-true"
-								variant='secondary'
 								className='header-link_toggle'
 							>
 								<img
@@ -151,7 +150,7 @@ const Header = () => {
 									<Overlay
 										target={target.current}
 										show={showClipboard}
-										placement="right"
+										placement="bottom"
 									>
 										<Tooltip id="overlay-example">
 											<FormattedMessage id='linkCopied' />
@@ -323,8 +322,8 @@ const Header = () => {
 												<Dropdown className="d-inline mx-2">
 													<Dropdown.Toggle
 														id="dropdown-button-drop-up"
+														className='header-link_toggle'
 														drop='up'
-														variant='secondary'
 													>
 														<img
 															src={share}

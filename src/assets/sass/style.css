@@ -66,6 +66,7 @@
   font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1440 - 320)));
 }
 .header-link_toggle {
+  border: 1px solid transparent;
   background-color: rgb(39, 71, 114);
 }
 .header-link_toggle:hover, .header-link_toggle:active, .header-link_toggle:focus {
