@@ -283,9 +283,13 @@
   text-align: center;
   font-weight: bold;
 }
+@media screen and (max-width: 992px) {
+  .home-firstBlock_title {
+    background-color: rgba(247, 250, 255, 0.8);
+  }
+}
 .home-firstBlock_title h2 {
   font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1440 - 320)));
-  font-weight: lighter;
   text-align: center;
   font-weight: bold;
   text-shadow: none;
@@ -303,11 +307,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  background-color: transparent;
+  background-color: rgb(20, 121, 255);
   margin-top: 20px;
   cursor: pointer;
   font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1440 - 320)));
-  color: rgb(20, 121, 255);
+  color: #fff;
 }
 @media screen and (max-width: 992px) {
   .home-firstBlock_title {
@@ -326,7 +330,7 @@
   background: url("../images/theke-one.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: center;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -334,8 +338,6 @@
 }
 @media screen and (max-width: 992px) {
   .home-firstBlock_image {
-    width: 200px;
-    min-height: 170px;
     opacity: 0.5;
   }
 }
@@ -420,9 +422,8 @@
 }
 @media screen and (max-width: 992px) {
   .home-secondBlock_image {
-    opacity: 0.2;
     width: 100%;
-    min-height: 170px;
+    opacity: 0.2;
   }
 }
 .home-thirdBlock {
@@ -487,12 +488,12 @@
 @media screen and (max-width: 992px) {
   .home-thirdBlock_right {
     width: 100%;
-    min-height: 250px;
+    height: 100%;
     position: absolute;
     bottom: 0;
     right: 0;
     opacity: 0.2;
-    background-position: bottom;
+    background-position: center;
   }
 }
 .home-fourthBlock {

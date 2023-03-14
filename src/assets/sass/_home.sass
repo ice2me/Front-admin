@@ -73,10 +73,11 @@
 			z-index: 2
 			text-align: center
 			font-weight: bold
+			@media screen and (max-width: 992px)
+				background-color: $basic-bg-opacity
 
 			h2
 				@include calc("font-size", 35, 18)
-				font-weight: lighter
 				text-align: center
 				font-weight: bold
 				text-shadow: none
@@ -92,11 +93,11 @@
 				border: 2px solid $basic-color
 				@include centering
 				border-radius: 6px
-				background-color: transparent
+				background-color: $basic-color
 				margin-top: 20px
 				cursor: pointer
 				@include calc("font-size", 18, 16)
-				color: $basic-color
+				color: $white
 
 			@media screen and (max-width: 992px)
 				width: 100%
@@ -110,14 +111,12 @@
 			background: url("../images/theke-one.png")
 			background-size: contain
 			background-repeat: no-repeat
-			background-position: right
+			background-position: center
 			position: absolute
 			right: 0
 			bottom: 0
 			z-index: 1
 			@media screen and (max-width: 992px)
-				width: 200px
-				min-height: 170px
 				opacity: 0.5
 
 	&-secondBlock
@@ -194,9 +193,8 @@
 			bottom: 30px
 			z-index: 1
 			@media screen and (max-width: 992px)
-				opacity: 0.2
 				width: 100%
-				min-height: 170px
+				opacity: 0.2
 
 	&-thirdBlock
 		width: 100%
@@ -258,12 +256,12 @@
 			z-index: 1
 			@media screen and (max-width: 992px)
 				width: 100%
-				min-height: 250px
+				height: 100%
 				position: absolute
 				bottom: 0
 				right: 0
 				opacity: 0.2
-				background-position: bottom
+				background-position: center
 
 	&-fourthBlock
 		width: 100%
