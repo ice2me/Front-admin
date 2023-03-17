@@ -143,7 +143,7 @@ export default {
 		sendLinkYourStoreYourCustomersConvenientWay: 'Створіть категорії, завантажте фото, опис товарів та розмістіть посилання для ваших клієнтів у месенджераж.',
 		theClientClicksOnYourLinkAndMakesOrderYourStore: 'Отримуйте та надсилайте замовлення покупцям з усієї України.',
 		becomeTheke: 'Підписка на Theke',
-		costMenu: 'Вартість Каталог:',
+		costMenu: 'Вартість Каталогу:',
 		costShop: 'Вартість Магазину:',
 		priceThekeMenu: '$15/місяць.',
 		priceThekeShop: '$39/місяць.',
