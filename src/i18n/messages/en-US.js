@@ -26,7 +26,7 @@ export default {
 		iWantShop: 'I want {total}',
 		iWantMenu: 'I want {total}',
 		ifYouChooseShopYourCustomers: 'If you choose a Shop - your customers will be able to order online!',
-		ifYouChooseMenuYourCustomers: 'If you choose a Menu - your customers will NOT be able to order online!',
+		ifYouChooseMenuYourCustomers: 'If you choose a Catalog - your customers will NOT be able to order online!',
 		shopLink: '{total} Link: ',
 		enterEnterShopLink: 'https://...',
 		shopFacebook: '{total} Facebook: ',
@@ -71,7 +71,7 @@ export default {
 		pleaseEnterValidTelegramProfile: 'Please enter a valid Telegram profile',
 		pleaseEnterValidInstagramProfile: 'Please enter a valid Instagram profile',
 		// ******************************************************** Category
-		createShopOrMenu: 'Create your Shop or Menu',
+		createShopOrMenu: 'Create your Shop or Catalog',
 		create: 'Create',
 		// ******************************************************** Modal
 		close: 'Close',
@@ -143,7 +143,7 @@ export default {
 		sendLinkYourStoreYourCustomersConvenientWay: 'Create categories, upload photos, product descriptions and place a link for your customers in the messenger.',
 		theClientClicksOnYourLinkAndMakesOrderYourStore: 'Receive and send orders to customers from all over Ukraine.',
 		becomeTheke: 'Subscribe to Theke.',
-		costMenu: 'Cost Menu:',
+		costMenu: 'Cost Catalog:',
 		costShop: 'Cost Shop:',
 		priceThekeMenu: '$15/month.',
 		priceThekeShop: '$39/month.',

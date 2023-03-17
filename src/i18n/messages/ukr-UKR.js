@@ -25,8 +25,8 @@ export default {
 		no: "Ні",
 		iWantShop: 'Я хочу {total}',
 		iWantMenu: 'Я хочу {total}',
-		ifYouChooseShopYourCustomers: 'Якщо ви обираєте Shop - ваші клієнти зможуть робити онлайн замовлення!',
-		ifYouChooseMenuYourCustomers: 'Якщо ви обираєте Menu - ваші клієнти НЕ зможуть робити онлайн замовлення!',
+		ifYouChooseShopYourCustomers: 'Якщо ви обираєте Магазин - ваші клієнти зможуть робити онлайн замовлення!',
+		ifYouChooseMenuYourCustomers: 'Якщо ви обираєте Каталог - ваші клієнти НЕ зможуть робити онлайн замовлення!',
 		shopLink: "Посилання на {total}: ",
 		enterEnterShopLink: 'https://...',
 		shopFacebook: "Facebook {total} ",
@@ -38,7 +38,7 @@ export default {
 		shopInstagram: "Instagram {total} ",
 		enterEnterShopInstagram: "name account",
 		Shop: 'Магазин',
-		Menu: 'Меню',
+		Menu: 'Каталог',
 		calculateTotalCost: 'Підраховувати загальну вартість?',
 		// ******************************************************** Navbare
 		myProducts: 'Мої товари',
@@ -71,7 +71,7 @@ export default {
 		pleaseEnterValidTelegramProfile: 'Введіть дійсний профіль Telegram',
 		pleaseEnterValidInstagramProfile: 'Введіть дійсний профіль Instagram',
 		// ******************************************************** Category
-		createShopOrMenu: 'Створіть свій магазин або меню',
+		createShopOrMenu: 'Створіть свій Магазин або Каталог',
 		create: 'Додати',
 		// ******************************************************** Modal
 		close: 'Закрити',
@@ -143,7 +143,7 @@ export default {
 		sendLinkYourStoreYourCustomersConvenientWay: 'Створіть категорії, завантажте фото, опис товарів та розмістіть посилання для ваших клієнтів у месенджераж.',
 		theClientClicksOnYourLinkAndMakesOrderYourStore: 'Отримуйте та надсилайте замовлення покупцям з усієї України.',
 		becomeTheke: 'Підписка на Theke',
-		costMenu: 'Вартість Меню:',
+		costMenu: 'Вартість Каталог:',
 		costShop: 'Вартість Магазину:',
 		priceThekeMenu: '$15/місяць.',
 		priceThekeShop: '$39/місяць.',
