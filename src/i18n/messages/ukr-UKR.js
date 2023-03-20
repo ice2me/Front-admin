@@ -87,6 +87,7 @@ export default {
 		enterCategoryName: 'Введіть назву категорії',
 		edit: 'Редагувати',
 		addPhotoCategory: 'Додати фото категорії',
+		payForSubscription: 'Оплатити Підписку',
 		// ******************************************************** Card
 		product: 'Продукт',
 		createProductCard: 'Немає товарів',

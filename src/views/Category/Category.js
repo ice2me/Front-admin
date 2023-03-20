@@ -41,7 +41,8 @@ const Category = ({
 	isSearchTagLoading
 }) => {
 	const {
-		categories
+		categories,
+		message
 	} = useSelector(state => state.categories)
 	const {user} = useSelector((state) => state.userStore)
 	const [getCategories, {isLoading: isGetCategoriesLoading}] = useGetCategoriesMutation()
@@ -177,8 +178,19 @@ const Category = ({
 								&&
 								<h1 className="productList-arrowDown">
 									{
-										<FormattedMessage id='noCategory' />
+										message?.text
+											?
+											(message?.text
+												&&
+												<div>
+												<p>{message?.text}</p>
+												<a href={message?.link}>
+													<FormattedMessage id='payForSubscription' />
+												</a>
+											</div> )
 
+											:
+											<FormattedMessage id='noCategory' />
 									}
 								</h1>
 							}

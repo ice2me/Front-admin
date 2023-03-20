@@ -87,6 +87,7 @@ export default {
 		enterCategoryName: 'Enter category name',
 		edit: 'Edit',
 		addPhotoCategory: 'Add Photo category',
+		payForSubscription: 'Pay for a Subscription',
 		// ******************************************************** Card
 		product: 'Product',
 		createProductCard: 'No products',

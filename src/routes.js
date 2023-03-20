@@ -37,7 +37,7 @@ export const RoutesLink = () => {
 		const data = await searchTag({
 			id: user._id
 		})
-		setOptionsSearch(data?.data)
+		!data.data.message && setOptionsSearch(data?.data)
 	}, [user])
 
 	useEffect(() => {

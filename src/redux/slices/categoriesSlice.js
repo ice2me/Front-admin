@@ -3,7 +3,11 @@ import { categoriesAPi } from "../services/categoriesApi";
 
 const initialState = {
 	categories: [],
-	items: []
+	items: [],
+	message: {
+		text: '',
+		link: ''
+	}
 };
 
 const categoriesSlice = createSlice({
@@ -24,14 +28,22 @@ const categoriesSlice = createSlice({
 				categoriesAPi?.endpoints.createCategories.matchFulfilled,
 				(state,
 					action) => {
-					state.categories = [action?.payload, ...state.categories ]
+					state.categories = [action?.payload, ...state.categories]
 				}
 			)
 			.addMatcher(
 				categoriesAPi?.endpoints.getCategories.matchFulfilled,
 				(state,
 					action) => {
-					state.categories = action.payload.categories
+					console.log(action.payload.categories)
+					if (!action.payload.message) {
+						state.categories = action.payload.categories
+					} else {
+						state.message = {
+							text: action.payload.message.text,
+							link: action.payload.message.link
+						}
+					}
 				}
 			)
 			.addMatcher(
@@ -54,7 +66,6 @@ const categoriesSlice = createSlice({
 					const categID = state.categories.filter(category => category._id !== categoryId)
 					state.categories = categID
 				}
-
 			)
 			.addMatcher(
 				categoriesAPi?.endpoints.addItem.matchFulfilled,
