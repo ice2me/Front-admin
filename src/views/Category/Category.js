@@ -57,7 +57,7 @@ const Category = ({
 	const [searchProduct, {isLoading: isSearchProductLoading}] = useSearchProductMutation()
 
 	const categoriesList = categories || []
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 	const {formatMessage} = useIntl()
 
 	const showList = () => setShopProductsList(true)

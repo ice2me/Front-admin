@@ -188,7 +188,7 @@ const Header = () => {
 						alt="exit"
 						title="Log Out"
 					/>
-					Log Out
+					{/*Log Out*/}
 				</button>
 			</div>
 			{/*TODO************************************MOB******************************** */}

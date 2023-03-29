@@ -107,6 +107,7 @@ const EditProfile = ({
 				background_color: "",
 			},
 			pay_package: values.pay_package || "Standart",
+			paid_subscription: form?.paid_subscription || false,
 			qr_code: {
 				text_color: "",
 				background_color: "",

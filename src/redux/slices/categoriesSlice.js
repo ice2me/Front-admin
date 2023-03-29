@@ -35,7 +35,7 @@ const categoriesSlice = createSlice({
 				categoriesAPi?.endpoints.getCategories.matchFulfilled,
 				(state,
 					action) => {
-					console.log(action.payload.categories)
+					// console.log(action.payload.categories)
 					if (!action.payload.message) {
 						state.categories = action.payload.categories
 					} else {
