@@ -174,7 +174,7 @@ const Category = ({
 						:
 						<>
 							{
-								categoriesList.length < 1
+								categoriesList?.length < 1
 								&&
 								<h1 className="productList-arrowDown">
 									{

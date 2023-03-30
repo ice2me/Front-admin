@@ -1011,9 +1011,10 @@
   justify-content: flex-start;
 }
 .registrationShop-form_input {
-  border: rgba(39, 71, 114, 0.3);
+  border: 1px solid rgba(39, 71, 114, 0.3);
 }
 .registrationShop-form_description {
+  border: 1px solid rgba(39, 71, 114, 0.3);
   min-height: 120px !important;
   z-index: 100;
 }
