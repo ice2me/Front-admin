@@ -15,7 +15,7 @@ import {
 import { requestErrorLogger } from "../utils/requestErrorLogger";
 import { categoriesAPi } from "./services/categoriesApi";
 
-export const store = configureStore({
+export const store= configureStore({
 	reducer: {
 		userStore: persistReducer({ key: "auth", storage }, userSlice),
 		categories: categoriesSlice,

@@ -4,14 +4,14 @@ import {
 	Navbar
 } from "react-bootstrap"
 import thekeLogo from '../../assets/images/theke-logo-white.png'
-import blockX from '../../assets/images/blockX.png'
 import checkedImg from '../../assets/images/checked.png'
-import { useNavigate } from "react-router-dom"
-import { APP_ROUTE } from "../../utils/constants"
-import { FormattedMessage } from "react-intl"
+import {useNavigate} from "react-router-dom"
+import {APP_ROUTE} from "../../utils/constants"
+import {FormattedMessage} from "react-intl"
 import step1 from '../../assets/images/step1.png'
 import step2 from '../../assets/images/step2.png'
 import step3 from '../../assets/images/step3.png'
+import imageFirst from '../../assets/images/theke-one.png'
 import viber from "../../assets/icons/viber.svg"
 import telegram from "../../assets/icons/telegram.svg"
 import email from "../../assets/icons/mail.svg"
@@ -22,6 +22,7 @@ const Home = () => {
 	const transferSingIn = () => {
 		navigate(APP_ROUTE.LOGIN)
 	}
+
 	return (
 		<div className='home'>
 			<div className="home-wrapper">
@@ -29,93 +30,117 @@ const Home = () => {
 					sticky="top"
 					className="home-navbare"
 				>
-					<img
-						src={thekeLogo}
-						alt="theke Logo"
-					/>
+					<a href="/">
+						<img
+							src={thekeLogo}
+							alt="theke Logo"
+						/>
+					</a>
+
 					<div className='home-navbare_buttons'>
+						<ul className='home-navbare_anhors'>
+							<li className="home-navbare_anhors-li">
+								<a href="#infoTheke" className="home-navbare_anhors-link">
+									Про платформу
+								</a>
+							</li>
+							<li className="home-navbare_anhors-li">
+								<a href="#itsWork" className="home-navbare_anhors-link">
+									Як це працює
+								</a>
+							</li>
+							<li className="home-navbare_anhors-li">
+								<a href="/" className="home-navbare_anhors-link">
+									Зв'язок
+								</a>
+							</li>
+						</ul>
 						<Button
 							variant="primary"
 							onClick={transferSingIn}
 						>
-							<FormattedMessage id='getStarted' />
+							<FormattedMessage id='getStarted'/>
 						</Button>
 					</div>
 				</Navbar>
 
 				<div className="home-firstBlock">
 					<div className="home-firstBlock_wrapper">
-						<h1><FormattedMessage id='createAnOnlineShowcaseForYourStore' /></h1>
-						<h2><FormattedMessage id='createAnOnlineShowcaseForYourStore1' /></h2>
+						<h1><FormattedMessage id='createAnOnlineShowcaseForYourStore'/></h1>
+						<h2><FormattedMessage id='createAnOnlineShowcaseForYourStore1'/></h2>
 						<div className="home-firstBlock_title">
-							<h2>
-								<br />
-								<FormattedMessage id='startDoing' />
-							</h2>
+							<span>
+								<FormattedMessage id='startDoing'/>
+							</span>
 							<p>
-								<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday' />
+								<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday'/>
 							</p>
 							<a href='#infoTheke'>
-								<FormattedMessage id='learnMore' />
+								<FormattedMessage id='learnMore'/>
 							</a>
 						</div>
 					</div>
-					<div className="home-firstBlock_image"></div>
+					<div className="home-firstBlock_image">
+						<img src={imageFirst} alt="image first"/>
+					</div>
 				</div>
 				<div className="home-secondBlock">
+					<div className="home-secondBlock_triangleTop"></div>
+					<div className="home-secondBlock_triangleDown"></div>
 					<div className="home-secondBlock_image"></div>
 					<div className="home-secondBlock_title">
 						<h2>
-							<FormattedMessage id='tiredOfNotDoing' /> <br />
-							<FormattedMessage id='whatImportant' />
+							<FormattedMessage id='tiredOfNotDoing'/> <br/>
+							<FormattedMessage id='whatImportant'/>
 						</h2>
 						<ul className='home-secondBlock_list'>
 							<li className="home-secondBlock_list-li">
 								<img
-									src={blockX}
+									src={checkedImg}
 									alt="x"
 								/>
 								<span>
-									<FormattedMessage id='yourBusinessNotOnline' />
+									<FormattedMessage id='yourBusinessNotOnline'/>
 								</span>
 							</li>
 							<li className="home-secondBlock_list-li">
 								<img
-									src={blockX}
+									src={checkedImg}
 									alt="x"
 								/>
 								<span>
-									<FormattedMessage id='yourCustomerBaseIsNotGrowing' />
+									<FormattedMessage id='yourCustomerBaseIsNotGrowing'/>
 								</span>
 							</li>
 							<li className="home-secondBlock_list-li">
 								<img
-									src={blockX}
+									src={checkedImg}
 									alt="x"
 								/>
 								<span>
-									<FormattedMessage id='youCannotQuicklyPresentYourProductClient' />
+									<FormattedMessage id='youCannotQuicklyPresentYourProductClient'/>
 								</span>
 							</li>
 							<li className="home-secondBlock_list-li">
 								<img
-									src={blockX}
+									src={checkedImg}
 									alt="x"
 								/>
 								<span>
-									<FormattedMessage id='youSpendLotTimeTakingOrdersFromEachClient' />
+									<FormattedMessage id='youSpendLotTimeTakingOrdersFromEachClient'/>
 								</span>
 							</li>
 						</ul>
 						<button onClick={transferSingIn}>
-							<FormattedMessage id='getStarted' />
+							<FormattedMessage id='getStarted'/>
 						</button>
 					</div>
+					<div className="home-secondBlock_triangleDown"></div>
 				</div>
 				<div className="home-thirdBlock">
 					<div className="home-thirdBlock_left">
 						<h2 className="home-thirdBlock_left-title">
-							<FormattedMessage id='theresBetterWay' />
+							<FormattedMessage id='theresBetterWay'/>
 						</h2>
 						<ul className="home-thirdBlock_left-list">
 							<li className="home-thirdBlock_left-list_li">
@@ -124,7 +149,7 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									<FormattedMessage id='easeOfUse' />
+									<FormattedMessage id='easeOfUse'/>
 								</span>
 							</li>
 							<li className="home-thirdBlock_left-list_li">
@@ -133,7 +158,7 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									<FormattedMessage id='speed' />
+									<FormattedMessage id='speed'/>
 								</span>
 							</li>
 							<li className="home-thirdBlock_left-list_li">
@@ -142,7 +167,7 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									<FormattedMessage id='benefit' />
+									<FormattedMessage id='benefit'/>
 								</span>
 							</li>
 							<li className="home-thirdBlock_left-list_li">
@@ -151,7 +176,7 @@ const Home = () => {
 									alt="checked image"
 								/>
 								<span>
-									<FormattedMessage id='fastCommunicationWithClients' />
+									<FormattedMessage id='fastCommunicationWithClients'/>
 								</span>
 							</li>
 						</ul>
@@ -159,7 +184,7 @@ const Home = () => {
 							className="home-thirdBlock_left-button"
 							onClick={transferSingIn}
 						>
-							<FormattedMessage id='getStarted' />
+							<FormattedMessage id='getStarted'/>
 						</button>
 					</div>
 					<div className="home-thirdBlock_right"></div>
@@ -168,8 +193,10 @@ const Home = () => {
 					className="home-fourthBlock"
 					id='infoTheke'
 				>
+					<div className="home-secondBlock_triangleTop"></div>
+					<div className="home-secondBlock_triangleDown"></div>
 					<h2 className="home-fourthBlock_title">
-						<FormattedMessage id='whatIsTheke' />
+						<FormattedMessage id='whatIsTheke'/>
 					</h2>
 					<div className='home-fourthBlock_content'>
 						<p>
@@ -190,9 +217,9 @@ const Home = () => {
 						</p>
 					</div>
 				</div>
-				<div className="home-fifthBlock">
+				<div className="home-fifthBlock" id='itsWork'>
 					<h2 className="home-fifthBlock_title">
-						<FormattedMessage id='howItWorks' />
+						<FormattedMessage id='howItWorks'/>
 					</h2>
 					<div className="home-fifthBlock_wrapper">
 						<div className="home-fifthBlock_wrapper-block">
@@ -202,7 +229,7 @@ const Home = () => {
 								alt="step image"
 							/>
 							<p className="home-fifthBlock_wrapper-block_content">
-								<FormattedMessage id='createCategoryFillWithProductCards' />
+								<FormattedMessage id='createCategoryFillWithProductCards'/>
 							</p>
 						</div>
 						<div className="home-fifthBlock_wrapper-block">
@@ -212,7 +239,7 @@ const Home = () => {
 								alt="step image"
 							/>
 							<p className="home-fifthBlock_wrapper-block_content">
-								<FormattedMessage id='sendLinkYourStoreYourCustomersConvenientWay' />
+								<FormattedMessage id='sendLinkYourStoreYourCustomersConvenientWay'/>
 							</p>
 						</div>
 						<div className="home-fifthBlock_wrapper-block">
@@ -222,14 +249,117 @@ const Home = () => {
 								alt="step image"
 							/>
 							<p className="home-fifthBlock_wrapper-block_content">
-								<FormattedMessage id='theClientClicksOnYourLinkAndMakesOrderYourStore' />
+								<FormattedMessage id='theClientClicksOnYourLinkAndMakesOrderYourStore'/>
 							</p>
 						</div>
 					</div>
 				</div>
+				<div className="home-sixthBlock">
+					<div className="home-secondBlock_triangleDown"></div>
+					<div className="home-secondBlock_triangleTop"></div>
+					<h2 className="home-sixthBlock_title">
+						<FormattedMessage id='becomeTheke'/>
+					</h2>
+					<h3 className='home-sixthBlock_title-subtitle'>
+						<FormattedMessage id='firstMonthIsFree'/>
+					</h3>
+					<div className="home-sixthBlock_wrapper">
+						<div className="home-sixthBlock_block">
+							<h3 className="home-sixthBlock_block-title">
+								<FormattedMessage id='costMenu'/>
+								<span className="home-sixthBlock_block-price">
+								<FormattedMessage id='priceThekeMenu'/>
+							</span>
+							</h3>
+							<div className="home-sixthBlock_block-option">
+								<ul className='home-sixthBlock_block-option_ul'>
+									<li>
+										<span>-</span>
+										<span>Digital menu</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>QR code</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>many categories</span>
+									</li>
+								</ul>
+								<ul className='home-sixthBlock_block-option_ul'>
+									<li>
+										<span>-</span>
+										<span>Public link</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>Languages</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>Themes</span>
+									</li>
+								</ul>
+							</div>
+							<button
+								className="home-thirdBlock_left-button"
+								onClick={transferSingIn}
+							>
+								<FormattedMessage id='getStarted'/>
+							</button>
+						</div>
+						<div className="home-sixthBlock_block">
+							<h3 className="home-sixthBlock_block-title">
+								<FormattedMessage id='costShop'/>
+								<span className="home-sixthBlock_block-price">
+							<FormattedMessage id='priceThekeShop'/>
+						</span>
+							</h3>
+							<div className="home-sixthBlock_block-option">
+								<ul className='home-sixthBlock_block-option_ul'>
+									<li>
+										<span>-</span>
+										<span>Order Online</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>Public link</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>Languages</span>
+									</li>
+								</ul>
+								<ul className='home-sixthBlock_block-option_ul'>
+									<li>
+										<span>-</span>
+										<span>Digital menu</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>QR code</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>many categories</span>
+									</li>
+								</ul>
+							</div>
+							<button
+								className="home-thirdBlock_left-button"
+								onClick={transferSingIn}
+							>
+								<FormattedMessage id='getStarted'/>
+							</button>
+						</div>
+					</div>
+					<h3 className="home-sixthBlock_block-description">
+						<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow'/>
+					</h3>
+				</div>
 				<div className="home-carousel">
 					<h2 className="home-fourthBlock_title mt-5">
-						<FormattedMessage id='customerReviews' />
+						<FormattedMessage id='customerReviews'/>
 					</h2>
 					<Carousel
 						variant="dark"
@@ -280,68 +410,12 @@ const Home = () => {
 						</Carousel.Item>
 					</Carousel>
 				</div>
-				<div className="home-sixthBlock">
-					<h2 className="home-sixthBlock_title">
-						<FormattedMessage id='becomeTheke' />
-					</h2>
-					<div className="home-sixthBlock_wrapper">
-						<div className="home-sixthBlock_block">
-							<h3 className="home-sixthBlock_block-title">
-								<FormattedMessage id='costMenu' />
-							</h3>
-							<div className="home-sixthBlock_block-sale">
-								<h2>
-									<FormattedMessage id='firstMonthIsFree' />
-								</h2>
-							</div>
-							<span className="home-sixthBlock_block-price">
-							<FormattedMessage id='priceThekeMenu' />
-						</span>
-							<p className='home-sixthBlock_block-option'>
-								<FormattedMessage id='ifYouChooseMenuYourCustomers' />
-							</p>
-							<p className="home-sixthBlock_block-description">
-								<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
-							</p>
-							<button
-								className="home-thirdBlock_left-button"
-								onClick={transferSingIn}
-							>
-								<FormattedMessage id='getStarted' />
-							</button>
-						</div>
-						<div className="home-sixthBlock_block">
-							<h3 className="home-sixthBlock_block-title">
-								<FormattedMessage id='costShop' />
-							</h3>
-							<div className="home-sixthBlock_block-sale">
-								<h2>
-									<FormattedMessage id='firstMonthIsFree' />
-								</h2>
-							</div>
-							<span className="home-sixthBlock_block-price">
-							<FormattedMessage id='priceThekeShop' />
-						</span>
-							<p className='home-sixthBlock_block-option'>
-								<FormattedMessage id='ifYouChooseShopYourCustomers' />
-							</p>
-							<p className="home-sixthBlock_block-description">
-								<FormattedMessage id='subscribeThekeAndGetYourBusinessGrowingRightNow' />
-							</p>
-							<button
-								className="home-thirdBlock_left-button"
-								onClick={transferSingIn}
-							>
-								<FormattedMessage id='getStarted' />
-							</button>
-						</div>
-					</div>
-				</div>
 				<footer className="home-seventhBlock">
+					<div className="home-secondBlock_triangleDown"></div>
 					<h2 className="home-seventhBlock_title">
-						<FormattedMessage id='contactSupportTitle' />
+						<FormattedMessage id='contactSupportTitle'/>
 					</h2>
-					<div className="profile-body_wrapper h-100 w-100 m-0">
+					<div className="home-seventhBlock_wrapper h-100 w-100 m-0">
 						<div className='d-inline-flex align-items-center justify-content-center'>
 							<a
 								href={`viber://add?number=%380669696402`}
@@ -375,7 +449,7 @@ const Home = () => {
 							</a>
 						</div>
 					</div>
-					<span className='w-100 text-center'>© Theke.com.ua</span>
+					<span className='w-100 text-center mt-5'>© Theke.com.ua</span>
 				</footer>
 			</div>
 		</div>

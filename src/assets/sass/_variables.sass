@@ -10,6 +10,7 @@ $basic-color-text: rgba(39,71,114, 1)
 $basic-color-opacity: rgba(39,71,114, 0.3)
 $basic-bg: rgba(247,250,255, 1)
 $basic-bg-opacity: rgba(247,250,255, 0.8)
+$basic-yellow: rgba(247,206,0, 1)
 
 $gray-10: #f8fbff
 $gray-100: #ebf1fa
@@ -39,6 +40,15 @@ $secondary: $gray-300
 
 $border-radius: 10px
 
+$box-shadow: 0 5px 1.875rem rgba(182, 195, 211, .6)
+$box-shadow-lg: 0 1.25rem 3.75rem rgba(182, 195, 211, .5)
+
+$border-radius-sm: .5rem
+$border-radius-lg: .75rem
+
+@mixin calc($property,$maxSize,$minSize)
+	#{$property} : calc(#{$minSize+px} + (#{$maxSize} - #{$minSize}) * ((100vw - 320px) / (1440 - 320)))
+
 @mixin centering()
 	display: flex
 	align-items: center
@@ -47,13 +57,23 @@ $border-radius: 10px
 	display: flex
 	align-items: center
 	justify-content: flex-start
+@mixin buttonCustom()
+	background-color: $basic-yellow
+	color: $basic-color-text
+	box-shadow: $box-shadow
+	text-transform: uppercase
+	border: 1px solid transparent
+	padding: 16px
+	font-size: 16px
+	font-weight: bold
+	border-radius: $border-radius
+	&:hover
+		background-color: $basic-color-text
+		border: 1px solid transparent
+		color: $white
+@mixin triangle()
+	position: absolute
+	border: 0 solid transparent
+	@include calc(border-left-width, 680, 280)
+	@include calc(border-right-width, 680, 280)
 
-@mixin calc($property,$maxSize,$minSize)
-	#{$property} : calc(#{$minSize+px} + (#{$maxSize} - #{$minSize}) * ((100vw - 320px) / (1440 - 320)))
-
-
-$box-shadow: 0 5px 1.875rem rgba(182, 195, 211, .6)
-$box-shadow-lg: 0 1.25rem 3.75rem rgba(182, 195, 211, .5)
-
-$border-radius-sm: .5rem
-$border-radius-lg: .75rem
