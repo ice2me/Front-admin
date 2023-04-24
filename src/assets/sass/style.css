@@ -28,8 +28,6 @@
 }
 
 .contentBox {
-  max-width: 1200px;
-  max-height: 744px;
   width: 100%;
   height: 100%;
   display: flex;
