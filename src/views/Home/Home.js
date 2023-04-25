@@ -56,7 +56,7 @@ const Home = () => {
 							</li>
 							<li className="home-navbare_anhors-li">
 								<a
-									href={`tg://resolve?domain=@ice2me`}
+									href={`http://t.me/ice2me`}
 									target='_blank'
 									rel="noreferrer noopener"
 									className="home-navbare_anhors-link"
@@ -85,7 +85,7 @@ const Home = () => {
 							<p>
 								<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday'/>
 							</p>
-							<a href={`tg://resolve?domain=@ice2me`}
+							<a href={`http://t.me/ice2me`}
 							   target='_blank'
 							   rel="noreferrer noopener">
 								<FormattedMessage id='learnMore'/>
@@ -456,7 +456,7 @@ const Home = () => {
 					<div className="home-seventhBlock_wrapper h-100 w-100 m-0">
 						<div className='d-inline-flex align-items-center justify-content-center'>
 							<a
-								href={`viber://add?number=%380669696402`}
+								href={`viber://chat?number=%2B380669696402`}
 								target='_blank'
 								rel="noreferrer noopener"
 							>
@@ -466,7 +466,7 @@ const Home = () => {
 								/>
 							</a>
 							<a
-								href={`tg://resolve?domain=@ice2me`}
+								href={`http://t.me/ice2me`}
 								target='_blank'
 								rel="noreferrer noopener"
 							>

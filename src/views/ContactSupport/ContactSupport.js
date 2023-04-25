@@ -1,8 +1,7 @@
 import React from 'react'
 import viber from "../../assets/icons/viber.svg"
 import telegram from "../../assets/icons/telegram.svg"
-import instagram from "../../assets/icons/instagram.svg"
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl"
 
 const ContactSupport = () => {
 	return (
@@ -24,7 +23,7 @@ const ContactSupport = () => {
 				</div>
 				<div className='d-inline-flex align-items-center justify-content-center'>
 					<a
-						href={`viber://add?number=%380669696402`}
+						href={`viber://chat?number=%2B380669696402`}
 						target='_blank'
 						rel="noreferrer noopener"
 					>
@@ -34,7 +33,7 @@ const ContactSupport = () => {
 						/>
 					</a>
 					<a
-						href={`tg://resolve?domain=@ice2me`}
+						href={`http://t.me/ice2me`}
 						target='_blank'
 						rel="noreferrer noopener"
 					>

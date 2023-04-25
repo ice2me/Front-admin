@@ -171,11 +171,10 @@ const Profile = ({
 								/>
 							</a>
 						}
-
 						{
 							user?.socials_links?.shop_telegram &&
 							<a
-								href={`tg://resolve?domain=${user?.socials_links?.shop_telegram}`}
+								href={`http://t.me/${user?.socials_links?.shop_telegram}`}
 								target="_blank"
 								rel="noreferrer noopener"
 							>
