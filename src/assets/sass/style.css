@@ -8,13 +8,13 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .app {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
 }
 
@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 .contentBox {
@@ -34,7 +34,7 @@
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
 }
 .contentBox-children {
@@ -86,7 +86,7 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-right: 8px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .header-left_status {
   color: rgb(39, 71, 114);
@@ -141,7 +141,7 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-right: 12px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .header-mob_link {
   color: rgb(39, 71, 114);
@@ -162,7 +162,7 @@
 .header-mob_center-wrapper_item {
   padding: 10px 15px;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .header-mob_center-wrapper_item img {
   width: 25px;
@@ -242,7 +242,7 @@
   background-color: transparent;
   border: 1px solid rgb(39, 71, 114);
   margin: 0 5px;
-  border-radius: 10px;
+  border-radius: 6px;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -273,7 +273,7 @@
 }
 .home-navbare_buttons button {
   width: 180px;
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: rgb(39, 71, 114);
   border: 1px solid rgb(39, 71, 114);
 }
@@ -351,7 +351,7 @@
   padding: 16px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .home-firstBlock_title a:hover {
   background-color: rgb(39, 71, 114);
@@ -415,7 +415,7 @@
   padding: 16px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .home-secondBlock_title button:hover {
   background-color: rgb(39, 71, 114);
@@ -519,7 +519,7 @@
   padding: 16px;
   font-size: 16px;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .home-thirdBlock_left-button:hover {
   background-color: rgb(39, 71, 114);
@@ -655,7 +655,7 @@
   justify-content: flex-start;
   flex-direction: column;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 6px;
   position: relative;
   box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
 }
@@ -993,7 +993,7 @@
   background: transparent;
   padding: 8px;
   overflow-y: auto;
-  border-radius: 10px;
+  border-radius: 6px;
   box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
 }
 @media screen and (max-width: 680px) {
@@ -1638,7 +1638,7 @@ input[type=file] {
   color: rgb(39, 71, 114);
   background-color: #fff;
   margin-top: 15px;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 10px;
   z-index: 5;
   display: flex;
@@ -1839,7 +1839,7 @@ input[type=file] {
 .category-body_wrapper {
   overflow-x: auto;
   width: inherit;
-  height: 92%;
+  height: auto;
   padding: 20px 0;
   margin: 10px 0;
   display: flex;
@@ -2059,7 +2059,7 @@ input[type=file] {
   width: 150px;
   height: 150px;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 6px;
   position: relative;
   margin: 10px;
   padding-right: 20px;
@@ -2076,7 +2076,7 @@ input[type=file] {
   height: 100%;
   background-color: rgba(247, 250, 255, 0.8);
   position: absolute;
-  border-radius: 10px;
+  border-radius: 6px;
   opacity: 0;
 }
 .category-body_accordingHeader p {
@@ -2096,6 +2096,7 @@ input[type=file] {
 .category-body_accordingHeader-block {
   overflow: hidden;
   position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -2277,7 +2278,7 @@ input[type=radio]:focus {
   align-items: center;
   justify-content: center;
   transform: none;
-  border-radius: 10px;
+  border-radius: 6px;
   bottom: 5px;
 }
 .category-body_accordingHeader-listView_block img {
@@ -2357,8 +2358,8 @@ input[type=radio]:focus {
 
 .activeButton {
   border: 1px solid rgba(39, 71, 114, 0.3);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .hideNavbar {
