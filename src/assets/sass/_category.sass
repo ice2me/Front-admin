@@ -394,7 +394,7 @@
 		opacity: 0
 	p
 		width: 100%
-		height: 50%
+		height: 100%
 		cursor: pointer
 		white-space: normal
 		overflow: auto
@@ -406,18 +406,20 @@
 		&:before
 			opacity: 1
 	&-block
-		width: 100%
-		height: 100%
 		overflow: hidden
-		transform: translate(10px, 30%)
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
 		p
+			width: 100%
 			display: flex
-			align-items: flex-start
+			align-items: flex-end
 			justify-content: center
 			b
+				width: 100%
 				background-color: $basic-bg-opacity
 				line-height: 15px
-				border-radius: 4px
 				font-style: italic
 				padding: 5px
 	&-edit
@@ -546,9 +548,10 @@ input[type="radio"]:focus
 .category-body_accordingHeader-listView_block
 	display: flex
 	align-items: center
-	justify-content: flex-start
+	justify-content: center
 	transform: none
 	border-radius: $border-radius
+	bottom: 5px
 	img
 		width: 35px
 		height: 35px
@@ -571,7 +574,6 @@ input[type="radio"]:focus
 			background-color: transparent
 .rbt-menu
 	width: 220px !important
-	//transform: translate(0, 35px) !important
 
 @keyframes ShowNotification
 	0%

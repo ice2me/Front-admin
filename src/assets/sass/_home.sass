@@ -3,6 +3,7 @@
 	height: inherit
 	overflow-x: auto
 	background-color: $basic-bg
+	scroll-behavior: smooth !important
 	&-wrapper
 		max-width: 90%
 		margin: 0 auto
@@ -22,12 +23,14 @@
 			align-items: center
 			justify-content: space-around
 			&-li
-				width: 180px
+				width: 140px
 				height: 35px
 				background-color: transparent
 				border: 1px solid $basic-color-text
 				margin: 0 5px
 				border-radius: $border-radius
+				text-transform: uppercase
+				font-weight: 600
 				&:hover
 					background-color: $basic-color-text
 					border: 1px solid transparent
@@ -203,7 +206,7 @@
 			@media screen and (max-width: 992px)
 
 	&-fourthBlock
-		padding: 100px 0
+		padding: 120px 0
 		display: flex
 		align-items: center
 		justify-content: space-around
@@ -284,18 +287,31 @@
 				text-underline-offset: -2px
 		&_wrapper
 			@include centering
+			margin: 50px 0
 			@media screen and (max-width: 992px)
 				flex-direction: column
 		&_block
-			width: 420px
+			width: 280px
+			height: 450px
 			background-color: $basic-bg
-			margin: 20px
-			@include centering
+			margin: 15px
+			display: flex
+			align-items: center
+			justify-content: flex-start
 			flex-direction: column
 			padding: 30px
 			border-radius: $border-radius
+			position: relative
+			box-shadow: $box-shadow
 			@media screen and (max-width: 492px)
 				width: 100%
+			&:nth-child(2)
+				transform: scale(1.2)
+				z-index: 5
+			&:nth-child(1)
+				transform: rotate3d(0, 0, 350, -10deg)
+			&:nth-child(3)
+				transform: rotate3d(0, 0, 350, 10deg)
 			&-title
 				width: 100%
 				display: flex
@@ -326,7 +342,7 @@
 			&-option
 				width: 100%
 				font-style: italic
-				font-weight: 900
+				font-weight: 300
 				display: flex
 				align-items: center
 				justify-content: space-around
@@ -336,6 +352,8 @@
 					li
 						margin: 12px 0
 			button
+				position: absolute
+				bottom: 30px
 				width: 90%
 
 	&-carousel

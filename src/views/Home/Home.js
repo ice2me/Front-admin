@@ -50,7 +50,17 @@ const Home = () => {
 								</a>
 							</li>
 							<li className="home-navbare_anhors-li">
-								<a href="/" className="home-navbare_anhors-link">
+								<a href="#price" className="home-navbare_anhors-link">
+									Ціни
+								</a>
+							</li>
+							<li className="home-navbare_anhors-li">
+								<a
+									href={`tg://resolve?domain=@ice2me`}
+									target='_blank'
+									rel="noreferrer noopener"
+									className="home-navbare_anhors-link"
+								>
 									Зв'язок
 								</a>
 							</li>
@@ -75,7 +85,9 @@ const Home = () => {
 							<p>
 								<FormattedMessage id='createYourOnlineStoreEasilyStartEarningToday'/>
 							</p>
-							<a href='#infoTheke'>
+							<a href={`tg://resolve?domain=@ice2me`}
+							   target='_blank'
+							   rel="noreferrer noopener">
 								<FormattedMessage id='learnMore'/>
 							</a>
 						</div>
@@ -189,10 +201,7 @@ const Home = () => {
 					</div>
 					<div className="home-thirdBlock_right"></div>
 				</div>
-				<div
-					className="home-fourthBlock"
-					id='infoTheke'
-				>
+				<div className="home-fourthBlock" id='infoTheke'>
 					<div className="home-secondBlock_triangleTop"></div>
 					<div className="home-secondBlock_triangleDown"></div>
 					<h2 className="home-fourthBlock_title">
@@ -200,24 +209,27 @@ const Home = () => {
 					</h2>
 					<div className='home-fourthBlock_content'>
 						<p>
-							Theke якісна інтернет-платформа для бізнесу, що створена в Україні для українців. З Theke, Ви власник
+							Theke якісна CRM-платформа для малого бізнесу, що створена в Україні для українців. З Theke, Ви власник
 							онлайн-вітрини з її простим та зрозумілим управлінням.
 						</p>
 						<p>
-							Ваші клієнти отримують доступ магазину/каталог за індивідуальним посиланням.
-							Розсилаючи посилання на Вашу Theke-вітрину через месенджери, Ви залучаєте клієнтів лише у Ваш
-							магазин/каталог.
+							Ваші клієнти отримують доступ магазину за індивідуальним посиланням.
+							Розсилаючи або рекламуючи посилання на Вашу Theke-вітрину через месенджери або Facebook чи Google , Ви залучаєте клієнтів лише у Ваш
+							магазин.
+						</p>
+						<p>
+							Є можливість підписки на Каталог що дозволяє презентувати ваш товар клієнтам без можливості його замовити.
 						</p>
 						<p>
 							Ваші клієнти отримують зручний і красивий інтерфейс, де вибравши товар, зможуть його замовити в 1 клік, а
 							Ви отримаєте лист на Email з повним описом товару та контактними даними клієнта.
 						</p>
-						<p>
+						<p id='itsWork'>
 							Наша технічна підтримка працює 24/7 і допоможе Вам у вирішенні будь-якого питання.
 						</p>
 					</div>
 				</div>
-				<div className="home-fifthBlock" id='itsWork'>
+				<div className="home-fifthBlock">
 					<h2 className="home-fifthBlock_title">
 						<FormattedMessage id='howItWorks'/>
 					</h2>
@@ -254,50 +266,48 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-				<div className="home-sixthBlock">
+				<div className="home-sixthBlock" id='price'>
 					<div className="home-secondBlock_triangleDown"></div>
 					<div className="home-secondBlock_triangleTop"></div>
 					<h2 className="home-sixthBlock_title">
 						<FormattedMessage id='becomeTheke'/>
 					</h2>
-					<h3 className='home-sixthBlock_title-subtitle'>
+					<h3 className='home-sixthBlock_title-subtitle' style={{color: 'red', fontSize: '26px'}}>
 						<FormattedMessage id='firstMonthIsFree'/>
 					</h3>
 					<div className="home-sixthBlock_wrapper">
 						<div className="home-sixthBlock_block">
 							<h3 className="home-sixthBlock_block-title">
 								<FormattedMessage id='costMenu'/>
-								<span className="home-sixthBlock_block-price">
+							</h3>
+							<span className="home-sixthBlock_block-price">
 								<FormattedMessage id='priceThekeMenu'/>
 							</span>
-							</h3>
 							<div className="home-sixthBlock_block-option">
 								<ul className='home-sixthBlock_block-option_ul'>
 									<li>
 										<span>-</span>
-										<span>Digital menu</span>
+										<span>Цифровий Каталог</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>QR code</span>
+										<span>Безліч Категорій</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>many categories</span>
-									</li>
-								</ul>
-								<ul className='home-sixthBlock_block-option_ul'>
-									<li>
-										<span>-</span>
-										<span>Public link</span>
+										<span>Безліч Товарів</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>Languages</span>
+										<span>Персональний лінк</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>Themes</span>
+										<span>QR Код</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span><del>Онлайн замовлення</del></span>
 									</li>
 								</ul>
 							</div>
@@ -311,37 +321,65 @@ const Home = () => {
 						<div className="home-sixthBlock_block">
 							<h3 className="home-sixthBlock_block-title">
 								<FormattedMessage id='costShop'/>
-								<span className="home-sixthBlock_block-price">
+							</h3>
+							<span className="home-sixthBlock_block-price">
 							<FormattedMessage id='priceThekeShop'/>
 						</span>
-							</h3>
 							<div className="home-sixthBlock_block-option">
 								<ul className='home-sixthBlock_block-option_ul'>
 									<li>
 										<span>-</span>
-										<span>Order Online</span>
+										<span>Цифровий Каталог</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>Public link</span>
+										<span>Безліч Категорій</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>Languages</span>
+										<span>Безліч Товарів</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>Персональний лінк</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>QR Код</span>
+									</li>
+									<li>
+										<span>-</span>
+										<span>Онлайн замовлення</span>
 									</li>
 								</ul>
+							</div>
+							<button
+								className="home-thirdBlock_left-button"
+								onClick={transferSingIn}
+							>
+								<FormattedMessage id='getStarted'/>
+							</button>
+						</div>
+						<div className="home-sixthBlock_block">
+							<h3 className="home-sixthBlock_block-title">
+								Додаткові
+							</h3>
+							<span className="home-sixthBlock_block-price">
+							--
+						</span>
+							<div className="home-sixthBlock_block-option">
 								<ul className='home-sixthBlock_block-option_ul'>
 									<li>
 										<span>-</span>
-										<span>Digital menu</span>
+										<span>Заповнення карток товарів з PDF, EXL, WORD, Screenshot</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>QR code</span>
+										<span>Налоштування реклами у Facebook та Google</span>
 									</li>
 									<li>
 										<span>-</span>
-										<span>many categories</span>
+										<span>Персональні побажання</span>
 									</li>
 								</ul>
 							</div>
@@ -398,7 +436,7 @@ const Home = () => {
 						</Carousel.Item>
 						<Carousel.Item>
 							<div className="home-carousel_content">
-								<h3>Сашко</h3>
+								<h3>Александер</h3>
 								<p>
 									Працюємо разом із самого старту платформи, запустив вже 2 магазини та 1 каталог доставки їжі. За
 									функціоналом майданчика Theke питань взагалі немає все просто, створив категорію, наповнив її товаром
