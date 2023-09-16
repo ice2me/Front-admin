@@ -15,160 +15,166 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap')
 
 *
-	padding: 0
-	margin: 0
-	border: 0
-	box-sizing: border-box
-	transition: .1s forward
+  padding: 0
+  margin: 0
+  border: 0
+  box-sizing: border-box
+  transition: .1s forward
 
 *:before *:after
-	-moz-box-sizing: border-box
-	-webkit-box-sizing: border-box
-	box-sizing: border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
 
 *:disabled
-	opacity: 0.5
-*ul
-	padding: 0
-	margin: 0
+  opacity: 0.5
+
+* ul
+  padding: 0
+  margin: 0
+
 a:focus, a:active
-	outline: none
+  outline: none
 
 nav, footer, header, aside
-	display: block
+  display: block
 
 html, body
-	height: 100%
-	width: 100%
-	line-height: 1
-	font-size: 14px
-	font-family: $font-fontDefault-family
-	margin: 0 auto
-	outline: none
-	scroll-behavior: smooth !important
-	overflow: hidden
-	background: rgba($gray-500, 0.1)
-	display: flex
-	align-items: center
-	justify-content: center
-	color: $basic-color-text
+  height: 100%
+  width: 100%
+  line-height: 1
+  font-size: 14px
+  font-family: $font-fontDefault-family
+  margin: 0 auto
+  outline: none
+  scroll-behavior: smooth !important
+  overflow: hidden
+  background: rgba($gray-500, 0.1)
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $basic-color-text
 
 input::-ms-clear
-	display: none
+  display: none
 
 input
-	&::-webkit-input-placeholder
-		color: grey
-		padding: 10px
-		text-overflow: ellipsis
+  &::-webkit-input-placeholder
+    color: grey
+    padding: 10px
+    text-overflow: ellipsis
 
-	&::-moz-placeholder
-		color: grey
-		padding: 10px
-		text-overflow: ellipsis
+  &::-moz-placeholder
+    color: grey
+    padding: 10px
+    text-overflow: ellipsis
 
-	&:-ms-input-placeholder
-		color: grey
-		padding: 10px
-		text-overflow: ellipsis
+  &:-ms-input-placeholder
+    color: grey
+    padding: 10px
+    text-overflow: ellipsis
 
-	&::-webkit-inner-spin-button
-		-webkit-appearance: none
+  &::-webkit-inner-spin-button
+    -webkit-appearance: none
 
-	&::-webkit-outer-spin-button
-		-webkit-appearance: none
+  &::-webkit-outer-spin-button
+    -webkit-appearance: none
 
-	&[type='number']
-		-moz-appearance: textfield
+  &[type='number']
+    -moz-appearance: textfield
 
 button:active, button:focus
-	outline: none !important
+  outline: none !important
 
 button::-moz-focus-inner
-	border: 0 !important
+  border: 0 !important
 
 button
-	cursor: pointer
-	span
-		cursor: pointer
+  cursor: pointer
+
+  span
+    cursor: pointer
 
 button::-moz-focus-inner
-	padding: 0
-	border: 0
+  padding: 0
+  border: 0
 
 a, a:visited
-	text-decoration: none
+  text-decoration: none
 
 a:hover
-	text-decoration: none
-	outline: none !important
+  text-decoration: none
+  outline: none !important
 
 video:active, video:focus
-	outline: none !important
+  outline: none !important
 
 ul li
-	list-style: none
+  list-style: none
 
 h1, h2, h3, h4, h5, h6
-	font-size: inherit
-	cursor: default
-	font-weight: bold
+  font-size: inherit
+  cursor: default
+  font-weight: bold
 
 p, span
-	cursor: default
+  cursor: default
 
 html:not(.touch-screen)::-webkit-scrollbar-track, html:not(.touch-screen) *::-webkit-scrollbar-track
-	background: $white
-	border-radius: 6px
-	width: 6px
+  background: $white
+  border-radius: 6px
+  width: 6px
 
 html:not(.touch-screen)::-webkit-scrollbar-thumb, html:not(.touch-screen) *::-webkit-scrollbar-thumb
-	background: $basic-color-text
-	border-radius: 6px
-	width: 6px
+  background: $basic-color-text
+  border-radius: 6px
+  width: 6px
 
 html:not(.touch-screen)::-webkit-scrollbar, html:not(.touch-screen) *::-webkit-scrollbar
-	width: 6px
-	border-radius: 6px
-	height: 6px
+  width: 6px
+  border-radius: 6px
+  height: 6px
 
 .loader-full
-	position: fixed
-	top: 0
-	right: 0
-	left: 0
-	bottom: 0
-	z-index: 9999
-	display: flex
-	align-items: center
-	justify-content: center
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 9999
+  display: flex
+  align-items: center
+  justify-content: center
 
 .loader-wrapperForProduct
-	width: 250px
-	min-width: 250px
-	height: 350px
-	border-radius: 6px
-	box-shadow: $box-shadow
-	margin: 8px
-	padding: 5px 0
-	display: flex
-	align-items: center
-	justify-content: center
-	background-color: $basic-color-opacity
+  width: 250px
+  min-width: 250px
+  height: 350px
+  border-radius: 6px
+  box-shadow: $box-shadow
+  margin: 8px
+  padding: 5px 0
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: $basic-color-opacity
+
 .small-loader
-	width: 10px
-	height: 10px
-	margin: 8px
-	padding: 5px 0
-	display: flex
-	align-items: center
-	justify-content: center
-	position: absolute
-	right: 30%
-	div
-		width: 40px
-		height: 40px
-		img
-			width: 40px
-			height: 40px
-			min-height: 40px
+  width: 10px
+  height: 10px
+  margin: 8px
+  padding: 5px 0
+  display: flex
+  align-items: center
+  justify-content: center
+  position: absolute
+  right: 30%
+
+  div
+    width: 40px
+    height: 40px
+
+    img
+      width: 40px
+      height: 40px
+      min-height: 40px

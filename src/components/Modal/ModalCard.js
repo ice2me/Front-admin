@@ -19,7 +19,7 @@ import {
 	FormattedMessage,
 	useIntl
 } from "react-intl";
-import Loader from "../Loader/Loader";
+import Loader from "../Loader/Loader"
 
 
 const initialState = {

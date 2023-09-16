@@ -71,7 +71,7 @@ const Header = () => {
 		dispatch(logout())
 		navigate(APP_ROUTE.DEFAULT)
 	}
-
+	console.log(user)
 	return (
 		<>
 			<div className="header">
@@ -179,6 +179,9 @@ const Header = () => {
 				</span>
 				}
 
+				<span>
+					<FormattedMessage id='EndTimeSubscriptionPeriod' /> {user?.end_date_paid_period}
+				</span>
 				<button
 					onClick={logoutHandler}
 					className="header-left_logout"
@@ -387,6 +390,9 @@ const Header = () => {
 								</ul>
 							</div>
 							<div className="header-mob-bottom">
+								<span>
+									<FormattedMessage id='EndTimeSubscriptionPeriod' /> {user?.end_date_paid_period}
+								</span>
 								<button
 									onClick={logoutHandler}
 									className="header-mob-bottom_logout"

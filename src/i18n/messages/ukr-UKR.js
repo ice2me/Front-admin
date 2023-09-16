@@ -48,6 +48,7 @@ export default {
 		qrCode: 'QR Код',
 		copyLink: 'Копіювати посилання',
 		linkCopied: 'Посилання було скопійовано в буфер обміну',
+		EndTimeSubscriptionPeriod: 'Передплата дійсна до',
 		// ******************************************************** form validation
 		nameIsRequiredField: "Ім'я є обов'язковим полем",
 		usernameLengthMax: "Ім'я користувача має містити не більше 65 символів",
