@@ -45,7 +45,7 @@ const HomeNavBar = ({transferSingIn}) => {
 					</li >
 					<li className='home-navbare_anhors-li'>
 						<a
-							href={`http://t.me/ice2me`}
+							href={`http://t.me/theke_info`}
 							target='_blank'
 							rel='noreferrer noopener'
 							className='home-navbare_anhors-link'
