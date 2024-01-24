@@ -5,10 +5,19 @@ $enable-rfs: false
 $enable-negative-margins: true
 $enable-shadows: true
 
+$basic-color-orange: rgba(255,108,98, 1)
+$basic-color-orange: rgba(245,156,124, 1)
+$basic-color-green: rgba(75,189,134, 1)
+$basic-color-light-grey: rgba(243,247,251, 1)
+$basic-color-light-grey-bg: rgba(238,242,245, 1)
+
 $basic-color: rgba(20,121,255, 1)
-$basic-color-text: rgba(39,71,114, 1)
+$basic-color-text: rgba(41,47,54, 1)
+$basic-color-text-grey: rgba(144,160,183, 1)
+$basic-color-text-green: rgba(75,189,134, 1)
+$basic-color-text-orange: rgba(245,156,124, 1)
 $basic-color-opacity: rgba(39,71,114, 0.3)
-$basic-bg: rgba(247,250,255, 1)
+$basic-bg: rgba(255,255,255, 1)
 $basic-bg-opacity: rgba(247,250,255, 0.8)
 $basic-yellow: rgba(247,206,0, 1)
 
@@ -58,22 +67,23 @@ $border-radius-lg: .75rem
 	align-items: center
 	justify-content: flex-start
 @mixin buttonCustom()
-	background-color: $basic-yellow
+	min-width: 220px
+	background-color: $basic-color-orange
 	color: $basic-color-text
 	box-shadow: $box-shadow
-	text-transform: uppercase
 	border: 1px solid transparent
-	padding: 16px
-	font-size: 16px
-	font-weight: bold
+	padding: 15px 35px
+	font-size: 14px
+	font-weight: 600
 	border-radius: $border-radius
 	&:hover
 		background-color: $basic-color-text
 		border: 1px solid transparent
 		color: $white
-@mixin triangle()
-	position: absolute
-	border: 0 solid transparent
-	@include calc(border-left-width, 680, 280)
-	@include calc(border-right-width, 680, 280)
+
+@mixin hoverButton
+	&:hover, &:active
+		background-color: $basic-color-orange
+		a
+			color: $white
 
