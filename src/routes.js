@@ -6,6 +6,7 @@ import Category from "./views/./Category/Category"
 import { APP_ROUTE } from "./utils/constants"
 import Login from "./views/Login/Login"
 import ContactSupport from "./views/ContactSupport/ContactSupport"
+import Registration from "./views/Login/Registration"
 import ProfileBuilder from "./views/Profile/ProfileBuilder"
 import Home from "./views/Home/Home"
 import QrCode from "./views/QrCode/QrCode"
@@ -99,6 +100,10 @@ export const RoutesLinkLogin = () => {
 			<Route
 				path={APP_ROUTE.LOGIN}
 				element={<Login />}
+			/>
+			<Route
+				path={APP_ROUTE.REGISTRATION}
+				element={<Registration />}
 			/>
 		</Routes>
 	)

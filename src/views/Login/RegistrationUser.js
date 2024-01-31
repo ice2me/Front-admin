@@ -100,11 +100,11 @@ export const RegistrationUser = () => {
 	}
 
 	const popover = (
-		<Popover id="popover-basic">
-			<Popover.Header as="h3">
+		<Popover id='popover-basic'>
+			<Popover.Header as='h3'>
 				<FormattedMessage id={shopVariantTrading} />
-			</Popover.Header>
-			<Popover.Body>
+			</Popover.Header >
+			<Popover.Body >
 				<FormattedMessage
 					id={shopVariantTrading === "Shop"
 						?
@@ -112,15 +112,15 @@ export const RegistrationUser = () => {
 						:
 						'ifYouChooseMenuYourCustomers'}
 				/>
-			</Popover.Body>
-		</Popover>
+			</Popover.Body >
+		</Popover >
 	)
 
 	return (
 		<div className='registrationShop'>
-			<h1>
-				<FormattedMessage id="signUp" />
-			</h1>
+			<h1 >
+				<FormattedMessage id='signUp' />
+			</h1 >
 			<Formik
 				validateOnChange
 				initialValues={{
@@ -146,20 +146,20 @@ export const RegistrationUser = () => {
 					dirty
 				}) => (
 					<Form
-						className="registrationShop-form"
+						className='registrationShop-form'
 						onSubmit={handleSubmit}
 					>
-						<Form.Group className="registrationShop-form_label">
+						<Form.Group className='registrationShop-form_label'>
 							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage id='email' /><b> * </b>
-								</span>
-							</div>
+								<span >
+									<FormattedMessage id='email' /><b > * </b >
+								</span >
+							</div >
 							<Form.Control
 								className={`pe-5  ${touched.email ? "is-touch " : ""} ${
 									errors.email && touched.email ? " is-invalid" : ""
 								} registrationShop-form_input`}
-								type="email"
+								type='email'
 								autoComplete='on'
 								placeholder={formatMessage({id: 'enterEmail'})}
 								value={values.email}
@@ -173,23 +173,23 @@ export const RegistrationUser = () => {
 								}}
 							/>
 							{errors.email && touched.email && (
-								<Form.Control.Feedback type="invalid">
+								<Form.Control.Feedback type='invalid'>
 									{errors.email}
-								</Form.Control.Feedback>
+								</Form.Control.Feedback >
 							)}
-						</Form.Group>
+						</Form.Group >
 
-						<Form.Group className="registrationShop-form_label">
+						<Form.Group className='registrationShop-form_label'>
 							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage id='mobilePhone' /><b> * </b>
-								</span>
-							</div>
+								<span >
+									<FormattedMessage id='mobilePhone' /><b > * </b >
+								</span >
+							</div >
 							<Form.Control
 								className={`pe-5  ${touched.phone ? "is-touch " : ""} ${
 									errors.phone && touched.phone ? " is-invalid" : ""
 								} registrationShop-form_input`}
-								type="phone"
+								type='phone'
 								autoComplete='on'
 								placeholder={formatMessage({id: 'enterMobilePhone'})}
 								value={values.phone}
@@ -203,42 +203,42 @@ export const RegistrationUser = () => {
 								}}
 							/>
 							{errors.phone && touched.phone && (
-								<Form.Control.Feedback type="invalid">
+								<Form.Control.Feedback type='invalid'>
 									{errors.phone}
-								</Form.Control.Feedback>
+								</Form.Control.Feedback >
 							)}
-						</Form.Group>
+						</Form.Group >
 
-						<Form.Group className="registrationShop-form_label">
+						<Form.Group className='registrationShop-form_label'>
 							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage id='password' /><b> * </b>
-								</span>
-							</div>
+								<span >
+									<FormattedMessage id='password' /><b > * </b >
+								</span >
+							</div >
 							<div className='registrationShop-form_eye position-relative'>
                   <span
-										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-primary"
-										onClick={reversePasswordType}
-									>
+	                  className='position-absolute end-0 pe-4 top-50 translate-middle-y text-primary'
+	                  onClick={reversePasswordType}
+                  >
                     {passwordType === "password" && (
-											<img
-												src={eyeBlocked}
-												alt="eye"
-											/>
-										)}
-										{passwordType === "text" && (
-											<img
-												src={eye}
-												alt="eye blocked"
-											/>
-										)}
-                  </span>
+	                    <img
+		                    src={eyeBlocked}
+		                    alt='eye'
+	                    />
+                    )}
+	                  {passwordType === "text" && (
+		                  <img
+			                  src={eye}
+			                  alt='eye blocked'
+		                  />
+	                  )}
+                  </span >
 								<Form.Control
 									className={`pe-5  ${touched.password ? "is-touch " : ""} ${
 										errors.password && touched.password ? " is-invalid" : ""
 									} registrationShop-form_input`}
 									type={passwordType}
-									name="password"
+									name='password'
 									autoComplete='on'
 									placeholder={formatMessage({id: 'enterPassword'})}
 									value={values.password}
@@ -251,43 +251,43 @@ export const RegistrationUser = () => {
 									}}
 								/>
 								{errors.password && touched.password && (
-									<Form.Control.Feedback type="invalid">
+									<Form.Control.Feedback type='invalid'>
 										{errors.password}
-									</Form.Control.Feedback>
+									</Form.Control.Feedback >
 								)}
-							</div>
-						</Form.Group>
+							</div >
+						</Form.Group >
 
-						<Form.Group className=" registrationShop-form_label">
+						<Form.Group className=' registrationShop-form_label'>
 							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage id='passwordConfirm' /><b> * </b>
-								</span>
-							</div>
+								<span >
+									<FormattedMessage id='passwordConfirm' /><b > * </b >
+								</span >
+							</div >
 							<div className='registrationShop-form_eye position-relative'>
                   <span
-										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-primary"
-										onClick={reverseConfirmPasswordType}
-									>
+	                  className='position-absolute end-0 pe-4 top-50 translate-middle-y text-primary'
+	                  onClick={reverseConfirmPasswordType}
+                  >
                     {confirmPasswordType === "password" && (
-											<img
-												src={eyeBlocked}
-												alt="eye"
-											/>
-										)}
-										{confirmPasswordType === "text" && (
-											<img
-												src={eye}
-												alt="eye blocked"
-											/>
-										)}
-                  </span>
+	                    <img
+		                    src={eyeBlocked}
+		                    alt='eye'
+	                    />
+                    )}
+	                  {confirmPasswordType === "text" && (
+		                  <img
+			                  src={eye}
+			                  alt='eye blocked'
+		                  />
+	                  )}
+                  </span >
 								<Form.Control
 									className={`pe-5  ${touched.password_confirm ? "is-touch " : ""} ${
 										errors.password_confirm && touched.password_confirm ? " is-invalid" : ""
 									} registrationShop-form_input`}
 									type={confirmPasswordType}
-									name="password_confirm"
+									name='password_confirm'
 									autoComplete='on'
 									placeholder={formatMessage({id: 'enterPasswordConfirm'})}
 									value={values.password_confirm}
@@ -300,22 +300,25 @@ export const RegistrationUser = () => {
 									}}
 								/>
 								{errors.password_confirm && touched.password_confirm && (
-									<Form.Control.Feedback type="invalid">
+									<Form.Control.Feedback type='invalid'>
 										{errors.password_confirm}
-									</Form.Control.Feedback>
+									</Form.Control.Feedback >
 								)}
-							</div>
-						</Form.Group>
+							</div >
+						</Form.Group >
 
-						<Form.Group className="registrationShop-form_label">
+						<Form.Group className='registrationShop-form_label'>
 							<OverlayTrigger
-								trigger="focus"
-								placement="bottom"
+								trigger='focus'
+								placement='bottom'
 								overlay={popover}
 								className='mb-10'
 							>
 								<Button
-									variant={(shopVariantTrading === "Shop") ? "primary" : "light"}
+									style={{
+										backgroundColor: `${shopVariantTrading === "Shop" ? "rgba(255,108,98, 1)" : "rgba(238,242,245, 1)"}`,
+										color: `${shopVariantTrading === "Shop" ? "#fff" : "rgba(41,47,54, 1)"}`, border: 'none'
+									}}
 									onClick={() => setShopVariantTrading("Shop")}
 									className='mb-1 mt-3'
 								>
@@ -323,39 +326,42 @@ export const RegistrationUser = () => {
 										id='iWantShop'
 										values={{total: formatMessage({id: 'Shop'})}}
 									/>
-								</Button>
-							</OverlayTrigger>
+								</Button >
+							</OverlayTrigger >
 							<OverlayTrigger
-								trigger="focus"
-								placement="bottom"
+								trigger='focus'
+								placement='bottom'
 								overlay={popover}
 							>
 								<Button
-									variant={(shopVariantTrading === "Menu") ? "primary" : "light"}
+									style={{
+										backgroundColor: `${shopVariantTrading === "Menu" ? "rgba(255,108,98, 1)" : "rgba(238,242,245, 1)"}`,
+										color: `${shopVariantTrading === "Menu" ? "#fff" : "rgba(41,47,54, 1)"}`, border: 'none'
+									}}
 									onClick={() => setShopVariantTrading("Menu")}
 								>
 									<FormattedMessage
 										id='iWantShop'
 										values={{total: formatMessage({id: 'Menu'})}}
 									/>
-								</Button>
-							</OverlayTrigger>
-						</Form.Group>
+								</Button >
+							</OverlayTrigger >
+						</Form.Group >
 
-						<Form.Group className="registrationShop-form_label">
+						<Form.Group className='registrationShop-form_label'>
 							<div className='registrationShop-form_title'>
-								<span>
+								<span >
 									<FormattedMessage
 										id='nameShop'
 										values={{total: formatMessage({id: `${shopVariantTrading}`})}}
-									/><b> * </b>
-								</span>
-							</div>
+									/><b > * </b >
+								</span >
+							</div >
 							<Form.Control
 								className={`pe-5  ${touched.shop_name ? "is-touch " : ""} ${
 									errors.shop_name && touched.shop_name ? " is-invalid" : ""
 								} registrationShop-form_input`}
-								type="text"
+								type='text'
 								autoComplete='on'
 								placeholder={formatMessage({id: 'enterNameShop'})}
 								value={values.shop_name}
@@ -369,25 +375,25 @@ export const RegistrationUser = () => {
 								}}
 							/>
 							{errors.shop_name && touched.shop_name && (
-								<Form.Control.Feedback type="invalid">
+								<Form.Control.Feedback type='invalid'>
 									{errors.shop_name}
-								</Form.Control.Feedback>
+								</Form.Control.Feedback >
 							)}
-						</Form.Group>
+						</Form.Group >
 
 						<button
-							className="registrationShop-form_button"
+							className='registrationShop-form_button'
 							type='submit'
 							disabled={(!isValid && dirty) || isRegisterUserLoading}
 						>
-							<span>
+							<span >
 								<FormattedMessage id='signUp' />
-							</span>
-						</button>
-					</Form>
+							</span >
+						</button >
+					</Form >
 				)}
-			</Formik>
-		</div>
+			</Formik >
+		</div >
 	)
 }
 

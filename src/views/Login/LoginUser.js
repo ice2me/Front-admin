@@ -13,23 +13,21 @@ import eyeBlocked from "../../assets/icons/eye-blocked.svg"
 import { getLoginWithEmailSchema } from "../../utils/validation/yupLoginEmail"
 import { Formik } from "formik"
 import {
-	FormattedMessage,
-	useIntl
+	FormattedMessage, useIntl
 } from "react-intl"
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../components/Loader/Loader"
+import LogoTheke from '../../assets/images/logo-theke.png'
 
 export const LoginUser = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [passwordType, setPasswordType] = useState("password")
 	const [login, {isLoading: isLoginLoading}] = useLoginMutation()
-	const { formatMessage } = useIntl()
+	const {formatMessage} = useIntl()
 	const navigate = useNavigate()
-	const handleSubmit = async (values,
-		{
-			setErrors,
-			resetForm
-		}) => {
+	const handleSubmit = async (values, {
+		setErrors, resetForm
+	}) => {
 		try {
 			const formData = {
 				email: values.email.trim().toLowerCase(),
@@ -50,7 +48,7 @@ export const LoginUser = () => {
 			console.log(e)
 		}
 	}
-	
+
 	const reversePasswordType = () => {
 		if (passwordType === "password") {
 			setPasswordType("text")
@@ -62,117 +60,123 @@ export const LoginUser = () => {
 	if (isLoginLoading) {
 		return <Loader />
 	}
-	
+
 	return (
-		<div className="login-body login-body_center">
-			<h1>
-				<FormattedMessage id="signIn" />
-			</h1>
-			<Formik
-				validateOnChange
-				initialValues={ {
-					email: email,
-					password: password,
-				} }
-				validationSchema={ getLoginWithEmailSchema(formatMessage) }
-				onSubmit={ handleSubmit }
-				enableReinitialize
-			>
-				{ ({
-					values,
-					errors,
-					touched,
-					handleChange,
-					handleBlur,
-					isValid,
-					handleSubmit,
-					dirty
-				}) => (
-					<Form
-						className="registrationShop-form"
-						onSubmit={ handleSubmit }
-					>
-						<Form.Group className="registrationShop-form_label">
-							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage id="email" />
-								</span>
-							</div>
+		<div className='login-body'>
+			<div className='login-body_top'>
+				<img
+					src={LogoTheke}
+					alt='logo'
+				/>
+			</div >
+			<div className='login-body_center'>
+				<h1 className='login-body_center-title'>
+					<FormattedMessage id='signIn' />
+				</h1 >
+				<Formik
+					validateOnChange
+					initialValues={{
+						email: email,
+						password: password,
+					}}
+					validationSchema={getLoginWithEmailSchema(formatMessage)}
+					onSubmit={handleSubmit}
+					enableReinitialize
+				>
+					{({
+						values,
+						errors,
+						touched,
+						handleChange,
+						handleBlur,
+						isValid,
+						handleSubmit,
+						dirty
+					}) => (
+						<Form
+							className='login-body_center-form'
+							onSubmit={handleSubmit}
+						>
+						<Form.Group className='login-body_center-form_label'>
+							<div className='login-body_center-form_title'>
+								<span >
+									<FormattedMessage id='email' />
+								</span >
+							</div >
 							<Form.Control
-								className={ `pe-5  ${ touched.email ? "is-touch " : "" } ${
-									errors.email && touched.email ? " is-invalid" : ""
-								} registrationShop-form_input` }
-								type="email"
-								placeholder={formatMessage ({id: 'enterEmail'})}
-								value={ email }
+								className={`pe-5  ${touched.email ? "is-touch " : ""} ${errors.email && touched.email ? " is-invalid" : ""} login-body_center-form_input`}
+								type='email'
+								placeholder={formatMessage({id: 'enterEmail'})}
+								value={email}
 								name='email'
-								onBlur={ handleBlur }
-								onChange={ (e) => setEmail(e.target.value) }
+								onBlur={handleBlur}
+								onChange={(e) => setEmail(e.target.value)}
 							/>
-							{ errors.email && touched.email && (
-								<Form.Control.Feedback type="invalid">
-									{ errors.email }
-								</Form.Control.Feedback>
-							) }
-						</Form.Group>
-						<Form.Group className=" registrationShop-form_label">
-							<div className='registrationShop-form_title'>
-								<span>
-									<FormattedMessage id="password" />
-								</span>
-							</div>
-							<div className='registrationShop-form_eye position-relative'>
-                  <span
-										className="position-absolute end-0 pe-4 top-50 translate-middle-y text-secondary"
-										onClick={ reversePasswordType }
-									>
-                    { passwordType === "password" && (
-											<img
-												src={ eye }
-												alt="eye"
-											/>
-										) }
-										{ passwordType === "text" && (
-											<img
-												src={ eyeBlocked }
-												alt="eye blocked"
-											/>
-										) }
-                  </span>
+							{errors.email && touched.email && (
+								<Form.Control.Feedback type='invalid'>
+									{errors.email}
+								</Form.Control.Feedback >
+							)}
+						</Form.Group >
+						<Form.Group className=' login-body_center-form_label'>
+							<div className='login-body_center-form_title'>
+								<span >
+									<FormattedMessage id='password' />
+								</span >
+							</div >
+							<div className='login-body_center-form_eye position-relative'>
+	              <span
+		              className='position-absolute end-0 pe-4 top-50 translate-middle-y text-secondary'
+		              onClick={reversePasswordType}
+	              >
+	                {passwordType === "password" && (
+		                <img
+			                src={eye}
+			                alt='eye'
+		                />
+	                )}
+		              {passwordType === "text" && (
+			              <img
+				              src={eyeBlocked}
+				              alt='eye blocked'
+			              />
+		              )}
+	              </span >
 								<Form.Control
-									className={ `pe-5  ${ touched.password ? "is-touch " : "" } ${
-										errors.password && touched.password ? " is-invalid" : ""
-									} registrationShop-form_input` }
-									type={ passwordType }
-									name="password"
-									placeholder={formatMessage ({id: 'enterPassword'})}
-									value={ values.password }
-									onBlur={ handleBlur }
-									onChange={ (e) => {
+									className={`pe-5  ${touched.password ? "is-touch " : ""} ${errors.password && touched.password ? " is-invalid" : ""} login-body_center-form_input`}
+									type={passwordType}
+									name='password'
+									placeholder={formatMessage({id: 'enterPassword'})}
+									value={values.password}
+									onBlur={handleBlur}
+									onChange={(e) => {
 										handleChange(e)
 										setPassword(e.target.value)
-									} }
+									}}
 								/>
-								{ errors.password && touched.password && (
-									<Form.Control.Feedback type="invalid">
-										{ errors.password }
-									</Form.Control.Feedback>
-								) }
-							</div>
-						</Form.Group>
+								{
+									errors.password && touched.password && (
+										<Form.Control.Feedback type='invalid'>
+										{errors.password}
+									</Form.Control.Feedback >
+									)
+								}
+							</div >
+						</Form.Group >
 						<button
-							className="login-button"
-							type="submit"
-							disabled={ (!isValid && dirty) || isLoginLoading }
+							className='login-body_center-form_button'
+							type='submit'
+							disabled={(!isValid && dirty) || isLoginLoading}
 						>
-							<span>
+							<span >
 								<FormattedMessage id='signIn' />
-							</span>
-						</button>
-					</Form>
-				) }
-			</Formik>
-		</div>
+							</span >
+						</button >
+					</Form >
+					)}
+				</Formik >
+			</div >
+		</div >
 	)
 }
 

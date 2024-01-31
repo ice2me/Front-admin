@@ -6,7 +6,7 @@ export default {
 		signIn: "Увійти",
 		signUp: "Зареєструватися",
 		save: 'Зберегти',
-		email: 'Електронна Пошта: ',
+		email: 'Email: ',
 		password: 'Пароль: ',
 		name: "Ім'я: ",
 		enterName: "Введіть ім'я",
