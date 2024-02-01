@@ -67,10 +67,6 @@ const Header = () => {
 		setTimeout(() => {setShowClipboard(false)}, 1500)
 	}
 
-	const logoutHandler = () => {
-		dispatch(logout())
-		navigate(APP_ROUTE.DEFAULT)
-	}
 	console.log(user)
 	return (
 		<>
@@ -182,17 +178,17 @@ const Header = () => {
 				<span>
 					<FormattedMessage id='EndTimeSubscriptionPeriod' /> {user?.end_date_paid_period}
 				</span>
-				<button
-					onClick={logoutHandler}
-					className="header-left_logout"
-				>
-					<img
-						src={exit}
-						alt="exit"
-						title="Log Out"
-					/>
-					{/*Log Out*/}
-				</button>
+				{/*<button*/}
+				{/*	onClick={logoutHandler}*/}
+				{/*	className="header-left_logout"*/}
+				{/*>*/}
+				{/*	<img*/}
+				{/*		src={exit}*/}
+				{/*		alt="exit"*/}
+				{/*		title="Log Out"*/}
+				{/*	/>*/}
+				{/*	/!*Log Out*!/*/}
+				{/*</button>*/}
 			</div>
 			{/*TODO************************************MOB******************************** */}
 			<Navbar
@@ -393,17 +389,7 @@ const Header = () => {
 								<span>
 									<FormattedMessage id='EndTimeSubscriptionPeriod' /> {user?.end_date_paid_period}
 								</span>
-								<button
-									onClick={logoutHandler}
-									className="header-mob-bottom_logout"
-								>
-									<img
-										src={exit}
-										alt="exit"
-										title="Log Out"
-									/>
-									Log Out
-								</button>
+
 							</div>
 						</Nav>
 					</Navbar.Collapse>

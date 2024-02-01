@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: column;
   overflow: hidden;
   border-radius: 6px;
   box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
@@ -40,12 +41,9 @@
 .contentBox-children {
   width: 100%;
   height: inherit;
-  padding: 20px 40px;
-}
-@media screen and (max-width: 992px) {
-  .contentBox-children {
-    padding: 0;
-  }
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .header {
@@ -1900,13 +1898,10 @@ input[type=file] {
 
 .category {
   width: 100%;
-  height: 90%;
+  height: 100%;
   position: relative;
-  box-shadow: 0 5px 1.875rem rgba(182, 195, 211, 0.6);
   color: rgb(41, 47, 54);
   background-color: #fff;
-  margin-top: 15px;
-  border-radius: 6px;
   padding: 10px;
   z-index: 5;
   display: flex;
@@ -1914,13 +1909,6 @@ input[type=file] {
   justify-content: flex-start;
   flex-direction: column;
   font-size: calc(12px + (18 - 12) * (100vw - 320px) / 1120);
-}
-@media screen and (max-width: 992px) {
-  .category {
-    width: 100%;
-    height: 97%;
-    margin-top: 0;
-  }
 }
 .category-title {
   text-align: center;
@@ -2592,49 +2580,181 @@ input[type=radio]:focus {
 }
 
 .navbarApp {
-  width: 250px;
+  width: 260px;
   height: 100%;
+  padding: 30px;
+}
+.navbarApp_wrapper {
+  height: 80%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
   flex-direction: column;
-  padding-top: 55px;
-  background-color: #fff;
+  background-color: rgb(41, 47, 54);
+  color: #fff;
   position: relative;
   white-space: nowrap;
+  margin-top: 120px;
+  padding: 20px;
+  border-radius: 0.75rem;
+  z-index: 7;
+  animation: ShowBlockSidebarBlock ease 0.7s forwards;
 }
 @media screen and (max-width: 992px) {
-  .navbarApp {
+  .navbarApp_wrapper {
     display: none;
   }
 }
 .navbarApp_item {
   width: 100%;
-  padding: 10px 10px 10px 20px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   border: 1px solid transparent;
+  margin: 20px 0;
 }
-.navbarApp_item img {
-  width: 28px;
-  height: 28px;
+.navbarApp_item svg {
   margin-right: 10px;
 }
 .navbarApp_eye {
   position: absolute;
-  left: 8px;
-  top: 8px;
+  left: 78%;
+  top: 50%;
   background-color: transparent;
+  transform: translate(78%, -50%);
+  z-index: 6;
+  animation: TransferOpenSidebarButton ease 0.7s forwards;
 }
-
-.activeButton {
-  border: 1px solid rgba(39, 71, 114, 0.3);
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+.navbarApp_eye:after {
+  content: "";
+  width: 20px;
+  height: 90px;
+  background-color: rgb(41, 47, 54);
+  position: absolute;
+  left: -3px;
+}
+.navbarApp_eye-arrow {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(40%, -45%);
 }
 
 .hideNavbar {
-  width: 80px;
+  width: 180px;
 }
 
+.hideNavbar-wrapper {
+  width: 90px;
+  align-items: center;
+  animation: HideBlockSidebarBlock ease 0.7s forwards;
+}
+.hideNavbar-wrapper .navbarApp_eye {
+  left: 53%;
+  animation: TransferSidebarButton ease 0.7s forwards;
+}
+.hideNavbar-wrapper .navbarApp_eye:after {
+  left: -4px;
+}
+
+.arrow-active {
+  animation: RotationArrowSidebarButton ease 0.7s forwards;
+}
+
+.arrow-noactive {
+  animation: RotationCloseArrowSidebarButton ease 0.7s forwards;
+}
+
+@keyframes TransferSidebarButton {
+  0% {
+    left: 78%;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    left: 52%;
+  }
+}
+@keyframes TransferOpenSidebarButton {
+  0% {
+    left: 52%;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    left: 78%;
+  }
+}
+@keyframes RotationArrowSidebarButton {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes RotationCloseArrowSidebarButton {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ShowTitleSidebar {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes HideBlockSidebarBlock {
+  0% {
+    width: 200px;
+  }
+  100% {
+    width: 90px;
+  }
+}
+@keyframes ShowBlockSidebarBlock {
+  0% {
+    width: 90px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@keyframes HideBlockSidebar {
+  0% {
+    width: 93px;
+  }
+  100% {
+    width: 209px;
+  }
+}
+@keyframes ShowBlockSidebar {
+  0% {
+    width: 209px;
+  }
+  100% {
+    width: 93px;
+  }
+}
 .qr-body {
   height: 90%;
   overflow: auto;

@@ -1,13 +1,14 @@
 import Header from "../Header/Header"
 import Navbar from "../Navbar/Navbar";
+import Sidebar from "../Navbar/Sidebar"
 
 export default function Layout({children}) {
 	return (
 		<div className="appWrapper">
 			<div className="contentBox">
-				<Navbar />
+				<Header />
 				<div className="contentBox-children">
-					<Header />
+					<Sidebar />
 					{children}
 				</div>
 			</div>

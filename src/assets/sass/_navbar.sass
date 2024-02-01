@@ -1,36 +1,138 @@
 @import '_variables'
 .navbarApp
-	width: 250px
+	width: 260px
 	height: 100%
-	display: flex
-	justify-content: flex-start
-	flex-direction: column
-	padding-top: 55px
-	background-color: $white
-	position: relative
-	white-space: nowrap
-	@media screen and (max-width: 992px)
-		display: none
+	padding: 30px
+	&_wrapper
+		height: 80%
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		flex-direction: column
+		background-color: $basic-color-text
+		color: $white
+		position: relative
+		white-space: nowrap
+		margin-top: 120px
+		padding: 20px
+		border-radius: $border-radius-lg
+		z-index: 7
+		animation: ShowBlockSidebarBlock ease 0.7s forwards
+		@media screen and (max-width: 992px)
+			display: none
 	&_item
 		width: 100%
-		padding: 10px 10px 10px 20px
+		display: flex
+		align-items: center
 		cursor: pointer
 		border: 1px solid transparent
-
-		img
-			width: 28px
-			height: 28px
+		margin: 20px 0
+		svg
 			margin-right: 10px
 	&_eye
 		position: absolute
-		left: 8px
-		top: 8px
+		left: 78%
+		top: 50%
 		background-color: transparent
+		transform: translate(78%, -50%)
+		z-index: 6
+		animation: TransferOpenSidebarButton ease 0.7s forwards
+		&:after
+			content: ''
+			width: 20px
+			height: 90px
+			background-color: $basic-color-text
+			position: absolute
+			left: -3px
+		&-arrow
+			position: absolute
+			top: 50%
+			left: 10%
+			transform: translate(40%, -45%)
+
 
 .activeButton
-	border: 1px solid $basic-color-opacity
-	border-top-left-radius: $border-radius
-	border-bottom-left-radius: $border-radius
+
 
 .hideNavbar
-	width: 80px
+	width: 180px
+.hideNavbar-wrapper
+	width: 90px
+	align-items: center
+	animation: HideBlockSidebarBlock ease 0.7s forwards
+	.navbarApp_eye
+		left: 53%
+		animation: TransferSidebarButton ease 0.7s forwards
+		&:after
+			left: -4px
+.arrow-active
+	animation: RotationArrowSidebarButton ease 0.7s forwards
+
+.arrow-noactive
+	animation: RotationCloseArrowSidebarButton ease 0.7s forwards
+
+@keyframes TransferSidebarButton
+	0%
+		left: 78%
+	10%
+		opacity: 0.5
+	50%
+		opacity: 0
+	90%
+		opacity: 0.5
+	100%
+		left: 52%
+@keyframes TransferOpenSidebarButton
+	0%
+		left: 52%
+	10%
+		opacity: 0.5
+	50%
+		opacity: 0
+	90%
+		opacity: 0.5
+	100%
+		left: 78%
+
+@keyframes RotationArrowSidebarButton
+	0%
+		transform: rotate(0)
+	100%
+		transform: rotate(180deg)
+
+@keyframes RotationCloseArrowSidebarButton
+	0%
+		transform: rotate(180deg)
+	100%
+		transform: rotate(360deg)
+
+@keyframes ShowTitleSidebar
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
+
+@keyframes HideBlockSidebarBlock
+	0%
+		width: 200px
+	100%
+		width: 90px
+
+@keyframes ShowBlockSidebarBlock
+	0%
+		width: 90px
+	100%
+		width: 200px
+
+@keyframes HideBlockSidebar
+	0%
+		width: 93px
+	100%
+		width: 209px
+
+@keyframes ShowBlockSidebar
+	0%
+		width: 209px
+	100%
+		width: 93px

@@ -1,13 +1,10 @@
 @import '_variables'
 .category
 	width: 100%
-	height: 90%
+	height: 100%
 	position: relative
-	box-shadow: $box-shadow
 	color: $basic-color-text
 	background-color: $white
-	margin-top: 15px
-	border-radius: $border-radius
 	padding: 10px
 	z-index: 5
 	display: flex
@@ -15,10 +12,6 @@
 	justify-content: flex-start
 	flex-direction: column
 	@include calc("font-size",18,12)
-	@media screen and (max-width: 992px)
-		width: 100%
-		height: 97%
-		margin-top: 0
 	&-title
 		text-align: center
 		font-size: 30px
