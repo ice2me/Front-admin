@@ -4,6 +4,7 @@ import { categoriesAPi } from "../services/categoriesApi";
 const initialState = {
 	categories: [],
 	items: [],
+	tagsList: [],
 	message: {
 		text: '',
 		link: ''
@@ -117,6 +118,12 @@ const categoriesSlice = createSlice({
 					const idToDelete = action.payload.data._id
 					const stateItemsArr = state.items.filter(item => item._id !== idToDelete)
 					state.items = stateItemsArr
+				}
+			)
+			.addMatcher(
+				categoriesAPi?.endpoints.searchTag.matchFulfilled, (state,
+					action) => {
+					state.tagsList = action.payload
 				}
 			)
 	}

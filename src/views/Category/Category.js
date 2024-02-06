@@ -43,7 +43,7 @@ const Category = ({
 	const {
 		categories,
 		message
-	} = useSelector(state => state.categories)
+	} = useSelector(state => state.categoriesStore)
 	const {user} = useSelector((state) => state.userStore)
 	const [getCategories, {isLoading: isGetCategoriesLoading}] = useGetCategoriesMutation()
 	const [getItemList, {isLoading: isGetItemListLoading}] = useGetItemListMutation()
@@ -127,43 +127,15 @@ const Category = ({
 	}
 
 	return (
-		<div className="category ">
+		<div className='category '>
 			{
 				user?.created_shop
 				&&
-				<div className="category-header">
-					<h1 className="category-title">
+				<div className='category-header'>
+					<h1 className='category-title'>
 						<FormattedMessage id='categoryList' />
-					</h1>
-					<Form className='category-header_wrapper'>
-						<img
-							src={searchIcon}
-							alt=""
-						/>
-						<Form.Group>
-							<Typeahead
-								id="basic-typeahead-single"
-								labelKey="searchProduct"
-								onChange={setSearchValueArr}
-								options={optionsSearch}
-								placeholder={formatMessage({id: 'nameProduct'})}
-								selected={searchValueArr}
-							/>
-						</Form.Group>
-						<Button
-							onClick={searchHandler}
-							disabled={searchValueArr.length < 1}
-							style={{opacity: `${searchValueArr.length >= 1 ? '1' : '0'}`}}
-						>
-							{isSearchTagLoading
-								?
-								'Loading'
-								:
-								<FormattedMessage id='search' />
-							}
-						</Button>
-					</Form>
-				</div>
+					</h1 >
+				</div >
 			}
 			{
 				(user?.created_shop)
@@ -176,23 +148,23 @@ const Category = ({
 							{
 								categoriesList?.length < 1
 								&&
-								<h1 className="productList-arrowDown">
+								<h1 className='productList-arrowDown'>
 									{
 										message?.text
 											?
 											(message?.text
 												&&
-												<div>
-												<p>{message?.text}</p>
+												<div >
+												<p >{message?.text}</p >
 												<a href={message?.link}>
 													<FormattedMessage id='payForSubscription' />
-												</a>
-											</div> )
+												</a >
+											</div >)
 
 											:
 											<FormattedMessage id='noCategory' />
 									}
-								</h1>
+								</h1 >
 							}
 							<div
 								className={`category-body_wrapper
@@ -237,25 +209,25 @@ const Category = ({
 															alt='no Image'
 														/>
 													}
-													<p>
-														<b>
+													<p >
+														<b >
 															{category?.category_name}
-														</b>
-													</p>
+														</b >
+													</p >
 
-												</div>
+												</div >
 												<DropdownEdit
 													categoryName={category?.category_name}
 													categoryImage={category?.category_image}
 													id={category?._id}
 												/>
-											</div>
+											</div >
 										)
 									)
 								}
 								<div className='category-body_wrapper-view'>
 									<button
-										className="category-body_wrapper-view_button"
+										className='category-body_wrapper-view_button'
 										onClick={() => toggleViewHandler('view')}
 									>
 										{
@@ -263,37 +235,37 @@ const Category = ({
 												?
 												<img
 													src={squareView}
-													alt="List View"
+													alt='List View'
 												/>
 												:
 												<img
 													src={listView}
-													alt="Square View"
+													alt='Square View'
 												/>
 										}
 
 
-									</button>
-								</div>
-							</div>
+									</button >
+								</div >
+							</div >
 						</>
 					:
 					<div className='h-100 w-100 d-flex align-items-center justify-content-center'>
 						<button
-							className="editProfile-body_content_button"
+							className='editProfile-body_content_button'
 							onClick={showRegistrationShopWindow}
 						>
-						<span>
+						<span >
 							<FormattedMessage id='createShopOrMenu' />
-						</span>
-						</button>
-					</div>
+						</span >
+						</button >
+					</div >
 			}
 
 			{
 				user?.created_shop && <CategoryInpName />
 			}
-		</div>
+		</div >
 	)
 }
 

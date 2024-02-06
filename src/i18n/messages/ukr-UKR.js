@@ -10,7 +10,7 @@ export default {
 		password: 'Пароль: ',
 		name: "Ім'я: ",
 		enterName: "Введіть ім'я",
-		enterEmail: 'example@gmail.com',
+		enterEmail: 'email.com',
 		mobilePhone: 'Мобільний Телефон: ',
 		enterMobilePhone: '380...',
 		enterPassword: 'Введіть Пароль',

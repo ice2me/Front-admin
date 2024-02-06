@@ -4,7 +4,7 @@
 	height: 100%
 	position: relative
 	color: $basic-color-text
-	background-color: $white
+	background-color: $basic-color-light-grey-bg
 	padding: 10px
 	z-index: 5
 	display: flex
@@ -480,28 +480,6 @@ input[type="radio"]:focus
 		img
 			width: 25px
 			height: 25px
-.dropdown-item
-	display: flex
-	align-items: center
-	justify-content: flex-start
-	border-radius: 6px
-	img
-		margin-left: 5px !important
-	span
-		font-size: 13px
-		font-weight: bold
-		margin-left: 8px
-		color: $white
-		cursor: pointer
-		min-height: 25px
-		display: flex
-		align-items: center
-.dropdown-menu
-	position: fixed !important
-	z-index: 999 !important
-	width: 100px !important
-	button
-		margin-top: 5px
 
 .category-body_wrapper-view
 	width: 25px
@@ -567,8 +545,7 @@ input[type="radio"]:focus
 			overflow: auto
 			text-overflow: ellipsis
 			background-color: transparent
-.rbt-menu
-	width: 220px !important
+
 
 @keyframes ShowNotification
 	0%
@@ -576,7 +553,3 @@ input[type="radio"]:focus
 	100%
 		opacity: 1
 		display: flex
-
-
-#basic-typeahead-single
-	background-color: #fff !important

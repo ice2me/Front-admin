@@ -18,7 +18,7 @@ import { categoriesAPi } from "./services/categoriesApi";
 export const store= configureStore({
 	reducer: {
 		userStore: persistReducer({ key: "auth", storage }, userSlice),
-		categories: categoriesSlice,
+		categoriesStore: categoriesSlice,
 		[authApi.reducerPath]: authApi.reducer,
 		[categoriesAPi.reducerPath]: categoriesAPi.reducer,
 	},

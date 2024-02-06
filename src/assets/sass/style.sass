@@ -1,5 +1,6 @@
 @import '_app'
-@import '_header'
+@import '_header-desktop'
+@import '_header-mob'
 @import '_home'
 @import '_profile'
 @import '_login'
@@ -22,8 +23,6 @@
   transition: .1s forward
 
 *:before *:after
-  -moz-box-sizing: border-box
-  -webkit-box-sizing: border-box
   box-sizing: border-box
 
 *:disabled
@@ -49,7 +48,7 @@ html, body
   outline: none
   scroll-behavior: smooth !important
   overflow: hidden
-  background: rgba($gray-500, 0.1)
+  background: $white
   display: flex
   align-items: center
   justify-content: center

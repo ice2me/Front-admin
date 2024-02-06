@@ -10,7 +10,7 @@ export default {
 		password: 'Password: ',
 		name: 'Name: ',
 		enterName: 'Enter Name',
-		enterEmail: 'example@gmail.com',
+		enterEmail: 'email.com',
 		mobilePhone: 'Mobile Phone: ',
 		enterMobilePhone: '380...',
 		enterPassword: 'Enter Password',

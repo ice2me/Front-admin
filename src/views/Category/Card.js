@@ -15,7 +15,7 @@ const Card = ({
 }) => {
 
 	const [availableProduct, setAvailableProduct] = useState(true)
-	const {items, categories} = useSelector(state => state.categories)
+	const {items, categories} = useSelector(state => state.categoriesStore)
 	const [patchAvailableItemProduct, {isLoading: isPatchAvailableItemProductLoading}] = usePatchAvailableItemProductMutation()
 
 	const availableCheckedProduct = async (id, availableItem) => {

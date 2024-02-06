@@ -17,6 +17,7 @@ export const EXTENSION = {
 }
 
 export const LINK_FOR_CLIENT = 'https://client.theke.com.ua/'
+export const LINK_FOR_INSTAGRAM = 'https://www.instagram.com/'
 
 export const AUTH_API = {
 	SIGNUP: "/auth/register",

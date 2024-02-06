@@ -3,6 +3,9 @@
 	width: 260px
 	height: 100%
 	padding: 30px
+	background-color: $basic-color-light-grey-bg
+	@media screen and (max-width: 992px)
+		display: none
 	&_wrapper
 		height: 80%
 		display: flex
@@ -29,6 +32,10 @@
 		margin: 20px 0
 		svg
 			margin-right: 10px
+		&-text
+			font-size: 11px
+			animation: ShowTitleSidebar ease 1.2s forwards
+			cursor: pointer
 	&_eye
 		position: absolute
 		left: 78%
@@ -51,8 +58,55 @@
 			transform: translate(40%, -45%)
 
 
-.activeButton
+.sidebar-mob
+	padding: 5px 10px
+	position: fixed
+	bottom: 0
+	left: 0
+	right: 0
+	background-color: $white
+	z-index: 10
+	@media screen and (min-width: 992px)
+		display: none
+	&_wrapper
+		&-block
+			display: flex
+			align-items: center
+			justify-content: center
+			&_item
+				margin: 0 20px
+				display: flex
+				align-items: center
+				justify-content: flex-start
+				flex-direction: column
+				position: relative
+				@media screen and (max-width: 320px)
+					margin: 0 10px
+				&-icon
+					margin-right: 10px
+					width: 30px
+					height: 30px
+					background-repeat: no-repeat
+					background-position: center
+				&-count
+					position: absolute
+					right: 10px
+					color: $basic-color-orange
+					font-weight: 500
+					font-size: 16px
 
+				&-title
+					font-size: 11px
+					color: $basic-color-text
+					animation: ShowTitleSidebar ease 1.2s forwards
+					@media screen and (max-width: 560px)
+						display: none
+
+
+.activeButton
+.title-min
+	animation: ShowTitleSidebar ease 1.2s forwards
+	display: none
 
 .hideNavbar
 	width: 180px

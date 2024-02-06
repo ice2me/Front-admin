@@ -39,7 +39,7 @@ const ProductList = ({
 	const [idItemProductCard, setIdItemProductCard] = useState(null)
 	const [availableChecked, setAvailableChecked] = useState(true)
 	const {formatMessage} = useIntl()
-	const {items} = useSelector(state => state.categories)
+	const {items} = useSelector(state => state.categoriesStore)
 
 	const [patchAvailableItemProduct, {isLoading: isPatchAvailableItemProductLoading}] = usePatchAvailableItemProductMutation()
 	const {state} = useLocation()
