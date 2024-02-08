@@ -98,11 +98,21 @@ const ProductList = ({
 					{
 						items.length < 1
 							?
-							<h1 className="productList-arrowDown">
+							<>
+								<ButtonAdd
+									handler={showModalCard}
+									title={formatMessage({id: 'createProduct'})}
+								/>
+							<h1 className='productList-arrowDown'>
 								{formatMessage({id: 'createProductCard'})}
-							</h1>
+							</h1 >
+							</>
 							:
 							<div className='productList-wrapper'>
+									<ButtonAdd
+										handler={showModalCard}
+										title={formatMessage({id: 'createProduct'})}
+									/>
 								<ul>
 									{
 										items.map(item => <CardItem
@@ -119,12 +129,6 @@ const ProductList = ({
 							</div>
 					}
 				</>
-			}
-			{searchMarker &&
-				<ButtonAdd
-					handler={showModalCard}
-					title={formatMessage({id: 'product'})}
-				/>
 			}
 
 		</div>

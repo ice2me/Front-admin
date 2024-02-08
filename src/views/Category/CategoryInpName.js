@@ -18,7 +18,7 @@ const CategoryInpName = () => {
 			/>
 			<ButtonAdd
 				handler={handleShow}
-				title={formatMessage({id: 'category'})}
+				title={formatMessage({id: 'create'})}
 			/>
 		</>
 	)

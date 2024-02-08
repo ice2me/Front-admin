@@ -73,7 +73,7 @@ export default {
 		pleaseEnterValidInstagramProfile: 'Введіть дійсний профіль Instagram',
 		// ******************************************************** Category
 		createShopOrMenu: 'Створіть свій Магазин або Каталог',
-		create: 'Додати',
+		create: 'Додати категорiю',
 		// ******************************************************** Modal
 		close: 'Закрити',
 		addCategory: 'Зберегти',
@@ -91,6 +91,7 @@ export default {
 		payForSubscription: 'Оплатити Підписку',
 		// ******************************************************** Card
 		product: 'Продукт',
+		createProduct: 'Створити Продукт',
 		createProductCard: 'Немає товарів',
 		editProductCard: 'Редагувати картку товару',
 		deleteProductCard: 'Видалити картку продукту',

@@ -23,109 +23,69 @@
 		@media screen and (max-width: 792px)
 			margin: 0
 	&-header
-		width: 80%
+		//max-width: 75%
+		max-width: 992px
+		width: 100%
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+		flex-direction: column
+		.header-desktop_infoShop-content_name
+			@include calc("font-size",32,26)
+		.header-desktop_infoShop
+			padding: 0
+		&_view
+			margin-top: 20px
+			width: 100%
+			display: flex
+			align-items: center
+			justify-content: space-between
+			&-button
+				&:first-child
+					margin-right: 20px
+		//&_wrapper
+		//	display: flex
+		//	align-items: center
+		//	justify-content: flex-end
+		//	position: relative
+		//	margin-right: 25px
+		//	@media screen and (max-width: 692px)
+		//		margin-top: 8px
+		//		margin-right: 0
+		//	button
+		//		background-color: $basic-color-text
+		//		border: $basic-color
+		//		&:disabled
+		//			background-color: $basic-color-opacity
+		//	img
+		//		width: 20px
+		//		height: 20px
+		//		position: absolute
+		//		left: 5px
+		//		z-index: 9999999999
+		//	div
+		//		input
+		//			max-width: 250px
+		//			padding-left: 28px
+		//	&_search
+		//		max-width: 250px
+		//		padding-left: 28px
+	&-addCategory
+		max-width: 268px
+		width: 100%
+		height: 40px
+		color: $basic-color-text
+		background-color: transparent
+		font-size: 14px
 		display: flex
 		align-items: center
 		justify-content: space-between
-		@media screen and (max-width: 792px)
-			width: 100%
-			flex-direction: column
-			align-items: center
-			justify-content: center
-		&_wrapper
-			display: flex
-			align-items: center
-			justify-content: flex-end
-			position: relative
-			margin-right: 25px
-			@media screen and (max-width: 692px)
-				margin-top: 8px
-				margin-right: 0
-			button
-				background-color: $basic-color-text
-				border: $basic-color
-				&:disabled
-					background-color: $basic-color-opacity
-			img
-				width: 20px
-				height: 20px
-				position: absolute
-				left: 5px
-				z-index: 9999999999
-			div
-				input
-					max-width: 250px
-					padding-left: 28px
-			&_search
-				max-width: 250px
-				padding-left: 28px
-	&-addCategory
-		padding: 8px 15px
-		width: 40px
-		height: 40px
-		border-radius: 6px
-		background-color: $basic-color-text
-		position: absolute
-		top: 10px
-		right: 3%
-		color: #fff
-		font-size: 18px
-		display: flex
-		align-items: center
-		justify-content: center
-		z-index: 998
-		img
-		&:hover
-			span
-				opacity: 1
-				display: flex
-		span
-			opacity: 0
-			display: none
-			z-index: 999
-			animation: ShowNotification ease-in 1s forwards
-			cursor: pointer
-			&:before
-				content: attr(data-button)
-				border: 2px solid $basic-color-opacity
-				width: 160px
-				height: 40px
-				display: flex
-				align-items: center
-				justify-content: center
-				border-radius: 6px
-				background-color: $basic-color-text
-				position: absolute
-				color: $white
-				top: 0
-				left: -175px
-			&:after
-				content: ''
-				width: 0
-				height: 0
-				border: 0 solid transparent
-				border-bottom-width: 20px
-				border-top-width: 20px
-				border-left: 15px solid $basic-color-text
-				position: absolute
-				top: 0px
-				left: -18px
-		@media screen and (max-width: 992px)
-			width: 30px
-			height: 30px
-			@include centering
-			img
-				width: 23px
-				height: 23px
-				margin-right: 0
-			span
-				display: none
-				&:before
-					content: ''
-					display: none
-				&:after
-					content: ''
-					display: none
+		&-title
+			font-weight: 600
+		&-img
+			padding: 10px
+			border-radius: 6px
+			background-color: $basic-color-text-grey
 
 	&-editCategory
 		&_inp
@@ -166,9 +126,9 @@
 		&_wrapper
 			overflow-x: auto
 			width: inherit
-			height: auto
+			height: 80%
 			padding: 20px 0
-			margin: 10px 0
+			margin: 20px 0
 			display: flex
 			align-items: flex-start
 			justify-content: flex-start
@@ -365,58 +325,58 @@
 				box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 
 .category-body_accordingHeader
-	width: 150px
-	height: 150px
-	background-color: transparent
+	width: 268px
+	height: 272px
 	border-radius: $border-radius
 	position: relative
 	margin: 10px
-	padding-right: 20px
 	text-align: start
 	cursor: pointer
-	background-size: cover
-	background-repeat: no-repeat
-	background-position: center
 	overflow: hidden
-	&:before
-		content: ''
+	background-color: $white
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	flex-direction: column
+	&:hover
+		box-shadow: $box-shadow-card
+	&-block
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-direction: column-reverse
+		&_counter
+			padding: 0
+			margin: 0
+			color: $basic-color-orange
+			font-weight: 600
+			font-size: 14px
+	&-img
 		width: 100%
-		height: 100%
-		background-color: $basic-bg-opacity
-		position: absolute
-		border-radius: $border-radius
-		opacity: 0
-	p
+		height: 70%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center
+	&-top
 		width: 100%
+		height: 28%
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		padding: 12px
+	&-title
+		width: 85%
 		height: 100%
 		cursor: pointer
 		white-space: normal
 		overflow: auto
 		text-overflow: ellipsis
 		font-weight: bold
-		text-align: center
-		@include calc("font-size",13,13)
-	&:hover, &:active, &:focus
-		&:before
-			opacity: 1
+		text-align: left
+		@include calc("font-size",16,13)
+		padding: 0
+		margin: 0
 	&-block
-		overflow: hidden
-		position: absolute
-		top: 0
-		bottom: 0
-		left: 0
-		right: 0
-		p
-			width: 100%
-			display: flex
-			align-items: flex-end
-			justify-content: center
-			b
-				width: 100%
-				background-color: $basic-bg-opacity
-				line-height: 15px
-				font-style: italic
-				padding: 5px
 	&-edit
 		&_button
 			background-color: transparent
@@ -458,19 +418,18 @@ input[type="radio"]:focus
 	box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1)
 	border-radius: 6px
 
+.dropdown-menu
+	background-color: $basic-color-light-grey-bg !important
+	border: none
+
 .dropdownEdit
 	display: flex
 	align-items: center
 	justify-content: center
-	position: absolute
-	top: 0
-	right: 0
-	border-radius: 4px
-	background-color: $basic-bg-opacity
+	background-color: transparent
 	button
 		background-color: transparent
 		border: 1px solid transparent
-		padding: 0 !important
 		&:hover, &:active, &:focus
 			background-color: transparent !important
 			border: 1px solid transparent !important
@@ -478,73 +437,50 @@ input[type="radio"]:focus
 			display: none
 			content: ""
 		img
-			width: 25px
-			height: 25px
+			width: 30px
+			height: 30px
+	.dropdown-item
+		padding: 0 5px
+		&:hover, &:active, &:focus
+			background-color: $white !important
+			color: $basic-color-text
+		span
+			margin-left: 5px
 
-.category-body_wrapper-view
-	width: 25px
-	height: 25px
-	position: absolute
-	bottom: 5px
-	right: 10px
-	background-color: $basic-bg
-	@media screen and (max-width: 992px)
-		bottom: 35px
-	&_button
-		width: 25px
-		height: 25px
-		background-color: transparent
-		margin: 0 2px
-		img
-			width: 100%
-			height: 100%
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active
+	background-color: transparent !important
+	border: 1px solid transparent !important
+.dropdown-toggle, .btn, .btn-primary
+	padding: 0
+
 .category-body_wrapper-listView
+	width: 100%
+	padding-right: 20px
 	flex-direction: column
 	flex-wrap: nowrap
-	@media screen and (max-width: 992px)
-		justify-content: flex-start
 .category-body_accordingHeader-listView
 	width: 100%
-	height: 50px
-	min-height: 50px
-	margin: 5px 0
-	padding: 0
-	&:before
-		z-index: -1
-	&:nth-child(even)
-		border: 2px solid transparent
-		background-color: $basic-bg
-	&:nth-child(odd)
-		border: 2px solid $basic-bg
-	&:hover, &:focus, &:active
-		border: 2px solid $basic-color
-.category-body_accordingHeader-listView_block
+	min-height: 95px
+	height: 95px
 	display: flex
-	align-items: center
-	justify-content: center
-	transform: none
-	border-radius: $border-radius
-	bottom: 5px
-	img
-		width: 35px
-		height: 35px
-		border-radius: 4px
-		margin-left: 3px
-	p
-		text-align: left
-		height: max-content
-		transform: none
-		margin: 0 0 0 8px
-		justify-content: flex-start
-		overflow: hidden
-		b
-			min-width: 200px
-			width: 100%
-			height: 100%
-			white-space: normal
-			overflow: auto
-			text-overflow: ellipsis
-			background-color: transparent
+	align-items: flex-start
+	justify-content: space-between
+	flex-direction: row-reverse
+	margin: 10px 0
+	.category-body_accordingHeader-top
+		height: 100%
+		display: flex
+		flex-direction: row
+	&_img
+		width: 210px
+		height: 100%
+		background-repeat: no-repeat
+		background-position: center
+		background-size: cover
+	.dropdown-menu
+		inset: -50px auto auto -45px !important
+
+
 
 
 @keyframes ShowNotification

@@ -54,7 +54,6 @@ const Header = () => {
 	}
 
 	const windowUserWidth = window?.innerWidth
-	console.log(windowUserWidth)
 
 	return (
 		<div className='header'>

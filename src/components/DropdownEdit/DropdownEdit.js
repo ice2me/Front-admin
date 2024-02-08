@@ -6,9 +6,9 @@ import editDot from "../../assets/icons/dotsEdit.svg"
 import React, { useState } from "react"
 import deleteCard from "../../assets/icons/delete.svg"
 import editPen from "../../assets/icons/pencilEdit.svg"
-import ModalDelete from "../Modal/ModalDelete";
+import ModalDelete from "../Modal/ModalDelete"
 import ModalSaveCategory from "../Modal/ModalSaveCategory"
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl"
 
 const DropdownEdit = ({
 	categoryName,

@@ -68,7 +68,7 @@ export const RegistrationShop = ({hideRegistrationShopWindow}) => {
 	}
 
 	return (
-		<div className='registrationShop regShop-container w-100'>
+		<div className='registrationShop regShop-container'>
 			<h1 className='category-title'>
 				<FormattedMessage id="createShopOrMenu" />
 			</h1>

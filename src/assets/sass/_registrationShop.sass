@@ -34,7 +34,7 @@
       font-weight: bold
 
       input
-        height: 48px !important
+        height: 40px !important
 
     &_title
       position: relative
@@ -45,7 +45,7 @@
           color: red
 
     &_checkbox
-      width: 50px
+      width: 40px
       margin: 0 8px
 
       input
@@ -65,7 +65,7 @@
 
     &_description
       border: 1px solid $basic-color-opacity
-      min-height: 120px !important
+      min-height: 80px !important
       z-index: 100
 
     &_fileAdd
@@ -117,6 +117,9 @@
 input[type="file"]
   display: none
 
+.form-check-input:checked
+  background-color: $basic-color-orange !important
+
 .customCheckbox
   @include starting
 
@@ -126,19 +129,22 @@ input[type="file"]
     margin-right: 20px
 
 .regShop-container
+  width: 100%
   overflow: hidden
   padding: 10px
   height: 95%
 
   &_form
-    height: 80%
+    max-width: 992px
+    width: 100%
+    height: max-content
     display: flex
     align-items: flex-start
     justify-content: flex-start
     overflow: auto
     padding: 20px
-
-    button
-      span
-        min-height: 50px
-        @include centering
+    margin: 0 auto
+    .registrationShop-form_button
+      min-height: 40px
+      height: 40px
+      @include centering

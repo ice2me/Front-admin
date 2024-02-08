@@ -1,7 +1,4 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
 import {
-	useDispatch,
 	useSelector
 } from "react-redux"
 import React, {
@@ -9,6 +6,7 @@ import React, {
 	useEffect,
 	useState
 } from "react"
+import ShopLogo from "../../assets/images/default-logo-shop.png"
 import DropdownEdit from "../../components/DropdownEdit/DropdownEdit"
 import {
 	FormattedMessage,
@@ -17,22 +15,19 @@ import {
 import {
 	useGetCategoriesMutation,
 	useGetItemListMutation,
-	useSearchProductMutation,
-	useSearchTagMutation
+	useSearchProductMutation
 } from "../../redux/services/categoriesApi"
 import Loader from "../../components/Loader/Loader"
+import { LINK_FOR_CLIENT } from "../../utils/constants"
 import CategoryInpName from "./CategoryInpName"
 import ProductList from "../ProductList/ProductList"
 import { RegistrationShop } from "../Login/RegistrationShop"
-import squareView from '../../assets/icons/checkbox-unchecked.svg'
-import listView from '../../assets/icons/list.svg'
-import noImage from '../../assets/icons/happySocks.svg'
-import {
-	Button,
-	Form
-} from "react-bootstrap";
-import { Typeahead } from "react-bootstrap-typeahead"
-import searchIcon from '../../assets/icons/search.svg'
+import noImage from '../../assets/images/default-no-photo.png'
+
+import ListView from "../../assets/icons/list.svg"
+import SquareView from '../../assets/icons/checkbox-unchecked.svg'
+import ListViewOrange from "../../assets/icons/list-orange.svg"
+import SquareViewOrange from '../../assets/icons/checkbox-unchecked-orange.svg'
 
 const Category = ({
 	toggleViewHandler,
@@ -132,9 +127,71 @@ const Category = ({
 				user?.created_shop
 				&&
 				<div className='category-header'>
-					<h1 className='category-title'>
-						<FormattedMessage id='categoryList' />
-					</h1 >
+					<a
+						className='header-desktop_infoShop'
+						href={`${LINK_FOR_CLIENT}${user?.shop_name}`}
+						target='_blank'
+						rel='noreferrer noopener'
+					>
+						<div
+							className='header-desktop_infoShop-logo'
+							style={
+								user?.image_logo
+									?
+									{backgroundImage: `url(${user?.image_logo})`}
+									:
+									{backgroundImage: `url(${ShopLogo})`}
+							}
+						/>
+						<div className='header-desktop_infoShop-content'>
+							<span className='header-desktop_infoShop-content_name'>
+								{user?.shop_name}
+							</span >
+						</div >
+					</a >
+					<div className='category-header_view'>
+						<div className='category-header_view-buttons'>
+								<button
+									className='category-header_view-button'
+									onClick={() => toggleViewHandler('view')}
+								>
+								{
+									!toggleView
+										?
+										<img
+											src={ListView}
+											alt='ListView'
+										/>
+										:
+										<img
+											src={ListViewOrange}
+											alt='ListViewOrange'
+										/>
+								}
+							</button >
+							<button
+								className='category-header_view-button'
+								onClick={() => toggleViewHandler('view')}
+							>
+								{
+									toggleView
+										?
+										<img
+											src={SquareView}
+											alt='SquareView'
+										/>
+										:
+										<img
+											src={SquareViewOrange}
+											alt='SquareViewOrange'
+										/>
+								}
+							</button >
+						</div >
+						{
+							user?.created_shop && <CategoryInpName />
+						}
+					</div >
 				</div >
 			}
 			{
@@ -152,101 +209,74 @@ const Category = ({
 									{
 										message?.text
 											?
-											(message?.text
+											(
+												message?.text
 												&&
 												<div >
-												<p >{message?.text}</p >
-												<a href={message?.link}>
-													<FormattedMessage id='payForSubscription' />
-												</a >
-											</div >)
-
+													<p >{message?.text}</p >
+													<a href={message?.link}>
+														<FormattedMessage id='payForSubscription' />
+													</a >
+												</div >
+											)
 											:
 											<FormattedMessage id='noCategory' />
 									}
 								</h1 >
 							}
 							<div
-								className={`category-body_wrapper
-							${toggleView ? 'category-body_wrapper-listView' : ''}
-							`}
+								className={`category-body_wrapper ${toggleView ? 'category-body_wrapper-listView' : ''} `}
 							>
 								{
 									categoriesList?.map((category, index) => (
 											<div
 												key={category?._id}
-												className={`category-body_accordingHeader
-											${toggleView ? 'category-body_accordingHeader-listView' : ''}
-											`}
-												style={{
-													backgroundImage: `${toggleView
-														?
-														''
-														:
-														`url(${
-															category?.category_image
-																?
-																category?.category_image
-																:
-																noImage
-														})`}`
-												}}
+												className={`category-body_accordingHeader ${toggleView ? 'category-body_accordingHeader-listView' : ''} `}
 											>
+												<div className='category-body_accordingHeader-top'>
+													<p
+														className='category-body_accordingHeader-title'
+														onClick={() => {
+															showList()
+															setCategoryIdState(category?._id)
+															setCategoryNameOpen(category?.category_name)
+														}}
+													>
+														{category?.category_name}
+													</p >
+													<div className='category-body_accordingHeader-block'>
+													<DropdownEdit
+														categoryName={category?.category_name}
+														categoryImage={category?.category_image}
+														id={category?._id}
+													/>
+														<p className='category-body_accordingHeader-block_counter'>
+															{category?.category_list?.length}
+														</p >
+													</div >
+												</div >
 												<div
-													className={`category-body_accordingHeader-block 
-												${toggleView ? 'category-body_accordingHeader-listView_block' : ''}`}
+													key={category?._id}
 													onClick={() => {
 														showList()
 														setCategoryIdState(category?._id)
 														setCategoryNameOpen(category?.category_name)
 													}}
+													className={`${toggleView ? 'category-body_accordingHeader-listView_img' : 'category-body_accordingHeader-img'} `}
+													style={{backgroundImage: `url(${
+																category?.category_image
+																	?
+																	category?.category_image
+																	:
+																	noImage
+															}`
+													}}
 												>
-													{
-														toggleView
-														&&
-														<img
-															src={category?.category_image ? category?.category_image : noImage}
-															alt='no Image'
-														/>
-													}
-													<p >
-														<b >
-															{category?.category_name}
-														</b >
-													</p >
-
-												</div >
-												<DropdownEdit
-													categoryName={category?.category_name}
-													categoryImage={category?.category_image}
-													id={category?._id}
-												/>
 											</div >
+										</div >
 										)
 									)
 								}
-								<div className='category-body_wrapper-view'>
-									<button
-										className='category-body_wrapper-view_button'
-										onClick={() => toggleViewHandler('view')}
-									>
-										{
-											toggleView
-												?
-												<img
-													src={squareView}
-													alt='List View'
-												/>
-												:
-												<img
-													src={listView}
-													alt='Square View'
-												/>
-										}
-
-
-									</button >
-								</div >
 							</div >
 						</>
 					:
@@ -260,10 +290,6 @@ const Category = ({
 						</span >
 						</button >
 					</div >
-			}
-
-			{
-				user?.created_shop && <CategoryInpName />
 			}
 		</div >
 	)

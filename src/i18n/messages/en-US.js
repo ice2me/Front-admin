@@ -73,7 +73,7 @@ export default {
 		pleaseEnterValidInstagramProfile: 'Please enter a valid Instagram profile',
 		// ******************************************************** Category
 		createShopOrMenu: 'Create your Shop or Catalog',
-		create: 'Create',
+		create: 'Create Category',
 		// ******************************************************** Modal
 		close: 'Close',
 		addCategory: 'Save',
@@ -91,6 +91,7 @@ export default {
 		payForSubscription: 'Pay for a Subscription',
 		// ******************************************************** Card
 		product: 'Product',
+		createProduct: 'Create Product',
 		createProductCard: 'No products',
 		editProductCard: 'Edit Product Card',
 		deleteProductCard: 'Delete Product Card',

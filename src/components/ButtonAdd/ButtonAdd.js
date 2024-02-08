@@ -11,12 +11,17 @@ const ButtonAdd = ({
 			className='category-addCategory'
 			onClick={handler}
 		>
+			<span
+				className='category-addCategory-title'
+			>
+				{title === 'create' ? 'Створити категорію' : 'Створити Продукт'}
+			</span >
 			<img
+				className='category-addCategory-img'
 				src={plus}
 				alt="add category"
 			/>
-			<span data-button={`${formatMessage({id: 'create'})} ${title}`} onClick={handler}></span>
-		</button>
+		</button >
 	)
 }
 

@@ -38,6 +38,7 @@ const HeaderMob = ({
 			button.classList.add('open')
 		}
 	}
+
 	return (
 		<>
 			<div className='header-mob header-mob_menu-small'>
