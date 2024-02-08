@@ -177,6 +177,7 @@
 
 .header-mob {
   width: 100%;
+  min-height: 60px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -2076,6 +2077,11 @@ input[type=file] {
   overflow: auto;
   padding: 35px 0 20px 0;
 }
+@media screen and (max-width: 992px) {
+  .productList-wrapper ul {
+    padding: 35px 0 60px 0;
+  }
+}
 @media screen and (max-width: 480px) {
   .productList-wrapper ul {
     min-height: 50vh;
@@ -2216,7 +2222,7 @@ input[type=file] {
 @media screen and (max-width: 992px) {
   .category-body_wrapper {
     justify-content: center;
-    height: 80%;
+    height: 75%;
   }
 }
 .category-body_item {
@@ -2580,6 +2586,7 @@ input[type=radio]:focus {
   padding-right: 20px;
   flex-direction: column;
   flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .category-body_accordingHeader-listView {
