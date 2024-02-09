@@ -23,7 +23,7 @@ const HomeSixthScreen = ({transferSingIn}) => {
 						<span className='home-sixthBlock_block-price'>
 							<FormattedMessage id='priceThekeMenu' />
 						</span >
-					</div>
+					</div >
 					<div className='home-sixthBlock_block-option'>
 						<ul className='home-sixthBlock_block-option_ul'>
 							<li >
@@ -74,7 +74,19 @@ const HomeSixthScreen = ({transferSingIn}) => {
 									alt='Ckeck icon'
 									style={{opacity: 0}}
 								/>
-								<span style={{opacity: 0.2}}>Онлайн замовлення</span >
+								<span
+									style={{opacity: 0.2}}
+								>Додавання Акцій</span >
+							</li >
+							<li >
+								<img
+									src={CheckIcon}
+									alt='Ckeck icon'
+									style={{opacity: 0}}
+								/>
+								<span
+									style={{opacity: 0.2}}
+								>Онлайн замовлення</span >
 							</li >
 						</ul >
 					</div >
@@ -93,7 +105,7 @@ const HomeSixthScreen = ({transferSingIn}) => {
 						<span className='home-sixthBlock_block-price'>
 							<FormattedMessage id='priceThekeShop' />
 						</span >
-					</div>
+					</div >
 					<div className='home-sixthBlock_block-option'>
 						<ul className='home-sixthBlock_block-option_ul'>
 							<li >
@@ -123,6 +135,13 @@ const HomeSixthScreen = ({transferSingIn}) => {
 									alt='Ckeck icon'
 								/>
 								<span >Персональний лінк</span >
+							</li >
+							<li >
+								<img
+									src={CheckIcon}
+									alt='Ckeck icon'
+								/>
+								<span >Додавання Акцій</span >
 							</li >
 							<li >
 								<img
@@ -159,10 +178,13 @@ const HomeSixthScreen = ({transferSingIn}) => {
 						<h3 className='home-sixthBlock_block-title'>
 							Додатково можна замовити
 						</h3 >
-						<span className='home-sixthBlock_block-price' style={{opacity: 0}}>
+						<span
+							className='home-sixthBlock_block-price'
+							style={{opacity: 0}}
+						>
 							--
 						</span >
-					</div>
+					</div >
 					<div className='home-sixthBlock_block-option'>
 						<ul className='home-sixthBlock_block-option_ul'>
 							<li >
