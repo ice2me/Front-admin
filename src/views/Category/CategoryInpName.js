@@ -5,8 +5,6 @@ import { useIntl } from "react-intl";
 
 const CategoryInpName = () => {
 	const [show, setShow] = useState(false)
-	const { formatMessage } = useIntl()
-
 	const handleClose = () => setShow(false)
 	const handleShow = () => setShow(true)
 
@@ -18,7 +16,7 @@ const CategoryInpName = () => {
 			/>
 			<ButtonAdd
 				handler={handleShow}
-				title={formatMessage({id: 'create'})}
+				title={'create'}
 			/>
 		</>
 	)

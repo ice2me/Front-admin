@@ -5,7 +5,8 @@ import {
 import {
 	useIntl
 } from "react-intl"
-import { useSearchTagMutation } from "../../redux/services/categoriesApi"
+import { useSearchProductMutation, useSearchTagMutation } from "../../redux/services/categoriesApi"
+import { toggleSearchWindow } from "../../redux/slices/categoriesSlice"
 import {
 	LINK_FOR_CLIENT
 } from "../../utils/constants"
@@ -14,6 +15,7 @@ import {
 	useNavigate
 } from "react-router-dom"
 import React, {
+	useEffect,
 	useRef,
 	useState
 } from "react"
@@ -22,15 +24,12 @@ import HeaderMob from "./HeaderMob"
 
 const Header = () => {
 	const {user} = useSelector(state => state.userStore)
-	const {tagsList} = useSelector(state => state.categoriesStore)
+	const {statusSearchWindow} = useSelector(state => state.categoriesStore)
 	const [showClipboard, setShowClipboard] = useState(false)
 	const [searchValueArr, setSearchValueArr] = useState([])
-	const [searchValue, setSearchValue] = useState('')
-	const [showSearchWindow, setShowSearchWindow] = useState(false)
-	const [searchTag, {isLoading: isSearchTagLoading}] = useSearchTagMutation()
+	const [searchProduct, {isLoading: isSearchProductLoading}] = useSearchProductMutation()
 	const targetButton = useRef(null)
-
-	const toggleSearchWindow = () => setShowSearchWindow(!showSearchWindow)
+	const dispatch = useDispatch()
 
 	const copyClipboard = async () => {
 		const text = `Відвідати магазин ${user?.shop_name} можна за цим посиланням -> ${LINK_FOR_CLIENT}${user?.shop_name}`
@@ -45,13 +44,20 @@ const Header = () => {
 		}, 1500)
 	}
 	const searchHandler = async () => {
-		await searchTag({
+		const searchDate = searchValueArr[0]
+		await searchProduct({
 			id: user._id,
-			product_name: searchValue
+			product_name: searchDate
 		})
-		setSearchValueArr([])
-		toggleSearchWindow()
+		dispatch(toggleSearchWindow(true))
 	}
+
+	useEffect(() => {
+		if (searchValueArr?.length > 0) searchHandler()
+	}, [searchValueArr])
+	useEffect(() => {
+		if (statusSearchWindow === false) setSearchValueArr([])
+	}, [statusSearchWindow])
 
 	const windowUserWidth = window?.innerWidth
 

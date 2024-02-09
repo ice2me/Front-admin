@@ -284,13 +284,23 @@
   display: none;
   padding: 20px;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
   z-index: 21;
   animation: CloseHeaderMenu ease 0.7s forwards;
 }
+.header-mob_menu-search_wrapper {
+  width: 100%;
+  position: relative;
+}
+.header-mob_menu-search_icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
 .header-mob_menu-logo {
   padding: 0 20px;
+  margin-bottom: 50px;
 }
 .header-mob_menu-logo_img {
   width: 80px;
@@ -298,8 +308,9 @@
 .header-mob_menu-wrapper {
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
   overflow-x: auto;
   padding: 20px 0;
 }

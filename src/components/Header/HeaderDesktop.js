@@ -119,27 +119,26 @@ const HeaderDesktop = ({
 				</li >
 			</ul >
 			<div className='header-desktop_search'>
-				{/*{*/}
-				{/*	tagsList?.length > 0*/}
-				{/*	&&*/}
-				{/*	<Form className='header-desktop_search-wrapper'>*/}
-				{/*		<Typeahead*/}
-				{/*			id='basic-typeahead-single'*/}
-				{/*			labelKey='searchProduct'*/}
-				{/*			onChange={setSearchValueArr}*/}
-				{/*			options={tagsList}*/}
-				{/*			placeholder={formatMessage({id: 'search'})}*/}
-				{/*			selected={searchValueArr}*/}
-				{/*			className='header-desktop_search-inp'*/}
-				{/*			disabled*/}
-				{/*		/>*/}
-				{/*		<img*/}
-				{/*			className='header-desktop_search-icon'*/}
-				{/*			src={searchIcon}*/}
-				{/*			alt='search icon'*/}
-				{/*		/>*/}
-				{/*</Form >*/}
-				{/*}*/}
+				{
+				tagsList?.length > 0
+				&&
+				<Form className='header-desktop_search-wrapper'>
+						<Typeahead
+							id='basic-typeahead-single'
+							labelKey='searchProduct'
+							onChange={setSearchValueArr}
+							options={tagsList}
+							placeholder={formatMessage({id: 'search'})}
+							selected={searchValueArr}
+							className='header-desktop_search-inp'
+						/>
+						<img
+							className='header-desktop_search-icon'
+							src={searchIcon}
+							alt='search icon'
+						/>
+				</Form >
+			}
 			</div >
 			<a
 				className='header-desktop_infoShop'

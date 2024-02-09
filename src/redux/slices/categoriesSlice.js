@@ -8,7 +8,9 @@ const initialState = {
 	message: {
 		text: '',
 		link: ''
-	}
+	},
+	searchItem: [],
+	statusSearchWindow: false
 };
 
 const categoriesSlice = createSlice({
@@ -21,7 +23,14 @@ const categoriesSlice = createSlice({
 		// },
 		resetItemsLIst: (state, action) => {
 			state.items = []
+		},
+		resetSearchItem: (state, action) => {
+			state.searchItem = []
+		},
+		toggleSearchWindow: (state, action) => {
+			state.statusSearchWindow = action?.payload
 		}
+
 	},
 	extraReducers: (builder) => {
 		builder
@@ -126,6 +135,12 @@ const categoriesSlice = createSlice({
 					state.tagsList = action.payload
 				}
 			)
+			.addMatcher(
+				categoriesAPi?.endpoints.searchProduct.matchFulfilled, (state,
+					action) => {
+					state.searchItem = action.payload
+				}
+			)
 	}
 });
 
@@ -137,6 +152,8 @@ export const {
 	resetCategories,
 	updateItemsList,
 	setCategoriesInList,
+	resetSearchItem,
+	toggleSearchWindow,
 	resetItemsLIst,
 	setItemInList
 } = actions;

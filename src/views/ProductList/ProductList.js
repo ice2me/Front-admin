@@ -12,7 +12,7 @@ import {
 	useSelector
 } from "react-redux"
 import CardItem from "../Category/CardItem"
-import { resetItemsLIst } from "../../redux/slices/categoriesSlice"
+import { resetItemsLIst, resetSearchItem, toggleSearchWindow } from "../../redux/slices/categoriesSlice"
 import {
 	FormattedMessage,
 	useIntl
@@ -39,7 +39,7 @@ const ProductList = ({
 	const [idItemProductCard, setIdItemProductCard] = useState(null)
 	const [availableChecked, setAvailableChecked] = useState(true)
 	const {formatMessage} = useIntl()
-	const {items} = useSelector(state => state.categoriesStore)
+	const {items, searchItem} = useSelector(state => state.categoriesStore)
 
 	const [patchAvailableItemProduct, {isLoading: isPatchAvailableItemProductLoading}] = usePatchAvailableItemProductMutation()
 	const {state} = useLocation()
@@ -66,8 +66,12 @@ const ProductList = ({
 	}
 
 	const backToHomePage = () => {
-		dispatch(resetItemsLIst())
-		hideList()
+		if (searchMarker === false) {
+			dispatch(toggleSearchWindow(false))
+			dispatch(resetSearchItem())
+		} else {
+			hideList()
+		}
 	}
 
 	return (
@@ -103,16 +107,20 @@ const ProductList = ({
 									handler={showModalCard}
 									title={formatMessage({id: 'createProduct'})}
 								/>
-							<h1 className='productList-arrowDown'>
-								{formatMessage({id: 'createProductCard'})}
-							</h1 >
+								<h1 className='productList-arrowDown'>
+									{formatMessage({id: 'createProductCard'})}
+								</h1 >
 							</>
 							:
 							<div className='productList-wrapper'>
+								{
+									searchMarker === true
+									&&
 									<ButtonAdd
 										handler={showModalCard}
 										title={formatMessage({id: 'createProduct'})}
 									/>
+								}
 								<ul>
 									{
 										items.map(item => <CardItem

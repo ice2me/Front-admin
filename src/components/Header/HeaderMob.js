@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Form, Overlay, Tooltip } from "react-bootstrap"
 import { Typeahead } from "react-bootstrap-typeahead"
 import { FormattedMessage, useIntl } from "react-intl"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { FacebookShareButton, TelegramShareButton, ViberShareButton } from "react-share"
 import ShopLogo from "../../assets/images/default-logo-shop.png"
 import LogoTheke from "../../assets/images/logo-theke.png"
+import { resetSearchItem, toggleSearchWindow } from "../../redux/slices/categoriesSlice"
 import { APP_ROUTE, LINK_FOR_CLIENT, LINK_FOR_INSTAGRAM } from "../../utils/constants"
 import searchIcon from "../../assets/icons/search.svg"
 
@@ -24,12 +25,14 @@ const HeaderMob = ({
 	showClipboard
 }) => {
 	const {user} = useSelector(state => state.userStore)
-	const {tagsList} = useSelector(state => state.categoriesStore)
+	const {tagsList, searchItem, statusSearchWindow} = useSelector(state => state.categoriesStore)
 	const {formatMessage} = useIntl()
+	const dispatch = useDispatch()
+	let showMenu = document.querySelector('.header-mob_menu')
+	let button = document.querySelector('.header-mob_button')
 
 	const toggleMenu = () => {
-		let showMenu = document.querySelector('.header-mob_menu')
-		let button = document.querySelector('.header-mob_button')
+
 		if (showMenu.classList.contains('active')) {
 			showMenu.classList.remove('active')
 			button.classList.remove('open')
@@ -39,10 +42,18 @@ const HeaderMob = ({
 		}
 	}
 
+	useEffect(() => {
+		if (searchItem?.length > 0) {
+			showMenu.classList.remove('active')
+			button.classList.remove('open')
+			dispatch(toggleSearchWindow(false))
+			dispatch(resetSearchItem())
+		}
+	}, [searchItem])
+
 	return (
 		<>
 			<div className='header-mob header-mob_menu-small'>
-
 				<a
 					className='header-mob_logo'
 					href='/'
@@ -74,33 +85,12 @@ const HeaderMob = ({
 					</div >
 				</a >
 
-				<div className='header-mob_button' onClick={toggleMenu}>
+				<div
+					className='header-mob_button'
+					onClick={toggleMenu}
+				>
 					<span className='header-mob_button-touch'></span >
 				</div >
-				{/*{*/}
-				{/*	tagsList?.length > 0*/}
-				{/*	&&*/}
-				{/*	<Form className='header-mob_search-wrapper'>*/}
-				{/*		<Typeahead*/}
-				{/*			id='basic-typeahead-single'*/}
-				{/*			labelKey='searchProduct'*/}
-				{/*			onChange={setSearchValueArr}*/}
-				{/*			options={tagsList}*/}
-				{/*			placeholder={formatMessage({id: 'search'})}*/}
-				{/*			selected={searchValueArr}*/}
-				{/*			className='header-mob_search-inp'*/}
-				{/*			disabled*/}
-				{/*		/>*/}
-				{/*		<img*/}
-				{/*			className='header-mob_search-icon'*/}
-				{/*			src={searchIcon}*/}
-				{/*			alt='search icon'*/}
-				{/*		/>*/}
-				{/*</Form >*/}
-				{/*}*/}
-
-
-
 			</div >
 			<div className='header-mob header-mob_menu'>
 				<a
@@ -113,6 +103,26 @@ const HeaderMob = ({
 						alt='Logo Theke'
 					/>
 				</a >
+				{
+					tagsList?.length > 0
+					&&
+					<Form className='header-mob_menu-search_wrapper'>
+							<Typeahead
+								id='basic-typeahead-single'
+								labelKey='searchProduct'
+								onChange={setSearchValueArr}
+								options={tagsList}
+								placeholder={formatMessage({id: 'search'})}
+								selected={searchValueArr}
+								className='header-mob_menu-search_inp'
+							/>
+							<img
+								className='header-mob_menu-search_icon'
+								src={searchIcon}
+								alt='search icon'
+							/>
+						</Form >
+				}
 				<div className='header-mob_menu-wrapper'>
 					<ul className='header-mob_menu-share'>
 						<li className='header-mob_menu-share_item'>
@@ -179,30 +189,6 @@ const HeaderMob = ({
 						</li >
 					</ul >
 				</div >
-				<div className='header-mob_menu-search'>
-					{/*{*/}
-					{/*	tagsList?.length > 0*/}
-					{/*	&&*/}
-					{/*	<Form className='header-mob_menu-search_wrapper'>*/}
-					{/*		<Typeahead*/}
-					{/*			id='basic-typeahead-single'*/}
-					{/*			labelKey='searchProduct'*/}
-					{/*			onChange={setSearchValueArr}*/}
-					{/*			options={tagsList}*/}
-					{/*			placeholder={formatMessage({id: 'search'})}*/}
-					{/*			selected={searchValueArr}*/}
-					{/*			className='header-mob_menu-search_inp'*/}
-					{/*			disabled*/}
-					{/*		/>*/}
-					{/*		<img*/}
-					{/*			className='header-mob_menu-search_icon'*/}
-					{/*			src={searchIcon}*/}
-					{/*			alt='search icon'*/}
-					{/*		/>*/}
-					{/*</Form >*/}
-					{/*}*/}
-				</div >
-
 			</div >
 		</>
 	)

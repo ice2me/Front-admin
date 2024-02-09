@@ -106,13 +106,23 @@
 		display: none
 		padding: 20px
 		align-items: flex-start
-		justify-content: space-between
+		justify-content: flex-start
 		flex-direction: column
 		z-index: 21
 		animation: CloseHeaderMenu ease 0.7s forwards
+		&-search
+			&_wrapper
+				width: 100%
+				position: relative
+			&_inp
+			&_icon
+				position: absolute
+				top: 5px
+				right: 10px
 
 		&-logo
 			padding: 0 20px
+			margin-bottom: 50px
 
 			&_img
 				width: 80px
@@ -120,8 +130,9 @@
 		&-wrapper
 			width: 100%
 			display: flex
-			align-items: flex-start
-			justify-content: center
+			align-items: center
+			justify-content: flex-start
+			flex-direction: column
 			overflow-x: auto
 			padding: 20px 0
 

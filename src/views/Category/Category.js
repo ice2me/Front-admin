@@ -1,4 +1,5 @@
 import {
+	useDispatch,
 	useSelector
 } from "react-redux"
 import React, {
@@ -40,16 +41,16 @@ const Category = ({
 		message
 	} = useSelector(state => state.categoriesStore)
 	const {user} = useSelector((state) => state.userStore)
+	const {searchItem, statusSearchWindow} = useSelector(state => state.categoriesStore)
 	const [getCategories, {isLoading: isGetCategoriesLoading}] = useGetCategoriesMutation()
 	const [getItemList, {isLoading: isGetItemListLoading}] = useGetItemListMutation()
 	const [shopProductsList, setShopProductsList] = useState(false)
 	const [categoryIdState, setCategoryIdState] = useState(null)
 	const [categoryNameOpen, setCategoryNameOpen] = useState(null)
 	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
-	const [searchValueArr, setSearchValueArr] = useState([])
-	const [searchValue, setSearchValue] = useState('')
-	const [showSearchWindow, setShowSearchWindow] = useState(false)
-	const [searchProduct, {isLoading: isSearchProductLoading}] = useSearchProductMutation()
+	const dispatch =useDispatch()
+
+
 
 	const categoriesList = categories || []
 	// const dispatch = useDispatch()
@@ -60,7 +61,6 @@ const Category = ({
 
 	const showRegistrationShopWindow = () => setOpenRegistrationShopWindow(true)
 	const hideRegistrationShopWindow = () => setOpenRegistrationShopWindow(false)
-	const toggleSearchWindow = () => setShowSearchWindow(!showSearchWindow)
 
 	const openProductList = useCallback(() => {
 		if (shopProductsList) {
@@ -71,7 +71,6 @@ const Category = ({
 					console.log(e)
 				}
 			}
-
 			getProductsList()
 		}
 	}, [categoryIdState, shopProductsList, getItemList])
@@ -88,19 +87,6 @@ const Category = ({
 		openProductList()
 	}, [shopProductsList, categoryIdState, getItemList])
 
-	useEffect(() => {
-		setSearchValue(searchValueArr.length >= 1 ? searchValueArr?.slice(0, 1).shift() : '')
-	}, [searchValueArr])
-
-	const searchHandler = async () => {
-		await searchProduct({
-			id: user._id,
-			product_name: searchValue
-		})
-		setSearchValueArr([])
-		toggleSearchWindow()
-	}
-
 	if (shopProductsList) {
 		return isGetItemListLoading ? <Loader /> : <ProductList
 			hideList={hideList}
@@ -108,9 +94,8 @@ const Category = ({
 			categoryNameOpen={categoryNameOpen}
 			searchMarker={true}
 		/>
-	} else if (showSearchWindow) {
-		return isSearchProductLoading ? <Loader /> : <ProductList
-			hideList={toggleSearchWindow}
+	} else if (statusSearchWindow) {
+		return <ProductList
 			categoryIdState={categoryIdState}
 			categoryNameOpen={formatMessage({id: 'search'})}
 			searchMarker={false}
