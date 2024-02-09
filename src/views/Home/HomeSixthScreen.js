@@ -157,7 +157,7 @@ const HomeSixthScreen = ({transferSingIn}) => {
 				<div className='home-sixthBlock_block'>
 					<div className='home-sixthBlock_title-header'>
 						<h3 className='home-sixthBlock_block-title'>
-							Додаткові
+							Додатково можна замовити
 						</h3 >
 						<span className='home-sixthBlock_block-price' style={{opacity: 0}}>
 							--
