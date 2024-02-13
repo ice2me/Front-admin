@@ -2233,7 +2233,17 @@ input[type=file] {
 @media screen and (max-width: 992px) {
   .category-body_wrapper {
     justify-content: center;
-    height: 75%;
+    height: 70%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .category-body_wrapper {
+    height: 65%;
+  }
+}
+@media screen and (max-height: 650px) {
+  .category-body_wrapper {
+    height: 65%;
   }
 }
 .category-body_item {

@@ -48,9 +48,9 @@ const Category = ({
 	const [categoryIdState, setCategoryIdState] = useState(null)
 	const [categoryNameOpen, setCategoryNameOpen] = useState(null)
 	const [openRegistrationShopWindow, setOpenRegistrationShopWindow] = useState(false)
-	const dispatch =useDispatch()
+	const dispatch = useDispatch()
 
-
+	const userHeight = window.innerHeight / 2
 
 	const categoriesList = categories || []
 	// const dispatch = useDispatch()
@@ -71,6 +71,7 @@ const Category = ({
 					console.log(e)
 				}
 			}
+
 			getProductsList()
 		}
 	}, [categoryIdState, shopProductsList, getItemList])
@@ -87,7 +88,7 @@ const Category = ({
 		openProductList()
 	}, [shopProductsList, categoryIdState, getItemList])
 
-	if (shopProductsList) {
+	if (shopProductsList && !statusSearchWindow) {
 		return isGetItemListLoading ? <Loader /> : <ProductList
 			hideList={hideList}
 			categoryIdState={categoryIdState}
@@ -211,6 +212,7 @@ const Category = ({
 							}
 							<div
 								className={`category-body_wrapper ${toggleView ? 'category-body_wrapper-listView' : ''} `}
+								style={{height: `${ userHeight < 300 ? userHeight + 40 : ''}px`}}
 							>
 								{
 									categoriesList?.map((category, index) => (
@@ -248,13 +250,14 @@ const Category = ({
 														setCategoryNameOpen(category?.category_name)
 													}}
 													className={`${toggleView ? 'category-body_accordingHeader-listView_img' : 'category-body_accordingHeader-img'} `}
-													style={{backgroundImage: `url(${
+													style={{
+														backgroundImage: `url(${
+															category?.category_image
+																?
 																category?.category_image
-																	?
-																	category?.category_image
-																	:
-																	noImage
-															}`
+																:
+																noImage
+														}`
 													}}
 												>
 											</div >
