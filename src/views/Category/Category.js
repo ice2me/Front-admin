@@ -20,6 +20,7 @@ import {
 } from "../../redux/services/categoriesApi"
 import Loader from "../../components/Loader/Loader"
 import { LINK_FOR_CLIENT } from "../../utils/constants"
+import { addSpace } from "../../utils/toggleSpaceString"
 import CategoryInpName from "./CategoryInpName"
 import ProductList from "../ProductList/ProductList"
 import { RegistrationShop } from "../Login/RegistrationShop"
@@ -131,7 +132,7 @@ const Category = ({
 						/>
 						<div className='header-desktop_infoShop-content'>
 							<span className='header-desktop_infoShop-content_name'>
-								{user?.shop_name}
+								{user?.shop_name ? addSpace(user?.shop_name) : 'Shop Name'}
 							</span >
 						</div >
 					</a >
