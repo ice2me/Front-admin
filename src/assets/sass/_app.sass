@@ -11,28 +11,28 @@
   border-radius: $border-radius
 .app
   width: 100%
-  height: 100%
+  height: inherit
   border-radius: $border-radius
   box-shadow: $box-shadow
-  //background-color: $basic-bg
+  background-color: $basic-color-light-grey-bg
 .appWrapper
   width: 100vw
-  height: 100vh
   @include centering
   border-radius: $border-radius
 .contentBox
   //max-width: 1200px
   //max-height: 744px
   width: 100%
-  height: 100%
+  height: 100vh
   @include starting
   flex-direction: column
-  overflow: hidden
+  overflow-x: auto
   border-radius: $border-radius
   box-shadow: $box-shadow
   &-children
     width: 100%
-    height: inherit
     display: flex
     align-items: flex-start
     justify-content: flex-start
+    @media screen and (max-width: 992px)
+      padding: 0 10px
