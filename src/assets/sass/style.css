@@ -2449,7 +2449,7 @@ input[type=file] {
   text-align: start;
   cursor: pointer;
   overflow: hidden;
-  background-color: #fff;
+  background-color: green;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
