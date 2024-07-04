@@ -2225,8 +2225,7 @@ input[type=file] {
 .category-body_wrapper {
   overflow-x: auto;
   width: inherit;
-  padding: 20px 0 65px 0;
-  margin: 20px 0;
+  padding: 20px 0 75px 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -2235,17 +2234,6 @@ input[type=file] {
 @media screen and (max-width: 992px) {
   .category-body_wrapper {
     justify-content: center;
-    height: 70%;
-  }
-}
-@media screen and (max-width: 320px) {
-  .category-body_wrapper {
-    height: 65%;
-  }
-}
-@media screen and (max-height: 650px) {
-  .category-body_wrapper {
-    height: 65%;
   }
 }
 .category-body_item {
@@ -2607,7 +2595,6 @@ input[type=radio]:focus {
 
 .category-body_wrapper-listView {
   width: 100%;
-  padding-right: 20px;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
